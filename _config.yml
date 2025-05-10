@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "BARRY Adama / Doctorant en Mathématiques Appliquées"
+title                    : "BARRY Adama"
 title_separator          : "-"
 name                     : &name "BARRY Adama"
 description              : &description "Doctorant en Mathématiques Appliquées | Passioné par les données et l'IA"
@@ -22,12 +22,12 @@ repository               : "barryadama/barryadama.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  avatar           : "BA.jpg"
+  name             : "Barry Adama"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "Doctorant en Mathématiques Appliquées à l'IMT Toulouse | IFPEN | LJK"
+  location         : "Toulouse"
+  employer         : "Université de Toulouse"
   uri              : # URL
   email            : "adambarry207@gmail.com" 
 
@@ -60,7 +60,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "https://www.linkedin.com/in/adama-barry-253314133/?locale=en_US"
+  linkedin         : "adama-barry-253314133"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

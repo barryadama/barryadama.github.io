@@ -9,7 +9,8 @@
 
 main:
   - title: "Publications"
-    url: /publications/
+    url: https://scholar.google.com/citations?hl=en&user=2qmh1ZQAAAAJ
+    #/publications/
 
   - title: "Talks"
     url: /talks/    
@@ -24,6 +25,7 @@ main:
     url: /year-archive/
     
   - title: "CV"
+    #url: /files/CV.pdf
     url: /cv/
     
   # - title: "CV"

@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 ## 👋 Présentation
-
+![Illustration](/images/DONECal.jpg){:.align-right width="300px}
 - Je m'appelle **Barry Adama**.
 - 🎓 Je suis en **dernière année de thèse** en Mathématiques Appliquées à l'Université de Toulouse.
 - 🤝 Ma thèse s'inscrit dans le cadre du **Consortium [CIROQUO](https://ciroquo.ec-lyon.fr/)**.
@@ -19,9 +19,9 @@ redirect_from:
 
 ### 1. 📉 Quantification d'incertitudes
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Uncertainty_visualization_diagram.png" alt="Quantification d'incertitudes" width="300" align="left" style="margin-right: 20px;" />
+<img src="images/UQ.jpg" alt="Quantification d'incertitudes" width="300" align="left" style="margin-right: 20px;" />
 
-La **quantification d'incertitudes** vise à évaluer et modéliser les incertitudes présentes dans les modèles numériques ou physiques. Cela permet d'améliorer la fiabilité des prévisions issues de simulations complexes.
+La **quantification d'incertitudes** est un domaine des statistiques qui vise à évaluer et modéliser les incertitudes présentes dans les modèles numériques ou physiques. Cela permet d'améliorer la fiabilité des prévisions issues de simulations complexes.
 
 <br clear="left"/>
 
@@ -29,9 +29,10 @@ La **quantification d'incertitudes** vise à évaluer et modéliser les incertit
 
 ### 2.  Émulation par processus gaussien
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/GaussianProcessRegression.svg/640px-GaussianProcessRegression.svg.png" alt="Émulation par processus gaussien" width="300" align="left" style="margin-right: 20px;" />
+<img src="images/GP.png" alt="Processus gaussien" width="300" align="left" style="margin-right: 20px;" />
 
-L'**émulation par processus gaussien** consiste à approximer un code de calcul coûteux par un modèle statistique rapide et précis, facilitant les études d'incertitudes, d’optimisation et de calibration.
+
+L'**émulation par processus gaussien** consiste à construire un modèle de remplacement, rapide et précis, d’un code de calcul coûteux afin de faciliter les analyses, les optimisations et la quantification d’incertitudes tout en réduisant significativement le temps de calcul.
 
 <br clear="left"/>
 
@@ -39,9 +40,11 @@ L'**émulation par processus gaussien** consiste à approximer un code de calcul
 
 ### 3.  Optimisation bayésienne et calibration
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bayesian_Optimization_acquisition_functions.svg/640px-Bayesian_Optimization_acquisition_functions.svg.png" alt="Optimisation bayésienne" width="300" align="left" style="margin-right: 20px;" />
+<img src="images/BO.jpg" alt="Optimisation bayesienne" width="300" align="left" style="margin-right: 20px;" />
 
-L'**optimisation bayésienne** permet d'optimiser des fonctions coûteuses à évaluer. Elle est utilisée en **calibration** pour identifier les paramètres les plus probables d'un modèle en utilisant un nombre réduit de simulations.
+
+L'**optimisation bayésienne** permet d’optimiser des fonctions coûteuses à évaluer.  
+L’idée de base consiste à construire un **modèle probabiliste** de la fonction coûteuse, puis à définir une **fonction d’acquisition** qui guide le choix des évaluations à effectuer afin d’atteindre l’objectif d’optimisation avec un minimum de coût.
 
 <br clear="left"/>
 
@@ -49,8 +52,8 @@ L'**optimisation bayésienne** permet d'optimiser des fonctions coûteuses à é
 
 ### 4. Planification d'expériences
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Design_of_experiments_graph.png" alt="Planification d'expériences" width="300" align="left" style="margin-right: 20px;" />
+<img src="images/DOE.png" alt="Plan d'expériences" width="300" align="left" style="margin-right: 20px;" />
 
-La **planification d’expériences** consiste à concevoir des expériences numériques ou physiques pour extraire un maximum d'information avec un minimum d'essais, essentielle pour la modélisation et la calibration efficaces.
+La **planification d’expériences** consiste à sélectionner, de manière *en une fois* ou *séquentielle*, des expériences numériques ou physiques afin de maximiser l'information obtenue pour un objectif donné.  
 
 <br clear="left"/>
