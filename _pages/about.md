@@ -8,13 +8,16 @@ redirect_from:
 ---
 
 ## 👋 Présentation
+
 <img src="images/DONECal.jpg" alt="Illustration" width="300" align="right"  
 style="margin-left: 20px;" />
+
 - Je m'appelle **Barry Adama**.
 - 🎓 Je suis en **dernière année de thèse** en Mathématiques Appliquées à l'Université de Toulouse.
 - 🤝 Ma thèse s'inscrit dans le cadre du **Consortium [CIROQUO](https://ciroquo.ec-lyon.fr/)**.
 -  Je travaille sur les **plans d'expériences physiques et numériques** pour la **calibration de codes de calcul** (simulateurs numériques) **coûteux en temps d’évaluation**.
 - 💻 Les codes développés pendant ma thèse sont disponibles **[sur GitHub](https://github.com/TheseAdama)**.
+
 <br clear="left"/>
 
 ## 🎯 Domaines d’intérêt
