@@ -1,15 +1,15 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
+    "name": "Barry Adama",
+    "email": "adambarry207@gmail.com",
     "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "website": "https://barryadama.github.io",
+    "summary": "Actuellement à la recherche d'un poste de Data Scientist ou un post-doc dans le domaine de la quantification d'incertitude",
     "location": {
-      "address": "",
-      "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
+      "address": "135 Avenue de Lespinet",
+      "postalCode": "31400",
+      "city": "Toulouse",
+      "countryCode": "FR",
       "region": ""
     },
     "profiles": [
@@ -18,80 +18,67 @@
         "username": "",
         "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
       },
-      {
-        "network": "ORCID",
-        "username": "",
-        "url": "http://orcid.org/yourorcidurl"
-      },
+
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "barryadama",
+        "url": "https://github.com/barryadama"
       }
     ]
   },
   "work": [],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
+      "institution": "Ecole Doctorale Mathématiques, Informatique, Télécommunications de Toulouse",
+      "area": "Doctorat en Mathéatiques Appliquées",
       "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
+      "startDate": "2022",
+      "endDate": "2025",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
+      "institution": "Ecole Nationale de la Statistique et de l'Analyse de l'Information de Rennes",
+      "area": "Ingénierie en Sciences des données et Statisques Avancées",
       "studyType": "",
-      "startDate": "",
-      "endDate": "2014",
+      "startDate": "2019",
+      "endDate": "2021",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
+      "institution": "Institut National de Statistique et d'Economie Appliquée de Rabat",
+      "area": "Ingénierie en Statistique et Economie Appliquée",
       "studyType": "",
-      "startDate": "",
-      "endDate": "2012",
+      "startDate": "2017",
+      "endDate": "2020",
+      "gpa": null,
+      "courses": []
+    },
+    {
+      "institution": "Faculté des Sciences d'Oujda",
+      "area": "DEUG en Mathématiques Appliquées",
+      "studyType": "",
+      "startDate": "2014",
+      "endDate": "2016",
       "gpa": null,
       "courses": []
     }
   ],
-  "skills": [],
+  "skills": [
+
+    
+  ],
   "languages": [],
   "interests": [],
   "references": [],
   "publications": [
     {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "http://academicpages.github.io/files/paper1.pdf",
+      "name": "Optimal Design of experiments for computer code calibration",
+      "publisher": "HAL",
+      "releaseDate": "2024-06-24",
+      "website": "http://barryadama.github.io/files/paper1.pdf",
       "summary": "This paper is about the number 1. The number 2 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "http://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
     }
   ],
   "presentations": [
