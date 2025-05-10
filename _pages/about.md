@@ -9,7 +9,7 @@ redirect_from:
 
 ## 👋 Présentation
 
-<img src="images/DONECal.jpg" alt="Illustration" width="300" align="right"  
+<img src="images/DONECalBlackbox.PNG" alt="Illustration" width="300" align="right"  
 style="margin-left: 20px;" />
 
 - Je m'appelle **Barry Adama**.
