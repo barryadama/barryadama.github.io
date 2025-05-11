@@ -17,10 +17,10 @@ main:
   - title: "Enseignements"
     url: /teaching/    
     
-  - title: "Portfolio"
+  - title: "Portefeuille"
     url: /portfolio/
         
-  - title: "Blog"
+  - title: "Articles de blog"
     url: /year-archive/
     
   - title: "CV"
