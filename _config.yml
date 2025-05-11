@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "BARRY Adama"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "BARRY Adama"
 description              : &description "Doctorant en Mathématiques Appliquées | Passioné par les données et l'IA"
@@ -25,7 +25,7 @@ author:
   avatar           : "BA.jpg"
   name             : "Barry Adama"
   pronouns         : # example: "she/her"  
-  bio              : "Doctorant en Mathématiques Appliquées à Université de Toulouse"
+  bio              : "Doctorant en Mathématiques Appliquées à l'Université de Toulouse"
   location         : "Toulouse"
   employer         : "IMT | INRIA | IFPEN"
   uri              : # URL
