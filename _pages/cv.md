@@ -14,8 +14,9 @@ redirect_from:
 
 📧 **Email** : [adambarry207@gmail.com](mailto:adambarry207@gmail.com)  
 🌐 **Site Web** : [barryadama.github.io](https://barryadama.github.io)  
+🌐 **Github Thèse** : [CodeThese](https://github.com/TheseAdama)
 📍 **Adresse** : 135 Avenue de Lespinet, 31400 Toulouse, France  
-🎯 **Objectif** : À la recherche d'un poste de Data Scientist ou d’un post-doc dans le domaine de la quantification d'incertitude  
+🎯 **Objectif** : À la recherche d'un poste de Data Scientist ou d’un post-doc dans le domaine de la quantification d'incertitude.
 
 ---
 
@@ -23,32 +24,29 @@ redirect_from:
 
 - [Google Scholar](https://scholar.google.com/citations?user=PS_CX0AAAAAJ)
 - [GitHub](https://github.com/barryadama)
+- [GitHub](https://github.com/TheseAdama)
 
 ---
 
 ## 🎓 Formation
 
-- **2022 – 2025** : Doctorat en Mathématiques Appliquées  
-  *Ecole Doctorale Mathématiques, Informatique, Télécommunications de Toulouse*
+- **2022 – 2025** : Doctorat en Mathématiques Appliquées - **Ecole Doctorale Mathématiques, Informatique, Télécommunications de Toulouse** (**EDMITT**)
 
-- **2019 – 2021** : Ingénierie en Sciences des données et Statistiques Avancées  
-  *ENSAI Rennes*
+- **2019 – 2021** : Ingénierie en Sciences des données et Statistiques Avancées - *ENSAI Rennes*
 
-- **2017 – 2020** : Ingénierie en Statistique et Économie Appliquée  
-  *INSEA Rabat*
+- **2017 – 2020** : Ingénierie en Statistique et Économie Appliquée - *INSEA Rabat*
 
-- **2014 – 2016** : DEUG en Mathématiques Appliquées  
-  *Faculté des Sciences d’Oujda*
+- **2014 – 2016** : DEUG en Mathématiques Appliquées - *Faculté des Sciences d’Oujda*
 
 ---
 
-## 📚 Publication
+## 📚 Pré-Publication
 
 ### [Optimal Design of Experiments for Computer Code Calibration](https://theses.hal.science/UNIV-UT3/hal-04615127v2)
 📅 **Date** : 24 juin 2024  
 📍 **Publié sur** : HAL  
-**Résumé** :  
-Nous abordons le problème de la calibration bayésienne d’un code de calcul coûteux sans biais de modèle. Dans un processus où l’acquisition des mesures et le coût de simulation sont élevés, nous proposons une approche hybride combinant la planification optimale des expériences physiques et numériques, à l’aide d’un émulateur basé sur un processus gaussien. Trois nouveaux critères pour le choix des expériences physiques et deux pour les expériences numériques sont introduits, inspirés du paradigme SUR (Sequential Uncertainty Reduction). Des cas tests et une application réaliste sont présentés.
+**Abstract** :  
+We address the problem of Bayesian calibration of an expensive computer code assumed without model discrepancy. In a calibration process with costly measurement acquisition and high computing time of the computer code, the estimation accuracy and cost mitigation must guide the selection of the design of physical experiments and of numerical experiments. To this end, we propose a hybrid approach to select both designs of physical and numerical experiments with the aim to approximate the posterior density of calibration parameters. We first build an initial Gaussian process emulator which we use to calculate an optimal physical experimental design criterion. Then, after selecting the physical experimental design, we combine physical observations with available computer code evaluations to sequentially add new points to the design of numerical experiments in order to improve the Gaussian process emulator for the calibration purpose. We introduce three new criteria for selecting the design of physical experiments based on posterior density or computer code variation and two new criteria for selecting the design of numerical experiments inspired by the Sequential Uncertainty Reduction (SUR) paradigm. A performance analysis and comparison with state-of-the-art methods is proposed for two test cases and a more realistic one involving the calibration of a harmonic oscillator.
 
 ---
 
