@@ -25,10 +25,9 @@ author:
   avatar           : "BA.jpg"
   name             : "Barry Adama"
   pronouns         : # example: "she/her"  
-  bio              : "Doctorant en Mathématiques Appliquées à l'Institut de Mahématiques de Toulouse & l'IFP
-                    Energies Nouvelles & l'INRIA Grenoble"
+  bio              : "Doctorant en Mathématiques Appliquées à Université de Toulouse"
   location         : "Toulouse"
-  employer         : "Université de Toulouse"
+  employer         : "IMT | INRIA | IFPEN"
   uri              : # URL
   email            : "adambarry207@gmail.com" 
 
