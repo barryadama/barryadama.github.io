@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Home"
+title                    : "Acceuil"
 title_separator          : "-"
 name                     : &name "BARRY Adama"
 description              : &description "Doctorant en Mathématiques Appliquées | Passioné par les données et l'IA"
