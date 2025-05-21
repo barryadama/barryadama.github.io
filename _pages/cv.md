@@ -26,7 +26,7 @@ Open to full-time opportunities in the field of data science starting from July 
 
 ---
 
-# 🎓 Education
+## 🎓 Education
 
 - **2022 – 2025**: PhD in Applied Mathematics – **Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse** (**EDMITT**)
 
@@ -37,7 +37,7 @@ Open to full-time opportunities in the field of data science starting from July 
 - **2014 – 2016**: DEUG (2-year university diploma) in Applied Mathematics – *Faculty of Sciences, Oujda*
 
 ---
-# 💼 Experience
+## 💼 Experience
 
 - **2022 – 2025**: Junior Research Engineer – *IFP Energies Nouvelles (IFPEN), Rueil-Malmaison*  
   Bayesian calibration of a geological simulator for CO₂ storage.
@@ -55,7 +55,7 @@ Open to full-time opportunities in the field of data science starting from July 
   *Descriptive analysis and forecasting, SPSS programming.*
 ---
 
-# 📚 Pré-Publication
+## 📚 Pré-Publication
 
 ### [Optimal Design of Experiments for Computer Code Calibration](https://theses.hal.science/UNIV-UT3/hal-04615127v2)
 📅 **Date** : 24 juin 2024  
@@ -66,7 +66,7 @@ We address the problem of Bayesian calibration of an expensive computer code ass
 
 ---
 
-# 🎤 Talks
+## 🎤 Talks
 
 - **Plans d’expériences pour la calibration de codes de calculs coûteux**  
   👥 *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
@@ -106,7 +106,7 @@ We address the problem of Bayesian calibration of an expensive computer code ass
 
 ---
 
-# 🖼️ Poster Presentations
+## 🖼️ Poster Presentations
 
 - **Calibration de code de calculs coûteux**  
   👥 *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
@@ -117,7 +117,7 @@ We address the problem of Bayesian calibration of an expensive computer code ass
   📍 *Journées du GDR-Mascotnum, Giens* — 3–5 April 2024
 
 
-# 👨‍🏫 Teaching
+## 👨‍🏫 Teaching
 
 - **Teaching experience 1**  
   *University 1, Department* — 1 janvier 2014  
@@ -126,10 +126,13 @@ We address the problem of Bayesian calibration of an expensive computer code ass
 - **Teaching experience 2**  
   *University 1, Department* — 1 janvier 2015  
   Rôle : Atelier
-
+  
+- **Teaching experience 2**  
+  *University 1, Department* — 1 janvier 2015  
+  Rôle : Atelier
 ---
 
-# Academic Projects
+## Academic Projects
 
 - **Final Year Project** — *ENSAI* (Oct 2020 – Mar 2021)  
   **Video Transition Classification**  

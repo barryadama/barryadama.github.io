@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "WELCOME TO MY PAGE!"
+title: "WELCOME !!!"
 author_profile: true
 redirect_from: 
   - /about/
@@ -14,7 +14,7 @@ redirect_from:
 - My name is **Barry Adama**.  
 - 🎓 I am in the **final year of my PhD** in Applied Mathematics at the University of Toulouse.  
 - 🤝 My PhD is part of the **[CIROQUO](https://ciroquo.ec-lyon.fr/)** consortium.  
-- I work on **Design of experiments for the calibration of computer code (numerical simulators) that are **expensive to evaluate**.  
+- I work on **Design of experiments for the calibration of computer code (numerical simulators) that are expensive to evaluate**.  
 - 💻 The code developed during my PhD is available **[on GitHub](https://github.com/TheseAdama)**.  
 
 <br clear="both" />
