@@ -119,17 +119,20 @@ We address the problem of Bayesian calibration of an expensive computer code ass
 
 ## 👨‍🏫 Teaching
 
-- **Teaching experience 1**  
-  *University 1, Department* — 1 janvier 2014  
-  Rôle : Cours de licence
+- **Basic Mathematics 2**  
+  *University of Toulouse III – Licence 1* 
+   Topics covered: Sets, Functions, and Relations 
+   Academic Year: 2022-2023
 
-- **Teaching experience 2**  
-  *University 1, Department* — 1 janvier 2015  
-  Rôle : Atelier
-  
-- **Teaching experience 2**  
-  *University 1, Department* — 1 janvier 2015  
-  Rôle : Atelier
+- **Practical Work : Probability**  
+   *University of Toulouse III – Licence 1* 
+   Topics covered: Law of Large Numbers, Simulation Methods, and Central Limit Theorem
+   Academic Year: 2022-2023
+
+- **Practical Work: Design of Experiments and Uncertainty Analysis**  
+  *University of Toulouse III – Master 2* 
+   Topics covered: Matérn Covariance Functions and Gaussian Process Simulation, Methods for Sensitivity Indices Estimation.
+   Academic Year: 2022-2023
 ---
 
 ## Academic Projects
