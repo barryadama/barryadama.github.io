@@ -129,12 +129,30 @@ We address the problem of Bayesian calibration of an expensive computer code ass
 
 ---
 
-# 🎨 Portfolio
+# Academic Projects
 
-- **Portfolio item 1**  
-  📁 Catégorie : portfolio  
-  📝 Description : Short description of portfolio item number 1  
-  ![Portfolio](images/500x300.png)
+- **Final Year Project** — *ENSAI* (Oct 2020 – Mar 2021)  
+  **Video Transition Classification**  
+  Python, OpenCV, supervised and unsupervised classification, feature extraction, multivariate time series.
 
+- **Methodological Project** — *ENSAI* (Oct 2020 – Jan 2021)  
+  **Image Processing for Plant Disease Analysis**  
+  Python, ImageJ, image registration, literature review, method comparison.
+
+- **Entrepreneurship Project** — *ENSAI* (Mar – May 2020)  
+  **UTOPIK Fitness Coaching App**  
+  Business plan, financial planning, market analysis.
+
+- **Statistical Project** — *ENSAI* (Jan – May 2020)  
+  **Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)**  
+  Statistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis.
+
+- **Computer Science Project** — *ENSAI* (Sep – Nov 2019)  
+  **Race Management App: CHRONORUN**  
+  API connection, data collection with SQL, Python programming.
+
+- **Survey Project** — *INSEA* (Apr – May 2019)  
+  **Student Consumption Habits Survey in Medinat Al Irfane**  
+  Questionnaire design, field survey, data processing and descriptive analysis.
 
 
