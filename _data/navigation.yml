@@ -11,16 +11,16 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Présentations"
+  - title: "Talks"
     url: /talks/    
 
-  - title: "Enseignements"
+  - title: "Teaching"
     url: /teaching/    
     
-  - title: "Portefeuille"
+  - title: "Portfolio"
     url: /portfolio/
         
-  - title: "Articles de blog"
+  - title: "Blog"
     url: /year-archive/
     
   - title: "CV"

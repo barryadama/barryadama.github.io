@@ -9,10 +9,10 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Acceuil"
+title                    : "About Me"
 title_separator          : "-"
 name                     : &name "BARRY Adama"
-description              : &description "Doctorant en Mathématiques Appliquées | Passioné par les données et l'IA"
+description              : &description "PhD Student in Applied Mathematics | Enthusiast in Data Science & Artificial Intelligence"
 url                      : https://barryadama.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "barryadama/barryadama.github.io"
@@ -25,7 +25,7 @@ author:
   avatar           : "BA.jpg"
   name             : "Barry Adama"
   pronouns         : # example: "she/her"  
-  bio              : "Doctorant en Mathématiques Appliquées à l'Université de Toulouse"
+  bio              : "PhD Student in Applied Mathematics at l'Université de Toulouse"
   location         : "Toulouse"
   employer         : "IMT | INRIA | IFPEN"
   uri              : # URL

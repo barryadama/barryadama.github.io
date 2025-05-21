@@ -9,38 +9,35 @@ redirect_from:
 
 {% include base_path %}
 
-
 # 📄 Barry Adama
 
-📧 **Email** : [adambarry207@gmail.com](mailto:adambarry207@gmail.com)  
-🌐 **Site Web** : [barryadama.github.io](https://barryadama.github.io)  
-🌐 **Github Thèse** : [Lien](https://github.com/TheseAdama)
+📧 **Email**: [adambarry207@gmail.com](mailto:adambarry207@gmail.com)  
+🌐 **Website**: [barryadama.github.io](https://barryadama.github.io)  
+🌐 **Thesis GitHub**: [Link](https://github.com/TheseAdama)
 
-📍 **Adresse** : 135 Avenue de Lespinet, 31400 Toulouse, France 
+📍 **Address**: 135 Avenue de Lespinet, 31400 Toulouse, France
 
-🎯 **Objectif** : À la recherche d'un poste de Data Scientist ou d’un post-doc dans le domaine de la quantification d'incertitude.
+🎯 **Objective**: Seeking a position as a Data Scientist or a postdoctoral researcher in the field of uncertainty quantification.
 
 ---
 
-## 🔗 Profils
+## 🔗 Profiles
 
 - [Google Scholar](https://scholar.google.com/citations?user=PS_CX0AAAAAJ)
-- [GitHub](https://github.com/barryadama)
-- [GitHub](https://github.com/TheseAdama)
+- [GitHub - Personal](https://github.com/barryadama)
+- [GitHub - Thesis](https://github.com/TheseAdama)
 
 ---
 
-## 🎓 Formation
+## 🎓 Education
 
-- **2022 – 2025** : Doctorat en Mathématiques Appliquées - **Ecole Doctorale Mathématiques, Informatique, Télécommunications de Toulouse** (**EDMITT**)
+- **2022 – 2025**: PhD in Applied Mathematics – **Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse** (**EDMITT**)
 
-- **2019 – 2021** : Ingénierie en Sciences des données et Statistiques Avancées - *ENSAI Rennes*
+- **2019 – 2021**: Engineering Degree in Data Science and Advanced Statistics – *ENSAI Rennes*
 
-- **2017 – 2020** : Ingénierie en Statistique et Économie Appliquée - *INSEA Rabat*
+- **2017 – 2020**: Engineering Degree in Statistics and Applied Economics – *INSEA Rabat*
 
-- **2014 – 2016** : DEUG en Mathématiques Appliquées - *Faculté des Sciences d’Oujda*
-
----
+- **2014 – 2016**: DEUG (2-year university diploma) in Applied Mathematics – *Faculty of Sciences, Oujda*
 
 ## 📚 Pré-Publication
 
@@ -52,7 +49,7 @@ We address the problem of Bayesian calibration of an expensive computer code ass
 
 ---
 
-## 🎤 Présentations
+## 🎤 Talk
 
 - **Talk 1**  
   📍 *UC San Francisco, Department of Testing* — 1 mars 2012
@@ -68,7 +65,7 @@ We address the problem of Bayesian calibration of an expensive computer code ass
 
 ---
 
-## 👨‍🏫 Enseignement
+## 👨‍🏫 Teaching
 
 - **Teaching experience 1**  
   *University 1, Department* — 1 janvier 2014  
