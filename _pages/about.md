@@ -1,68 +1,65 @@
 ---
 permalink: /
-title: "BIENVENUE SUR MA PAGE !"
+title: "WELCOME TO MY PAGE!"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-## 👋 Présentation
+## 👋 Introduction
 
 <img src="images/Blackbox.PNG" alt="Illustration" width="300" align="right" style="margin-left: 20px;" />
 
-- Je m'appelle **Barry Adama**.  
-- 🎓 Je suis en **dernière année de thèse** en Mathématiques Appliquées à l'Université de Toulouse.  
-- 🤝 Ma thèse s'inscrit dans le cadre du **Consortium [CIROQUO](https://ciroquo.ec-lyon.fr/)**.  
-- Je travaille sur les **plans d'expériences physiques et numériques** pour la **calibration de codes de calcul** (simulateurs numériques) **coûteux en temps d’évaluation**.  
-- 💻 Les codes développés pendant ma thèse sont disponibles **[sur GitHub](https://github.com/TheseAdama)**.  
+- My name is **Barry Adama**.  
+- 🎓 I am in the **final year of my PhD** in Applied Mathematics at the University of Toulouse.  
+- 🤝 My PhD is part of the **[CIROQUO](https://ciroquo.ec-lyon.fr/)** consortium.  
+- I work on **Design of experiments for the calibration of computer code (numerical simulators) that are **expensive to evaluate**.  
+- 💻 The code developed during my PhD is available **[on GitHub](https://github.com/TheseAdama)**.  
 
 <br clear="both" />
 
+## 🎯 Research Interests
 
-## 🎯 Domaines d’intérêt
+### 1. 📉 Uncertainty Quantification
 
-### 1. 📉 Quantification d'incertitudes
-
-<img src="images/UQ.jpg" alt="Quantification d'incertitudes" width="300" align="right"  
+<img src="images/UQ.jpg" alt="Uncertainty Quantification" width="300" align="right"  
 style="margin-left: 20px;" />
 
-La **quantification d'incertitudes** est un domaine des statistiques qui vise à évaluer et modéliser les incertitudes présentes dans les modèles numériques ou physiques. Cela permet d'améliorer la fiabilité des prévisions issues de simulations complexes.
+**Uncertainty Quantification** is a branch of statistics that aims to assess and model the uncertainties present in numerical or physical models. It helps improve the reliability of forecasts from complex simulations.
 
 <br clear="left"/>
 
 ---
 
-### 2.  Émulation par processus gaussien
+### 2. Gaussian Process Emulation
 
-<img src="images/PG.png" alt="Processus gaussien" width="300" align="right"  
+<img src="images/PG.png" alt="Gaussian Process" width="300" align="right"  
 style="margin-left: 20px;" />
 
-
-L'**émulation par processus gaussien** consiste à construire un modèle de remplacement, rapide et précis, d’un code de calcul coûteux afin de faciliter les analyses, les optimisations et la quantification d’incertitudes tout en réduisant significativement le temps de calcul.
+**Gaussian process emulation** involves building a fast and accurate surrogate model to replace a costly computer code. This surrogate facilitates analysis, optimization, and uncertainty quantification while significantly reducing computation time.
 
 <br clear="left"/>
 
 ---
 
-### 3.  Optimisation bayésienne et calibration
+### 3. Bayesian Optimization and Calibration
 
-<img src="images/BO.jpg" alt="Optimisation bayesienne" width="300" align="right"  
+<img src="images/BO.jpg" alt="Bayesian Optimization" width="300" align="right"  
 style="margin-left: 20px;" />
 
-
-L'**optimisation bayésienne** permet d’optimiser des fonctions coûteuses à évaluer.  
-L’idée de base consiste à construire un **modèle probabiliste** de la fonction coûteuse, puis à définir une **fonction d’acquisition** qui guide le choix des évaluations à effectuer afin d’atteindre l’objectif d’optimisation avec un minimum de coût.
+**Bayesian optimization** aims to optimize functions that are expensive to evaluate.  
+The main idea is to build a **probabilistic model** of the costly function and define an **acquisition function** that guides the sequential selection of evaluations to efficiently reach the optimization goal with minimal cost.
 
 <br clear="left"/>
 
 ---
 
-### 4. Planification d'expériences
+### 4. Design of Experiments
 
-<img src="images/DOE.png" alt="Plan d'expériences" width="300" align="right"  
+<img src="images/DOE.png" alt="Design of Experiments" width="300" align="right"  
 style="margin-left: 20px;" />
 
-La **planification d’expériences** consiste à sélectionner, de manière *en une fois* ou *séquentielle*, des expériences numériques ou physiques afin de maximiser l'information obtenue pour un objectif donné.  
+**Design of experiments** consists in selecting, either *in one batch* or *sequentially*, physical or numerical experiments to maximize the information obtained for a given objective.
 
 <br clear="left"/>
