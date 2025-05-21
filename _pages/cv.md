@@ -14,8 +14,10 @@ redirect_from:
 
 📧 **Email** : [adambarry207@gmail.com](mailto:adambarry207@gmail.com)  
 🌐 **Site Web** : [barryadama.github.io](https://barryadama.github.io)  
-🌐 **Github Thèse** : [CodeThese](https://github.com/TheseAdama)
-📍 **Adresse** : 135 Avenue de Lespinet, 31400 Toulouse, France  
+🌐 **Github Thèse** : [Lien](https://github.com/TheseAdama)
+
+📍 **Adresse** : 135 Avenue de Lespinet, 31400 Toulouse, France 
+
 🎯 **Objectif** : À la recherche d'un poste de Data Scientist ou d’un post-doc dans le domaine de la quantification d'incertitude.
 
 ---
