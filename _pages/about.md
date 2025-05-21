@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "WELCOME !!!"
+title: "Welcome to my GitHub page. This page is currently under construction."
 author_profile: true
 redirect_from: 
   - /about/
