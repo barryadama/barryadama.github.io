@@ -1,0 +1,205 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Welcome to my personal page!\nI am a PhD in Statistics and Data Science from the University of Toulouse, with expertise in Gaussian process emulation, Bayesian optimization, and expensive computer code calibration.\nI graduated as an engineer from ENSAI (Statistical Engineering) and INSEA (Statistics and Applied Economics). My background bridges theoretical statistics and applied data science, with a growing focus on artificial intelligence.\nMy research interests focus on the development and understanding of machine learning models, particularly their mathematical foundations and implementation from scratch.\nThrough this page, I aim to share my learnings, experiments, and projects in data science and AI.\n\n\n“Focus is the superpower that turns your intentions into results.” – Robin Sharma."
+  },
+  {
+    "objectID": "Teach.html",
+    "href": "Teach.html",
+    "title": " ",
+    "section": "",
+    "text": "From 2022 to 2023, I delivered a total of 64 hours of tutorials and practical sessions as part of my PhD teaching duties at the University of Toulouse.\n\n\nBasic Mathematics II\nUniversity of Toulouse III – Bachelor’s Year 1\nTopics covered: Sets, Functions, and Relations\nAcademic year: 2022–2023\n\n\n\nPractical Work: Probability\nUniversity of Toulouse III – Bachelor’s Year 1\nTopics covered: Law of Large Numbers, Simulation Methods, Central Limit Theorem\nAcademic year: 2022–2023\n\n\n\nPractical Work: Design of Experiments and Uncertainty Analysis\nUniversity of Toulouse III – Master’s Year 2\nTopics covered: Matérn Covariance Functions, Gaussian Process Simulation, and Methods for Sensitivity Indices Estimation\nAcademic year: 2022–2023"
+  },
+  {
+    "objectID": "Pub.html",
+    "href": "Pub.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Date: June 24, 2024\nPublished on: HAL\nAbstract:\nThis work addresses the problem of Bayesian calibration of an expensive computer code, assuming no model discrepancy. In a calibration context where both measurement acquisition and code evaluations are costly, achieving accurate parameter estimation while minimizing experimental and computational costs is crucial.\nWe propose a hybrid design strategy for selecting both physical and numerical experiments to approximate the posterior density of calibration parameters. First, an initial Gaussian process emulator is built and used to compute an optimal criterion for physical experiment design. After selecting the physical design, we combine physical observations with available computer code outputs to sequentially add new points to the numerical design, improving the emulator for calibration purposes.\nThree new criteria are introduced for physical experiment design—based on either posterior density or code variation—and two new criteria for numerical experiment design inspired by the Sequential Uncertainty Reduction (SUR) framework. A performance study and comparison with state-of-the-art methods are conducted on two benchmark test cases and a realistic application involving the calibration of a harmonic oscillator."
+  },
+  {
+    "objectID": "Pub.html#preprint",
+    "href": "Pub.html#preprint",
+    "title": "Publications",
+    "section": "",
+    "text": "Date: June 24, 2024\nPublished on: HAL\nAbstract:\nThis work addresses the problem of Bayesian calibration of an expensive computer code, assuming no model discrepancy. In a calibration context where both measurement acquisition and code evaluations are costly, achieving accurate parameter estimation while minimizing experimental and computational costs is crucial.\nWe propose a hybrid design strategy for selecting both physical and numerical experiments to approximate the posterior density of calibration parameters. First, an initial Gaussian process emulator is built and used to compute an optimal criterion for physical experiment design. After selecting the physical design, we combine physical observations with available computer code outputs to sequentially add new points to the numerical design, improving the emulator for calibration purposes.\nThree new criteria are introduced for physical experiment design—based on either posterior density or code variation—and two new criteria for numerical experiment design inspired by the Sequential Uncertainty Reduction (SUR) framework. A performance study and comparison with state-of-the-art methods are conducted on two benchmark test cases and a realistic application involving the calibration of a harmonic oscillator."
+  },
+  {
+    "objectID": "Pub.html#phd-thesis-manuscript",
+    "href": "Pub.html#phd-thesis-manuscript",
+    "title": "Publications",
+    "section": "PhD Thesis Manuscript",
+    "text": "PhD Thesis Manuscript\n\nDesign of Experiments for Expensive Computer Code Calibration\nDate: June 25, 2025\nPublished on: HAL\nAbstract:\nThis thesis focuses on the Bayesian calibration of expensive computer codes—with scalar, vector, or functional outputs—using a limited number of physical measurements. A computer code is considered expensive when its evaluation requires significant computational time. In such contexts, Bayesian inference on its parameters requires the use of a surrogate model, typically a Gaussian process emulator.\nWe propose a two-stage strategy combining the optimal selection of physical experiments (for field measurements) and numerical experiments (for emulator construction). The first stage involves building an initial Gaussian process emulator, which is then used to compute optimality criteria for physical experimental design.\nTwo families of criteria are introduced:\n1. Bayesian criteria based on the posterior distribution of calibration parameters, incorporating uncertainties from physical and numerical observations as well as model parameters.\n2. A code variation–based criterion, which combines model sensitivity with the space-filling properties of the design, offering reduced computational cost for optimization.\nFour optimization algorithms are explored: simulated annealing, a greedy algorithm, a genetic algorithm, and Simultaneous Perturbation Stochastic Approximation (SPSA). After cog physical data, the emulator is refined via sequential design of numerical experiments, guided by acquisition criteria that progressively reduce calibration uncertainty. Two calibration-oriented acquisition criteria are proposed: the sum of posterior variances of calibration parameters, and the prediction error of physical observations.\nThe final emulator is used to approximate the posterior density of the parameters via Markov Chain Monte Carlo (MCMC) sampling combined with kernel-based nonparametric estimation.\nThe methodology is validated on scalar-output analytical functions, compared with state-of-the-art approaches, and then extended to vector- and function-valued computer codes. Finally, it is applied to the Bayesian calibration of a numerical simulator dedicated to geological CO₂ storage, using synthetic data."
+  },
+  {
+    "objectID": "Blog.html#academic-projects",
+    "href": "Blog.html#academic-projects",
+    "title": " ",
+    "section": "Academic Projects",
+    "text": "Academic Projects\n\nFinal Year Project — ENSAI (Oct 2020 – Mar 2021)\nVideo Transition Classification\nPython, OpenCV, supervised & unsupervised learning, feature extraction, multivariate time series\n View on GitHub\n\n\n\nVideo Transition Classification illustration\n\n\n\n\nMethodological Project — ENSAI (Oct 2020 – Jan 2021)\nImage Processing for Plant Disease Analysis\nPython, ImageJ, image registration, literature review, method comparison\n View on GitHub\n\n\n\nPlant disease analysis illustration\n\n\n\n\nEntrepreneurship Project — ENSAI (Mar – May 2020)\nUTOPIK Fitness Coaching App\nBusiness plan, financial modeling, market analysis\n\n\n\nUTOPIK fitness coaching app illustration\n\n\n\n\nStatistical Project — ENSAI (Jan – May 2020)\nImpact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)\nStatistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis\n\n\n\nMillet biodiversity project illustration"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": " ",
+    "section": "",
+    "text": "2022 – 2025: PhD in Applied Mathematics – Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)\nThesis: Optimal Design of Experiments for Computer Code Calibration.\n2019 – 2021: Engineering Degree in Data Science and Advanced Statistics – ENSAI Rennes\n2017 – 2020: Engineering Degree in Statistics and Applied Economics – INSEA Rabat\n2014 – 2016: DEUG in Applied Mathematics – Faculty of Sciences, Oujda"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": " ",
+    "section": "",
+    "text": "2022 – 2025: PhD in Applied Mathematics – Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)\nThesis: Optimal Design of Experiments for Computer Code Calibration.\n2019 – 2021: Engineering Degree in Data Science and Advanced Statistics – ENSAI Rennes\n2017 – 2020: Engineering Degree in Statistics and Applied Economics – INSEA Rabat\n2014 – 2016: DEUG in Applied Mathematics – Faculty of Sciences, Oujda"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": " ",
+    "section": "Experience",
+    "text": "Experience\n\n2022 – 2025: Junior Research Engineer – IFP Energies Nouvelles (IFPEN), Rueil-Malmaison\nBayesian calibration of a geological simulator for CO₂ storage.\nGaussian processes, Bayesian inference, experimental design, Python, R.\nApr – Oct 2021: Research Internship – Laboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette\nGaussian processes and sequential design of computer experiments for quantile estimation.\nGaussian process modeling, experimental design, Matlab programming.\nJun – Aug 2020: Applied Internship – CREST - ENSAI, Bruz\nRobust estimation of statistical parameters.\nSimulation, estimator construction, R programming.\nJul – Aug 2018: Discovery Internship – Office des Changes, Rabat\nAnalysis of Morocco’s trade flows.\nDescriptive analysis, forecasting, SPSS programming."
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": " ",
+    "section": "Technical Skills",
+    "text": "Technical Skills\n\nPython: NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.\n\nR: DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.\n\nMatlab: Surrogate Toolbox, Statistics and Machine Learning Toolbox.\n\nSQL: Queries, joins, optimization.\n\nOther Tools: Git (GitHub, GitLab), C, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint."
+  },
+  {
+    "objectID": "about.html#general-skills",
+    "href": "about.html#general-skills",
+    "title": " ",
+    "section": "General Skills",
+    "text": "General Skills\n\nModeling and Machine Learning: Regression, classification, clustering, dimensionality reduction, deep neural networks (RNN, BNN, DeepGP), reinforcement learning, active learning, surrogate modeling.\n\nOptimization: Linear, nonlinear, stochastic, Bayesian, and multi-objective optimization.\n\nStatistics and Data Analysis: Inference, model validation, numerical simulation, data preparation, and visualization.\n\nSoft Skills: Analytical thinking, communication, continuous learning, scientific monitoring, autonomy, adaptability, innovation, teamwork, and applied R&D.\n\nOther Skills: Basic knowledge of Hadoop/Spark environments, MLOps, model interpretability, deployment, and automation."
+  },
+  {
+    "objectID": "about.html#certificates",
+    "href": "about.html#certificates",
+    "title": " ",
+    "section": "Certificates",
+    "text": "Certificates\n\nCoursera:\n\nAI Workflow: Machine Learning, Visual Recognition and NLP\n\nNeural Networks and Deep Learning\n\nLinkedIn Learning:\n\nEssential Git Training\n\nLinux: Terminal Commands\n\nCodecademy / Udemy:\n\nLearn Web Scraping with Beautiful Soup\n\nComplete MLOps Bootcamp with 10 End-to-End ML Projects"
+  },
+  {
+    "objectID": "about.html#academic-projects",
+    "href": "about.html#academic-projects",
+    "title": " ",
+    "section": "Academic Projects",
+    "text": "Academic Projects\n\nFinal Year Project — ENSAI (Oct 2020 – Mar 2021)\nVideo Transition Classification\nPython, OpenCV, supervised and unsupervised classification, feature extraction, multivariate time series.\nMethodological Project — ENSAI (Oct 2020 – Jan 2021)\nImage Processing for Plant Disease Analysis\nPython, ImageJ, image registration, literature review, method comparison.\nEntrepreneurship Project — ENSAI (Mar – May 2020)\nUTOPIK Fitness Coaching App\nBusiness plan, financial planning, market analysis.\nStatistical Project — ENSAI (Jan – May 2020)\nImpact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)\nStatistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis.\nComputer Science Project — ENSAI (Sep – Nov 2019)\nRace Management App: CHRONORUN\nAPI connection, SQL data collection, Python programming.\nSurvey Project — INSEA (Apr – May 2019)\nStudent Consumption Habits Survey in Medinat Al Irfane\nQuestionnaire design, field survey, data processing, descriptive analysis."
+  },
+  {
+    "objectID": "about.html#preprint",
+    "href": "about.html#preprint",
+    "title": " ",
+    "section": "Preprint",
+    "text": "Preprint\n\nOptimal Design of Experiments for Computer Code Calibration\nDate: June 24, 2024\nPublished on: HAL"
+  },
+  {
+    "objectID": "about.html#phd-thesis-manuscript",
+    "href": "about.html#phd-thesis-manuscript",
+    "title": " ",
+    "section": "PhD Thesis Manuscript",
+    "text": "PhD Thesis Manuscript\n\nDesign of Experiments for Expensive Computer Code Calibration\nDate: June 25, 2025\nPublished on: HAL"
+  },
+  {
+    "objectID": "about.html#talks",
+    "href": "about.html#talks",
+    "title": " ",
+    "section": "Talks",
+    "text": "Talks\n\nPlans d’expériences pour la calibration de codes de calculs coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nJournées de Statistiques de la SFdS, Université de Bordeaux — May 27–31, 2024\nPlanification d’expériences physiques et numériques pour la calibration de simulateurs\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nJournées CIROQUO, École des Mines de Saint-Étienne — May 14–16, 2024\nPlanification d’expériences physiques et numériques pour la calibration de simulateurs\nJournées CIROQUO, Stellantis Poissy — November 23–24, 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nÉcole Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret — October 8–13, 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nGDR-Mascotnum Workshop “Calibration des codes numériques”, IHP Paris — May 31, 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nJournées CIROQUO, INRIA Saclay — May 23–25, 2023\nOptimisation bayésienne de code de calculs coûteux\nRJCAF, IHP Paris — December 5–6, 2022\nPlanification d’expériences numériques pour la calibration de simulateurs (Bilan des travaux)\nJournées CIROQUO, BRGM Orléans — November 16–17, 2022\nCalibration de code de calculs coûteux\nJournées CIROQUO, INRIA Grenoble — May 23–25, 2022"
+  },
+  {
+    "objectID": "about.html#poster-presentations",
+    "href": "about.html#poster-presentations",
+    "title": " ",
+    "section": "Poster Presentations",
+    "text": "Poster Presentations\n\nCalibration de code de calculs coûteux\nJournées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau — September 2022\nPlans d’expériences pour la calibration de codes de calculs coûteux\nJournées du GDR-Mascotnum, Giens — April 3–5, 2024"
+  },
+  {
+    "objectID": "about.html#teaching",
+    "href": "about.html#teaching",
+    "title": " ",
+    "section": "Teaching",
+    "text": "Teaching\n\nBasic Mathematics 2\nUniversity of Toulouse III – Licence 1\nTopics: Sets, Functions, and Relations.\nAcademic Year: 2022–2023\nPractical Work: Probability\nUniversity of Toulouse III – Licence 1\nTopics: Law of Large Numbers, Simulation Methods, and Central Limit Theorem.\nAcademic Year: 2022–2023\nPractical Work: Design of Experiments and Uncertainty Analysis\nUniversity of Toulouse III – Master 2\nTopics: Matérn Covariance Functions, Gaussian Process Simulation, and Sensitivity Indices Estimation.\nAcademic Year: 2022–2023"
+  },
+  {
+    "objectID": "CV.html",
+    "href": "CV.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "2022 – 2025: PhD in Applied Mathematics – Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)\n2019 – 2021: Engineering Degree in Data Science and Advanced Statistics – ENSAI Rennes\n2017 – 2020: Engineering Degree in Statistics and Applied Economics – INSEA Rabat\n2014 – 2016: DEUG (2-year university diploma) in Applied Mathematics – Faculty of Sciences, Oujda"
+  },
+  {
+    "objectID": "CV.html#education",
+    "href": "CV.html#education",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "2022 – 2025: PhD in Applied Mathematics – Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)\n2019 – 2021: Engineering Degree in Data Science and Advanced Statistics – ENSAI Rennes\n2017 – 2020: Engineering Degree in Statistics and Applied Economics – INSEA Rabat\n2014 – 2016: DEUG (2-year university diploma) in Applied Mathematics – Faculty of Sciences, Oujda"
+  },
+  {
+    "objectID": "CV.html#experience",
+    "href": "CV.html#experience",
+    "title": "Curriculum Vitae",
+    "section": "💼 Experience",
+    "text": "💼 Experience\n\n2022 – 2025: Junior Research Engineer – IFP Energies Nouvelles (IFPEN), Rueil-Malmaison\nBayesian calibration of a geological simulator for CO₂ storage.\nApr – Oct 2021: Internship – Laboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette\nGaussian processes and sequential design of computer experiments for quantile estimation.\nGaussian process modeling, experimental design, Matlab programming.\nJun – Aug 2020: Applied Internship – CREST - ENSAI, Bruz\nRobust estimation of statistical parameters.\nSimulation, estimator construction and analysis, R Studio programming.\nJul – Aug 2018: Discovery Internship – Office des Changes, Rabat\nAnalysis of Morocco’s trade flows.\nDescriptive analysis and forecasting, SPSS programming."
+  },
+  {
+    "objectID": "CV.html#pré-publication",
+    "href": "CV.html#pré-publication",
+    "title": "Curriculum Vitae",
+    "section": "📚 Pré-Publication",
+    "text": "📚 Pré-Publication\n\nOptimal Design of Experiments for Computer Code Calibration\n📅 Date : 24 juin 2024 📍 Publié sur : HAL\nAbstract : We address the problem of Bayesian calibration of an expensive computer code assumed without model discrepancy. In a calibration process with costly measurement acquisition and high computing time of the computer code, the estimation accuracy and cost mitigation must guide the selection of the design of physical experiments and of numerical experiments. To this end, we propose a hybrid approach to select both designs of physical and numerical experiments with the aim to approximate the posterior density of calibration parameters. We first build an initial Gaussian process emulator which we use to calculate an optimal physical experimental design criterion. Then, after selecting the physical experimental design, we combine physical observations with available computer code evaluations to sequentially add new points to the design of numerical experiments in order to improve the Gaussian process emulator for the calibration purpose. We introduce three new criteria for selecting the design of physical experiments based on posterior density or computer code variation and two new criteria for selecting the design of numerical experiments inspired by the Sequential Uncertainty Reduction (SUR) paradigm. A performance analysis and comparison with state-of-the-art methods is proposed for two test cases and a more realistic one involving the calibration of a harmonic oscillator."
+  },
+  {
+    "objectID": "CV.html#talks",
+    "href": "CV.html#talks",
+    "title": "Curriculum Vitae",
+    "section": "🎤 Talks",
+    "text": "🎤 Talks\n\nPlans d’expériences pour la calibration de codes de calculs coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées de Statistiques de la SFdS, Université de Bordeaux — 27–31 May 2024\nPlanification d’expériences physiques et numériques pour la calibration de simulateurs 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées CIROQUO, École des Mines de Saint-Étienne — 14–16 May 2024\nPlanification d’expériences physiques et numériques pour la calibration de simulateurs 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées CIROQUO, Stellantis Poissy — 23–24 November 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 École Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret — 8–13 October 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 GDR-Mascotnum Workshop “Calibration des codes numériques”, IHP Paris — 31 May 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées CIROQUO, INRIA Saclay — 23–25 May 2023\nOptimisation bayésienne de code de calculs coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 RJCAF, IHP Paris — 5–6 December 2022\nPlanification d’expériences numériques pour la calibration de simulateurs (Bilan des travaux) 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées CIROQUO, BRGM Orléans — 16–17 November 2022\nCalibration de code de calculs coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées CIROQUO, INRIA Grenoble — 23–25 May 2022"
+  },
+  {
+    "objectID": "CV.html#poster-presentations",
+    "href": "CV.html#poster-presentations",
+    "title": "Curriculum Vitae",
+    "section": "🖼️ Poster Presentations",
+    "text": "🖼️ Poster Presentations\n\nCalibration de code de calculs coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau — September 2022\nPlans d’expériences pour la calibration de code de calculs coûteux 👥 Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur 📍 Journées du GDR-Mascotnum, Giens — 3–5 April 2024"
+  },
+  {
+    "objectID": "CV.html#teaching",
+    "href": "CV.html#teaching",
+    "title": "Curriculum Vitae",
+    "section": "👨‍🏫 Teaching",
+    "text": "👨‍🏫 Teaching\n\nBasic Mathematics 2 University of Toulouse III – Licence 1\nTopics covered: Sets, Functions, and Relations.\nAcademic Year: 2022-2023\nPractical Work : Probability University of Toulouse III – Licence 1\nTopics covered: Law of Large Numbers, Simulation Methods, and Central Limit Theorem.\nAcademic Year: 2022-2023\nPractical Work: Design of Experiments and Uncertainty Analysis University of Toulouse III – Master 2\nTopics covered: Matérn Covariance Functions and Gaussian Process Simulation, Methods for Sensitivity Indices Estimation.\nAcademic Year: 2022-2023"
+  },
+  {
+    "objectID": "CV.html#academic-projects",
+    "href": "CV.html#academic-projects",
+    "title": "Curriculum Vitae",
+    "section": "Academic Projects",
+    "text": "Academic Projects\n\nFinal Year Project — ENSAI (Oct 2020 – Mar 2021) Video Transition Classification Python, OpenCV, supervised and unsupervised classification, feature extraction, multivariate time series.\nMethodological Project — ENSAI (Oct 2020 – Jan 2021) Image Processing for Plant Disease Analysis Python, ImageJ, image registration, literature review, method comparison.\nEntrepreneurship Project — ENSAI (Mar – May 2020) UTOPIK Fitness Coaching App Business plan, financial planning, market analysis.\nStatistical Project — ENSAI (Jan – May 2020) Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD) Statistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis.\nComputer Science Project — ENSAI (Sep – Nov 2019) Race Management App: CHRONORUN API connection, data collection with SQL, Python programming.\nSurvey Project — INSEA (Apr – May 2019) Student Consumption Habits Survey in Medinat Al Irfane Questionnaire design, field survey, data processing and descriptive analysis."
+  },
+  {
+    "objectID": "Talks.html",
+    "href": "Talks.html",
+    "title": " ",
+    "section": "",
+    "text": "During my PhD, I participated in several conferences, scientific workshops, and research seminars, where I presented my work on Bayesian optimization, design of experiments and Bayesian calibration for expensive computer code."
+  },
+  {
+    "objectID": "Talks.html#talks",
+    "href": "Talks.html#talks",
+    "title": " ",
+    "section": "Talks",
+    "text": "Talks\n\nDesign of Experiments for the Calibration of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nJournées de Statistique (SFdS), University of Bordeaux — May 27–31, 2024\nDesign of Physical and Numerical Experiments for Simulator Calibration\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nCIROQUO Workshop, École des Mines de Saint-Étienne — May 14–16, 2024\nDesign of Physical and Numerical Experiments for Simulator Calibration\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nCIROQUO Workshop, Stellantis Poissy — November 23–24, 2023\nDesign of Physical and Numerical Experiments for the Calibration of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nThematic School on Uncertainty Quantification in Scientific Computing, Lège-Cap-Ferret — October 8–13, 2023\nDesign of Physical and Numerical Experiments for the Calibration of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nGDR Mascotnum Workshop “Calibration of Numerical Codes”, Institut Henri Poincaré (IHP), Paris — May 31, 2023\nDesign of Physical and Numerical Experiments for the Calibration of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nCIROQUO Workshop, INRIA Saclay — May 23–25, 2023\nBayesian Optimization of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nRJCAF Workshop, Institut Henri Poincaré (IHP), Paris — December 5–6, 2022\nDesign of Numerical Experiments for Simulator Calibration: Progress Report\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nCIROQUO Workshop, BRGM Orléans — November 16–17, 2022\nCalibration of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nCIROQUO Workshop, INRIA Grenoble — May 23–25, 2022"
+  },
+  {
+    "objectID": "Talks.html#poster-presentations",
+    "href": "Talks.html#poster-presentations",
+    "title": " ",
+    "section": "Poster Presentations",
+    "text": "Poster Presentations\n\nCalibration of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nJournées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau — September 2022\nDesign of Experiments for the Calibration of Expensive Computer Codes\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nGDR Mascotnum Workshop, Giens — April 3–5, 2024"
+  }
+]

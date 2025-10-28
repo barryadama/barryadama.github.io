@@ -1,0 +1,40 @@
+---
+title: "Publications"
+---
+## Preprint
+
+### [Optimal Design of Experiments for Computer Code Calibration](https://theses.hal.science/UNIV-UT3/hal-04615127v2)
+
+**Date:** June 24, 2024  
+**Published on:** HAL
+
+**Abstract:**  
+This work addresses the problem of **Bayesian calibration** of an expensive computer code, assuming no model discrepancy. In a calibration context where both measurement acquisition and code evaluations are costly, achieving accurate parameter estimation while minimizing experimental and computational costs is crucial.  
+
+We propose a **hybrid design strategy** for selecting both **physical** and **numerical experiments** to approximate the posterior density of calibration parameters. First, an initial **Gaussian process emulator** is built and used to compute an optimal criterion for physical experiment design. After selecting the physical design, we combine physical observations with available computer code outputs to sequentially add new points to the numerical design, improving the emulator for calibration purposes.  
+
+Three new criteria are introduced for physical experiment design—based on either posterior density or code variation—and two new criteria for numerical experiment design inspired by the **Sequential Uncertainty Reduction (SUR)** framework. A performance study and comparison with state-of-the-art methods are conducted on two benchmark test cases and a realistic application involving the **calibration of a harmonic oscillator**.
+
+---
+
+## PhD Thesis Manuscript
+
+### [Design of Experiments for Expensive Computer Code Calibration](https://theses.hal.science/tel-05186532/)
+
+**Date:** June 25, 2025  
+**Published on:** HAL
+
+**Abstract:**  
+This thesis focuses on the **Bayesian calibration of expensive computer codes**—with scalar, vector, or functional outputs—using a limited number of physical measurements. A computer code is considered *expensive* when its evaluation requires significant computational time. In such contexts, **Bayesian inference** on its parameters requires the use of a **surrogate model**, typically a Gaussian process emulator.  
+
+We propose a **two-stage strategy** combining the optimal selection of **physical experiments** (for field measurements) and **numerical experiments** (for emulator construction). The first stage involves building an initial Gaussian process emulator, which is then used to compute **optimality criteria** for physical experimental design.  
+
+Two families of criteria are introduced:  
+1. **Bayesian criteria** based on the posterior distribution of calibration parameters, incorporating uncertainties from physical and numerical observations as well as model parameters.  
+2. A **code variation–based criterion**, which combines model sensitivity with the space-filling properties of the design, offering reduced computational cost for optimization.  
+
+Four optimization algorithms are explored: **simulated annealing**, a **greedy algorithm**, a **genetic algorithm**, and **Simultaneous Perturbation Stochastic Approximation (SPSA)**. After cog physical data, the emulator is refined via **sequential design of numerical experiments**, guided by acquisition criteria that progressively reduce calibration uncertainty. Two **calibration-oriented acquisition criteria** are proposed: the **sum of posterior variances** of calibration parameters, and the **prediction error of physical observations**.  
+
+The final emulator is used to approximate the **posterior density** of the parameters via **Markov Chain Monte Carlo (MCMC)** sampling combined with **kernel-based nonparametric estimation**.  
+
+The methodology is validated on **scalar-output analytical functions**, compared with state-of-the-art approaches, and then extended to **vector- and function-valued computer codes**. Finally, it is applied to the **Bayesian calibration of a numerical simulator** dedicated to **geological CO₂ storage**, using synthetic data.

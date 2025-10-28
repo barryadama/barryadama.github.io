@@ -1,0 +1,29 @@
+---
+title: " "
+---
+
+From 2022 to 2023, I delivered a total of **64 hours** of tutorials and practical sessions as part of my PhD teaching duties at the University of Toulouse.
+
+---
+
+### **Basic Mathematics II**  
+*University of Toulouse III – Bachelor’s Year 1*
+
+**Topics covered:** Sets, Functions, and Relations  
+**Academic year:** 2022–2023
+
+---
+
+### **Practical Work: Probability**  
+*University of Toulouse III – Bachelor’s Year 1*
+
+**Topics covered:** Law of Large Numbers, Simulation Methods, Central Limit Theorem  
+**Academic year:** 2022–2023
+
+---
+
+### **Practical Work: Design of Experiments and Uncertainty Analysis**  
+*University of Toulouse III – Master’s Year 2*
+
+**Topics covered:** Matérn Covariance Functions, Gaussian Process Simulation, and Methods for Sensitivity Indices Estimation  
+**Academic year:** 2022–2023

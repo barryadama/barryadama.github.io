@@ -1,0 +1,54 @@
+---
+title: " "
+---
+
+
+During my PhD, I participated in several **conferences**, **scientific workshops**, and **research seminars**, where I presented my work on **Bayesian optimization**, **design of experiments** and **Bayesian calibration** for expensive computer code.
+
+## Talks
+
+- **Design of Experiments for the Calibration of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *Journées de Statistique (SFdS), University of Bordeaux* — **May 27–31, 2024**
+
+- **Design of Physical and Numerical Experiments for Simulator Calibration**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *CIROQUO Workshop, École des Mines de Saint-Étienne* — **May 14–16, 2024**
+
+- **Design of Physical and Numerical Experiments for Simulator Calibration**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *CIROQUO Workshop, Stellantis Poissy* — **November 23–24, 2023**
+
+- **Design of Physical and Numerical Experiments for the Calibration of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *Thematic School on Uncertainty Quantification in Scientific Computing, Lège-Cap-Ferret* — **October 8–13, 2023**
+
+- **Design of Physical and Numerical Experiments for the Calibration of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *GDR Mascotnum Workshop “Calibration of Numerical Codes”, Institut Henri Poincaré (IHP), Paris* — **May 31, 2023**
+
+- **Design of Physical and Numerical Experiments for the Calibration of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *CIROQUO Workshop, INRIA Saclay* — **May 23–25, 2023**
+
+- **Bayesian Optimization of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *RJCAF Workshop, Institut Henri Poincaré (IHP), Paris* — **December 5–6, 2022**
+
+- **Design of Numerical Experiments for Simulator Calibration: Progress Report**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *CIROQUO Workshop, BRGM Orléans* — **November 16–17, 2022**
+
+- **Calibration of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *CIROQUO Workshop, INRIA Grenoble* — **May 23–25, 2022**
+
+## Poster Presentations
+
+- **Calibration of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *Journées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau* — **September 2022**
+
+- **Design of Experiments for the Calibration of Expensive Computer Codes**  
+  *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*  
+  *GDR Mascotnum Workshop, Giens* — **April 3–5, 2024**

@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: " "
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: CV
+      - href: Pub.qmd
+        text: Publications
+      - href: Talks.qmd
+        text: Talks
+      - href: Teach.qmd
+        text: Teaching
+      - href: Blog.qmd
+        text: Blog
+    tools:
+      - icon: linkedin
+        href: "https://www.linkedin.com/in/adama-barry-253314133/"
+      - icon: github
+      - menu:
+         - text: "My-Git"
+           href: "https://github.com/barryadama"
+         - text: "PhD-Git"
+           href: "https://github.com/TheseAdama"
+
+format:
+  html:
+    theme:
+      light: yeti #sandstone #
+      dark: cyborg
+    toggle: true
+    mainfont: "Roboto"         # Police du corps du texte
+    sansfont: "Open Sans"      # Police sans serif
+    monofont: "Fira Code"      # Police pour le code
+    css: styles.css
+
+
+editor: visual

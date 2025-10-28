@@ -1,0 +1,40 @@
+---
+title: "Adama Ibrahim Barry"
+subtitle: "PhD – Data Science Engineer | Passionate about MLOps and Language Models "
+
+about:
+  template: jolla
+  image: images/pp.png
+  image-shape: round
+  links:
+    - icon: github
+      href: "https://github.com/barryadama"
+      text: "**GitHub**"
+    - icon: github
+      href: "https://github.com/TheseAdama"
+      text: "**GitHub-Phd**"
+    - icon: linkedin
+      href: "https://www.linkedin.com/in/adama-barry-253314133/"
+      text: "**LinkedIn**"
+    - icon: google
+      href: "mailto:adambarry207@gmail.com"
+      text: "**Gmail**"
+---
+
+### Welcome to my personal page!
+
+I am a **PhD in Statistics and Data Science** from the **University of Toulouse**, with expertise in **Gaussian process emulation**, **Bayesian optimization**, and **expensive computer code calibration**.
+
+I graduated as an engineer from [**ENSAI**](https://ensai.fr/en/) (*Statistical Engineering*) and [**INSEA**](https://insea.ac.ma/) (*Statistics and Applied Economics*). My background bridges **theoretical statistics** and **applied data science**, with a growing focus on **artificial intelligence**.
+
+My research interests focus on the **development and understanding of machine learning models**, particularly their **mathematical foundations** and **implementation from scratch**.
+
+Through this page, I aim to share my **learnings**, **experiments**, and **projects** in data science and AI.
+
+![](images/LinkedInBack.jfif){width="1200"}
+
+<p align="center">
+
+<em style="color:#33A4BD;">“Focus is the superpower that turns your intentions into results.” – Robin Sharma.</em>
+
+</p>
