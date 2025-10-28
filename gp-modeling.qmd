@@ -1,0 +1,46 @@
+---
+title: "Gaussian Process Modeling"
+format:
+  html:
+    toc: true   
+    toc-title: "Contents"    
+    toc-depth: 2    
+    toc-location: left  
+execute:
+  echo: true
+  warning: false
+  error: false
+---
+
+# Introduction
+
+Gaussian Processes (GP) are used for probabilistic modeling of unknown functions.
+
+Here is a simple example in R:
+
+```{r}
+# Load library
+library(MASS)
+
+# Example data
+x <- seq(-5, 5, length.out = 20)
+y <- sin(x) + rnorm(20, 0, 0.2)
+
+# RBF Kernel function
+rbf_kernel <- function(x1, x2, l=1){
+  exp(- (outer(x1, x2, "-")^2) / (2*l^2))
+}
+
+K <- rbf_kernel(x, x) + 0.01 * diag(20)
+
+# Simulate from the Gaussian Process
+y_sim <- mvrnorm(1, mu = rep(0, 20), Sigma = K)
+
+# Plot
+plot(x, y, main="Gaussian Process Example", xlab="x", ylab="y")
+lines(x, y_sim, col="blue")
+```
+
+# Choix de la fonction de covariance
+
+# Lien GP - RKHS

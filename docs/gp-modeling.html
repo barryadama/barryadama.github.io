@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input5b1d4eaac7486c3c</title>
+<title>Gaussian Process Modeling –</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -77,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -263,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
@@ -310,182 +345,83 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#choix-de-la-fonction-de-covariance" id="toc-choix-de-la-fonction-de-covariance" class="nav-link" data-scroll-target="#choix-de-la-fonction-de-covariance">Choix de la fonction de covariance</a></li>
+  <li><a href="#lien-gp---rkhs" id="toc-lien-gp---rkhs" class="nav-link" data-scroll-target="#lien-gp---rkhs">Lien GP - RKHS</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Gaussian Process Modeling</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<ul>
-<li><p><strong>2022 – 2025</strong>: PhD in Applied Mathematics – <em>Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)</em><br>
-Thesis: <em>Optimal Design of Experiments for Computer Code Calibration.</em></p></li>
-<li><p><strong>2019 – 2021</strong>: Engineering Degree in Data Science and Advanced Statistics – <em>ENSAI Rennes</em></p></li>
-<li><p><strong>2017 – 2020</strong>: Engineering Degree in Statistics and Applied Economics – <em>INSEA Rabat</em></p></li>
-<li><p><strong>2014 – 2016</strong>: DEUG in Applied Mathematics – <em>Faculty of Sciences, Oujda</em></p></li>
-</ul>
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Gaussian Processes (GP) are used for probabilistic modeling of unknown functions.</p>
+<p>Here is a simple example in R:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">20</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="fl">0.2</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># RBF Kernel function</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>rbf_kernel <span class="ot">&lt;-</span> <span class="cf">function</span>(x1, x2, <span class="at">l=</span><span class="dv">1</span>){</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(<span class="sc">-</span> (<span class="fu">outer</span>(x1, x2, <span class="st">"-"</span>)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>l<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="fu">rbf_kernel</span>(x, x) <span class="sc">+</span> <span class="fl">0.01</span> <span class="sc">*</span> <span class="fu">diag</span>(<span class="dv">20</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate from the Gaussian Process</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>y_sim <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="dv">1</span>, <span class="at">mu =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">20</span>), <span class="at">Sigma =</span> K)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">main=</span><span class="st">"Gaussian Process Example"</span>, <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"y"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y_sim, <span class="at">col=</span><span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="gp-modeling_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="experience" class="level2">
-<h2 class="anchored" data-anchor-id="experience">Experience</h2>
-<ul>
-<li><p><strong>2022 – 2025</strong>: Junior Research Engineer – <em>IFP Energies Nouvelles (IFPEN), Rueil-Malmaison</em><br>
-Bayesian calibration of a geological simulator for CO₂ storage.<br>
-<em>Gaussian processes, Bayesian inference, experimental design, Python, R.</em></p></li>
-<li><p><strong>Apr – Oct 2021</strong>: Research Internship – <em>Laboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette</em><br>
-Gaussian processes and sequential design of computer experiments for quantile estimation.<br>
-<em>Gaussian process modeling, experimental design, Matlab programming.</em></p></li>
-<li><p><strong>Jun – Aug 2020</strong>: Applied Internship – <em>CREST - ENSAI, Bruz</em><br>
-Robust estimation of statistical parameters.<br>
-<em>Simulation, estimator construction, R programming.</em></p></li>
-<li><p><strong>Jul – Aug 2018</strong>: Discovery Internship – <em>Office des Changes, Rabat</em><br>
-Analysis of Morocco’s trade flows.<br>
-<em>Descriptive analysis, forecasting, SPSS programming.</em></p></li>
-</ul>
+<section id="choix-de-la-fonction-de-covariance" class="level1">
+<h1>Choix de la fonction de covariance</h1>
 </section>
-<section id="technical-skills" class="level2">
-<h2 class="anchored" data-anchor-id="technical-skills">Technical Skills</h2>
-<ul>
-<li><strong>Python:</strong> NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.<br>
-</li>
-<li><strong>R:</strong> DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.<br>
-</li>
-<li><strong>Matlab:</strong> Surrogate Toolbox, Statistics and Machine Learning Toolbox.<br>
-</li>
-<li><strong>SQL:</strong> Queries, joins, optimization.<br>
-</li>
-<li><strong>Other Tools:</strong> Git (GitHub, GitLab), C, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint.</li>
-</ul>
-</section>
-<section id="general-skills" class="level2">
-<h2 class="anchored" data-anchor-id="general-skills">General Skills</h2>
-<ul>
-<li><strong>Modeling and Machine Learning:</strong> Regression, classification, clustering, dimensionality reduction, deep neural networks (RNN, BNN, DeepGP), reinforcement learning, active learning, surrogate modeling.<br>
-</li>
-<li><strong>Optimization:</strong> Linear, nonlinear, stochastic, Bayesian, and multi-objective optimization.<br>
-</li>
-<li><strong>Statistics and Data Analysis:</strong> Inference, model validation, numerical simulation, data preparation, and visualization.<br>
-</li>
-<li><strong>Soft Skills:</strong> Analytical thinking, communication, continuous learning, scientific monitoring, autonomy, adaptability, innovation, teamwork, and applied R&amp;D.<br>
-</li>
-<li><strong>Other Skills:</strong> Basic knowledge of Hadoop/Spark environments, MLOps, model interpretability, deployment, and automation.</li>
-</ul>
-</section>
-<section id="certificates" class="level2">
-<h2 class="anchored" data-anchor-id="certificates">Certificates</h2>
-<ul>
-<li><strong>Coursera:</strong>
-<ul>
-<li><a href="https://www.coursera.org/account/accomplishments/verify/JNGNYFJN5UVY">AI Workflow: Machine Learning, Visual Recognition and NLP</a><br>
-</li>
-<li><a href="https://www.coursera.org/account/accomplishments/verify/XEF64JAWNB2Z">Neural Networks and Deep Learning</a></li>
-</ul></li>
-<li><strong>LinkedIn Learning:</strong>
-<ul>
-<li><a href="https://www.linkedin.com/learning/certificates/e180cc1e4d406bc18d08ef9a932aabb3211916ac57d8016511332aa83c2d625a?trk=backfilled_certificate">Essential Git Training</a><br>
-</li>
-<li><a href="https://www.coursera.org/account/accomplishments/verify/XEF64JAWNB2Z">Linux: Terminal Commands</a></li>
-</ul></li>
-<li><strong>Codecademy / Udemy:</strong>
-<ul>
-<li><a href="https://www.codecademy.com/profiles/barryAdama0299016940/certificates/f4cba58fa21e556a6a8f5a975cef5388">Learn Web Scraping with Beautiful Soup</a><br>
-</li>
-<li><a href="https://www.udemy.com/course/complete-mlops-bootcamp-with-10-end-to-end-ml-projects/">Complete MLOps Bootcamp with 10 End-to-End ML Projects</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="academic-projects" class="level2">
-<h2 class="anchored" data-anchor-id="academic-projects">Academic Projects</h2>
-<ul>
-<li><p><strong>Final Year Project</strong> — <em>ENSAI</em> (Oct 2020 – Mar 2021)<br>
-<em>Video Transition Classification</em><br>
-Python, OpenCV, supervised and unsupervised classification, feature extraction, multivariate time series.</p></li>
-<li><p><strong>Methodological Project</strong> — <em>ENSAI</em> (Oct 2020 – Jan 2021)<br>
-<em>Image Processing for Plant Disease Analysis</em><br>
-Python, ImageJ, image registration, literature review, method comparison.</p></li>
-<li><p><strong>Entrepreneurship Project</strong> — <em>ENSAI</em> (Mar – May 2020)<br>
-<em>UTOPIK Fitness Coaching App</em><br>
-Business plan, financial planning, market analysis.</p></li>
-<li><p><strong>Statistical Project</strong> — <em>ENSAI</em> (Jan – May 2020)<br>
-<em>Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)</em><br>
-Statistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis.</p></li>
-<li><p><strong>Computer Science Project</strong> — <em>ENSAI</em> (Sep – Nov 2019)<br>
-<em>Race Management App: CHRONORUN</em><br>
-API connection, SQL data collection, Python programming.</p></li>
-<li><p><strong>Survey Project</strong> — <em>INSEA</em> (Apr – May 2019)<br>
-<em>Student Consumption Habits Survey in Medinat Al Irfane</em><br>
-Questionnaire design, field survey, data processing, descriptive analysis.</p></li>
-</ul>
-</section>
-<section id="preprint" class="level2">
-<h2 class="anchored" data-anchor-id="preprint">Preprint</h2>
-<section id="optimal-design-of-experiments-for-computer-code-calibration" class="level3">
-<h3 class="anchored" data-anchor-id="optimal-design-of-experiments-for-computer-code-calibration"><a href="https://theses.hal.science/UNIV-UT3/hal-04615127v2">Optimal Design of Experiments for Computer Code Calibration</a></h3>
-<p><strong>Date:</strong> June 24, 2024<br>
-<strong>Published on:</strong> HAL</p>
-</section>
-</section>
-<section id="phd-thesis-manuscript" class="level2">
-<h2 class="anchored" data-anchor-id="phd-thesis-manuscript">PhD Thesis Manuscript</h2>
-<section id="design-of-experiments-for-expensive-computer-code-calibration" class="level3">
-<h3 class="anchored" data-anchor-id="design-of-experiments-for-expensive-computer-code-calibration"><a href="https://theses.hal.science/tel-05186532/">Design of Experiments for Expensive Computer Code Calibration</a></h3>
-<p><strong>Date:</strong> June 25, 2025<br>
-<strong>Published on:</strong> HAL</p>
-</section>
-</section>
-<section id="talks" class="level2">
-<h2 class="anchored" data-anchor-id="talks">Talks</h2>
-<ul>
-<li><p><strong>Plans d’expériences pour la calibration de codes de calculs coûteux</strong><br>
-<em>Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur</em><br>
-<em>Journées de Statistiques de la SFdS, Université de Bordeaux</em> — May 27–31, 2024</p></li>
-<li><p><strong>Planification d’expériences physiques et numériques pour la calibration de simulateurs</strong><br>
-<em>Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur</em><br>
-<em>Journées CIROQUO, École des Mines de Saint-Étienne</em> — May 14–16, 2024</p></li>
-<li><p><strong>Planification d’expériences physiques et numériques pour la calibration de simulateurs</strong><br>
-<em>Journées CIROQUO, Stellantis Poissy</em> — November 23–24, 2023</p></li>
-<li><p><strong>Plans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux</strong><br>
-<em>École Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret</em> — October 8–13, 2023</p></li>
-<li><p><strong>Plans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux</strong><br>
-<em>GDR-Mascotnum Workshop “Calibration des codes numériques”, IHP Paris</em> — May 31, 2023</p></li>
-<li><p><strong>Plans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux</strong><br>
-<em>Journées CIROQUO, INRIA Saclay</em> — May 23–25, 2023</p></li>
-<li><p><strong>Optimisation bayésienne de code de calculs coûteux</strong><br>
-<em>RJCAF, IHP Paris</em> — December 5–6, 2022</p></li>
-<li><p><strong>Planification d’expériences numériques pour la calibration de simulateurs (Bilan des travaux)</strong><br>
-<em>Journées CIROQUO, BRGM Orléans</em> — November 16–17, 2022</p></li>
-<li><p><strong>Calibration de code de calculs coûteux</strong><br>
-<em>Journées CIROQUO, INRIA Grenoble</em> — May 23–25, 2022</p></li>
-</ul>
-</section>
-<section id="poster-presentations" class="level2">
-<h2 class="anchored" data-anchor-id="poster-presentations">Poster Presentations</h2>
-<ul>
-<li><p><strong>Calibration de code de calculs coûteux</strong><br>
-<em>Journées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau</em> — September 2022</p></li>
-<li><p><strong>Plans d’expériences pour la calibration de codes de calculs coûteux</strong><br>
-<em>Journées du GDR-Mascotnum, Giens</em> — April 3–5, 2024</p></li>
-</ul>
-</section>
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<ul>
-<li><p><strong>Basic Mathematics 2</strong><br>
-<em>University of Toulouse III – Licence 1</em><br>
-Topics: Sets, Functions, and Relations.<br>
-Academic Year: 2022–2023</p></li>
-<li><p><strong>Practical Work: Probability</strong><br>
-<em>University of Toulouse III – Licence 1</em><br>
-Topics: Law of Large Numbers, Simulation Methods, and Central Limit Theorem.<br>
-Academic Year: 2022–2023</p></li>
-<li><p><strong>Practical Work: Design of Experiments and Uncertainty Analysis</strong><br>
-<em>University of Toulouse III – Master 2</em><br>
-Topics: Matérn Covariance Functions, Gaussian Process Simulation, and Sensitivity Indices Estimation.<br>
-Academic Year: 2022–2023</p></li>
-</ul>
+<section id="lien-gp---rkhs" class="level1">
+<h1>Lien GP - RKHS</h1>
 
 
 </section>

@@ -19,6 +19,7 @@ website:
         text: Teaching
       - href: Blog.qmd
         text: Blog
+
     tools:
       - icon: linkedin
         href: "https://www.linkedin.com/in/adama-barry-253314133/"

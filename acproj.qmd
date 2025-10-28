@@ -1,0 +1,44 @@
+---
+title: "Academic Projects"
+format:
+  html:
+    toc: true   
+    toc-title: "Contents"    
+    toc-depth: 2    
+    toc-location: left  
+execute:
+  echo: true
+  warning: false
+  error: false
+---
+
+
+## **Final Year Project — ENSAI (Oct 2020 – Mar 2021)**
+
+**Video Transition Classification**\
+<small>Python, OpenCV, supervised & unsupervised learning, feature extraction, multivariate time series</small>\
+[<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="18"/> View on GitHub](https://github.com/barryadama/Projet-Statistique)
+
+![Video Transition Classification illustration](images/img0.png){fig-align="center" width="300"}
+
+## **Methodological Project — ENSAI (Oct 2020 – Jan 2021)**
+
+**Image Processing for Plant Disease Analysis**\
+<small>Python, ImageJ, image registration, literature review, method comparison</small>\
+[<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="18"/> View on GitHub](https://github.com/barryadama/Projet_Methodologique)
+
+![Plant disease analysis illustration](images/plant.png){fig-align="center" width="400"}
+
+## **Entrepreneurship Project — ENSAI (Mar – May 2020)**
+
+**UTOPIK Fitness Coaching App**\
+<small>Business plan, financial modeling, market analysis</small>
+
+![![](images/clipboard-806668292.png){width="1500"}UTOPIK fitness coaching app illustration](images/fitnesS.png){fig-align="center" width="600"}
+
+## **Statistical Project — ENSAI (Jan – May 2020)**
+
+**Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)**\
+<small>Statistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis</small>
+
+![Millet biodiversity project illustration](images/epi.png){fig-align="center" width="400"}

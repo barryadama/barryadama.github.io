@@ -1,95 +1,17 @@
 ---
 title: " "
+draft: true
 editor: visual
 toc: true  # Table des matières
 toc-depth: 2
 execute:
-  echo: true   # Affiche le code
+  echo: true   
   warning: false
   error: false
 ---
 
-# Gaussian Process Modeling {#gp-modeling}
+# [Gaussian process](gp-modeling.qmd)
 
-Gaussian Processes (GP) are used for probabilistic modeling of unknown functions.  
-Here is a simple example in R:
+# [Space filling design of experiments](sp.qmd)
 
-```{r}
-# Load library
-library(MASS)
-
-# Example data
-x <- seq(-5, 5, length.out = 20)
-y <- sin(x) + rnorm(20, 0, 0.2)
-
-# RBF Kernel function
-rbf_kernel <- function(x1, x2, l=1){
-  exp(- (outer(x1, x2, "-")^2) / (2*l^2))
-}
-
-K <- rbf_kernel(x, x) + 0.01 * diag(20)
-
-# Simulate from the Gaussian Process
-y_sim <- mvrnorm(1, mu = rep(0, 20), Sigma = K)
-
-# Plot
-plot(x, y, main="Gaussian Process Example", xlab="x", ylab="y")
-lines(x, y_sim, col="blue")
-```
-
-#Space-Filling Design Example {#sfd-example}
-
-Space-filling designs are used in computer experiments to explore the input space efficiently.
-Here is a simple example using Latin Hypercube Sampling in R:
-
-
-```{r}
-# Load library
-library(lhs)
-
-# Create a 2D Latin Hypercube Design with 10 points
-set.seed(123)
-design <- randomLHS(10, 2)
-
-#Scale to [0,1]
-design_scaled <- design
-
-# Plot design
-plot(design_scaled, main="2D Latin Hypercube Design",
-xlab="X1", ylab="X2", pch=19, col="red")
-grid()
-```
-
-# Introduction to LLM and SLM
-
-# Academic Projects
-
-### **Final Year Project — ENSAI (Oct 2020 – Mar 2021)**
-
-**Video Transition Classification**\
-<small>Python, OpenCV, supervised & unsupervised learning, feature extraction, multivariate time series</small>\
-[<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="18"/> View on GitHub](https://github.com/barryadama/Projet-Statistique)
-
-![Video Transition Classification illustration](images/img0.png){fig-align="center" width="300"}
-
-### **Methodological Project — ENSAI (Oct 2020 – Jan 2021)**
-
-**Image Processing for Plant Disease Analysis**\
-<small>Python, ImageJ, image registration, literature review, method comparison</small>\
-[<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="18"/> View on GitHub](https://github.com/barryadama/Projet_Methodologique)
-
-![Plant disease analysis illustration](images/plant.png){fig-align="center" width="400"}
-
-### **Entrepreneurship Project — ENSAI (Mar – May 2020)**
-
-**UTOPIK Fitness Coaching App**\
-<small>Business plan, financial modeling, market analysis</small>
-
-![![](images/clipboard-806668292.png){width="1500"}UTOPIK fitness coaching app illustration](images/fitnesS.png){fig-align="center" width="600"}
-
-### **Statistical Project — ENSAI (Jan – May 2020)**
-
-**Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)**\
-<small>Statistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis</small>
-
-![Millet biodiversity project illustration](images/epi.png){fig-align="center" width="400"}
+# [Academic Projects](acproj.qmd) 
