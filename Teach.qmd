@@ -25,5 +25,5 @@ From 2022 to 2023, I delivered a total of **64 hours** of tutorials and practica
 ### **Practical Work: Design of Experiments and Uncertainty Analysis**  
 *University of Toulouse III – Master’s Year 2*
 
-**Topics covered:** Matérn Covariance Functions, Gaussian Process Simulation, and Methods for Sensitivity Indices Estimation  
+**Topics covered:** Gaussian Process, Design of experiments, Matérn Covariance Functions, Gaussian Process Simulation and Methods for Sensitivity Indices Estimation  
 **Academic year:** 2022–2023

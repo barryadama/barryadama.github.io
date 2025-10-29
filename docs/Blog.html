@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input7ca75110419abcb2</title>
+<title>quarto-input184cf499f8ef7f95</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -310,17 +310,20 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#gaussian-process" id="toc-gaussian-process" class="nav-link active" data-scroll-target="#gaussian-process">Gaussian process</a></li>
-  <li><a href="#space-filling-design-of-experiments" id="toc-space-filling-design-of-experiments" class="nav-link" data-scroll-target="#space-filling-design-of-experiments">Space filling design of experiments</a></li>
+  <li><a href="#gaussian-process-surrogate-modeling" id="toc-gaussian-process-surrogate-modeling" class="nav-link active" data-scroll-target="#gaussian-process-surrogate-modeling">Gaussian Process Surrogate Modeling</a></li>
+  <li><a href="#design-of-experiments" id="toc-design-of-experiments" class="nav-link" data-scroll-target="#design-of-experiments">Design of experiments</a></li>
   <li><a href="#academic-projects" id="toc-academic-projects" class="nav-link" data-scroll-target="#academic-projects">Academic Projects</a></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -329,14 +332,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="gaussian-process" class="level1">
-<h1><a href="./gp-modeling.html">Gaussian process</a></h1>
+<hr>
+<section id="gaussian-process-surrogate-modeling" class="level1">
+<h1>Gaussian Process Surrogate Modeling</h1>
+<p>In modern scientific computing and engineering, evaluating complex models or simulators can often be <strong>computationally expensive</strong>. Each simulation may take minutes, hours, or even days to complete making tasks like optimization, uncertainty quantification, or sensitivity analysis extremely challenging.</p>
+<p>To overcome this, researchers increasingly rely on <strong>surrogate models</strong> (also called <em>emulators</em> or <em>metamodels</em>). These models aim to approximate the behavior of a costly function using a much cheaper-to-evaluate statistical representation. Among the various approaches, <strong>Gaussian Process (GP) modeling</strong> has become one of the most popular and powerful techniques.</p>
+<p>A Gaussian Process provides a <strong>probabilistic framework</strong> to represent uncertainty about the function being modeled. It not only predicts the function’s value at unseen points but also quantifies the <strong>confidence</strong> in each prediction. This property makes GPs particularly suited for <strong>Bayesian optimization</strong>, <strong>sequential experimental design</strong>, and <strong>uncertainty propagation</strong>.</p>
+<p>In this article, we introduce the key concepts behind Gaussian Process surrogate modeling — explaining how it works, why it is so effective, and how it can be applied to real-world problems where exhaustive simulation is computationally infeasible.➡️ <a href="./gp-modeling.html">Continue reading…</a></p>
+<hr>
 </section>
-<section id="space-filling-design-of-experiments" class="level1">
-<h1><a href="./sp.html">Space filling design of experiments</a></h1>
+<section id="design-of-experiments" class="level1">
+<h1>Design of experiments</h1>
+<p>In scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running <strong>experiments or simulations</strong>. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the <strong>Design of Experiments (DoE)</strong> methodology comes into play.</p>
+<p><strong>Design of Experiments</strong> provides a <strong>systematic and quantitative framework</strong> for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to <strong>maximize information gain</strong> while minimizing the number of experiments or simulations required.</p>
+<p>Originally developed for physical experiments in agriculture and industry, DoE has evolved into a cornerstone of <strong>computational science</strong>, <strong>machine learning</strong>, and <strong>uncertainty quantification</strong>. It enables researchers to build accurate <strong>surrogate models</strong>, perform <strong>sensitivity analyses</strong>, and guide <strong>sequential optimization</strong> processes efficiently.</p>
+<p>A well-designed experimental plan not only improves model accuracy but also enhances interpretability and robustness, allowing better understanding of complex systems under uncertainty.</p>
+<p>In this article, we introduce the fundamental principles of Design of Experiments — what it is, why it matters, and how it can be leveraged to accelerate scientific discovery and data-driven modeling.➡️ <a href="./sp.html">Continue reading…</a></p>
+<hr>
 </section>
 <section id="academic-projects" class="level1">
-<h1><a href="./acproj.html">Academic Projects</a></h1>
+<h1>Academic Projects</h1>
+<p>During my studies at <strong>ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information)</strong>, I had the opportunity to work on several academic projects combining <strong>statistics</strong>, <strong>data science</strong>, and <strong>machine learning</strong>.</p>
+<p>These projects allowed me to apply theoretical concepts to real-world problems — from data exploration and predictive modeling.➡️ <a href="./acproj.html">Continue reading…</a></p>
 
 
 </section>

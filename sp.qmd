@@ -1,5 +1,5 @@
 ---
-title: "Space-Filling Design"
+title: "Design of experiments"
 format:
   html:
     toc: true   
@@ -12,23 +12,4 @@ execute:
   error: false
 ---
 
-Space-filling designs are used in computer experiments to explore the input space efficiently.
-Here is a simple example using Latin Hypercube Sampling in R:
-
-
-```{r}
-# Load library
-library(lhs)
-
-# Create a 2D Latin Hypercube Design with 10 points
-set.seed(123)
-design <- randomLHS(10, 2)
-
-#Scale to [0,1]
-design_scaled <- design
-
-# Plot design
-plot(design_scaled, main="2D Latin Hypercube Design",
-xlab="X1", ylab="X2", pch=19, col="red")
-grid()
-```
+Work in progress....

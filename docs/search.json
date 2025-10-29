@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Adama Ibrahim Barry",
     "section": "",
-    "text": "Welcome to my personal page!\nI am a PhD in Statistics and Data Science from the University of Toulouse, with expertise in Gaussian process emulation, Bayesian optimization, and expensive computer code calibration.\nI graduated as an engineer from ENSAI (Statistical Engineering) and INSEA (Statistics and Applied Economics). My background bridges theoretical statistics and applied data science, with a growing focus on artificial intelligence.\nMy research interests focus on the development and understanding of machine learning models, particularly their mathematical foundations and implementation from scratch.\nThrough this page, I aim to share my learnings, experiments, and projects in data science and AI.\n\n\n“Focus is the superpower that turns your intentions into results.” – Robin Sharma."
+    "text": "👋 Welcome to my personal page!\nI am a PhD in Statistics and Data Science from the University of Toulouse, specializing in Gaussian Process (GP) emulation, Bayesian optimization, and calibration of expensive computer models.\nMy doctoral research was jointly supervised by Prof. Clémentine Prieur (University of Grenoble Alpes), Prof. François Bachoc (University of Lille), Dr. Miguel Muñoz Zúñiga, and Dr. Sarah Bouquet (IFP Energies Nouvelles).\nI hold dual engineering degrees from ENSAI (Statistical Engineering) and INSEA (Statistics and Applied Economics).\nMy academic background bridges theoretical statistics and applied data science, with an increasing focus on artificial intelligence and uncertainty quantification.\nMy research interests focus on the development and understanding of machine learning models, particularly their mathematical foundations and implementation from scratch.\nThrough this page, I aim to share my learnings, experiments, and projects in data science and AI.\n\n\n“Focus is the superpower that turns your intentions into results.” – Robin Sharma."
   },
   {
     "objectID": "Pub.html",
@@ -198,9 +198,9 @@
   {
     "objectID": "gp-modeling.html",
     "href": "gp-modeling.html",
-    "title": "Gaussian Process Modeling",
+    "title": "Gaussian Process Surrogate Modeling",
     "section": "",
-    "text": "Introduction\nGaussian Processes (GP) are used for probabilistic modeling of unknown functions.\nHere is a simple example in R:\n\n# Load library\nlibrary(MASS)\n\n# Example data\nx &lt;- seq(-5, 5, length.out = 20)\ny &lt;- sin(x) + rnorm(20, 0, 0.2)\n\n# RBF Kernel function\nrbf_kernel &lt;- function(x1, x2, l=1){\n  exp(- (outer(x1, x2, \"-\")^2) / (2*l^2))\n}\n\nK &lt;- rbf_kernel(x, x) + 0.01 * diag(20)\n\n# Simulate from the Gaussian Process\ny_sim &lt;- mvrnorm(1, mu = rep(0, 20), Sigma = K)\n\n# Plot\nplot(x, y, main=\"Gaussian Process Example\", xlab=\"x\", ylab=\"y\")\nlines(x, y_sim, col=\"blue\")\n\n\n\n\n\n\n\n\n\n\nChoix de la fonction de covariance\n\n\nLien GP - RKHS"
+    "text": "Work in progress…."
   },
   {
     "objectID": "docs/gp-modeling.html",
@@ -212,9 +212,9 @@
   {
     "objectID": "sp.html",
     "href": "sp.html",
-    "title": "Space-Filling Design",
+    "title": "Design of experiments",
     "section": "",
-    "text": "Space-filling designs are used in computer experiments to explore the input space efficiently. Here is a simple example using Latin Hypercube Sampling in R:\n\n# Load library\nlibrary(lhs)\n\n# Create a 2D Latin Hypercube Design with 10 points\nset.seed(123)\ndesign &lt;- randomLHS(10, 2)\n\n#Scale to [0,1]\ndesign_scaled &lt;- design\n\n# Plot design\nplot(design_scaled, main=\"2D Latin Hypercube Design\",\nxlab=\"X1\", ylab=\"X2\", pch=19, col=\"red\")\ngrid()"
+    "text": "Work in progress…."
   },
   {
     "objectID": "acproj.html",
@@ -254,8 +254,8 @@
   {
     "objectID": "Blog.html",
     "href": "Blog.html",
-    "title": "Gaussian process",
+    "title": "Gaussian Process Surrogate Modeling",
     "section": "",
-    "text": "Gaussian process\n\n\nSpace filling design of experiments\n\n\nAcademic Projects"
+    "text": "Gaussian Process Surrogate Modeling\nIn modern scientific computing and engineering, evaluating complex models or simulators can often be computationally expensive. Each simulation may take minutes, hours, or even days to complete making tasks like optimization, uncertainty quantification, or sensitivity analysis extremely challenging.\nTo overcome this, researchers increasingly rely on surrogate models (also called emulators or metamodels). These models aim to approximate the behavior of a costly function using a much cheaper-to-evaluate statistical representation. Among the various approaches, Gaussian Process (GP) modeling has become one of the most popular and powerful techniques.\nA Gaussian Process provides a probabilistic framework to represent uncertainty about the function being modeled. It not only predicts the function’s value at unseen points but also quantifies the confidence in each prediction. This property makes GPs particularly suited for Bayesian optimization, sequential experimental design, and uncertainty propagation.\nIn this article, we introduce the key concepts behind Gaussian Process surrogate modeling — explaining how it works, why it is so effective, and how it can be applied to real-world problems where exhaustive simulation is computationally infeasible.➡️ Continue reading…\n\n\n\nDesign of experiments\nIn scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running experiments or simulations. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the Design of Experiments (DoE) methodology comes into play.\nDesign of Experiments provides a systematic and quantitative framework for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to maximize information gain while minimizing the number of experiments or simulations required.\nOriginally developed for physical experiments in agriculture and industry, DoE has evolved into a cornerstone of computational science, machine learning, and uncertainty quantification. It enables researchers to build accurate surrogate models, perform sensitivity analyses, and guide sequential optimization processes efficiently.\nA well-designed experimental plan not only improves model accuracy but also enhances interpretability and robustness, allowing better understanding of complex systems under uncertainty.\nIn this article, we introduce the fundamental principles of Design of Experiments — what it is, why it matters, and how it can be leveraged to accelerate scientific discovery and data-driven modeling.➡️ Continue reading…\n\n\n\nAcademic Projects\nDuring my studies at ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information), I had the opportunity to work on several academic projects combining statistics, data science, and machine learning.\nThese projects allowed me to apply theoretical concepts to real-world problems — from data exploration and predictive modeling.➡️ Continue reading…"
   }
 ]

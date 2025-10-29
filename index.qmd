@@ -21,11 +21,15 @@ about:
       text: "**Gmail**"
 ---
 
-### Welcome to my personal page!
+### 👋 Welcome to my personal page!
 
-I am a **PhD in Statistics and Data Science** from the **University of Toulouse**, with expertise in **Gaussian process emulation**, **Bayesian optimization**, and **expensive computer code calibration**.
+I am a **PhD in Statistics and Data Science** from the **University of Toulouse**, specializing in **Gaussian Process (GP) emulation**, **Bayesian optimization**, and **calibration of expensive computer models**.  
 
-I graduated as an engineer from [**ENSAI**](https://ensai.fr/en/) (*Statistical Engineering*) and [**INSEA**](https://insea.ac.ma/) (*Statistics and Applied Economics*). My background bridges **theoretical statistics** and **applied data science**, with a growing focus on **artificial intelligence**.
+My doctoral research was jointly supervised by [**Prof. Clémentine Prieur**](https://membres-ljk.imag.fr/Clementine.Prieur/) (University of Grenoble Alpes), [**Prof. François Bachoc**](https://francoisbachoc.github.io/) (University of Lille), [**Dr. Miguel Muñoz Zúñiga**](https://www.ifpenergiesnouvelles.fr/node/900), and [**Dr. Sarah Bouquet**](https://www.researchgate.net/profile/Sarah-Bouquet) (IFP Energies Nouvelles).  
+
+I hold dual engineering degrees from [**ENSAI**](https://ensai.fr/en/) (*Statistical Engineering*) and [**INSEA**](https://insea.ac.ma/) (*Statistics and Applied Economics*).  
+My academic background bridges **theoretical statistics** and **applied data science**, with an increasing focus on **artificial intelligence** and **uncertainty quantification**.
+
 
 My research interests focus on the **development and understanding of machine learning models**, particularly their **mathematical foundations** and **implementation from scratch**.
 

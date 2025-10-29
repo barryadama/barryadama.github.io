@@ -1,17 +1,49 @@
 ---
 title: " "
-draft: true
+#draft: true
 editor: visual
-toc: true  # Table des matières
-toc-depth: 2
+format:
+  html:
+    toc: true   
+    toc-title: "Contents"    
+    toc-depth: 2    
+    toc-location: left  
 execute:
-  echo: true   
+  echo: true
   warning: false
   error: false
 ---
 
-# [Gaussian process](gp-modeling.qmd)
+___
 
-# [Space filling design of experiments](sp.qmd)
+# Gaussian Process Surrogate Modeling
 
-# [Academic Projects](acproj.qmd) 
+In modern scientific computing and engineering, evaluating complex models or simulators can often be **computationally expensive**. Each simulation may take minutes, hours, or even days to complete making tasks like optimization, uncertainty quantification, or sensitivity analysis extremely challenging.  
+
+To overcome this, researchers increasingly rely on **surrogate models** (also called *emulators* or *metamodels*). These models aim to approximate the behavior of a costly function using a much cheaper-to-evaluate statistical representation. Among the various approaches, **Gaussian Process (GP) modeling** has become one of the most popular and powerful techniques.  
+
+A Gaussian Process provides a **probabilistic framework** to represent uncertainty about the function being modeled. It not only predicts the function’s value at unseen points but also quantifies the **confidence** in each prediction. This property makes GPs particularly suited for **Bayesian optimization**, **sequential experimental design**, and **uncertainty propagation**.  
+
+In this article, we introduce the key concepts behind Gaussian Process surrogate modeling — explaining how it works, why it is so effective, and how it can be applied to real-world problems where exhaustive simulation is computationally infeasible.➡️ [Continue reading...](gp-modeling.qmd)
+
+___
+
+# Design of experiments
+
+In scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running **experiments or simulations**. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the **Design of Experiments (DoE)** methodology comes into play.  
+
+**Design of Experiments** provides a **systematic and quantitative framework** for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to **maximize information gain** while minimizing the number of experiments or simulations required.  
+
+Originally developed for physical experiments in agriculture and industry, DoE has evolved into a cornerstone of **computational science**, **machine learning**, and **uncertainty quantification**. It enables researchers to build accurate **surrogate models**, perform **sensitivity analyses**, and guide **sequential optimization** processes efficiently.  
+
+A well-designed experimental plan not only improves model accuracy but also enhances interpretability and robustness, allowing better understanding of complex systems under uncertainty.  
+
+In this article, we introduce the fundamental principles of Design of Experiments — what it is, why it matters, and how it can be leveraged to accelerate scientific discovery and data-driven modeling.➡️ [Continue reading...](sp.qmd)
+
+___
+
+# Academic Projects
+
+During my studies at **ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information)**, I had the opportunity to work on several academic projects combining **statistics**, **data science**, and **machine learning**.  
+
+These projects allowed me to apply theoretical concepts to real-world problems, from data exploration and predictive modeling.➡️ [Continue reading...](acproj.qmd) 
