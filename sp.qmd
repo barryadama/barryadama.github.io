@@ -13,3 +13,4 @@ execute:
 ---
 
 Work in progress....
+Considerons une fonctio $f$ 
