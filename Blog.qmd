@@ -42,6 +42,11 @@ In this article, we introduce the fundamental principles of Design of Experiment
 
 ___
 
+# Machine Learning for Projectile Trajectory Prediction
+
+How can artificial intelligence predict the trajectory of a basketball, a missile, or even a spacecraft? Behind these spectacular applications lies a fascinating combination of mathematics, physics, and Machine Learning. By learning from data, modern algorithms are now capable of forecasting complex motions with remarkable precision, sometimes even outperforming traditional physical models in uncertain environments. From neural networks to trajectory simulations, this article explores how AI is transforming one of the oldest problems in science: predicting motion. Whether you are curious about mathematics, technology, aerospace, or artificial intelligence, this journey into trajectory prediction will show how equations and data together are shaping the future.➡️ [Continue reading...](ML1.qmd) 
+
+___
 # Academic Projects
 
 During my studies at **ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information)**, I had the opportunity to work on several academic projects combining **statistics**, **data science**, and **machine learning**.  

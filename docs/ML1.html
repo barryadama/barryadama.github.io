@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input49288ad97b9e160c</title>
+<title>Machine Learning for Projectile Trajectory Prediction –</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -263,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
@@ -310,181 +310,558 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-is-a-projectile" id="toc-what-is-a-projectile" class="nav-link" data-scroll-target="#what-is-a-projectile">What Is a Projectile?</a></li>
+  <li><a href="#classical-physics-approach" id="toc-classical-physics-approach" class="nav-link" data-scroll-target="#classical-physics-approach">Classical Physics Approach</a>
+  <ul class="collapse">
+  <li><a href="#horizontal-position" id="toc-horizontal-position" class="nav-link" data-scroll-target="#horizontal-position">Horizontal Position</a></li>
+  <li><a href="#vertical-position" id="toc-vertical-position" class="nav-link" data-scroll-target="#vertical-position">Vertical Position</a></li>
+  </ul></li>
+  <li><a href="#why-physics-alone-is-sometimes-insufficient" id="toc-why-physics-alone-is-sometimes-insufficient" class="nav-link" data-scroll-target="#why-physics-alone-is-sometimes-insufficient">Why Physics Alone Is Sometimes Insufficient</a></li>
+  <li><a href="#the-machine-learning-idea" id="toc-the-machine-learning-idea" class="nav-link" data-scroll-target="#the-machine-learning-idea">The Machine Learning Idea</a></li>
+  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning">Supervised Learning</a>
+  <ul class="collapse">
+  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs">Inputs</a></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs">Outputs</a></li>
+  </ul></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a></li>
+  <li><a href="#polynomial-regression" id="toc-polynomial-regression" class="nav-link" data-scroll-target="#polynomial-regression">Polynomial Regression</a></li>
+  <li><a href="#neural-networks" id="toc-neural-networks" class="nav-link" data-scroll-target="#neural-networks">Neural Networks</a></li>
+  <li><a href="#recurrent-neural-networks-rnns" id="toc-recurrent-neural-networks-rnns" class="nav-link" data-scroll-target="#recurrent-neural-networks-rnns">Recurrent Neural Networks (RNNs)</a></li>
+  <li><a href="#long-short-term-memory-networks-lstms" id="toc-long-short-term-memory-networks-lstms" class="nav-link" data-scroll-target="#long-short-term-memory-networks-lstms">Long Short-Term Memory Networks (LSTMs)</a></li>
+  <li><a href="#example-predicting-a-basketball-shot" id="toc-example-predicting-a-basketball-shot" class="nav-link" data-scroll-target="#example-predicting-a-basketball-shot">Example: Predicting a Basketball Shot</a></li>
+  <li><a href="#physics-informed-machine-learning" id="toc-physics-informed-machine-learning" class="nav-link" data-scroll-target="#physics-informed-machine-learning">Physics-Informed Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#physics-informed-machine-learning-1" id="toc-physics-informed-machine-learning-1" class="nav-link" data-scroll-target="#physics-informed-machine-learning-1">Physics-Informed Machine Learning</a></li>
+  </ul></li>
+  <li><a href="#loss-functions" id="toc-loss-functions" class="nav-link" data-scroll-target="#loss-functions">Loss Functions</a></li>
+  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient Descent</a></li>
+  <li><a href="#simulation-and-synthetic-data" id="toc-simulation-and-synthetic-data" class="nav-link" data-scroll-target="#simulation-and-synthetic-data">Simulation and Synthetic Data</a></li>
+  <li><a href="#reinforcement-learning-and-target-interception" id="toc-reinforcement-learning-and-target-interception" class="nav-link" data-scroll-target="#reinforcement-learning-and-target-interception">Reinforcement Learning and Target Interception</a></li>
+  <li><a href="#computer-vision-and-trajectory-prediction" id="toc-computer-vision-and-trajectory-prediction" class="nav-link" data-scroll-target="#computer-vision-and-trajectory-prediction">Computer Vision and Trajectory Prediction</a></li>
+  <li><a href="#space-applications" id="toc-space-applications" class="nav-link" data-scroll-target="#space-applications">Space Applications</a></li>
+  <li><a href="#why-machine-learning-matters" id="toc-why-machine-learning-matters" class="nav-link" data-scroll-target="#why-machine-learning-matters">Why Machine Learning Matters</a>
+  <ul class="collapse">
+  <li><a href="#adaptability" id="toc-adaptability" class="nav-link" data-scroll-target="#adaptability">Adaptability</a></li>
+  <li><a href="#real-time-prediction" id="toc-real-time-prediction" class="nav-link" data-scroll-target="#real-time-prediction">Real-Time Prediction</a></li>
+  <li><a href="#complex-dynamics" id="toc-complex-dynamics" class="nav-link" data-scroll-target="#complex-dynamics">Complex Dynamics</a></li>
+  <li><a href="#data-fusion" id="toc-data-fusion" class="nav-link" data-scroll-target="#data-fusion">Data Fusion</a></li>
+  </ul></li>
+  <li><a href="#the-limits-of-machine-learning" id="toc-the-limits-of-machine-learning" class="nav-link" data-scroll-target="#the-limits-of-machine-learning">The Limits of Machine Learning</a></li>
+  <li><a href="#the-future" id="toc-the-future" class="nav-link" data-scroll-target="#the-future">The Future</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Machine Learning for Projectile Trajectory Prediction</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
+</header>
+
+
+<hr>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Imagine trying to predict:</p>
 <ul>
-<li><p><strong>2022 – 2025</strong>: PhD in Applied Mathematics – <em>Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)</em><br>
-Thesis: <em>Optimal Design of Experiments for Computer Code Calibration.</em></p></li>
-<li><p><strong>2019 – 2021</strong>: Engineering Degree in Data Science and Advanced Statistics – <em>ENSAI Rennes</em></p></li>
-<li><p><strong>2017 – 2020</strong>: Engineering Degree in Statistics and Applied Economics – <em>INSEA Rabat</em></p></li>
-<li><p><strong>2014 – 2016</strong>: DEUG in Applied Mathematics – <em>Faculty of Sciences, Oujda</em></p></li>
+<li>where a football will land,</li>
+<li>the future position of a drone,</li>
+<li>the path of a rocket,</li>
+<li>or the movement of a spacecraft.</li>
+</ul>
+<p>For centuries, these problems were solved using physics equations.</p>
+<p>Today, however, <strong>Machine Learning</strong> can also learn trajectories directly from data.</p>
+<p>Instead of explicitly programming physical laws, we can train algorithms to:</p>
+<ul>
+<li>observe trajectories,</li>
+<li>recognize patterns,</li>
+<li>and predict future motion.</li>
+</ul>
+<p>This combination of mathematics, physics, and artificial intelligence is transforming:</p>
+<ul>
+<li>aerospace engineering,</li>
+<li>robotics,</li>
+<li>defense systems,</li>
+<li>autonomous vehicles,</li>
+<li>sports analytics,</li>
+<li>video games.</li>
+</ul>
+<p>In this article, we explore how Machine Learning can predict projectile trajectories.</p>
+<hr>
+</section>
+<section id="what-is-a-projectile" class="level1">
+<h1>What Is a Projectile?</h1>
+<p>A projectile is an object moving through space under the influence of forces such as:</p>
+<ul>
+<li>gravity,</li>
+<li>air resistance,</li>
+<li>wind,</li>
+<li>propulsion.</li>
+</ul>
+<p>Examples include:</p>
+<ul>
+<li>a basketball,</li>
+<li>a missile,</li>
+<li>a drone,</li>
+<li>a tennis ball,</li>
+<li>a satellite.</li>
+</ul>
+<p>The objective is often to predict:</p>
+<ul>
+<li>the future position,</li>
+<li>the velocity,</li>
+<li>the impact point,</li>
+<li>or the complete trajectory.</li>
+</ul>
+<hr>
+</section>
+<section id="classical-physics-approach" class="level1">
+<h1>Classical Physics Approach</h1>
+<p>Traditionally, projectile motion is modeled using Newtonian mechanics.</p>
+<p>If air resistance is ignored, the equations are:</p>
+<section id="horizontal-position" class="level2">
+<h2 class="anchored" data-anchor-id="horizontal-position">Horizontal Position</h2>
+<p>[ x(t) = v_0 ()t ]</p>
+</section>
+<section id="vertical-position" class="level2">
+<h2 class="anchored" data-anchor-id="vertical-position">Vertical Position</h2>
+<p>[ y(t) = v_0 ()t - gt^2 ]</p>
+<p>where:</p>
+<ul>
+<li>(v_0) is the initial velocity,</li>
+<li>() is the launch angle,</li>
+<li>(g) is gravity.</li>
+</ul>
+<p>These equations produce a parabola.</p>
+<p>However, real-world systems are much more complicated.</p>
+<hr>
+</section>
+</section>
+<section id="why-physics-alone-is-sometimes-insufficient" class="level1">
+<h1>Why Physics Alone Is Sometimes Insufficient</h1>
+<p>Real trajectories are affected by:</p>
+<ul>
+<li>turbulence,</li>
+<li>aerodynamic drag,</li>
+<li>wind,</li>
+<li>object deformation,</li>
+<li>sensor noise,</li>
+<li>unknown disturbances.</li>
+</ul>
+<p>In many situations:</p>
+<ul>
+<li>equations become too complex,</li>
+<li>parameters are unknown,</li>
+<li>or the environment changes continuously.</li>
+</ul>
+<p>This is where Machine Learning becomes useful.</p>
+<hr>
+</section>
+<section id="the-machine-learning-idea" class="level1">
+<h1>The Machine Learning Idea</h1>
+<p>Machine Learning does not explicitly solve physics equations.</p>
+<p>Instead, it learns from examples.</p>
+<p>Suppose we collect many trajectories:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Initial Speed</th>
+<th>Angle</th>
+<th>Wind Speed</th>
+<th>Final Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20</td>
+<td>30°</td>
+<td>2</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>45°</td>
+<td>0</td>
+<td>61</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>60°</td>
+<td>5</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>A Machine Learning model can discover hidden relationships between:</p>
+<ul>
+<li>inputs,</li>
+<li>environmental conditions,</li>
+<li>and trajectory outcomes.</li>
+</ul>
+<p>The algorithm gradually learns the dynamics from data.</p>
+<hr>
+</section>
+<section id="supervised-learning" class="level1">
+<h1>Supervised Learning</h1>
+<p>Trajectory prediction is often a <strong>supervised learning</strong> problem.</p>
+<p>We provide:</p>
+<section id="inputs" class="level2">
+<h2 class="anchored" data-anchor-id="inputs">Inputs</h2>
+<p>[ X = (v_0, , w, t) ]</p>
+<p>where:</p>
+<ul>
+<li>(v_0): initial speed,</li>
+<li>(): launch angle,</li>
+<li>(w): wind conditions,</li>
+<li>(t): time.</li>
 </ul>
 </section>
-<section id="experience" class="level2">
-<h2 class="anchored" data-anchor-id="experience">Experience</h2>
-<ul>
-<li><p><strong>2022 – 2025</strong>: Junior Research Engineer – <em>IFP Energies Nouvelles (IFPEN), Rueil-Malmaison</em><br>
-Bayesian calibration of a geological simulator for CO₂ storage.<br>
-<em>Gaussian processes, Bayesian inference, experimental design, Python, R.</em></p></li>
-<li><p><strong>Apr – Oct 2021</strong>: Research Internship – <em>Laboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette</em><br>
-Gaussian processes and sequential design of computer experiments for quantile estimation.<br>
-<em>Gaussian process modeling, experimental design, Matlab programming.</em></p></li>
-<li><p><strong>Jun – Aug 2020</strong>: Applied Internship – <em>CREST - ENSAI, Bruz</em><br>
-Robust estimation of statistical parameters.<br>
-<em>Simulation, estimator construction, R programming.</em></p></li>
-<li><p><strong>Jul – Aug 2018</strong>: Discovery Internship – <em>Office des Changes, Rabat</em><br>
-Analysis of Morocco’s trade flows.<br>
-<em>Descriptive analysis, forecasting, SPSS programming.</em></p></li>
-</ul>
+<section id="outputs" class="level2">
+<h2 class="anchored" data-anchor-id="outputs">Outputs</h2>
+<p>[ Y = (x(t), y(t)) ]</p>
+<p>The model learns a function:</p>
+<p>[ f(X) Y ]</p>
+<p>which predicts future positions.</p>
+<hr>
 </section>
-<section id="technical-skills" class="level2">
-<h2 class="anchored" data-anchor-id="technical-skills">Technical Skills</h2>
-<ul>
-<li><strong>Python:</strong> NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.<br>
-</li>
-<li><strong>R:</strong> DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.<br>
-</li>
-<li><strong>Matlab:</strong> Surrogate Toolbox, Statistics and Machine Learning Toolbox.<br>
-</li>
-<li><strong>SQL:</strong> Queries, joins, optimization.<br>
-</li>
-<li><strong>Other Tools:</strong> Git (GitHub, GitLab), C, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint.</li>
-</ul>
 </section>
-<section id="general-skills" class="level2">
-<h2 class="anchored" data-anchor-id="general-skills">General Skills</h2>
-<ul>
-<li><strong>Modeling and Machine Learning:</strong> Regression, classification, clustering, dimensionality reduction, deep neural networks (RNN, BNN, DeepGP), reinforcement learning, active learning, surrogate modeling.<br>
-</li>
-<li><strong>Optimization:</strong> Linear, nonlinear, stochastic, Bayesian, and multi-objective optimization.<br>
-</li>
-<li><strong>Statistics and Data Analysis:</strong> Inference, model validation, numerical simulation, data preparation, and visualization.<br>
-</li>
-<li><strong>Soft Skills:</strong> Analytical thinking, communication, continuous learning, scientific monitoring, autonomy, adaptability, innovation, teamwork, and applied R&amp;D.<br>
-</li>
-<li><strong>Other Skills:</strong> Basic knowledge of Hadoop/Spark environments, MLOps, model interpretability, deployment, and automation.</li>
-</ul>
+<section id="linear-regression" class="level1">
+<h1>Linear Regression</h1>
+<p>The simplest Machine Learning model is linear regression.</p>
+<p>For example:</p>
+<p>[ y = _0 + _1 x ]</p>
+<p>The coefficients:</p>
+<p>[ _0, _1 ]</p>
+<p>are estimated from data.</p>
+<p>Linear regression works for simple relationships but struggles with complex nonlinear trajectories.</p>
+<p>Projectile motion is highly nonlinear.</p>
+<p>Therefore, more advanced models are needed.</p>
+<hr>
 </section>
-<section id="certificates" class="level2">
-<h2 class="anchored" data-anchor-id="certificates">Certificates</h2>
+<section id="polynomial-regression" class="level1">
+<h1>Polynomial Regression</h1>
+<p>Projectile trajectories naturally involve quadratic terms.</p>
+<p>Recall the classical equation:</p>
+<p>[ y(t) = at^2 + bt + c ]</p>
+<p>Polynomial regression can therefore model curved paths effectively.</p>
+<p>Example:</p>
+<p>[ y = _0 + _1 x + _2 x^2 ]</p>
+<p>This already resembles the parabola predicted by physics.</p>
+<hr>
+</section>
+<section id="neural-networks" class="level1">
+<h1>Neural Networks</h1>
+<p>Modern trajectory prediction often uses neural networks.</p>
+<p>A neural network is inspired by the human brain.</p>
+<p>It consists of layers of interconnected neurons.</p>
+<p>Mathematically:</p>
+<p>[ z = Wx + b ]</p>
+<p>followed by nonlinear activation functions.</p>
+<p>Neural networks can learn extremely complex dynamics.</p>
+<p>They are widely used for:</p>
 <ul>
-<li><strong>Coursera:</strong>
+<li>missile tracking,</li>
+<li>drone navigation,</li>
+<li>autonomous systems,</li>
+<li>sports analytics.</li>
+</ul>
+<hr>
+</section>
+<section id="recurrent-neural-networks-rnns" class="level1">
+<h1>Recurrent Neural Networks (RNNs)</h1>
+<p>Trajectories are sequences evolving over time.</p>
+<p>This makes <strong>Recurrent Neural Networks (RNNs)</strong> particularly useful.</p>
+<p>Instead of analyzing isolated points, RNNs remember past motion.</p>
+<p>At time (t):</p>
+<p>[ h_t = f(x_t, h_{t-1}) ]</p>
+<p>where:</p>
 <ul>
-<li><a href="https://www.coursera.org/account/accomplishments/verify/JNGNYFJN5UVY">AI Workflow: Machine Learning, Visual Recognition and NLP</a><br>
-</li>
-<li><a href="https://www.coursera.org/account/accomplishments/verify/XEF64JAWNB2Z">Neural Networks and Deep Learning</a></li>
+<li>(x_t): current observation,</li>
+<li>(h_t): hidden memory state.</li>
+</ul>
+<p>The network progressively learns temporal dynamics.</p>
+<hr>
+</section>
+<section id="long-short-term-memory-networks-lstms" class="level1">
+<h1>Long Short-Term Memory Networks (LSTMs)</h1>
+<p>Standard RNNs struggle with long sequences.</p>
+<p>LSTMs solve this problem using memory cells.</p>
+<p>They can remember important information over long periods.</p>
+<p>LSTMs are widely used for:</p>
+<ul>
+<li>aircraft tracking,</li>
+<li>weather prediction,</li>
+<li>satellite motion,</li>
+<li>trajectory forecasting.</li>
+</ul>
+<hr>
+</section>
+<section id="example-predicting-a-basketball-shot" class="level1">
+<h1>Example: Predicting a Basketball Shot</h1>
+<p>Suppose we record thousands of basketball shots.</p>
+<p>For each shot we measure:</p>
+<ul>
+<li>release angle,</li>
+<li>release speed,</li>
+<li>player position,</li>
+<li>spin,</li>
+<li>ball trajectory.</li>
+</ul>
+<p>A neural network can learn to predict:</p>
+<ul>
+<li>whether the shot succeeds,</li>
+<li>the future path of the ball,</li>
+<li>the landing point.</li>
+</ul>
+<p>Modern sports analytics increasingly relies on these models.</p>
+<hr>
+</section>
+<section id="physics-informed-machine-learning" class="level1">
+<h1>Physics-Informed Machine Learning</h1>
+<p>A major challenge in AI is ensuring physically realistic predictions.</p>
+<p>Pure neural networks sometimes violate physical laws.</p>
+<p>For example:</p>
+<ul>
+<li>impossible accelerations,</li>
+<li>unrealistic velocities,</li>
+<li>unstable trajectories.</li>
+</ul>
+<p>To solve this problem, researchers combine:</p>
+<ul>
+<li>Machine Learning,</li>
+<li>differential equations,</li>
+<li>physical constraints.</li>
+</ul>
+<p>This approach is called:</p>
+<section id="physics-informed-machine-learning-1" class="level2">
+<h2 class="anchored" data-anchor-id="physics-informed-machine-learning-1">Physics-Informed Machine Learning</h2>
+<p>The model is trained not only on data but also on physics laws.</p>
+<hr>
+</section>
+</section>
+<section id="loss-functions" class="level1">
+<h1>Loss Functions</h1>
+<p>Machine Learning models learn by minimizing errors.</p>
+<p>A common loss function is:</p>
+<p>[ L = _{i=1}^n (y_i - _i)^2 ]</p>
+<p>This is the Mean Squared Error (MSE).</p>
+<p>The objective is:</p>
+<p>[ _L() ]</p>
+<p>where:</p>
+<ul>
+<li>() represents model parameters.</li>
+</ul>
+<p>Optimization algorithms such as gradient descent update the model iteratively.</p>
+<hr>
+</section>
+<section id="gradient-descent" class="level1">
+<h1>Gradient Descent</h1>
+<p>Gradient descent updates parameters using derivatives.</p>
+<p>The update rule is:</p>
+<p>[ <em>{new} = </em>{old} - L ]</p>
+<p>where:</p>
+<ul>
+<li>() is the learning rate,</li>
+<li>(L) is the gradient.</li>
+</ul>
+<p>This process gradually improves predictions.</p>
+<hr>
+</section>
+<section id="simulation-and-synthetic-data" class="level1">
+<h1>Simulation and Synthetic Data</h1>
+<p>Trajectory datasets are often generated through simulation.</p>
+<p>Physics engines can create millions of artificial trajectories.</p>
+<p>This synthetic data is used to train Machine Learning models.</p>
+<p>Advantages include:</p>
+<ul>
+<li>low cost,</li>
+<li>massive datasets,</li>
+<li>controlled environments.</li>
+</ul>
+<p>This is common in:</p>
+<ul>
+<li>robotics,</li>
+<li>aerospace,</li>
+<li>autonomous driving.</li>
+</ul>
+<hr>
+</section>
+<section id="reinforcement-learning-and-target-interception" class="level1">
+<h1>Reinforcement Learning and Target Interception</h1>
+<p>Some systems must not only predict trajectories but also react to them.</p>
+<p>For example:</p>
+<ul>
+<li>missile interception,</li>
+<li>drone avoidance,</li>
+<li>robotic catching systems.</li>
+</ul>
+<p>These problems use <strong>Reinforcement Learning</strong>.</p>
+<p>An agent learns by interacting with the environment.</p>
+<p>It receives rewards:</p>
+<p>[ R_t ]</p>
+<p>and learns strategies maximizing cumulative reward.</p>
+<hr>
+</section>
+<section id="computer-vision-and-trajectory-prediction" class="level1">
+<h1>Computer Vision and Trajectory Prediction</h1>
+<p>Modern AI systems also use cameras.</p>
+<p>Computer vision algorithms detect moving objects frame by frame.</p>
+<p>Deep learning models estimate:</p>
+<ul>
+<li>velocity,</li>
+<li>acceleration,</li>
+<li>future trajectory.</li>
+</ul>
+<p>This is crucial for:</p>
+<ul>
+<li>autonomous vehicles,</li>
+<li>surveillance,</li>
+<li>sports tracking,</li>
+<li>robotics.</li>
+</ul>
+<hr>
+</section>
+<section id="space-applications" class="level1">
+<h1>Space Applications</h1>
+<p>Trajectory prediction is essential in space exploration.</p>
+<p>AI helps predict:</p>
+<ul>
+<li>satellite orbits,</li>
+<li>asteroid motion,</li>
+<li>spacecraft trajectories.</li>
+</ul>
+<p>Machine Learning can compensate for:</p>
+<ul>
+<li>uncertain measurements,</li>
+<li>noisy sensors,</li>
+<li>incomplete physical models.</li>
+</ul>
+<p>NASA and aerospace companies increasingly integrate AI into navigation systems.</p>
+<hr>
+</section>
+<section id="why-machine-learning-matters" class="level1">
+<h1>Why Machine Learning Matters</h1>
+<p>Machine Learning offers several advantages:</p>
+<section id="adaptability" class="level2">
+<h2 class="anchored" data-anchor-id="adaptability">Adaptability</h2>
+<p>Models adapt to changing environments.</p>
+</section>
+<section id="real-time-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="real-time-prediction">Real-Time Prediction</h2>
+<p>Predictions can be extremely fast.</p>
+</section>
+<section id="complex-dynamics" class="level2">
+<h2 class="anchored" data-anchor-id="complex-dynamics">Complex Dynamics</h2>
+<p>AI handles highly nonlinear systems.</p>
+</section>
+<section id="data-fusion" class="level2">
+<h2 class="anchored" data-anchor-id="data-fusion">Data Fusion</h2>
+<p>Models combine:</p>
+<ul>
+<li>sensors,</li>
+<li>cameras,</li>
+<li>radar,</li>
+<li>physical simulations.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="the-limits-of-machine-learning" class="level1">
+<h1>The Limits of Machine Learning</h1>
+<p>Despite its power, Machine Learning has limitations.</p>
+<p>Models require:</p>
+<ul>
+<li>large datasets,</li>
+<li>computational power,</li>
+<li>careful validation.</li>
+</ul>
+<p>Poorly trained models may produce dangerous predictions.</p>
+<p>For critical applications such as aerospace or defense, reliability is essential.</p>
+<p>This is why hybrid approaches combining:</p>
+<ul>
+<li>physics,</li>
+<li>mathematics,</li>
+<li>and AI</li>
+</ul>
+<p>are becoming increasingly important.</p>
+<hr>
+</section>
+<section id="the-future" class="level1">
+<h1>The Future</h1>
+<p>The future of trajectory prediction will likely combine:</p>
+<ul>
+<li>classical mechanics,</li>
+<li>Machine Learning,</li>
+<li>probabilistic models,</li>
+<li>real-time sensor fusion.</li>
+</ul>
+<p>Researchers are developing systems capable of:</p>
+<ul>
+<li>autonomous navigation,</li>
+<li>adaptive control,</li>
+<li>intelligent targeting,</li>
+<li>real-time optimization.</li>
+</ul>
+<p>Trajectory prediction is becoming a central problem in artificial intelligence.</p>
+<hr>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Projectile trajectory prediction beautifully illustrates the meeting point between:</p>
+<ul>
+<li>mathematics,</li>
+<li>physics,</li>
+<li>computer science,</li>
+<li>and artificial intelligence.</li>
+</ul>
+<p>Classical equations provide deep physical understanding.</p>
+<p>Machine Learning provides flexibility and adaptability.</p>
+<p>Together, they enable modern systems capable of predicting motion with remarkable precision.</p>
+<p>From basketball shots to spacecraft navigation, trajectory prediction has become one of the most fascinating applications of AI in the real world.</p>
+<hr>
+</section>
+<section id="further-reading" class="level1">
+<h1>Further Reading</h1>
+<ul>
+<li><p><em>Pattern Recognition and Machine Learning</em> — Christopher Bishop</p></li>
+<li><p><em>Deep Learning</em> — Ian Goodfellow, Yoshua Bengio, Aaron Courville</p></li>
+<li><p><em>Probabilistic Machine Learning</em> — Kevin Murphy</p></li>
+<li><p><em>Reinforcement Learning: An Introduction</em> — Richard Sutton &amp; Andrew Barto</p></li>
+<li><p>Topics:</p>
+<ul>
+<li>Neural Networks</li>
+<li>Physics-Informed Neural Networks</li>
+<li>Differential Equations</li>
+<li>Robotics</li>
+<li><h2 id="aerospace-engineering" class="anchored" data-anchor-id="further-reading">Aerospace Engineering</h2></li>
 </ul></li>
-<li><strong>LinkedIn Learning:</strong>
-<ul>
-<li><a href="https://www.linkedin.com/learning/certificates/e180cc1e4d406bc18d08ef9a932aabb3211916ac57d8016511332aa83c2d625a?trk=backfilled_certificate">Essential Git Training</a><br>
-</li>
-<li><a href="https://www.coursera.org/account/accomplishments/verify/XEF64JAWNB2Z">Linux: Terminal Commands</a></li>
-</ul></li>
-<li><strong>Codecademy / Udemy:</strong>
-<ul>
-<li><a href="https://www.codecademy.com/profiles/barryAdama0299016940/certificates/f4cba58fa21e556a6a8f5a975cef5388">Learn Web Scraping with Beautiful Soup</a><br>
-</li>
-<li><a href="https://www.udemy.com/course/complete-mlops-bootcamp-with-10-end-to-end-ml-projects/">Complete MLOps Bootcamp with 10 End-to-End ML Projects</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="academic-projects" class="level2">
-<h2 class="anchored" data-anchor-id="academic-projects">Academic Projects</h2>
-<ul>
-<li><p><strong>Final Year Project</strong> — <em>ENSAI</em> (Oct 2020 – Mar 2021)<br>
-<em>Video Transition Classification</em><br>
-Python, OpenCV, supervised and unsupervised classification, feature extraction, multivariate time series.</p></li>
-<li><p><strong>Methodological Project</strong> — <em>ENSAI</em> (Oct 2020 – Jan 2021)<br>
-<em>Image Processing for Plant Disease Analysis</em><br>
-Python, ImageJ, image registration, literature review, method comparison.</p></li>
-<li><p><strong>Entrepreneurship Project</strong> — <em>ENSAI</em> (Mar – May 2020)<br>
-<em>UTOPIK Fitness Coaching App</em><br>
-Business plan, financial planning, market analysis.</p></li>
-<li><p><strong>Statistical Project</strong> — <em>ENSAI</em> (Jan – May 2020)<br>
-<em>Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)</em><br>
-Statistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis.</p></li>
-<li><p><strong>Computer Science Project</strong> — <em>ENSAI</em> (Sep – Nov 2019)<br>
-<em>Race Management App: CHRONORUN</em><br>
-API connection, SQL data collection, Python programming.</p></li>
-<li><p><strong>Survey Project</strong> — <em>INSEA</em> (Apr – May 2019)<br>
-<em>Student Consumption Habits Survey in Medinat Al Irfane</em><br>
-Questionnaire design, field survey, data processing, descriptive analysis.</p></li>
-</ul>
-</section>
-<section id="preprint" class="level2">
-<h2 class="anchored" data-anchor-id="preprint">Preprint</h2>
-<section id="optimal-design-of-experiments-for-computer-code-calibration" class="level3">
-<h3 class="anchored" data-anchor-id="optimal-design-of-experiments-for-computer-code-calibration"><a href="https://theses.hal.science/UNIV-UT3/hal-04615127v2">Optimal Design of Experiments for Computer Code Calibration</a></h3>
-<p><strong>Date:</strong> June 24, 2024<br>
-<strong>Published on:</strong> HAL</p>
-</section>
-</section>
-<section id="phd-thesis-manuscript" class="level2">
-<h2 class="anchored" data-anchor-id="phd-thesis-manuscript">PhD Thesis Manuscript</h2>
-<section id="design-of-experiments-for-expensive-computer-code-calibration" class="level3">
-<h3 class="anchored" data-anchor-id="design-of-experiments-for-expensive-computer-code-calibration"><a href="https://theses.hal.science/tel-05186532/">Design of Experiments for Expensive Computer Code Calibration</a></h3>
-<p><strong>Date:</strong> June 25, 2025<br>
-<strong>Published on:</strong> HAL</p>
-</section>
-</section>
-<section id="talks" class="level2">
-<h2 class="anchored" data-anchor-id="talks">Talks</h2>
-<ul>
-<li><p><strong>Plans d’expériences pour la calibration de codes de calculs coûteux</strong><br>
-<em>Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur</em><br>
-<em>Journées de Statistiques de la SFdS, Université de Bordeaux</em> — May 27–31, 2024</p></li>
-<li><p><strong>Planification d’expériences physiques et numériques pour la calibration de simulateurs</strong><br>
-<em>Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur</em><br>
-<em>Journées CIROQUO, École des Mines de Saint-Étienne</em> — May 14–16, 2024</p></li>
-<li><p><strong>Planification d’expériences physiques et numériques pour la calibration de simulateurs</strong><br>
-<em>Journées CIROQUO, Stellantis Poissy</em> — November 23–24, 2023</p></li>
-<li><p><strong>Plans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux</strong><br>
-<em>École Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret</em> — October 8–13, 2023</p></li>
-<li><p><strong>Plans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux</strong><br>
-<em>GDR-Mascotnum Workshop “Calibration des codes numériques”, IHP Paris</em> — May 31, 2023</p></li>
-<li><p><strong>Plans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux</strong><br>
-<em>Journées CIROQUO, INRIA Saclay</em> — May 23–25, 2023</p></li>
-<li><p><strong>Optimisation bayésienne de code de calculs coûteux</strong><br>
-<em>RJCAF, IHP Paris</em> — December 5–6, 2022</p></li>
-<li><p><strong>Planification d’expériences numériques pour la calibration de simulateurs (Bilan des travaux)</strong><br>
-<em>Journées CIROQUO, BRGM Orléans</em> — November 16–17, 2022</p></li>
-<li><p><strong>Calibration de code de calculs coûteux</strong><br>
-<em>Journées CIROQUO, INRIA Grenoble</em> — May 23–25, 2022</p></li>
-</ul>
-</section>
-<section id="poster-presentations" class="level2">
-<h2 class="anchored" data-anchor-id="poster-presentations">Poster Presentations</h2>
-<ul>
-<li><p><strong>Calibration de code de calculs coûteux</strong><br>
-<em>Journées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau</em> — September 2022</p></li>
-<li><p><strong>Plans d’expériences pour la calibration de codes de calculs coûteux</strong><br>
-<em>Journées du GDR-Mascotnum, Giens</em> — April 3–5, 2024</p></li>
-</ul>
-</section>
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<ul>
-<li><p><strong>Basic Mathematics 2</strong><br>
-<em>University of Toulouse III – Licence 1</em><br>
-Topics: Sets, Functions, and Relations.<br>
-Academic Year: 2022–2023</p></li>
-<li><p><strong>Practical Work: Probability</strong><br>
-<em>University of Toulouse III – Licence 1</em><br>
-Topics: Law of Large Numbers, Simulation Methods, and Central Limit Theorem.<br>
-Academic Year: 2022–2023</p></li>
-<li><p><strong>Practical Work: Design of Experiments and Uncertainty Analysis</strong><br>
-<em>University of Toulouse III – Master 2</em><br>
-Topics: Matérn Covariance Functions, Gaussian Process Simulation, and Sensitivity Indices Estimation.<br>
-Academic Year: 2022–2023</p></li>
 </ul>
 
 
