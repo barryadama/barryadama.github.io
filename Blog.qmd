@@ -1,18 +1,23 @@
 ---
-title: "Blog"
+title: "Blog ML et Statistique"
 draft: false
 editor: visual
 format:
   html:
-    toc: true   
-    toc-title: "Contents"    
-    toc-depth: 2    
-    toc-location: left  
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    toc-location: left
 ---
 
-___
+Ce blog a pour objectif de présenter des méthodes de modélisation, d’approximation et d’optimisation de systèmes complexes, en particulier dans des contextes où les données sont rares, coûteuses ou issues de simulateurs numériques intensifs.
 
-# Modélisation par processus gaussiens 
+Les contenus couvrent notamment les processus gaussiens et les modèles de krigeage pour la construction de métamodèles, ainsi que l’optimisation bayésienne pour la recherche efficace d’optima sous contrainte de coût. Une attention particulière est également portée à la planification d’expériences, à la calibration bayésienne de modèles numériques et aux approches modernes du machine learning, incluant le deep learning et les méthodes probabilistes.
+
+L’ensemble s’inscrit dans une démarche à l’interface entre statistique et le machine learning, avec un accent sur la quantification de l’incertitude, l’efficacité computationnelle et l’aide à la décision dans des environnements complexes.
+
+------------------------------------------------------------------------
+# Modélisation par processus gaussiens
 
 Dans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer **très coûteuse en temps de calcul**. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.
 
@@ -22,9 +27,8 @@ Un processus gaussien fournit un **cadre probabiliste** permettant de représent
 
 Dans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ [Lire plus..](gp-modeling.qmd)
 
-___
+------------------------------------------------------------------------
 
 # Plans d'experiences
 
 Blog en cours de traduction en francais ....
-
