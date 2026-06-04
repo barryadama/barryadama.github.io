@@ -31,6 +31,7 @@ ___
 # Plans d'experiences
 
 Blog en cours de traduction en francais ....
+
 <!-- In scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running **experiments or simulations**. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the **Design of Experiments (DoE)** methodology comes into play. -->
 
 <!-- **Design of Experiments** provides a **systematic and quantitative framework** for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to **maximize information gain** while minimizing the number of experiments or simulations required. -->
