@@ -34,25 +34,3 @@ ___
 
 Blog en cours de traduction en francais ....
 
-<!-- In scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running **experiments or simulations**. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the **Design of Experiments (DoE)** methodology comes into play. -->
-
-<!-- **Design of Experiments** provides a **systematic and quantitative framework** for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to **maximize information gain** while minimizing the number of experiments or simulations required. -->
-
-<!-- Originally developed for physical experiments in agriculture and industry, DoE has evolved into a cornerstone of **computational science**, **machine learning**, and **uncertainty quantification**. It enables researchers to build accurate **surrogate models**, perform **sensitivity analyses**, and guide **sequential optimization** processes efficiently. -->
-
-<!-- A well-designed experimental plan not only improves model accuracy but also enhances interpretability and robustness, allowing better understanding of complex systems under uncertainty. -->
-
-<!-- In this article, we introduce the fundamental principles of Design of Experiments — what it is, why it matters, and how it can be leveraged to accelerate scientific discovery and data-driven modeling.➡️ [Continue reading...](sp.qmd) -->
-
-<!-- ___ -->
-
-<!-- # Machine Learning for Projectile Trajectory Prediction -->
-
-<!-- How can artificial intelligence predict the trajectory of a basketball, a missile, or even a spacecraft? Behind these spectacular applications lies a fascinating combination of mathematics, physics, and Machine Learning. By learning from data, modern algorithms are now capable of forecasting complex motions with remarkable precision, sometimes even outperforming traditional physical models in uncertain environments. From neural networks to trajectory simulations, this article explores how AI is transforming one of the oldest problems in science: predicting motion. Whether you are curious about mathematics, technology, aerospace, or artificial intelligence, this journey into trajectory prediction will show how equations and data together are shaping the future.➡️ [Continue reading...](ML1.qmd) -->
-
-<!-- ___ -->
-<!-- # Academic Projects -->
-
-<!-- During my studies at **ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information)**, I had the opportunity to work on several academic projects combining **statistics**, **data science**, and **machine learning**. -->
-
-<!-- These projects allowed me to apply theoretical concepts to real-world problems, from data exploration and predictive modeling.➡️ [Continue reading...](acproj.qmd) -->
