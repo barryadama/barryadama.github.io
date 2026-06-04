@@ -33,7 +33,7 @@ Mon parcours académique s’inscrit à l’interface entre **statistique théor
 
 Mes travaux de recherche portent sur le **développement et la compréhension des modèles d’apprentissage automatique**, en particulier leurs **fondements mathématiques** ainsi que leur **implémentation**.
 
-Sur cette page, je souhaite partager mes **apprentissages**, **expérimentations** et **projets** en science des données et en intelligence artificielle.
+Sur cette page, je souhaite partager mes **apprentissages** et **projets** en science des données et en intelligence artificielle.
 
 ![](images/LinkedInBack.jfif){width="1200"}
 
