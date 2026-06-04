@@ -30,84 +30,84 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "",
-    "text": "2022 – 2025: PhD in Applied Mathematics – Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)\nThesis: Optimal Design of Experiments for Computer Code Calibration.\n2019 – 2021: Engineering Degree in Data Science and Advanced Statistics – ENSAI Rennes\n2017 – 2020: Engineering Degree in Statistics and Applied Economics – INSEA Rabat\n2014 – 2016: DEUG in Applied Mathematics – Faculty of Sciences, Oujda"
+    "text": "Docteur-Ingénieur en Statistique et Sciences des Données\n\n📧 adambarry207@gmail.com | 📞 07 55 85 54 73 | 🌐 barryadama.github.io | 📍 Toulouse, France\n\n\n\n\nDoctorat en Mathématiques Appliquées 2022 – 2025\nÉcole Doctorale EDMITT – Université de Toulouse\nTitre : Plans d’expériences pour la calibration de codes de calculs coûteux\nThèse industrielle CIFRE financée par l’IFPEN (consortium CIROQUO, en collaboration avec l’IMT et l’Inria Grenoble).\nMéthodes : calibration bayésienne, processus gaussiens (krigeage), MCMC, plans d’expériences physiques et numériques, optimisation stochastique, quantification d’incertitude.\nLivrables : 3 packages R open source (disponible sur GitHub), un article soumis (IJUQ), manuscrit de thèse (disponible sur HAL).\nDiplôme d’Ingénieur – Génie Statistique -Data Science appliquée à l’industrie 2019 – 2021\nENSAI (École Nationale de la Statistique et de l’Analyse de l’Information), Bruz\nStatistique avancée, machine learning, optimisation, programmation.\nDiplôme d’Ingénieur – Statistique et Économie Appliquée 2017 – 2020\nINSEA, Rabat (Maroc)\nStatistique, économétrie, science des données.\nDEUG en Mathématiques Appliquées 2016\nFaculté des Sciences, Oujda\n\n\n\n\nData Scientist / Ingénieur de Recherche Junior 2022 – 2025\nIFP Énergies Nouvelles (IFPEN), Rueil-Malmaison\n\nDéveloppement d’une stratégie de planification d’expériences en deux étapes pour la calibration bayésienne d’un simulateur de stockage géologique du CO2,\nÉmulation par processus gaussiens pour l’approximation de simulateurs numériques coûteux,\nOptimisation de critères bayésiens (recuit simulé, algorithmes génétiques, perturbation simultanée),\nDéveloppement de 3 packages R open source ; publications et rapports scientifiques.\n\nStage de Fin d’Études Avril – Octobre 2021\nLaboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette\n\nPlanification séquentielle d’expériences numériques pour l’estimation de quantiles d’un simulateur coûteux,\nMétamodèles par processus gaussiens et stratégies adaptatives de réduction d’incertitude (stratégie SUR).\n\nStage d’Application Juin – Août 2020\nCREST – ENSAI, Bruz\n\nEstimateurs robustes de la moyenne (Median-of-Means) : étude théorique et simulations sous R.\n\nStage de Recherche Mai – Août 2019\nINSEA-INSTAT, Rabat – Bamako\n\nImpact de la rareté de la petite monnaie dans la zone UEMOA : analyse empirique sous RStudio.\n\nStage de Découverte Juillet – Août 2018\nOffice des Changes, Rabat\n\nAnalyse des échanges commerciaux du Maroc : analyse descriptive et prévisions avec SPSS.\n\n\n\n\n\nDoctorant Chargé d’Enseignement – Université de Toulouse III 2022 – 2023\n64 heures de TD et TP\n\n\n\n\n\n\n\n\nCours\nNiveau\nType\n\n\n\n\nMathématiques Fondamentales II (ensembles, fonctions, relations)\nLicence 1\nTD\n\n\nProbabilités (loi des grands nombres, TCL, simulations)\nLicence 3\nTD + TP\n\n\nPlans d’Expériences et Analyse d’Incertitude (processus gaussiens, indices de Sobol)\nMaster 2\nTP\n\n\n\n\n\n\n\nLangages de programmation\n\nPython : NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.\nR : DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.\nMatlab : Surrogate Toolbox, Statistics and Machine Learning Toolbox.\nSQL : requêtes, jointures, optimisation.\nAutres : Git (GitHub, GitLab), Quarto, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint.\n\nMéthodes Statistiques & ML\n\nInférence bayésienne, MCMC, processus gaussiens, GLM, régression logistique, modèles mixtes.\nRégression, classification, clustering, réduction de dimension.\nApprentissage actif, surrogate modeling, analyse de sensibilité, plans d’expériences.\nOptimisation : linéaire, non linéaire, stochastique, bayésienne, multi-objectif.\n\nCompétences transversales\nEsprit analytique · Communication · Autonomie · Adaptabilité · Travail en équipe.\nLangues\nFrançais (avancé) · Anglais (professionnel) · Sonrhaï & Bambara (langues maternelles)\n\n\n\n\nManuscrit de thèse (HAL, 2025)\nPlans d’expériences pour la calibration de codes de calcul coûteux, Université de Toulouse.\nPublication (HAL, IJUQ, juin 2024)\nDesign of Experiments for Computer Code Calibration.\nPackages R (GitHub)\n3 packages open source : calibration bayésienne, plans d’expériences, optimisation.\n\n\n\n\nClassification de transitions vidéo (ENSAI, oct. 2020 – mars 2021)\nPython, OpenCV, classification supervisée et non supervisée, séries temporelles multivariées.\nTraitement d’images pour l’analyse de maladies des plantes (ENSAI, oct. 2020 – janv. 2021)\nPython, ImageJ, recalage d’images, revue de littérature.\nApplication UTOPIK – Coaching Fitness (ENSAI, mars – mai 2020)\nProjet entrepreneurial : business plan, analyse de marché, planification financière.\nImpact des espèces arborées sur la régulation de la mineuse du mil – CIRAD (ENSAI, janv. – mai 2020)\nModélisation statistique, QGIS, R spatial, indices de biodiversité, images satellitaires.\nApplication CHRONORUN – Gestion de courses (ENSAI, sept. – nov. 2019)\nPython, SQL, connexion API, GitLab.\nEnquête sur les habitudes de consommation étudiantes (INSEA, avr. – mai 2019)\nConception de questionnaire, collecte terrain, traitement statistique.\n\n\n\n\n\nCoursera:\n\nAI Workflow: Machine Learning, Visual Recognition and NLP\n\nNeural Networks and Deep Learning\n\nLinkedIn Learning:\n\nEssential Git Training\n\nLinux: Terminal Commands\n\nCodecademy / Udemy:\n\nLearn Web Scraping with Beautiful Soup\n\nComplete MLOps Bootcamp with 10 End-to-End ML Projects\n\n\n\n\n\nEnseignement & mentorat · Entrepreneuriat · Voyages & découvertes culturelles · Cinéma · Marche à pied."
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
-    "title": " ",
-    "section": "",
-    "text": "2022 – 2025: PhD in Applied Mathematics – Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)\nThesis: Optimal Design of Experiments for Computer Code Calibration.\n2019 – 2021: Engineering Degree in Data Science and Advanced Statistics – ENSAI Rennes\n2017 – 2020: Engineering Degree in Statistics and Applied Economics – INSEA Rabat\n2014 – 2016: DEUG in Applied Mathematics – Faculty of Sciences, Oujda"
+    "title": "Adama Ibrahim Barry",
+    "section": "Education",
+    "text": "Education\n\n2022 – 2025: PhD in Applied Mathematics – Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)\nThesis: Optimal Design of Experiments for Computer Code Calibration.\n2019 – 2021: Engineering Degree in Data Science and Advanced Statistics – ENSAI Rennes\n2017 – 2020: Engineering Degree in Statistics and Applied Economics – INSEA Rabat\n2014 – 2016: DEUG in Applied Mathematics – Faculty of Sciences, Oujda"
   },
   {
     "objectID": "about.html#experience",
     "href": "about.html#experience",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Experience",
     "text": "Experience\n\n2022 – 2025: Junior Research Engineer – IFP Energies Nouvelles (IFPEN), Rueil-Malmaison\nBayesian calibration of a geological simulator for CO₂ storage.\nGaussian processes, Bayesian inference, experimental design, Python, R.\nApr – Oct 2021: Research Internship – Laboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette\nGaussian processes and sequential design of computer experiments for quantile estimation.\nGaussian process modeling, experimental design, Matlab programming.\nJun – Aug 2020: Applied Internship – CREST - ENSAI, Bruz\nRobust estimation of statistical parameters.\nSimulation, estimator construction, R programming.\nJul – Aug 2018: Discovery Internship – Office des Changes, Rabat\nAnalysis of Morocco’s trade flows.\nDescriptive analysis, forecasting, SPSS programming."
   },
   {
     "objectID": "about.html#technical-skills",
     "href": "about.html#technical-skills",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Technical Skills",
     "text": "Technical Skills\n\nPython: NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.\n\nR: DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.\n\nMatlab: Surrogate Toolbox, Statistics and Machine Learning Toolbox.\n\nSQL: Queries, joins, optimization.\n\nOther Tools: Git (GitHub, GitLab), C, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint."
   },
   {
     "objectID": "about.html#general-skills",
     "href": "about.html#general-skills",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "General Skills",
     "text": "General Skills\n\nModeling and Machine Learning: Regression, classification, clustering, dimensionality reduction, deep neural networks (RNN, BNN, DeepGP), reinforcement learning, active learning, surrogate modeling.\n\nOptimization: Linear, nonlinear, stochastic, Bayesian, and multi-objective optimization.\n\nStatistics and Data Analysis: Inference, model validation, numerical simulation, data preparation, and visualization.\n\nSoft Skills: Analytical thinking, communication, continuous learning, scientific monitoring, autonomy, adaptability, innovation, teamwork, and applied R&D.\n\nOther Skills: Basic knowledge of Hadoop/Spark environments, MLOps, model interpretability, deployment, and automation."
   },
   {
     "objectID": "about.html#certificates",
     "href": "about.html#certificates",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Certificates",
     "text": "Certificates\n\nCoursera:\n\nAI Workflow: Machine Learning, Visual Recognition and NLP\n\nNeural Networks and Deep Learning\n\nLinkedIn Learning:\n\nEssential Git Training\n\nLinux: Terminal Commands\n\nCodecademy / Udemy:\n\nLearn Web Scraping with Beautiful Soup\n\nComplete MLOps Bootcamp with 10 End-to-End ML Projects"
   },
   {
     "objectID": "about.html#academic-projects",
     "href": "about.html#academic-projects",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Academic Projects",
     "text": "Academic Projects\n\nFinal Year Project — ENSAI (Oct 2020 – Mar 2021)\nVideo Transition Classification\nPython, OpenCV, supervised and unsupervised classification, feature extraction, multivariate time series.\nMethodological Project — ENSAI (Oct 2020 – Jan 2021)\nImage Processing for Plant Disease Analysis\nPython, ImageJ, image registration, literature review, method comparison.\nEntrepreneurship Project — ENSAI (Mar – May 2020)\nUTOPIK Fitness Coaching App\nBusiness plan, financial planning, market analysis.\nStatistical Project — ENSAI (Jan – May 2020)\nImpact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)\nStatistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis.\nComputer Science Project — ENSAI (Sep – Nov 2019)\nRace Management App: CHRONORUN\nAPI connection, SQL data collection, Python programming.\nSurvey Project — INSEA (Apr – May 2019)\nStudent Consumption Habits Survey in Medinat Al Irfane\nQuestionnaire design, field survey, data processing, descriptive analysis."
   },
   {
     "objectID": "about.html#preprint",
     "href": "about.html#preprint",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Preprint",
     "text": "Preprint\n\nOptimal Design of Experiments for Computer Code Calibration\nDate: June 24, 2024\nPublished on: HAL"
   },
   {
     "objectID": "about.html#phd-thesis-manuscript",
     "href": "about.html#phd-thesis-manuscript",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "PhD Thesis Manuscript",
     "text": "PhD Thesis Manuscript\n\nDesign of Experiments for Expensive Computer Code Calibration\nDate: June 25, 2025\nPublished on: HAL"
   },
   {
     "objectID": "about.html#talks",
     "href": "about.html#talks",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Talks",
     "text": "Talks\n\nPlans d’expériences pour la calibration de codes de calculs coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nJournées de Statistiques de la SFdS, Université de Bordeaux — May 27–31, 2024\nPlanification d’expériences physiques et numériques pour la calibration de simulateurs\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur\nJournées CIROQUO, École des Mines de Saint-Étienne — May 14–16, 2024\nPlanification d’expériences physiques et numériques pour la calibration de simulateurs\nJournées CIROQUO, Stellantis Poissy — November 23–24, 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nÉcole Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret — October 8–13, 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nGDR-Mascotnum Workshop “Calibration des codes numériques”, IHP Paris — May 31, 2023\nPlans d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nJournées CIROQUO, INRIA Saclay — May 23–25, 2023\nOptimisation bayésienne de code de calculs coûteux\nRJCAF, IHP Paris — December 5–6, 2022\nPlanification d’expériences numériques pour la calibration de simulateurs (Bilan des travaux)\nJournées CIROQUO, BRGM Orléans — November 16–17, 2022\nCalibration de code de calculs coûteux\nJournées CIROQUO, INRIA Grenoble — May 23–25, 2022"
   },
   {
     "objectID": "about.html#poster-presentations",
     "href": "about.html#poster-presentations",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Poster Presentations",
     "text": "Poster Presentations\n\nCalibration de code de calculs coûteux\nJournées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau — September 2022\nPlans d’expériences pour la calibration de codes de calculs coûteux\nJournées du GDR-Mascotnum, Giens — April 3–5, 2024"
   },
   {
     "objectID": "about.html#teaching",
     "href": "about.html#teaching",
-    "title": " ",
+    "title": "Adama Ibrahim Barry",
     "section": "Teaching",
     "text": "Teaching\n\nBasic Mathematics 2\nUniversity of Toulouse III – Licence 1\nTopics: Sets, Functions, and Relations.\nAcademic Year: 2022–2023\nPractical Work: Probability\nUniversity of Toulouse III – Licence 1\nTopics: Law of Large Numbers, Simulation Methods, and Central Limit Theorem.\nAcademic Year: 2022–2023\nPractical Work: Design of Experiments and Uncertainty Analysis\nUniversity of Toulouse III – Master 2\nTopics: Matérn Covariance Functions, Gaussian Process Simulation, and Sensitivity Indices Estimation.\nAcademic Year: 2022–2023"
   },
@@ -383,5 +383,166 @@
     "title": "Machine Learning for Projectile Trajectory Prediction",
     "section": "Data Fusion",
     "text": "Data Fusion\nModels combine:\n\nsensors,\ncameras,\nradar,\nphysical simulations."
+  },
+  {
+    "objectID": "spp.html",
+    "href": "spp.html",
+    "title": "Space-Filling Designs for Computer Experiments",
+    "section": "",
+    "text": "Load packages & theme\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(patchwork)\nlibrary(lhs)          # Latin Hypercube Sampling\nlibrary(randtoolbox)  # Sobol, Halton sequences\nlibrary(DiceDesign)   # maximin / minimax / optimisation\nlibrary(DiceKriging)  # GP emulator for sequential section\n\ncol1 &lt;- \"#e94560\"\ncol2 &lt;- \"#0f3460\"\ncol3 &lt;- \"#f5a623\"\ncol4 &lt;- \"#16a085\"\ncol5 &lt;- \"#533483\"\n\ntheme_sfd &lt;- theme_minimal(base_size = 12) +\n  theme(\n    plot.title      = element_text(face = \"bold\", size = 13),\n    plot.subtitle   = element_text(color = \"grey40\", size = 10),\n    strip.text      = element_text(face = \"bold\"),\n    legend.position = \"bottom\"\n  )"
+  },
+  {
+    "objectID": "spp.html#the-core-problem",
+    "href": "spp.html#the-core-problem",
+    "title": "Space-Filling Designs for Computer Experiments",
+    "section": "1.1 The Core Problem",
+    "text": "1.1 The Core Problem\nWhen running a computer experiment (CFD simulation, finite-element model, agent-based model, climate code…), every function evaluation is expensive. Given a fixed budget of \\(n\\) runs, where should we place those runs in the input space \\(\\mathcal{X} \\subseteq \\mathbb{R}^d\\)?\nClassical design of experiments (full factorial, central composite, Box–Behnken) was built for physical experiments that suffer from random noise: replication matters there. Computer codes are deterministic — the same input always returns the same output — so replication is wasteful. What we want instead is coverage: spread the \\(n\\) points as uniformly as possible over \\(\\mathcal{X}\\), so that no region is left unexplored.\n\n\n\n\n\n\nNote\n\n\n\nA space-filling design is a set of \\(n\\) points that cover the input space as uniformly as possible, ensuring good global approximation with the minimum number of evaluations."
+  },
+  {
+    "objectID": "spp.html#section",
+    "href": "spp.html#section",
+    "title": "Space-Filling Designs for Computer Experiments",
+    "section": "1.2 ",
+    "text": "1.2"
+  },
+  {
+    "objectID": "about.html#formation",
+    "href": "about.html#formation",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Doctorat en Mathématiques Appliquées 2022 – 2025\nÉcole Doctorale EDMITT – Université de Toulouse\nTitre : Plans d’expériences pour la calibration de codes de calculs coûteux\nThèse industrielle CIFRE financée par l’IFPEN (consortium CIROQUO, en collaboration avec l’IMT et l’Inria Grenoble).\nMéthodes : calibration bayésienne, processus gaussiens (krigeage), MCMC, plans d’expériences physiques et numériques, optimisation stochastique, quantification d’incertitude.\nLivrables : 3 packages R open source (disponible sur GitHub), un article soumis (IJUQ), manuscrit de thèse (disponible sur HAL).\nDiplôme d’Ingénieur – Génie Statistique -Data Science appliquée à l’industrie 2019 – 2021\nENSAI (École Nationale de la Statistique et de l’Analyse de l’Information), Bruz\nStatistique avancée, machine learning, optimisation, programmation.\nDiplôme d’Ingénieur – Statistique et Économie Appliquée 2017 – 2020\nINSEA, Rabat (Maroc)\nStatistique, économétrie, science des données.\nDEUG en Mathématiques Appliquées 2016\nFaculté des Sciences, Oujda"
+  },
+  {
+    "objectID": "about.html#expériences-professionnelles",
+    "href": "about.html#expériences-professionnelles",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Data Scientist / Ingénieur de Recherche Junior 2022 – 2025\nIFP Énergies Nouvelles (IFPEN), Rueil-Malmaison\n\nDéveloppement d’une stratégie de planification d’expériences en deux étapes pour la calibration bayésienne d’un simulateur de stockage géologique du CO2,\nÉmulation par processus gaussiens pour l’approximation de simulateurs numériques coûteux,\nOptimisation de critères bayésiens (recuit simulé, algorithmes génétiques, perturbation simultanée),\nDéveloppement de 3 packages R open source ; publications et rapports scientifiques.\n\nStage de Fin d’Études Avril – Octobre 2021\nLaboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette\n\nPlanification séquentielle d’expériences numériques pour l’estimation de quantiles d’un simulateur coûteux,\nMétamodèles par processus gaussiens et stratégies adaptatives de réduction d’incertitude (stratégie SUR).\n\nStage d’Application Juin – Août 2020\nCREST – ENSAI, Bruz\n\nEstimateurs robustes de la moyenne (Median-of-Means) : étude théorique et simulations sous R.\n\nStage de Recherche Mai – Août 2019\nINSEA-INSTAT, Rabat – Bamako\n\nImpact de la rareté de la petite monnaie dans la zone UEMOA : analyse empirique sous RStudio.\n\nStage de Découverte Juillet – Août 2018\nOffice des Changes, Rabat\n\nAnalyse des échanges commerciaux du Maroc : analyse descriptive et prévisions avec SPSS."
+  },
+  {
+    "objectID": "about.html#expérience-denseignement",
+    "href": "about.html#expérience-denseignement",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Doctorant Chargé d’Enseignement – Université de Toulouse III 2022 – 2023\n64 heures de TD et TP\n\n\n\n\n\n\n\n\nCours\nNiveau\nType\n\n\n\n\nMathématiques Fondamentales II (ensembles, fonctions, relations)\nLicence 1\nTD\n\n\nProbabilités (loi des grands nombres, TCL, simulations)\nLicence 3\nTD + TP\n\n\nPlans d’Expériences et Analyse d’Incertitude (processus gaussiens, indices de Sobol)\nMaster 2\nTP"
+  },
+  {
+    "objectID": "about.html#compétences-techniques",
+    "href": "about.html#compétences-techniques",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Langages de programmation\n\nPython : NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.\nR : DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.\nMatlab : Surrogate Toolbox, Statistics and Machine Learning Toolbox.\nSQL : requêtes, jointures, optimisation.\nAutres : Git (GitHub, GitLab), Quarto, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint.\n\nMéthodes Statistiques & ML\n\nInférence bayésienne, MCMC, processus gaussiens, GLM, régression logistique, modèles mixtes.\nRégression, classification, clustering, réduction de dimension.\nApprentissage actif, surrogate modeling, analyse de sensibilité, plans d’expériences.\nOptimisation : linéaire, non linéaire, stochastique, bayésienne, multi-objectif.\n\nCompétences transversales\nEsprit analytique · Communication · Autonomie · Adaptabilité · Travail en équipe.\nLangues\nFrançais (avancé) · Anglais (professionnel) · Sonrhaï & Bambara (langues maternelles)"
+  },
+  {
+    "objectID": "about.html#publications-productions-scientifiques",
+    "href": "about.html#publications-productions-scientifiques",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Manuscrit de thèse (HAL, 2025)\nPlans d’expériences pour la calibration de codes de calcul coûteux, Université de Toulouse.\nPublication (HAL, IJUQ, juin 2024)\nDesign of Experiments for Computer Code Calibration.\nPackages R (GitHub)\n3 packages open source : calibration bayésienne, plans d’expériences, optimisation."
+  },
+  {
+    "objectID": "about.html#communications-scientifiques",
+    "href": "about.html#communications-scientifiques",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Communications orales (sélection)\n\nJournées de Statistiques de la SFdS, Université de Bordeaux — mai 2024\nJournées CIROQUO, École des Mines de Saint-Étienne — mai 2024\nJournées CIROQUO, Stellantis Poissy — novembre 2023\nÉcole Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret — octobre 2023\nGDR-Mascotnum, Atelier “Calibration des codes numériques”, IHP Paris — mai 2023\nJournées CIROQUO, INRIA Saclay — mai 2023\nRJCAF (Rencontres des Jeunes Chercheurs Africains en France), IHP Paris — décembre 2022\nJournées CIROQUO, BRGM Orléans — novembre 2022\nJournées CIROQUO, INRIA Grenoble — mai 2022\n\nPosters\n\nJournées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau — septembre 2022\nJournées du GDR-Mascotnum, Giens — avril 2024"
+  },
+  {
+    "objectID": "about.html#projets-académiques",
+    "href": "about.html#projets-académiques",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Classification de transitions vidéo (ENSAI, oct. 2020 – mars 2021)\nPython, OpenCV, classification supervisée et non supervisée, séries temporelles multivariées.\nTraitement d’images pour l’analyse de maladies des plantes (ENSAI, oct. 2020 – janv. 2021)\nPython, ImageJ, recalage d’images, revue de littérature.\nApplication UTOPIK – Coaching Fitness (ENSAI, mars – mai 2020)\nProjet entrepreneurial : business plan, analyse de marché, planification financière.\nImpact des espèces arborées sur la régulation de la mineuse du mil – CIRAD (ENSAI, janv. – mai 2020)\nModélisation statistique, QGIS, R spatial, indices de biodiversité, images satellitaires.\nApplication CHRONORUN – Gestion de courses (ENSAI, sept. – nov. 2019)\nPython, SQL, connexion API, GitLab.\nEnquête sur les habitudes de consommation étudiantes (INSEA, avr. – mai 2019)\nConception de questionnaire, collecte terrain, traitement statistique."
+  },
+  {
+    "objectID": "about.html#certifications",
+    "href": "about.html#certifications",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Coursera:\n\nAI Workflow: Machine Learning, Visual Recognition and NLP\n\nNeural Networks and Deep Learning\n\nLinkedIn Learning:\n\nEssential Git Training\n\nLinux: Terminal Commands\n\nCodecademy / Udemy:\n\nLearn Web Scraping with Beautiful Soup\n\nComplete MLOps Bootcamp with 10 End-to-End ML Projects"
+  },
+  {
+    "objectID": "about.html#références-académiques",
+    "href": "about.html#références-académiques",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "François BACHOC, Professeur, Université de Lille — francois.bachoc@univ-lille.fr\nClémentine PRIEUR, Professeure, Université de Grenoble — clementine.prieur@univ-grenoble-alpes.fr"
+  },
+  {
+    "objectID": "about.html#centres-dintérêt",
+    "href": "about.html#centres-dintérêt",
+    "title": "Adama Ibrahim Barry",
+    "section": "",
+    "text": "Enseignement & mentorat · Entrepreneuriat · Voyages & découvertes culturelles · Cinéma · Marche à pied."
+  },
+  {
+    "objectID": "about.html#formation-1",
+    "href": "about.html#formation-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "🎓 Formation",
+    "text": "🎓 Formation\nDoctorat en Mathématiques Appliquées 2022 – 2025\nÉcole Doctorale EDMITT – Université de Toulouse\nTitre : Plans d’expériences pour la calibration de codes de calculs coûteux\nThèse industrielle CIFRE financée par l’IFPEN (consortium CIROQUO, en collaboration avec l’IMT et l’Inria Grenoble).\nMéthodes : calibration bayésienne, processus gaussiens (krigeage), MCMC, plans d’expériences physiques et numériques, optimisation stochastique, quantification d’incertitude.\nLivrables : 3 packages R open source (GitHub), un article prépublié (HAL), manuscrit de thèse (HAL).\nDiplôme d’Ingénieur – Data Science et Génie Statistique 2019 – 2021\nENSAI (École Nationale de la Statistique et de l’Analyse de l’Information), Bruz\nStatistique avancée, machine learning, optimisation, programmation.\nDiplôme d’Ingénieur – Statistique et Économie Appliquée 2017 – 2020\nINSEA, Rabat (Maroc)\nStatistique, économétrie, science des données.\nDEUG en Mathématiques Appliquées 2014 – 2016\nFaculté des Sciences, Oujda"
+  },
+  {
+    "objectID": "about.html#expériences-professionnelles-1",
+    "href": "about.html#expériences-professionnelles-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "💼 Expériences Professionnelles",
+    "text": "💼 Expériences Professionnelles\nData Scientist / Ingénieur de Recherche Junior 2022 – 2025\nIFP Énergies Nouvelles (IFPEN), Rueil-Malmaison\n\nDéveloppement d’une stratégie de planification d’expériences en deux étapes pour la calibration bayésienne d’un simulateur de stockage géologique du CO₂\nÉmulation par processus gaussiens pour l’approximation de simulateurs numériques coûteux\nOptimisation de critères bayésiens (recuit simulé, algorithmes génétiques, perturbation simultanée)\nDéveloppement de 3 packages R open source ; publications et rapports scientifiques\n\nStage de Fin d’Études Avril – Octobre 2021\nLaboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette\n\nPlanification séquentielle d’expériences numériques pour l’estimation de quantiles d’un simulateur coûteux\nMétamodèles par processus gaussiens et stratégies adaptatives de réduction d’incertitude (stratégie SUR)\n\nStage d’Application Juin – Août 2020\nCREST – ENSAI, Bruz\n\nEstimateurs robustes de la moyenne (Median-of-Means) : étude théorique et simulations sous R\n\nStage de Recherche Mai – Août 2019\nINSEA-INSTAT, Rabat – Bamako\n\nImpact de la rareté de la petite monnaie dans la zone UEMOA : analyse empirique sous RStudio\n\nStage de Découverte Juillet – Août 2018\nOffice des Changes, Rabat\n\nAnalyse des échanges commerciaux du Maroc : analyse descriptive et prévisions avec SPSS"
+  },
+  {
+    "objectID": "about.html#expérience-denseignement-1",
+    "href": "about.html#expérience-denseignement-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "🧑‍🏫 Expérience d’Enseignement",
+    "text": "🧑‍🏫 Expérience d’Enseignement\nDoctorant Chargé d’Enseignement – Université de Toulouse III 2022 – 2023\n64 heures de TD et TP\n\n\n\n\n\n\n\n\nCours\nNiveau\nType\n\n\n\n\nMathématiques Fondamentales II (ensembles, fonctions, relations)\nLicence 1\nTD\n\n\nProbabilités (loi des grands nombres, TCL, simulations)\nLicence 3\nTD + TP\n\n\nPlans d’Expériences et Analyse d’Incertitude (processus gaussiens, indices de Sobol)\nMaster 2\nTP"
+  },
+  {
+    "objectID": "about.html#compétences-techniques-1",
+    "href": "about.html#compétences-techniques-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "🛠️ Compétences Techniques",
+    "text": "🛠️ Compétences Techniques\nLangages de programmation\n\nPython : NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV\nR : DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown\nMatlab : Surrogate Toolbox, Statistics and Machine Learning Toolbox\nSQL : requêtes, jointures, optimisation\nAutres : Git (GitHub, GitLab), C, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint\n\nMéthodes Statistiques & ML\n\nInférence bayésienne, MCMC, processus gaussiens, GLM, régression logistique, modèles mixtes\nRégression, classification, clustering, réduction de dimension, RNN, BNN, DeepGP\nApprentissage actif, surrogate modeling, analyse de sensibilité, plans d’expériences\nOptimisation : linéaire, non linéaire, stochastique, bayésienne, multi-objectif\n\nCompétences transversales\nEsprit analytique · Communication · Autonomie · Adaptabilité · Travail en équipe · R&D appliquée · MLOps (notions) · Interprétabilité des modèles\nLangues\nFrançais (avancé) · Anglais (professionnel) · Sonrhaï & Bambara (langues maternelles)"
+  },
+  {
+    "objectID": "about.html#publications-productions-scientifiques-1",
+    "href": "about.html#publications-productions-scientifiques-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "📄 Publications & Productions Scientifiques",
+    "text": "📄 Publications & Productions Scientifiques\nManuscrit de thèse (HAL, 2025)\nPlans d’expériences pour la calibration de codes de calcul coûteux, Université de Toulouse.\nPrépublication (HAL, juin 2024)\nDesign of Experiments for Computer Code Calibration.\nPackages R (GitHub)\n3 packages open source : calibration bayésienne, plans d’expériences, optimisation."
+  },
+  {
+    "objectID": "about.html#communications-scientifiques-1",
+    "href": "about.html#communications-scientifiques-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "🎤 Communications Scientifiques",
+    "text": "🎤 Communications Scientifiques\nCommunications orales (sélection)\n\nJournées de Statistiques de la SFdS, Université de Bordeaux — mai 2024\nJournées CIROQUO, École des Mines de Saint-Étienne — mai 2024\nJournées CIROQUO, Stellantis Poissy — novembre 2023\nÉcole Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret — octobre 2023\nGDR-Mascotnum, Atelier “Calibration des codes numériques”, IHP Paris — mai 2023\nJournées CIROQUO, INRIA Saclay — mai 2023\nRJCAF (Rencontres des Jeunes Chercheurs Africains en France), IHP Paris — décembre 2022\nJournées CIROQUO, BRGM Orléans — novembre 2022\nJournées CIROQUO, INRIA Grenoble — mai 2022\n\nPosters\n\nJournées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau — septembre 2022\nJournées du GDR-Mascotnum, Giens — avril 2024"
+  },
+  {
+    "objectID": "about.html#projets-académiques-1",
+    "href": "about.html#projets-académiques-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "📂 Projets Académiques",
+    "text": "📂 Projets Académiques\nClassification de transitions vidéo (ENSAI, oct. 2020 – mars 2021)\nPython, OpenCV, classification supervisée et non supervisée, séries temporelles multivariées.\nTraitement d’images pour l’analyse de maladies des plantes (ENSAI, oct. 2020 – janv. 2021)\nPython, ImageJ, recalage d’images, revue de littérature.\nApplication UTOPIK – Coaching Fitness (ENSAI, mars – mai 2020)\nProjet entrepreneurial : business plan, analyse de marché, planification financière.\nImpact des espèces arborées sur la régulation de la mineuse du mil – CIRAD (ENSAI, janv. – mai 2020)\nModélisation statistique, QGIS, R spatial, indices de biodiversité, images satellitaires.\nApplication CHRONORUN – Gestion de courses (ENSAI, sept. – nov. 2019)\nPython, SQL, connexion API, GitLab.\nEnquête sur les habitudes de consommation étudiantes (INSEA, avr. – mai 2019)\nConception de questionnaire, collecte terrain, traitement statistique."
+  },
+  {
+    "objectID": "about.html#certifications-1",
+    "href": "about.html#certifications-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "🏅 Certifications",
+    "text": "🏅 Certifications\n\nCoursera : AI Workflow (Machine Learning, Visual Recognition and NLP) · Neural Networks and Deep Learning\nUdemy : Complete MLOps Bootcamp · Web Scraping with Beautiful Soup\nLinkedIn Learning : Git – l’essentiel · Linux – Commandes du terminal"
+  },
+  {
+    "objectID": "about.html#références-académiques-1",
+    "href": "about.html#références-académiques-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "🔗 Références Académiques",
+    "text": "🔗 Références Académiques\n\nFrançois BACHOC, Professeur, Université de Lille — francois.bachoc@univ-lille.fr\nClémentine PRIEUR, Professeure, Université de Grenoble — clementine.prieur@univ-grenoble-alpes.fr"
+  },
+  {
+    "objectID": "about.html#centres-dintérêt-1",
+    "href": "about.html#centres-dintérêt-1",
+    "title": "Adama Ibrahim Barry",
+    "section": "💡 Centres d’Intérêt",
+    "text": "💡 Centres d’Intérêt\nEnseignement & mentorat · Entrepreneuriat · Voyages & découvertes culturelles · Cinéma · Marche à pied"
   }
 ]

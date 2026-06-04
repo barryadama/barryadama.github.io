@@ -1,53 +1,148 @@
 ---
-title: " "
+title: ""
 ---
 
-## Education
+# Adama Ibrahim Barry {.center}
 
--   **2022 – 2025**: PhD in Applied Mathematics – *Doctoral School of Mathematics, Computer Science, and Telecommunications of Toulouse (EDMITT)*\
-    Thesis: *Optimal Design of Experiments for Computer Code Calibration.*
+**Docteur-Ingénieur en Statistique et Sciences des Données**
 
--   **2019 – 2021**: Engineering Degree in Data Science and Advanced Statistics – *ENSAI Rennes*
+::: contact-info
+📧 adambarry207\@gmail.com \| 📞 07 55 85 54 73 \| 🌐 [barryadama.github.io](https://barryadama.github.io) \| 📍 Toulouse, France
+:::
 
--   **2017 – 2020**: Engineering Degree in Statistics and Applied Economics – *INSEA Rabat*
+------------------------------------------------------------------------
 
--   **2014 – 2016**: DEUG in Applied Mathematics – *Faculty of Sciences, Oujda*
+## 🎓 Formation
 
-## Experience
+**Doctorat en Mathématiques Appliquées** `2022 – 2025`\
+*École Doctorale EDMITT – Université de Toulouse*\
+Titre : *Plans d'expériences pour la calibration de codes de calculs coûteux*\
+Thèse industrielle CIFRE financée par l'IFPEN (consortium CIROQUO, en collaboration avec l'IMT et l'Inria Grenoble).\
+Méthodes : calibration bayésienne, processus gaussiens (krigeage), MCMC, plans d'expériences physiques et numériques, optimisation stochastique, quantification d'incertitude.\
+Livrables : 3 packages R open source (disponible sur GitHub), un article soumis (IJUQ), manuscrit de thèse (disponible sur HAL).
 
--   **2022 – 2025**: Junior Research Engineer – *IFP Energies Nouvelles (IFPEN), Rueil-Malmaison*\
-    Bayesian calibration of a geological simulator for CO₂ storage.\
-    *Gaussian processes, Bayesian inference, experimental design, Python, R.*
+**Diplôme d'Ingénieur – Génie Statistique -Data Science appliquée à l'industrie** `2019 – 2021`\
+*ENSAI (École Nationale de la Statistique et de l'Analyse de l'Information), Bruz*\
+Statistique avancée, machine learning, optimisation, programmation.
 
--   **Apr – Oct 2021**: Research Internship – *Laboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette*\
-    Gaussian processes and sequential design of computer experiments for quantile estimation.\
-    *Gaussian process modeling, experimental design, Matlab programming.*
+**Diplôme d'Ingénieur – Statistique et Économie Appliquée** `2017 – 2020`\
+*INSEA, Rabat (Maroc)*\
+Statistique, économétrie, science des données.
 
--   **Jun – Aug 2020**: Applied Internship – *CREST - ENSAI, Bruz*\
-    Robust estimation of statistical parameters.\
-    *Simulation, estimator construction, R programming.*
+**DEUG en Mathématiques Appliquées** `2016`\
+*Faculté des Sciences, Oujda*
 
--   **Jul – Aug 2018**: Discovery Internship – *Office des Changes, Rabat*\
-    Analysis of Morocco’s trade flows.\
-    *Descriptive analysis, forecasting, SPSS programming.*
+------------------------------------------------------------------------
 
-## Technical Skills
+## 💼 Expériences Professionnelles
 
--   **Python:** NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.\
--   **R:** DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.\
--   **Matlab:** Surrogate Toolbox, Statistics and Machine Learning Toolbox.\
--   **SQL:** Queries, joins, optimization.\
--   **Other Tools:** Git (GitHub, GitLab), C, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint.
+**Data Scientist / Ingénieur de Recherche Junior** `2022 – 2025`\
+*IFP Énergies Nouvelles (IFPEN), Rueil-Malmaison*
 
-## General Skills
+-   Développement d'une stratégie de planification d'expériences en deux étapes pour la calibration bayésienne d'un simulateur de stockage géologique du CO2,
+-   Émulation par processus gaussiens pour l'approximation de simulateurs numériques coûteux,
+-   Optimisation de critères bayésiens (recuit simulé, algorithmes génétiques, perturbation simultanée),
+-   Développement de 3 packages R open source ; publications et rapports scientifiques.
 
--   **Modeling and Machine Learning:** Regression, classification, clustering, dimensionality reduction, deep neural networks (RNN, BNN, DeepGP), reinforcement learning, active learning, surrogate modeling.\
--   **Optimization:** Linear, nonlinear, stochastic, Bayesian, and multi-objective optimization.\
--   **Statistics and Data Analysis:** Inference, model validation, numerical simulation, data preparation, and visualization.\
--   **Soft Skills:** Analytical thinking, communication, continuous learning, scientific monitoring, autonomy, adaptability, innovation, teamwork, and applied R&D.\
--   **Other Skills:** Basic knowledge of Hadoop/Spark environments, MLOps, model interpretability, deployment, and automation.
+**Stage de Fin d'Études** `Avril – Octobre 2021`\
+*Laboratoire des Signaux et Systèmes (L2S), Gif-sur-Yvette*
 
-## Certificates
+-   Planification séquentielle d'expériences numériques pour l'estimation de quantiles d'un simulateur coûteux,
+-   Métamodèles par processus gaussiens et stratégies adaptatives de réduction d'incertitude (stratégie SUR).
+
+**Stage d'Application** `Juin – Août 2020`\
+*CREST – ENSAI, Bruz*
+
+-   Estimateurs robustes de la moyenne (Median-of-Means) : étude théorique et simulations sous R.
+
+**Stage de Recherche** `Mai – Août 2019`\
+*INSEA-INSTAT, Rabat – Bamako*
+
+-   Impact de la rareté de la petite monnaie dans la zone UEMOA : analyse empirique sous RStudio.
+
+**Stage de Découverte** `Juillet – Août 2018`\
+*Office des Changes, Rabat*
+
+-   Analyse des échanges commerciaux du Maroc : analyse descriptive et prévisions avec SPSS.
+
+------------------------------------------------------------------------
+
+## 🧑‍🏫 Expérience d'Enseignement
+
+**Doctorant Chargé d'Enseignement** – Université de Toulouse III `2022 – 2023`\
+*64 heures de TD et TP*
+
+| Cours | Niveau | Type |
+|----|----|----|
+| Mathématiques Fondamentales II (ensembles, fonctions, relations) | Licence 1 | TD |
+| Probabilités (loi des grands nombres, TCL, simulations) | Licence 3 | TD + TP |
+| Plans d'Expériences et Analyse d'Incertitude (processus gaussiens, indices de Sobol) | Master 2 | TP |
+
+------------------------------------------------------------------------
+
+## 🛠️ Compétences Techniques
+
+**Langages de programmation**
+
+-   **Python** : NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Spark, Plotly, OpenCV.
+-   **R** : DiceKriging, DiceOptim, DiceDesign, ggplot2, R Shiny, R Markdown.
+-   **Matlab** : Surrogate Toolbox, Statistics and Machine Learning Toolbox.
+-   **SQL** : requêtes, jointures, optimisation.
+-   **Autres** : Git (GitHub, GitLab), Quarto, C++, SAS, SPSS, STATA, LaTeX, Excel, PowerPoint.
+
+**Méthodes Statistiques & ML**
+
+-   Inférence bayésienne, MCMC, processus gaussiens, GLM, régression logistique, modèles mixtes.
+-   Régression, classification, clustering, réduction de dimension.
+-   Apprentissage actif, surrogate modeling, analyse de sensibilité, plans d'expériences.
+-   Optimisation : linéaire, non linéaire, stochastique, bayésienne, multi-objectif.
+
+**Compétences transversales**
+
+Esprit analytique · Communication · Autonomie · Adaptabilité · Travail en équipe.
+
+**Langues**
+
+Français (avancé) · Anglais (professionnel) · Sonrhaï & Bambara (langues maternelles)
+
+------------------------------------------------------------------------
+
+## 📄 Publications & Productions Scientifiques
+
+**Manuscrit de thèse** *(HAL, 2025)*\
+[Plans d'expériences pour la calibration de codes de calcul coûteux, Université de Toulouse.](https://theses.hal.science/tel-05186532/)
+
+**Publication** *(HAL, IJUQ, juin 2024)*\
+[Design of Experiments for Computer Code Calibration.](https://theses.hal.science/UNIV-UT3/hal-04615127v2)
+
+**Packages R** *(sur* [GitHub](https://github.com/TheseAdama))\
+3 packages open source : calibration bayésienne, plans d'expériences, optimisation.
+
+------------------------------------------------------------------------
+
+## 📂 Projets Académiques
+
+**Classification de transitions vidéo** *(ENSAI, oct. 2020 – mars 2021)*\
+Python, OpenCV, classification supervisée et non supervisée, séries temporelles multivariées.
+
+**Traitement d'images pour l'analyse de maladies des plantes** *(ENSAI, oct. 2020 – janv. 2021)*\
+Python, ImageJ, recalage d'images, revue de littérature.
+
+**Application UTOPIK – Coaching Fitness** *(ENSAI, mars – mai 2020)*\
+Projet entrepreneurial : business plan, analyse de marché, planification financière.
+
+**Impact des espèces arborées sur la régulation de la mineuse du mil – CIRAD** *(ENSAI, janv. – mai 2020)*\
+Modélisation statistique, QGIS, R spatial, indices de biodiversité, images satellitaires.
+
+**Application CHRONORUN – Gestion de courses** *(ENSAI, sept. – nov. 2019)*\
+Python, SQL, connexion API, GitLab.
+
+**Enquête sur les habitudes de consommation étudiantes** *(INSEA, avr. – mai 2019)*\
+Conception de questionnaire, collecte terrain, traitement statistique.
+
+------------------------------------------------------------------------
+
+## 🏅 Certifications
 
 -   **Coursera:**
     -   [AI Workflow: Machine Learning, Visual Recognition and NLP](https://www.coursera.org/account/accomplishments/verify/JNGNYFJN5UVY)\
@@ -59,98 +154,6 @@ title: " "
     -   [Learn Web Scraping with Beautiful Soup](https://www.codecademy.com/profiles/barryAdama0299016940/certificates/f4cba58fa21e556a6a8f5a975cef5388)\
     -   [Complete MLOps Bootcamp with 10 End-to-End ML Projects](https://www.udemy.com/course/complete-mlops-bootcamp-with-10-end-to-end-ml-projects/)
 
-## Academic Projects
+## 💡 Centres d'Intérêt
 
--   **Final Year Project** — *ENSAI* (Oct 2020 – Mar 2021)\
-    *Video Transition Classification*\
-    Python, OpenCV, supervised and unsupervised classification, feature extraction, multivariate time series.
-
--   **Methodological Project** — *ENSAI* (Oct 2020 – Jan 2021)\
-    *Image Processing for Plant Disease Analysis*\
-    Python, ImageJ, image registration, literature review, method comparison.
-
--   **Entrepreneurship Project** — *ENSAI* (Mar – May 2020)\
-    *UTOPIK Fitness Coaching App*\
-    Business plan, financial planning, market analysis.
-
--   **Statistical Project** — *ENSAI* (Jan – May 2020)\
-    *Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)*\
-    Statistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis.
-
--   **Computer Science Project** — *ENSAI* (Sep – Nov 2019)\
-    *Race Management App: CHRONORUN*\
-    API connection, SQL data collection, Python programming.
-
--   **Survey Project** — *INSEA* (Apr – May 2019)\
-    *Student Consumption Habits Survey in Medinat Al Irfane*\
-    Questionnaire design, field survey, data processing, descriptive analysis.
-
-## Preprint
-
-### [Optimal Design of Experiments for Computer Code Calibration](https://theses.hal.science/UNIV-UT3/hal-04615127v2)
-
-**Date:** June 24, 2024\
-**Published on:** HAL
-
-## PhD Thesis Manuscript
-
-### [Design of Experiments for Expensive Computer Code Calibration](https://theses.hal.science/tel-05186532/)
-
-**Date:** June 25, 2025\
-**Published on:** HAL
-
-## Talks
-
--   **Plans d’expériences pour la calibration de codes de calculs coûteux**\
-    *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*\
-    *Journées de Statistiques de la SFdS, Université de Bordeaux* — May 27–31, 2024
-
--   **Planification d'expériences physiques et numériques pour la calibration de simulateurs**\
-    *Adama Barry, François Bachoc, Sarah Bouquet, Miguel Munoz Zuniga, Clémentine Prieur*\
-    *Journées CIROQUO, École des Mines de Saint-Étienne* — May 14–16, 2024
-
--   **Planification d'expériences physiques et numériques pour la calibration de simulateurs**\
-    *Journées CIROQUO, Stellantis Poissy* — November 23–24, 2023
-
--   **Plans d'expériences physiques et numériques pour la calibration de codes de calcul coûteux**\
-    *École Thématique sur les Incertitudes en Calcul Scientifique, Lège-Cap-Ferret* — October 8–13, 2023
-
--   **Plans d'expériences physiques et numériques pour la calibration de codes de calcul coûteux**\
-    *GDR-Mascotnum Workshop “Calibration des codes numériques”, IHP Paris* — May 31, 2023
-
--   **Plans d'expériences physiques et numériques pour la calibration de codes de calcul coûteux**\
-    *Journées CIROQUO, INRIA Saclay* — May 23–25, 2023
-
--   **Optimisation bayésienne de code de calculs coûteux**\
-    *RJCAF, IHP Paris* — December 5–6, 2022
-
--   **Planification d'expériences numériques pour la calibration de simulateurs (Bilan des travaux)**\
-    *Journées CIROQUO, BRGM Orléans* — November 16–17, 2022
-
--   **Calibration de code de calculs coûteux**\
-    *Journées CIROQUO, INRIA Grenoble* — May 23–25, 2022
-
-## Poster Presentations
-
--   **Calibration de code de calculs coûteux**\
-    *Journées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau* — September 2022
-
--   **Plans d'expériences pour la calibration de codes de calculs coûteux**\
-    *Journées du GDR-Mascotnum, Giens* — April 3–5, 2024
-
-## Teaching
-
--   **Basic Mathematics 2**\
-    *University of Toulouse III – Licence 1*\
-    Topics: Sets, Functions, and Relations.\
-    Academic Year: 2022–2023
-
--   **Practical Work: Probability**\
-    *University of Toulouse III – Licence 1*\
-    Topics: Law of Large Numbers, Simulation Methods, and Central Limit Theorem.\
-    Academic Year: 2022–2023
-
--   **Practical Work: Design of Experiments and Uncertainty Analysis**\
-    *University of Toulouse III – Master 2*\
-    Topics: Matérn Covariance Functions, Gaussian Process Simulation, and Sensitivity Indices Estimation.\
-    Academic Year: 2022–2023
+Enseignement & mentorat · Entrepreneuriat · Voyages & découvertes culturelles · Cinéma · Marche à pied.
