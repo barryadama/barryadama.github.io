@@ -1,12 +1,12 @@
 ---
-title: "Blog ML et Statistique"
+title: " "
 draft: false
 editor: visual
 format:
   html:
     toc: true
-    toc-title: "Contents"
-    toc-depth: 2
+    toc-title: "Table des matières"
+    toc-depth: 1
     toc-location: left
 ---
 
@@ -17,6 +17,7 @@ Les contenus couvrent notamment les processus gaussiens et les modèles de krige
 L’ensemble s’inscrit dans une démarche à l’interface entre statistique et le machine learning, avec un accent sur la quantification de l’incertitude, l’efficacité computationnelle et l’aide à la décision dans des environnements complexes.
 
 ------------------------------------------------------------------------
+
 # Modélisation par processus gaussiens
 
 Dans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer **très coûteuse en temps de calcul**. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.
@@ -28,7 +29,6 @@ Un processus gaussien fournit un **cadre probabiliste** permettant de représent
 Dans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ [Lire plus..](gp-modeling.qmd)
 
 ------------------------------------------------------------------------
-
 # Plans d'experiences
 
-Blog en cours de traduction en francais ....
+Blog en cours de traduction ....

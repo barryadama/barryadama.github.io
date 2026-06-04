@@ -135,9 +135,9 @@
   {
     "objectID": "Teach.html",
     "href": "Teach.html",
-    "title": " ",
+    "title": "Activités d’enseignement",
     "section": "",
-    "text": "From 2022 to 2023, I delivered a total of 64 hours of tutorials and practical sessions as part of my PhD teaching duties at the University of Toulouse.\n\n\nBasic Mathematics II\nUniversity of Toulouse III – Bachelor’s Year 1\nTopics covered: Sets, Functions, and Relations\nAcademic year: 2022–2023\n\n\n\nPractical Work: Probability\nUniversity of Toulouse III – Bachelor’s Year 1\nTopics covered: Law of Large Numbers, Simulation Methods, Central Limit Theorem\nAcademic year: 2022–2023\n\n\n\nPractical Work: Design of Experiments and Uncertainty Analysis\nUniversity of Toulouse III – Master’s Year 2\nTopics covered: Gaussian Process, Design of experiments, Matérn Covariance Functions, Gaussian Process Simulation and Methods for Sensitivity Indices Estimation\nAcademic year: 2022–2023"
+    "text": "Dans le cadre de mes fonctions d’enseignement en doctorat à l’Université de Toulouse, j’ai assuré un total de 64 heures de travaux dirigés (TD) et travaux pratiques (TP) auprès d’étudiants de Licence et de Master."
   },
   {
     "objectID": "CV.html",
@@ -665,18 +665,11 @@
     "text": "2022\n\nCalibration de codes de calcul coûteux\nJournées des Jeunes Chercheurs en Mathématiques\nà Massy-Palaiseau\n📅 Septembre 2022"
   },
   {
-    "objectID": "Blog.html",
-    "href": "Blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "L’objectif ici est de présenter des méthodes permettant de comprendre, approximer et optimiser des systèmes complexes, souvent à partir de données limitées ou coûteuses à obtenir.\nLes contenus abordent principalement les processus gaussiens et les modèles de krigeage pour la construction de métamodèles, ainsi que l’optimisation bayésienne dans des contextes coûteux. Une place importante est également accordée à la planification d’expériences, à la calibration bayésienne des modèles numériques et aux approches de machine learning, incluant le deep learning et les méthodes probabilistes.\nL’ensemble s’inscrit dans une perspective où la théorie statistique et les applications numériques se rencontrent, avec une attention particulière portée à la quantification de l’incertitude, à l’efficacité computationnelle et à l’aide à la décision dans des environnements complexes.\n\nModélisation par processus gaussiens\nDans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer très coûteuse en temps de calcul. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.\nPour surmonter cette difficulté, les chercheurs ont de plus en plus recours à des modèles de substitution, également appelés émulateurs ou métamodèles. Ces modèles visent à reproduire le comportement d’une fonction coûteuse à évaluer à l’aide d’une représentation statistique beaucoup moins onéreuse en temps. Parmi les différentes approches existantes, la modélisation par processus gaussiens s’est imposée comme l’une des méthodes les plus populaires et les plus performantes.\nUn processus gaussien fournit un cadre probabiliste permettant de représenter l’incertitude associée à la fonction étudiée. Il permet non seulement de prédire la valeur de la fonction en des points non observés, mais également de quantifier le niveau de confiance associé à chaque prédiction. Cette propriété rend les processus gaussiens adaptés à l’optimisation bayésienne, à la planification séquentielle d’expériences et à la propagation des incertitudes.\nDans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ Lire plus..\n\n\n\nPlans d’experiences\nBlog en cours de traduction en francais …."
-  },
-  {
     "objectID": "docs/blog.html",
     "href": "docs/blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Modélisation par processus gaussiens\nDans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer très coûteuse en temps de calcul. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.\nPour surmonter cette difficulté, les chercheurs ont de plus en plus recours à des modèles de substitution, également appelés émulateurs ou métamodèles. Ces modèles visent à reproduire le comportement d’une fonction coûteuse à évaluer à l’aide d’une représentation statistique beaucoup moins onéreuse en temps. Parmi les différentes approches existantes, la modélisation par processus gaussiens s’est imposée comme l’une des méthodes les plus populaires et les plus performantes.\nUn processus gaussien fournit un cadre probabiliste permettant de représenter l’incertitude associée à la fonction étudiée. Il permet non seulement de prédire la valeur de la fonction en des points non observés, mais également de quantifier le niveau de confiance associé à chaque prédiction. Cette propriété rend les processus gaussiens adaptés à l’optimisation bayésienne, à la planification séquentielle d’expériences et à la propagation des incertitudes.\nDans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ Lire plus..\n\n\n\nPlans d’experiences\nBlog en cours de traduction en francais …."
+    "text": "Texte…"
   },
   {
     "objectID": "Teach.html#activités-denseignement-20222023",
@@ -714,10 +707,24 @@
     "text": "Synthèse\nCes enseignements m’ont permis de développer des compétences pédagogiques en statistiques et probabilités, tout en accompagnant des étudiants de niveaux Licence et Master dans l’acquisition de méthodes fondamentales et avancées en modélisation statistique."
   },
   {
-    "objectID": "Blog.html#lensemble-sinscrit-dans-une-perspective-où-la-théorie-statistique-et-les-applications-numériques-se-rencontrent-avec-une-attention-particulière-portée-à-la-quantification-de-lincertitude-à-lefficacité-computationnelle-et-à-laide-à-la-décision-dans-des-environnements-complexes.",
-    "href": "Blog.html#lensemble-sinscrit-dans-une-perspective-où-la-théorie-statistique-et-les-applications-numériques-se-rencontrent-avec-une-attention-particulière-portée-à-la-quantification-de-lincertitude-à-lefficacité-computationnelle-et-à-laide-à-la-décision-dans-des-environnements-complexes.",
+    "objectID": "docs/blog.html#introduction",
+    "href": "docs/blog.html#introduction",
+    "title": "Blog",
+    "section": "",
+    "text": "Texte…"
+  },
+  {
+    "objectID": "docs/blog.html#méthodes",
+    "href": "docs/blog.html#méthodes",
+    "title": "Blog",
+    "section": "Méthodes",
+    "text": "Méthodes\nTexte…"
+  },
+  {
+    "objectID": "Blog.html",
+    "href": "Blog.html",
     "title": "Modélisation par processus gaussiens",
-    "section": "L’ensemble s’inscrit dans une perspective où la théorie statistique et les applications numériques se rencontrent, avec une attention particulière portée à la quantification de l’incertitude, à l’efficacité computationnelle et à l’aide à la décision dans des environnements complexes.",
-    "text": "L’ensemble s’inscrit dans une perspective où la théorie statistique et les applications numériques se rencontrent, avec une attention particulière portée à la quantification de l’incertitude, à l’efficacité computationnelle et à l’aide à la décision dans des environnements complexes."
+    "section": "",
+    "text": "Ce blog a pour objectif de présenter des méthodes de modélisation, d’approximation et d’optimisation de systèmes complexes, en particulier dans des contextes où les données sont rares, coûteuses ou issues de simulateurs numériques intensifs.\nLes contenus couvrent notamment les processus gaussiens et les modèles de krigeage pour la construction de métamodèles, ainsi que l’optimisation bayésienne pour la recherche efficace d’optima sous contrainte de coût. Une attention particulière est également portée à la planification d’expériences, à la calibration bayésienne de modèles numériques et aux approches modernes du machine learning, incluant le deep learning et les méthodes probabilistes.\nL’ensemble s’inscrit dans une démarche à l’interface entre statistique et le machine learning, avec un accent sur la quantification de l’incertitude, l’efficacité computationnelle et l’aide à la décision dans des environnements complexes.\n\n\nModélisation par processus gaussiens\nDans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer très coûteuse en temps de calcul. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.\nPour surmonter cette difficulté, les chercheurs ont de plus en plus recours à des modèles de substitution, également appelés émulateurs ou métamodèles. Ces modèles visent à reproduire le comportement d’une fonction coûteuse à évaluer à l’aide d’une représentation statistique beaucoup moins onéreuse en temps. Parmi les différentes approches existantes, la modélisation par processus gaussiens s’est imposée comme l’une des méthodes les plus populaires et les plus performantes.\nUn processus gaussien fournit un cadre probabiliste permettant de représenter l’incertitude associée à la fonction étudiée. Il permet non seulement de prédire la valeur de la fonction en des points non observés, mais également de quantifier le niveau de confiance associé à chaque prédiction. Cette propriété rend les processus gaussiens adaptés à l’optimisation bayésienne, à la planification séquentielle d’expériences et à la propagation des incertitudes.\nDans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ Lire plus..\n\n\n\nPlans d’experiences\nBlog en cours de traduction …."
   }
 ]
