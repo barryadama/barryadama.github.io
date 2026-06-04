@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Accueil"
 ---
 
 # Adama Ibrahim Barry {.center}
@@ -73,7 +73,7 @@ Statistique, économétrie, science des données.
 *64 heures de TD et TP*
 
 | Cours | Niveau | Type |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Mathématiques Fondamentales II (ensembles, fonctions, relations) | Licence 1 | TD |
 | Probabilités (loi des grands nombres, TCL, simulations) | Licence 3 | TD + TP |
 | Plans d'Expériences et Analyse d'Incertitude (processus gaussiens, indices de Sobol) | Master 2 | TP |

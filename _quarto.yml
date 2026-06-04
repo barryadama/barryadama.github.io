@@ -8,15 +8,15 @@ website:
     background: primary
     left:
       - href: index.qmd
-        text: Home
+        text: Accueil
       - href: about.qmd
         text: CV
       - href: Pub.qmd
         text: Publications
       - href: Talks.qmd
-        text: Talks
+        text: Communications
       - href: Teach.qmd
-        text: Teaching
+        text: Enseignements
       - href: Blog.qmd
         text: Blog
       
