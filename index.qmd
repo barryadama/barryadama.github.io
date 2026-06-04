@@ -23,7 +23,7 @@ about:
 
 ### Bienvenue sur ma page !
 
-**Data Scientist** et **statisticien** titulaire d'un doctorat en Statistique. Expert en **modélisation statistique**, **apprentissage automatique**, i**nférence bayésienne** et **analyse de données**. Passionné par la valorisation des données et le développement de solutions innovantes à fort impact.
+**Data Scientist** et **Statisticien** titulaire d'un doctorat en Statistique de l'Université de Toulouse. Expert en **modélisation statistique**, **apprentissage automatique**, i**nférence bayésienne** et **analyse de données**. Passionné par la valorisation des données et le développement de solutions innovantes à fort impact.
 
 Ma thèse a été encadré conjointement par [**Prof. Clémentine Prieur**](https://membres-ljk.imag.fr/Clementine.Prieur/) (Université Grenoble Alpes), [**Prof. François Bachoc**](https://francoisbachoc.github.io/) (Université de Lille), [**Dr. Miguel Muñoz Zúñiga**](https://www.ifpenergiesnouvelles.fr/node/900) et [**Dr. Sarah Bouquet**](https://www.researchgate.net/profile/Sarah-Bouquet) (IFP Énergies nouvelles).
 
