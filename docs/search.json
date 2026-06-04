@@ -677,5 +677,40 @@
     "title": "Blog",
     "section": "",
     "text": "Modélisation par processus gaussiens\nDans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer très coûteuse en temps de calcul. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.\nPour surmonter cette difficulté, les chercheurs ont de plus en plus recours à des modèles de substitution, également appelés émulateurs ou métamodèles. Ces modèles visent à reproduire le comportement d’une fonction coûteuse à évaluer à l’aide d’une représentation statistique beaucoup moins onéreuse en temps. Parmi les différentes approches existantes, la modélisation par processus gaussiens s’est imposée comme l’une des méthodes les plus populaires et les plus performantes.\nUn processus gaussien fournit un cadre probabiliste permettant de représenter l’incertitude associée à la fonction étudiée. Il permet non seulement de prédire la valeur de la fonction en des points non observés, mais également de quantifier le niveau de confiance associé à chaque prédiction. Cette propriété rend les processus gaussiens adaptés à l’optimisation bayésienne, à la planification séquentielle d’expériences et à la propagation des incertitudes.\nDans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ Lire plus..\n\n\n\nPlans d’experiences\nBlog en cours de traduction en francais …."
+  },
+  {
+    "objectID": "Teach.html#activités-denseignement-20222023",
+    "href": "Teach.html#activités-denseignement-20222023",
+    "title": "Activités d’enseignement",
+    "section": "",
+    "text": "Dans le cadre de mes fonctions d’enseignement en doctorat à l’Université de Toulouse, j’ai assuré un total de 64 heures de travaux dirigés (TD) et travaux pratiques (TP) auprès d’étudiants de Licence et de Master."
+  },
+  {
+    "objectID": "Teach.html#mathématiques-fondamentales-ii",
+    "href": "Teach.html#mathématiques-fondamentales-ii",
+    "title": "Activités d’enseignement",
+    "section": "Mathématiques fondamentales II",
+    "text": "Mathématiques fondamentales II\nUniversité Toulouse III – Licence 1\nVolume horaire : inclus dans les 64h\nCe cours vise à consolider les bases mathématiques essentielles en début de cursus universitaire.\nContenus abordés : - Ensembles, applications et relations - Notions fondamentales de fonctions - Manipulation et raisonnement mathématique de base"
+  },
+  {
+    "objectID": "Teach.html#travaux-pratiques-de-probabilités",
+    "href": "Teach.html#travaux-pratiques-de-probabilités",
+    "title": "Activités d’enseignement",
+    "section": "Travaux pratiques de Probabilités",
+    "text": "Travaux pratiques de Probabilités\nUniversité Toulouse III – Licence 1\nCe module introduit les concepts fondamentaux des probabilités et de la simulation numérique.\nContenus abordés : - Loi des grands nombres et interprétation statistique - Théorème central limite et ses implications - Méthodes de simulation probabiliste (Monte Carlo)"
+  },
+  {
+    "objectID": "Teach.html#travaux-pratiques-plans-dexpériences-et-analyse-dincertitudes",
+    "href": "Teach.html#travaux-pratiques-plans-dexpériences-et-analyse-dincertitudes",
+    "title": "Activités d’enseignement",
+    "section": "Travaux pratiques : Plans d’expériences et analyse d’incertitudes",
+    "text": "Travaux pratiques : Plans d’expériences et analyse d’incertitudes\nUniversité Toulouse III – Master 2\nCe cours porte sur les méthodes avancées de modélisation statistique pour l’analyse de systèmes complexes et coûteux.\nContenus abordés : - Processus gaussiens (krigeage) et modélisation surrogate - Plans d’expériences optimaux - Fonctions de covariance de Matérn - Simulation de processus gaussiens - Estimation d’indices de sensibilité (analyse de variance globale)"
+  },
+  {
+    "objectID": "Teach.html#synthèse",
+    "href": "Teach.html#synthèse",
+    "title": "Activités d’enseignement",
+    "section": "Synthèse",
+    "text": "Synthèse\nCes enseignements m’ont permis de développer des compétences pédagogiques en statistiques et probabilités, tout en accompagnant des étudiants de niveaux Licence et Master dans l’acquisition de méthodes fondamentales et avancées en modélisation statistique."
   }
 ]
