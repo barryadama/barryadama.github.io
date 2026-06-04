@@ -3,7 +3,7 @@ title: "Adama Ibrahim Barry"
 subtitle: "PhD en Statistique | Data Scientist | Ingénieur R&D"
 
 about:
-  template: solana #trestles #solana #jolla 
+  template: trestles #trestles #solana #jolla 
   image: images/pp.png
   image-shape: round
   links:

@@ -1,6 +1,5 @@
 ---
 title: "Blog"
-draft: true
 editor: visual
 format:
   html:
@@ -8,10 +7,6 @@ format:
     toc-title: "Contents"    
     toc-depth: 2    
     toc-location: left  
-execute:
-  echo: true
-  warning: false
-  error: false
 ---
 
 ___
