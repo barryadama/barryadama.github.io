@@ -198,7 +198,7 @@
   {
     "objectID": "gp-modeling.html",
     "href": "gp-modeling.html",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "",
     "text": "Imaginez que vous travaillez pour un bureau d’études aéronautique. Vous devez optimiser la forme d’une aile d’avion en fonction de dizaines de paramètres : l’épaisseur du profil, l’angle d’attaque, la courbure, etc. Pour évaluer chaque configuration, vous lancez une simulation numérique de mécanique des fluides (CFD) qui… tourne pendant 48 heures sur un cluster de calcul. Explorer l’espace des paramètres avec des méthodes classiques deviendrait rapidement prohibitif : des milliers de simulations, des années de calcul.\nCe problème est omniprésent en ingénierie et en sciences : comment optimiser ou analyser un système dont chaque évaluation est extrêmement coûteuse ?\nLa réponse : construire un émulateur (aussi appelé surrogate model ou métamodèle) — un modèle statistique rapide à évaluer qui imite fidèlement le simulateur original. Parmi les techniques d’émulation, les processus gaussiens (GP) se distinguent comme une référence incontournable."
   },
@@ -254,63 +254,63 @@
   {
     "objectID": "gp-modeling.html#lidée-intuitive",
     "href": "gp-modeling.html#lidée-intuitive",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "L’idée intuitive",
-    "text": "L’idée intuitive\nUn processus gaussien est une façon de placer une distribution de probabilité sur des fonctions. Au lieu de supposer que la réalité suit une forme paramétrique fixe (linéaire, polynomiale…), on dit simplement :\n\n“La vraie fonction \\(f\\) est quelque part dans cet immense espace de fonctions. Les observations dont je dispose me permettent de restreindre les candidats plausibles.”\n\nConcrètement, un GP est entièrement caractérisé par deux ingrédients :\n\nUne fonction de moyenne \\(m(\\mathbf{x})\\) : ce qu’on croit a priori sur la valeur de la fonction (souvent prise nulle ou constante).\nUne fonction de covariance (ou noyau) \\(k(\\mathbf{x}, \\mathbf{x}')\\) : qui encode à quel point les valeurs en deux points \\(\\mathbf{x}\\) et \\(\\mathbf{x}'\\) sont corrélées entre elles.\n\n\\[f(\\mathbf{x}) \\sim \\mathcal{GP}\\bigl(m(\\mathbf{x}),\\; k(\\mathbf{x}, \\mathbf{x}')\\bigr)\\]"
+    "text": "L’idée intuitive\nUn processus gaussien est une façon de placer une distribution de probabilité sur des fonctions. Au lieu de supposer que la réalité suit une forme paramétrique fixe (linéaire, polynomiale etc.), on dit simplement :\n\n“La vraie fonction \\(f\\) est quelque part dans cet immense espace de fonctions. Les observations dont je dispose me permettent de restreindre les candidats plausibles.”\n\nConcrètement, un GP est entièrement caractérisé par deux ingrédients :\n\nUne fonction de moyenne \\(m(\\mathbf{x})\\) : ce qu’on croit a priori sur la valeur de la fonction (souvent prise nulle ou constante).\nUne fonction de covariance (ou noyau) \\(k(\\mathbf{x}, \\mathbf{x}')\\) : qui encode à quel point les valeurs en deux points \\(\\mathbf{x}\\) et \\(\\mathbf{x}'\\) sont corrélées entre elles.\n\nEt on note\n\\[f(\\mathbf{x}) \\sim \\mathcal{GP}\\bigl(m(\\mathbf{x}),\\; k(\\mathbf{x}, \\mathbf{x}')\\bigr).\\]"
   },
   {
     "objectID": "gp-modeling.html#la-clé-le-noyau",
     "href": "gp-modeling.html#la-clé-le-noyau",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "La clé : le noyau",
-    "text": "La clé : le noyau\nLe noyau est le cœur du modèle. Le noyau le plus classique est le noyau RBF (Radial Basis Function), aussi appelé noyau gaussien ou squared exponential :\n\\[k(\\mathbf{x}, \\mathbf{x}') = \\sigma^2 \\exp\\!\\left(-\\frac{\\|\\mathbf{x} - \\mathbf{x}'\\|^2}{2\\ell^2}\\right)\\]\n\n\\(\\sigma^2\\) contrôle la variance (amplitude des variations).\n\\(\\ell\\) est la longueur de corrélation : plus elle est grande, plus la fonction est lisse.\n\nL’intuition est simple : deux points proches dans l’espace des entrées ont des sorties corrélées. Si \\(f(x_1)\\) est grande et que \\(x_2\\) est proche de \\(x_1\\), alors \\(f(x_2)\\) sera probablement grande aussi."
+    "text": "La clé : le noyau\nLe noyau est au cœur de la modélisation par processus gaussien. Le noyau le plus classique est le noyau RBF (Radial Basis Function), aussi appelé noyau gaussien ou squared exponential :\n\\[k(\\mathbf{x}, \\mathbf{x}') = \\sigma^2 \\exp\\!\\left(-\\frac{\\|\\mathbf{x} - \\mathbf{x}'\\|^2}{2\\ell^2}\\right)\\]\n\n\\(\\sigma^2\\) contrôle la variance (amplitude des variations).\n\\(\\ell\\) est la longueur de corrélation : plus elle est grande, plus la fonction est lisse.\n\nL’intuition est simple : deux points proches dans l’espace des entrées ont des sorties corrélées. En d’autres terme, si \\(f(x_1)\\) est grande et que \\(x_2\\) est proche de \\(x_1\\), alors \\(f(x_2)\\) sera probablement grande aussi."
   },
   {
     "objectID": "gp-modeling.html#conditionnement-bayésien",
     "href": "gp-modeling.html#conditionnement-bayésien",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "Conditionnement bayésien",
-    "text": "Conditionnement bayésien\nSupposons qu’on ait effectué \\(n\\) simulations coûteuses aux points \\(\\mathbf{X} = \\{\\mathbf{x}_1, \\ldots, \\mathbf{x}_n\\}\\), donnant les observations \\(\\mathbf{y} = \\{y_1, \\ldots, y_n\\}\\).\nOn veut prédire \\(f(\\mathbf{x}^*)\\) en un nouveau point \\(\\mathbf{x}^*\\). La beauté du GP est que cette distribution conditionnelle est analytiquement calculable et reste gaussienne :\n\\[f(\\mathbf{x}^*) \\mid \\mathbf{X}, \\mathbf{y} \\;\\sim\\; \\mathcal{N}\\!\\bigl(\\mu^*,\\; (\\sigma^*)^2\\bigr)\\]\navec :\n\\[\\mu^* = m(\\mathbf{x}^*) + \\mathbf{k}_*^\\top \\mathbf{K}^{-1}(\\mathbf{y} - m(\\mathbf{X}))\\]\n\\[(\\sigma^*)^2 = k(\\mathbf{x}^*, \\mathbf{x}^*) - \\mathbf{k}_*^\\top \\mathbf{K}^{-1} \\mathbf{k}_*\\]\noù \\(\\mathbf{K}\\) est la matrice de Gram (\\(K_{ij} = k(\\mathbf{x}_i, \\mathbf{x}_j)\\)) et \\(\\mathbf{k}_* = [k(\\mathbf{x}^*, \\mathbf{x}_1), \\ldots, k(\\mathbf{x}^*, \\mathbf{x}_n)]^\\top\\).\nLe résultat est double : on obtient à la fois une prédiction (\\(\\mu^*\\)) et une mesure d’incertitude (\\(\\sigma^*\\)) — ce qui est exceptionnel."
+    "text": "Conditionnement bayésien\nSupposons qu’on ait effectué \\(n\\) simulations coûteuses aux points \\(\\mathbf{X} = \\{\\mathbf{x}_1, \\ldots, \\mathbf{x}_n\\}\\), donnant les observations \\(\\mathbf{y} = \\{y_1, \\ldots, y_n\\}\\).\nOn veut prédire \\(f(\\mathbf{x}^*)\\) en un nouveau point \\(\\mathbf{x}^*\\). La beauté du GP est que cette distribution conditionnelle est analytiquement calculable et reste également gaussienne :\n\\[f(\\mathbf{x}^*) \\mid \\mathbf{X}, \\mathbf{y} \\;\\sim\\; \\mathcal{N}\\!\\bigl(\\mu^*,\\; (\\sigma^*)^2\\bigr)\\]\navec :\n\\[\\mu^* = m(\\mathbf{x}^*) + \\mathbf{k}_*^\\top \\mathbf{K}^{-1}(\\mathbf{y} - m(\\mathbf{X}))\\]\n\\[(\\sigma^*)^2 = k(\\mathbf{x}^*, \\mathbf{x}^*) - \\mathbf{k}_*^\\top \\mathbf{K}^{-1} \\mathbf{k}_*\\]\noù \\(\\mathbf{K}\\) est la matrice de Gram (\\(K_{ij} = k(\\mathbf{x}_i, \\mathbf{x}_j)\\)) et \\(\\mathbf{k}_* = [k(\\mathbf{x}^*, \\mathbf{x}_1), \\ldots, k(\\mathbf{x}^*, \\mathbf{x}_n)]^\\top\\).\nL’avantage est double : on obtient à la fois une prédiction (\\(\\mu^*\\)) et un quantifieur d’incertitude (\\(\\sigma^*\\)) associée."
   },
   {
     "objectID": "gp-modeling.html#le-simulateur-coûteux",
     "href": "gp-modeling.html#le-simulateur-coûteux",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "Le simulateur coûteux",
     "text": "Le simulateur coûteux\n\n# Notre \"simulateur coûteux\" : une fonction oscillante non-linéaire\n# En pratique, cela serait un code CFD, FEM, ou autre prenant des heures\nsimulator &lt;- function(x) {\n  sin(2 * pi * x) + 0.5 * sin(4 * pi * x) + 0.3 * cos(6 * pi * x)\n}\n\n# Grille fine pour visualiser la \"vraie\" fonction\nx_fine &lt;- seq(0, 1, length.out = 500)\ny_true &lt;- simulator(x_fine)\n\n# On n'a le droit qu'à n évaluations coûteuses !\nset.seed(42)\nn_obs &lt;- 10\nx_obs &lt;- sort(runif(n_obs, 0, 1))\ny_obs &lt;- simulator(x_obs)\n\n# Visualisation initiale\ndf_true &lt;- data.frame(x = x_fine, y = y_true)\ndf_obs  &lt;- data.frame(x = x_obs,  y = y_obs)\n\nggplot() +\n  geom_line(data = df_true, aes(x, y), \n            color = col_sim, linewidth = 1, linetype = \"dashed\") +\n  geom_point(data = df_obs, aes(x, y), \n             color = col_pts, size = 3, shape = 16) +\n  labs(\n    title    = \"Le simulateur coûteux\",\n    subtitle = paste0(\"Vraie fonction (tirets) et \", n_obs, \" évaluations disponibles (points)\"),\n    x        = \"Paramètre d'entrée x\",\n    y        = \"Sortie du simulateur f(x)\"\n  ) +\n  theme_minimal(base_size = 13) +\n  theme(plot.title = element_text(face = \"bold\"))"
   },
   {
     "objectID": "gp-modeling.html#ajustement-du-processus-gaussien",
     "href": "gp-modeling.html#ajustement-du-processus-gaussien",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "Ajustement du processus gaussien",
     "text": "Ajustement du processus gaussien\n\n# Ajustement du GP avec DiceKriging\n# Le noyau matern5_2 est souvent préféré en pratique (moins lisse que RBF)\ngp_model &lt;- km(\n  formula  = ~1,                   # fonction de tendance constante\n  design   = data.frame(x = x_obs),\n  response = y_obs,\n  covtype  = \"matern5_2\",          # noyau de Matérn 5/2\n  optim.method = \"BFGS\",           # optimisation de la vraisemblance\n  control  = list(trace = FALSE)\n)\n\n# Résumé du modèle ajusté\nsummary(gp_model)\n\nLength  Class   Mode \n     1     km     S4"
   },
   {
     "objectID": "gp-modeling.html#prédiction-et-intervalles-de-confiance",
     "href": "gp-modeling.html#prédiction-et-intervalles-de-confiance",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "Prédiction et intervalles de confiance",
     "text": "Prédiction et intervalles de confiance\n\n# Prédiction sur la grille fine\npred &lt;- predict(\n  gp_model,\n  newdata = data.frame(x = x_fine),\n  type    = \"UK\"   # Universal Kriging\n)\n\n# Assemblage des résultats\ndf_pred &lt;- data.frame(\n  x     = x_fine,\n  mean  = pred$mean,\n  lower = pred$lower95,\n  upper = pred$upper95,\n  true  = y_true\n)\n\n# Visualisation de l'émulateur\nggplot(df_pred, aes(x = x)) +\n  # Intervalle de confiance à 95%\n  geom_ribbon(aes(ymin = lower, ymax = upper), \n              fill = col_band, alpha = 0.8) +\n  # Vraie fonction\n  geom_line(aes(y = true), \n            color = col_sim, linewidth = 0.8, linetype = \"dashed\") +\n  # Prédiction GP\n  geom_line(aes(y = mean), \n            color = col_gp, linewidth = 1.2) +\n  # Points d'observation\n  geom_point(data = df_obs, aes(x = x, y = y), \n             color = col_pts, size = 3, shape = 16) +\n  labs(\n    title    = \"Émulateur Processus Gaussien\",\n    subtitle = \"Moyenne GP (rouge), IC 95% (rose), vraie fonction (bleu tirets)\",\n    x        = \"Paramètre d'entrée x\",\n    y        = \"Sortie\"\n  ) +\n  theme_minimal(base_size = 13) +\n  theme(plot.title = element_text(face = \"bold\"))"
   },
   {
     "objectID": "gp-modeling.html#impact-du-nombre-dobservations",
     "href": "gp-modeling.html#impact-du-nombre-dobservations",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "Impact du nombre d’observations",
     "text": "Impact du nombre d’observations\n\n# Comparaison avec différents nombres d'observations\nfit_and_predict &lt;- function(n, seed = 42) {\n  set.seed(seed)\n  x_n &lt;- sort(runif(n, 0, 1))\n  y_n &lt;- simulator(x_n)\n  \n  mod &lt;- km(\n    formula  = ~1,\n    design   = data.frame(x = x_n),\n    response = y_n,\n    covtype  = \"matern5_2\",\n    control  = list(trace = FALSE)\n  )\n  \n  p &lt;- predict(mod, newdata = data.frame(x = x_fine), type = \"UK\")\n  \n  data.frame(\n    x      = x_fine,\n    mean   = p$mean,\n    lower  = p$lower95,\n    upper  = p$upper95,\n    n_obs  = as.factor(paste0(\"n = \", n))\n  )\n}\n\ndf_compare &lt;- bind_rows(\n  fit_and_predict(5),\n  fit_and_predict(10),\n  fit_and_predict(20)\n)\n\ndf_true_rep &lt;- data.frame(x = x_fine, y = y_true)\n\nggplot(df_compare, aes(x = x)) +\n  geom_ribbon(aes(ymin = lower, ymax = upper, fill = n_obs), alpha = 0.25) +\n  geom_line(aes(y = mean, color = n_obs), linewidth = 1) +\n  geom_line(data = df_true_rep, aes(x, y), \n            color = col_sim, linetype = \"dashed\", linewidth = 0.7) +\n  scale_color_manual(values = c(\"#e94560\", \"#0f3460\", \"#16213e\")) +\n  scale_fill_manual(values  = c(\"#e94560\", \"#0f3460\", \"#16213e\")) +\n  facet_wrap(~n_obs, ncol = 3) +\n  labs(\n    title    = \"Qualité de l'émulateur selon le budget d'évaluations\",\n    subtitle = \"Plus on a d'observations, plus l'incertitude (bande colorée) se réduit\",\n    x = \"x\", y = \"f(x)\"\n  ) +\n  theme_minimal(base_size = 12) +\n  theme(\n    plot.title  = element_text(face = \"bold\"),\n    legend.position = \"none\"\n  )"
   },
   {
     "objectID": "gp-modeling.html#avantages",
     "href": "gp-modeling.html#avantages",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "✅ Avantages",
     "text": "✅ Avantages\n\n\n\n\n\n\n\nPropriété\nDescription\n\n\n\n\nIncertitude calibrée\nLe GP fournit des intervalles de confiance fiables, pas seulement une prédiction ponctuelle\n\n\nInterpolation exacte\nPar défaut, le GP passe exactement par les données d’entraînement\n\n\nPeu de données\nTrès performant avec un petit budget d’évaluations (10–100 points)\n\n\nFlexibilité\nLe choix du noyau permet d’encoder des connaissances a priori sur la régularité de \\(f\\)\n\n\nOptimisation bayésienne\nL’incertitude du GP est au cœur des algorithmes d’optimisation efficace (BO)\n\n\nBase théorique solide\nCadre probabiliste bien établi, interprétable"
   },
   {
     "objectID": "gp-modeling.html#limites",
     "href": "gp-modeling.html#limites",
-    "title": "Gaussian Process Surrogate Modeling",
+    "title": "Regression par processus gaussien",
     "section": "⚠️ Limites",
     "text": "⚠️ Limites\n\n\n\n\n\n\n\nDéfi\nExplication\n\n\n\n\nPassage à l’échelle\nComplexité \\(\\mathcal{O}(n^3)\\) pour \\(n\\) observations → difficile au-delà de ~5 000 points\n\n\nMalédiction de la dimensionnalité\nPerformance se dégrade avec le nombre de variables d’entrée (&gt;~20)\n\n\nChoix du noyau\nNécessite une expertise ou une validation croisée soignée\n\n\nStationnarité\nLe noyau RBF suppose une régularité uniforme — inadapté aux fonctions avec zones localement irrégulières"
   },
@@ -663,5 +663,12 @@
     "title": "Communications scientifiques",
     "section": "2022",
     "text": "2022\n\nCalibration de codes de calcul coûteux\nJournées des Jeunes Chercheurs en Mathématiques\nà Massy-Palaiseau\n📅 Septembre 2022"
+  },
+  {
+    "objectID": "Blog.html",
+    "href": "Blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Modélisation par processus gaussiens\nDans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer très coûteuse en temps de calcul. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.\nPour surmonter cette difficulté, les chercheurs ont de plus en plus recours à des modèles de substitution, également appelés émulateurs ou métamodèles. Ces modèles visent à reproduire le comportement d’une fonction coûteuse à évaluer à l’aide d’une représentation statistique beaucoup moins onéreuse en temps. Parmi les différentes approches existantes, la modélisation par processus gaussiens s’est imposée comme l’une des méthodes les plus populaires et les plus performantes.\nUn processus gaussien fournit un cadre probabiliste permettant de représenter l’incertitude associée à la fonction étudiée. Il permet non seulement de prédire la valeur de la fonction en des points non observés, mais également de quantifier le niveau de confiance associé à chaque prédiction. Cette propriété rend les processus gaussiens adaptés à l’optimisation bayésienne, à la planification séquentielle d’expériences et à la propagation des incertitudes.\nDans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ Lire plus..\n\n\n\nPlans d’experiences\nBlog en cours de traduction en francais …."
   }
 ]

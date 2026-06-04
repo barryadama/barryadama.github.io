@@ -1,7 +1,5 @@
 ---
 title: " "
-about:
-  template: solana
 ---
 
 From 2022 to 2023, I delivered a total of **64 hours** of tutorials and practical sessions as part of my PhD teaching duties at the University of Toulouse.

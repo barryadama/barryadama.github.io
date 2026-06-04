@@ -19,7 +19,10 @@ website:
         text: Teaching
       - href: Blog.qmd
         text: Blog
-
+    right:
+      - href: blog.qmd
+        text: "Blog"
+      
     tools:
       - icon: linkedin
         href: "https://www.linkedin.com/in/adama-ibrahim-barry-253314133/"
@@ -34,7 +37,7 @@ format:
   html:
     theme:
       light: spacelab
-      dark: journal
+      dark: cyborg
     toggle: true
     mainfont: "Helvetica Neue"
     sansfont: "Helvetica Neue"

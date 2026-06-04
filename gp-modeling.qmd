@@ -1,5 +1,5 @@
 ---
-title: "Gaussian Process Surrogate Modeling"
+title: "Regression par processus gaussien"
 format:
   html:
     toc: true   
@@ -20,35 +20,38 @@ Ce problème est omniprésent en ingénierie et en sciences : **comment optimise
 
 La réponse : construire un **émulateur** (aussi appelé *surrogate model* ou *métamodèle*) — un modèle statistique rapide à évaluer qui imite fidèlement le simulateur original. Parmi les techniques d'émulation, les **processus gaussiens** (GP) se distinguent comme une référence incontournable.
 
----
+------------------------------------------------------------------------
 
 # Qu'est-ce qu'un processus gaussien ?
 
 ## L'idée intuitive
 
-Un processus gaussien est une façon de **placer une distribution de probabilité sur des fonctions**. Au lieu de supposer que la réalité suit une forme paramétrique fixe (linéaire, polynomiale…), on dit simplement :
+Un processus gaussien est une façon de **placer une distribution de probabilité sur des fonctions**. Au lieu de supposer que la réalité suit une forme paramétrique fixe (linéaire, polynomiale etc.), on dit simplement :
 
 > "La vraie fonction $f$ est *quelque part* dans cet immense espace de fonctions. Les observations dont je dispose me permettent de restreindre les candidats plausibles."
 
 Concrètement, un GP est entièrement caractérisé par deux ingrédients :
 
-- Une **fonction de moyenne** $m(\mathbf{x})$ : ce qu'on croit *a priori* sur la valeur de la fonction (souvent prise nulle ou constante).
-- Une **fonction de covariance** (ou noyau) $k(\mathbf{x}, \mathbf{x}')$ : qui encode à quel point les valeurs en deux points $\mathbf{x}$ et $\mathbf{x}'$ sont corrélées entre elles.
+-   Une **fonction de moyenne** $m(\mathbf{x})$ : ce qu'on croit *a priori* sur la valeur de la fonction (souvent prise nulle ou constante).
 
-$$f(\mathbf{x}) \sim \mathcal{GP}\bigl(m(\mathbf{x}),\; k(\mathbf{x}, \mathbf{x}')\bigr)$$
+-   Une **fonction de covariance** (ou noyau) $k(\mathbf{x}, \mathbf{x}')$ : qui encode à quel point les valeurs en deux points $\mathbf{x}$ et $\mathbf{x}'$ sont corrélées entre elles.
+
+Et on note
+
+$$f(\mathbf{x}) \sim \mathcal{GP}\bigl(m(\mathbf{x}),\; k(\mathbf{x}, \mathbf{x}')\bigr).$$
 
 ## La clé : le noyau
 
-Le noyau est le cœur du modèle. Le noyau le plus classique est le **noyau RBF** (*Radial Basis Function*), aussi appelé noyau gaussien ou *squared exponential* :
+Le noyau est au cœur de la modélisation par processus gaussien. Le noyau le plus classique est le **noyau RBF** (*Radial Basis Function*), aussi appelé noyau gaussien ou *squared exponential* :
 
 $$k(\mathbf{x}, \mathbf{x}') = \sigma^2 \exp\!\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2\ell^2}\right)$$
 
-- $\sigma^2$ contrôle la **variance** (amplitude des variations).
-- $\ell$ est la **longueur de corrélation** : plus elle est grande, plus la fonction est lisse.
+-   $\sigma^2$ contrôle la **variance** (amplitude des variations).
+-   $\ell$ est la **longueur de corrélation** : plus elle est grande, plus la fonction est lisse.
 
-L'intuition est simple : deux points proches dans l'espace des entrées ont des sorties corrélées. Si $f(x_1)$ est grande et que $x_2$ est proche de $x_1$, alors $f(x_2)$ sera probablement grande aussi.
+L'intuition est simple : deux points proches dans l'espace des entrées ont des sorties corrélées. En d'autres terme, si $f(x_1)$ est grande et que $x_2$ est proche de $x_1$, alors $f(x_2)$ sera probablement grande aussi.
 
----
+------------------------------------------------------------------------
 
 # Comment fonctionne la prédiction ?
 
@@ -56,7 +59,7 @@ L'intuition est simple : deux points proches dans l'espace des entrées ont des 
 
 Supposons qu'on ait effectué $n$ simulations coûteuses aux points $\mathbf{X} = \{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, donnant les observations $\mathbf{y} = \{y_1, \ldots, y_n\}$.
 
-On veut prédire $f(\mathbf{x}^*)$ en un nouveau point $\mathbf{x}^*$. La beauté du GP est que cette distribution conditionnelle est **analytiquement calculable** et reste gaussienne :
+On veut prédire $f(\mathbf{x}^*)$ en un nouveau point $\mathbf{x}^*$. La beauté du GP est que cette distribution conditionnelle est **analytiquement calculable** et reste également gaussienne :
 
 $$f(\mathbf{x}^*) \mid \mathbf{X}, \mathbf{y} \;\sim\; \mathcal{N}\!\bigl(\mu^*,\; (\sigma^*)^2\bigr)$$
 
@@ -68,9 +71,9 @@ $$(\sigma^*)^2 = k(\mathbf{x}^*, \mathbf{x}^*) - \mathbf{k}_*^\top \mathbf{K}^{-
 
 où $\mathbf{K}$ est la matrice de Gram ($K_{ij} = k(\mathbf{x}_i, \mathbf{x}_j)$) et $\mathbf{k}_* = [k(\mathbf{x}^*, \mathbf{x}_1), \ldots, k(\mathbf{x}^*, \mathbf{x}_n)]^\top$.
 
-Le résultat est double : on obtient à la fois une **prédiction** ($\mu^*$) et une **mesure d'incertitude** ($\sigma^*$) — ce qui est exceptionnel.
+L'avantage est double : on obtient à la fois une **prédiction** ($\mu^*$) et un **quantifieur** **d'incertitude** ($\sigma^*$) associée.
 
----
+------------------------------------------------------------------------
 
 # Illustration en R : un émulateur simple
 
@@ -258,7 +261,7 @@ ggplot(df_compare, aes(x = x)) +
   )
 ```
 
----
+------------------------------------------------------------------------
 
 # L'incertitude : l'atout majeur du GP
 
@@ -288,7 +291,7 @@ ggplot(df_uncertainty, aes(x = x, y = std)) +
 
 Cette carte d'incertitude est précieuse : elle indique **où** le modèle est peu sûr de lui, et donc **où** il serait le plus utile d'effectuer de nouvelles simulations.
 
----
+------------------------------------------------------------------------
 
 # Application : planification séquentielle des expériences
 
@@ -361,7 +364,7 @@ ggplot(df_sel) +
   )
 ```
 
----
+------------------------------------------------------------------------
 
 # Évaluation de la qualité : métriques de validation
 
@@ -444,14 +447,14 @@ ggplot(df_val, aes(x = y_true, y = y_pred)) +
   theme(plot.title = element_text(face = "bold"))
 ```
 
----
+------------------------------------------------------------------------
 
 # Avantages et limites des processus gaussiens
 
 ## ✅ Avantages
 
 | Propriété | Description |
-|---|---|
+|------------------------------------|------------------------------------|
 | **Incertitude calibrée** | Le GP fournit des intervalles de confiance fiables, pas seulement une prédiction ponctuelle |
 | **Interpolation exacte** | Par défaut, le GP passe exactement par les données d'entraînement |
 | **Peu de données** | Très performant avec un petit budget d'évaluations (10–100 points) |
@@ -462,13 +465,13 @@ ggplot(df_val, aes(x = y_true, y = y_pred)) +
 ## ⚠️ Limites
 
 | Défi | Explication |
-|---|---|
-| **Passage à l'échelle** | Complexité $\mathcal{O}(n^3)$ pour $n$ observations → difficile au-delà de ~5 000 points |
-| **Malédiction de la dimensionnalité** | Performance se dégrade avec le nombre de variables d'entrée (>~20) |
+|------------------------------------|------------------------------------|
+| **Passage à l'échelle** | Complexité $\mathcal{O}(n^3)$ pour $n$ observations → difficile au-delà de \~5 000 points |
+| **Malédiction de la dimensionnalité** | Performance se dégrade avec le nombre de variables d'entrée (\>\~20) |
 | **Choix du noyau** | Nécessite une expertise ou une validation croisée soignée |
 | **Stationnarité** | Le noyau RBF suppose une régularité uniforme — inadapté aux fonctions avec zones localement irrégulières |
 
----
+------------------------------------------------------------------------
 
 # Noyaux alternatifs et leurs effets
 
@@ -519,7 +522,7 @@ ggplot(df_kernels, aes(x = x)) +
 
 Le noyau **Matérn 5/2** est généralement recommandé en émulation de simulateurs physiques : il suppose que la fonction est deux fois différentiable, ce qui est raisonnable sans être trop restrictif.
 
----
+------------------------------------------------------------------------
 
 # Exemple 2D : émulation d'une fonction de deux paramètres
 
@@ -606,14 +609,14 @@ p1 + p2 +
   )
 ```
 
----
+------------------------------------------------------------------------
 
 # GP et optimisation bayésienne : aller plus loin
 
 L'émulation GP est aussi le moteur de l'**optimisation bayésienne** (*Bayesian Optimization*, BO), une méthode pour trouver le minimum (ou maximum) d'une fonction coûteuse en un minimum d'évaluations. La stratégie repose sur une **fonction d'acquisition** qui exploite l'incertitude du GP pour guider l'exploration :
 
-- **Expected Improvement (EI)** : choisit le point qui maximise l'espérance d'amélioration par rapport au meilleur résultat connu.
-- **Upper Confidence Bound (UCB)** : compromis explicite entre exploitation (zones de haute prédiction) et exploration (zones d'haute incertitude).
+-   **Expected Improvement (EI)** : choisit le point qui maximise l'espérance d'amélioration par rapport au meilleur résultat connu.
+-   **Upper Confidence Bound (UCB)** : compromis explicite entre exploitation (zones de haute prédiction) et exploration (zones d'haute incertitude).
 
 ```{r}
 #| label: expected-improvement
@@ -671,19 +674,19 @@ p_gp / p_ei +
   )
 ```
 
----
+------------------------------------------------------------------------
 
 # Conclusion
 
 Les processus gaussiens offrent un cadre élégant et puissant pour l'émulation de simulateurs coûteux. Leurs atouts principaux :
 
-1. **Prédiction + incertitude** en un seul modèle, avec des bases théoriques solides.
-2. **Efficacité avec peu de données** : idéal quand chaque simulation coûte cher.
-3. **Guide l'exploration** : l'incertitude informe où observer en priorité.
-4. **Fondement de l'optimisation bayésienne** : une des méthodes d'optimisation sans gradient les plus efficaces.
+1.  **Prédiction + incertitude** en un seul modèle, avec des bases théoriques solides.
+2.  **Efficacité avec peu de données** : idéal quand chaque simulation coûte cher.
+3.  **Guide l'exploration** : l'incertitude informe où observer en priorité.
+4.  **Fondement de l'optimisation bayésienne** : une des méthodes d'optimisation sans gradient les plus efficaces.
 
 Pour aller plus loin en R, explorez les packages `DiceKriging`, `mlegp`, `GPfit`, ou `laGP` pour les grands jeux de données. En Python, `GPy`, `scikit-learn` et `BoTorch` sont des références.
 
----
+------------------------------------------------------------------------
 
 *Article rédigé avec R, Quarto et les packages `DiceKriging`, `ggplot2`, et `patchwork`.*

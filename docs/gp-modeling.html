@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Gaussian Process Surrogate Modeling –</title>
+<title>Regression par processus gaussien –</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,9 +77,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-52179243ec7832e8768be7f9b9927733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-738b26d7192e3c6fb2fb1fce91214b07.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-52179243ec7832e8768be7f9b9927733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-146d5ed3b0ee54ef242bfd0bff8436b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ee21629091df01881e8f5b142991f5fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-146d5ed3b0ee54ef242bfd0bff8436b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -342,21 +342,17 @@ window.Quarto = {
     <a class="nav-link" href="./Teach.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Blog.html"> 
-<span class="menu-text">Blog</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://www.linkedin.com/in/adama-barry-253314133/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://www.linkedin.com/in/adama-ibrahim-barry-253314133/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
     <a href="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/barryadama">
-            My-Git
+            Git-Perso
             </a>
           </li>
           <li>
@@ -421,7 +417,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gaussian Process Surrogate Modeling</h1>
+<h1 class="title">Regression par processus gaussien</h1>
 </div>
 
 
@@ -449,26 +445,27 @@ window.Quarto = {
 <h1>Qu’est-ce qu’un processus gaussien ?</h1>
 <section id="lidée-intuitive" class="level2">
 <h2 class="anchored" data-anchor-id="lidée-intuitive">L’idée intuitive</h2>
-<p>Un processus gaussien est une façon de <strong>placer une distribution de probabilité sur des fonctions</strong>. Au lieu de supposer que la réalité suit une forme paramétrique fixe (linéaire, polynomiale…), on dit simplement :</p>
+<p>Un processus gaussien est une façon de <strong>placer une distribution de probabilité sur des fonctions</strong>. Au lieu de supposer que la réalité suit une forme paramétrique fixe (linéaire, polynomiale etc.), on dit simplement :</p>
 <blockquote class="blockquote">
 <p>“La vraie fonction <span class="math inline">\(f\)</span> est <em>quelque part</em> dans cet immense espace de fonctions. Les observations dont je dispose me permettent de restreindre les candidats plausibles.”</p>
 </blockquote>
 <p>Concrètement, un GP est entièrement caractérisé par deux ingrédients :</p>
 <ul>
-<li>Une <strong>fonction de moyenne</strong> <span class="math inline">\(m(\mathbf{x})\)</span> : ce qu’on croit <em>a priori</em> sur la valeur de la fonction (souvent prise nulle ou constante).</li>
-<li>Une <strong>fonction de covariance</strong> (ou noyau) <span class="math inline">\(k(\mathbf{x}, \mathbf{x}')\)</span> : qui encode à quel point les valeurs en deux points <span class="math inline">\(\mathbf{x}\)</span> et <span class="math inline">\(\mathbf{x}'\)</span> sont corrélées entre elles.</li>
+<li><p>Une <strong>fonction de moyenne</strong> <span class="math inline">\(m(\mathbf{x})\)</span> : ce qu’on croit <em>a priori</em> sur la valeur de la fonction (souvent prise nulle ou constante).</p></li>
+<li><p>Une <strong>fonction de covariance</strong> (ou noyau) <span class="math inline">\(k(\mathbf{x}, \mathbf{x}')\)</span> : qui encode à quel point les valeurs en deux points <span class="math inline">\(\mathbf{x}\)</span> et <span class="math inline">\(\mathbf{x}'\)</span> sont corrélées entre elles.</p></li>
 </ul>
-<p><span class="math display">\[f(\mathbf{x}) \sim \mathcal{GP}\bigl(m(\mathbf{x}),\; k(\mathbf{x}, \mathbf{x}')\bigr)\]</span></p>
+<p>Et on note</p>
+<p><span class="math display">\[f(\mathbf{x}) \sim \mathcal{GP}\bigl(m(\mathbf{x}),\; k(\mathbf{x}, \mathbf{x}')\bigr).\]</span></p>
 </section>
 <section id="la-clé-le-noyau" class="level2">
 <h2 class="anchored" data-anchor-id="la-clé-le-noyau">La clé : le noyau</h2>
-<p>Le noyau est le cœur du modèle. Le noyau le plus classique est le <strong>noyau RBF</strong> (<em>Radial Basis Function</em>), aussi appelé noyau gaussien ou <em>squared exponential</em> :</p>
+<p>Le noyau est au cœur de la modélisation par processus gaussien. Le noyau le plus classique est le <strong>noyau RBF</strong> (<em>Radial Basis Function</em>), aussi appelé noyau gaussien ou <em>squared exponential</em> :</p>
 <p><span class="math display">\[k(\mathbf{x}, \mathbf{x}') = \sigma^2 \exp\!\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2\ell^2}\right)\]</span></p>
 <ul>
 <li><span class="math inline">\(\sigma^2\)</span> contrôle la <strong>variance</strong> (amplitude des variations).</li>
 <li><span class="math inline">\(\ell\)</span> est la <strong>longueur de corrélation</strong> : plus elle est grande, plus la fonction est lisse.</li>
 </ul>
-<p>L’intuition est simple : deux points proches dans l’espace des entrées ont des sorties corrélées. Si <span class="math inline">\(f(x_1)\)</span> est grande et que <span class="math inline">\(x_2\)</span> est proche de <span class="math inline">\(x_1\)</span>, alors <span class="math inline">\(f(x_2)\)</span> sera probablement grande aussi.</p>
+<p>L’intuition est simple : deux points proches dans l’espace des entrées ont des sorties corrélées. En d’autres terme, si <span class="math inline">\(f(x_1)\)</span> est grande et que <span class="math inline">\(x_2\)</span> est proche de <span class="math inline">\(x_1\)</span>, alors <span class="math inline">\(f(x_2)\)</span> sera probablement grande aussi.</p>
 <hr>
 </section>
 </section>
@@ -477,13 +474,13 @@ window.Quarto = {
 <section id="conditionnement-bayésien" class="level2">
 <h2 class="anchored" data-anchor-id="conditionnement-bayésien">Conditionnement bayésien</h2>
 <p>Supposons qu’on ait effectué <span class="math inline">\(n\)</span> simulations coûteuses aux points <span class="math inline">\(\mathbf{X} = \{\mathbf{x}_1, \ldots, \mathbf{x}_n\}\)</span>, donnant les observations <span class="math inline">\(\mathbf{y} = \{y_1, \ldots, y_n\}\)</span>.</p>
-<p>On veut prédire <span class="math inline">\(f(\mathbf{x}^*)\)</span> en un nouveau point <span class="math inline">\(\mathbf{x}^*\)</span>. La beauté du GP est que cette distribution conditionnelle est <strong>analytiquement calculable</strong> et reste gaussienne :</p>
+<p>On veut prédire <span class="math inline">\(f(\mathbf{x}^*)\)</span> en un nouveau point <span class="math inline">\(\mathbf{x}^*\)</span>. La beauté du GP est que cette distribution conditionnelle est <strong>analytiquement calculable</strong> et reste également gaussienne :</p>
 <p><span class="math display">\[f(\mathbf{x}^*) \mid \mathbf{X}, \mathbf{y} \;\sim\; \mathcal{N}\!\bigl(\mu^*,\; (\sigma^*)^2\bigr)\]</span></p>
 <p>avec :</p>
 <p><span class="math display">\[\mu^* = m(\mathbf{x}^*) + \mathbf{k}_*^\top \mathbf{K}^{-1}(\mathbf{y} - m(\mathbf{X}))\]</span></p>
 <p><span class="math display">\[(\sigma^*)^2 = k(\mathbf{x}^*, \mathbf{x}^*) - \mathbf{k}_*^\top \mathbf{K}^{-1} \mathbf{k}_*\]</span></p>
 <p>où <span class="math inline">\(\mathbf{K}\)</span> est la matrice de Gram (<span class="math inline">\(K_{ij} = k(\mathbf{x}_i, \mathbf{x}_j)\)</span>) et <span class="math inline">\(\mathbf{k}_* = [k(\mathbf{x}^*, \mathbf{x}_1), \ldots, k(\mathbf{x}^*, \mathbf{x}_n)]^\top\)</span>.</p>
-<p>Le résultat est double : on obtient à la fois une <strong>prédiction</strong> (<span class="math inline">\(\mu^*\)</span>) et une <strong>mesure d’incertitude</strong> (<span class="math inline">\(\sigma^*\)</span>) — ce qui est exceptionnel.</p>
+<p>L’avantage est double : on obtient à la fois une <strong>prédiction</strong> (<span class="math inline">\(\mu^*\)</span>) et un <strong>quantifieur</strong> <strong>d’incertitude</strong> (<span class="math inline">\(\sigma^*\)</span>) associée.</p>
 <hr>
 </section>
 </section>
