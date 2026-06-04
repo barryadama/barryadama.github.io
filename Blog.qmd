@@ -12,6 +12,8 @@ execute:
   echo: true
   warning: false
   error: false
+about:
+  template: solana
 ---
 
 ___

@@ -5,7 +5,7 @@ title: "Communications scientifiques"
 Au cours de mon doctorat, j’ai présenté mes travaux de recherche lors de conférences, ateliers scientifiques et écoles thématiques, principalement autour de la calibration bayésienne de simulateurs coûteux, de l’optimisation bayésienne et de la conception de plans d’expériences.
 
 ::: {.callout-note appearance="simple"}
-**Co-auteurs récurrents :** François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga et Clémentine Prieur.
+**Encadrants :** François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga et Clémentine Prieur.
 :::
 
 # Communications orales
