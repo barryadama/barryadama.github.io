@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Adama Ibrahim Barry",
     "section": "",
-    "text": "👋 Bienvenue sur ma page !\nData Scientist et statisticien titulaire d’un doctorat en Statistique et Science des Données. Expert en modélisation statistique, apprentissage automatique, inférence bayésienne et analyse de données. Passionné par la valorisation des données et le développement de solutions innovantes à fort impact.\nMon travail de thèse a été encadré conjointement par Prof. Clémentine Prieur (Université Grenoble Alpes), Prof. François Bachoc (Université de Lille), Dr. Miguel Muñoz Zúñiga et Dr. Sarah Bouquet (IFP Énergies nouvelles).\nJe suis titulaire d’un double diplôme d’ingénieur de l’ENSAI (Data Science appliquée à l’industrie / Génie statistique) et de l’INSEA (Statistique et Economie Appliquée).\n\nMon parcours académique s’inscrit à l’interface entre statistique théorique et science des données appliquée, avec un intérêt croissant pour l’intelligence artificielle et la quantification des incertitudes.\nMes travaux de recherche portent sur le développement et la compréhension des modèles d’apprentissage automatique, en particulier leurs fondements mathématiques ainsi que leur implémentation.\nÀ travers cette page, je souhaite partager mes apprentissages, expérimentations et projets en science des données et en intelligence artificielle.\n\n\n “La concentration est le superpouvoir qui transforme vos intentions en résultats.”- Robin Sharma."
+    "text": "Bienvenue sur ma page !\nData Scientist et statisticien titulaire d’un doctorat en Statistique. Expert en modélisation statistique, apprentissage automatique, inférence bayésienne et analyse de données. Passionné par la valorisation des données et le développement de solutions innovantes à fort impact.\nMon travail de thèse a été encadré conjointement par Prof. Clémentine Prieur (Université Grenoble Alpes), Prof. François Bachoc (Université de Lille), Dr. Miguel Muñoz Zúñiga et Dr. Sarah Bouquet (IFP Énergies nouvelles).\nJe suis titulaire d’un double diplôme d’ingénieur de l’ENSAI (Data Science appliquée à l’industrie / Génie statistique) et de l’INSEA (Statistique et Economie Appliquée).\n\nMon parcours académique s’inscrit à l’interface entre statistique théorique et science des données appliquée, avec un intérêt croissant pour l’intelligence artificielle et la quantification des incertitudes.\nMes travaux de recherche portent sur le développement et la compréhension des modèles d’apprentissage automatique, en particulier leurs fondements mathématiques ainsi que leur implémentation.\nÀ travers cette page, je souhaite partager mes apprentissages, expérimentations et projets en science des données et en intelligence artificielle.\n\n\n “La concentration est le superpouvoir qui transforme vos intentions en résultats.”- Robin Sharma."
   },
   {
     "objectID": "Pub.html",
@@ -114,9 +114,9 @@
   {
     "objectID": "Talks.html",
     "href": "Talks.html",
-    "title": " ",
+    "title": "Communications scientifiques",
     "section": "",
-    "text": "During my PhD, I participated in several conferences, scientific workshops, and research seminars, where I presented my work on Bayesian optimization, design of experiments and Bayesian calibration for expensive computer code."
+    "text": "Au cours de mon doctorat, j’ai présenté mes travaux de recherche lors de conférences, ateliers scientifiques et écoles thématiques, principalement autour de la calibration bayésienne de simulateurs coûteux, de l’optimisation bayésienne et de la conception de plans d’expériences."
   },
   {
     "objectID": "Talks.html#talks",
@@ -250,13 +250,6 @@
     "title": "Academic Projects",
     "section": "Statistical Project — ENSAI (Jan – May 2020)",
     "text": "Statistical Project — ENSAI (Jan – May 2020)\nImpact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)\nStatistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis\n\n\n\nMillet biodiversity project illustration"
-  },
-  {
-    "objectID": "Blog.html",
-    "href": "Blog.html",
-    "title": "Gaussian Process Surrogate Modeling",
-    "section": "",
-    "text": "Gaussian Process Surrogate Modeling\nIn modern scientific computing and engineering, evaluating complex models or simulators can often be computationally expensive. Each simulation may take minutes, hours, or even days to complete making tasks like optimization, uncertainty quantification, or sensitivity analysis extremely challenging.\nTo overcome this, researchers increasingly rely on surrogate models (also called emulators or metamodels). These models aim to approximate the behavior of a costly function using a much cheaper-to-evaluate statistical representation. Among the various approaches, Gaussian Process (GP) modeling has become one of the most popular and powerful techniques.\nA Gaussian Process provides a probabilistic framework to represent uncertainty about the function being modeled. It not only predicts the function’s value at unseen points but also quantifies the confidence in each prediction. This property makes GPs particularly suited for Bayesian optimization, sequential experimental design, and uncertainty propagation.\nIn this article, we introduce the key concepts behind Gaussian Process surrogate modeling — explaining how it works, why it is so effective, and how it can be applied to real-world problems where exhaustive simulation is computationally infeasible.➡️ Continue reading…\n\n\n\nDesign of experiments\nIn scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running experiments or simulations. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the Design of Experiments (DoE) methodology comes into play.\nDesign of Experiments provides a systematic and quantitative framework for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to maximize information gain while minimizing the number of experiments or simulations required.\nOriginally developed for physical experiments in agriculture and industry, DoE has evolved into a cornerstone of computational science, machine learning, and uncertainty quantification. It enables researchers to build accurate surrogate models, perform sensitivity analyses, and guide sequential optimization processes efficiently.\nA well-designed experimental plan not only improves model accuracy but also enhances interpretability and robustness, allowing better understanding of complex systems under uncertainty.\nIn this article, we introduce the fundamental principles of Design of Experiments — what it is, why it matters, and how it can be leveraged to accelerate scientific discovery and data-driven modeling.➡️ Continue reading…\n\n\n\nMachine Learning for Projectile Trajectory Prediction\nHow can artificial intelligence predict the trajectory of a basketball, a missile, or even a spacecraft? Behind these spectacular applications lies a fascinating combination of mathematics, physics, and Machine Learning. By learning from data, modern algorithms are now capable of forecasting complex motions with remarkable precision, sometimes even outperforming traditional physical models in uncertain environments. From neural networks to trajectory simulations, this article explores how AI is transforming one of the oldest problems in science: predicting motion. Whether you are curious about mathematics, technology, aerospace, or artificial intelligence, this journey into trajectory prediction will show how equations and data together are shaping the future.➡️ Continue reading…\n\n\n\nAcademic Projects\nDuring my studies at ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information), I had the opportunity to work on several academic projects combining statistics, data science, and machine learning.\nThese projects allowed me to apply theoretical concepts to real-world problems, from data exploration and predictive modeling.➡️ Continue reading…"
   },
   {
     "objectID": "gp-modeling.html#lidée-intuitive",
@@ -544,5 +537,131 @@
     "title": "Adama Ibrahim Barry",
     "section": "💡 Centres d’Intérêt",
     "text": "💡 Centres d’Intérêt\nEnseignement & mentorat · Entrepreneuriat · Voyages & découvertes culturelles · Cinéma · Marche à pied"
+  },
+  {
+    "objectID": "Pub.html#publication",
+    "href": "Pub.html#publication",
+    "title": "Publications",
+    "section": "",
+    "text": "Plans d’expériences pour la calibration de codes de calcul\nDate : 24 juin 2024 - Publié sur : HAL et soumis sur IJUQ\nRésumé : Dans ce travail, nous abordons le problème de la calibration bayésienne d’un code de calcul coûteux, supposé sans écart de modèle. Dans un processus de calibration impliquant à la fois une acquisition coûteuse de mesures physiques et un temps de calcul élevé du code, la précision de l’estimation et la réduction des coûts doivent guider la sélection des plans d’expériences physiques et numériques.\nÀ cette fin, nous proposons une stratégie unifiée pour sélectionner à la fois les plans d’expériences physiques et numériques, dans le but d’approximer la densité a posteriori des paramètres de calibration. Nous construisons d’abord un émulateur initial par processus gaussien, qui est utilisé pour calculer un critère d’optimalité pour la conception des expériences physiques. Ensuite, nous combinons les observations physiques avec les évaluations disponibles du code de calcul afin d’ajouter séquentiellement de nouveaux points au plan d’expériences numériques, dans le but d’améliorer l’émulateur par processus gaussien pour la calibration.\nNous introduisons de nouveaux critères d’optimalité pour la sélection du plan d’expériences physiques, basés soit sur la densité a posteriori, soit sur le comportement du code de calcul, ainsi qu’une nouvelle fonction d’acquisition pour la sélection du plan d’expériences numériques, inspirée du paradigme de Réduction Séquentielle de l’Incertitude (SUR).\nUne illustration et une analyse des performances, ainsi qu’une comparaison avec une approche de type space-filling, sont réalisées dans quatre configurations : deux cas tests analytiques, un exemple portant sur la calibration d’un oscillateur harmonique, et une application plus réaliste concernant la calibration du modèle Level E."
+  },
+  {
+    "objectID": "Pub.html#manuscrit-de-thèse",
+    "href": "Pub.html#manuscrit-de-thèse",
+    "title": "Publications",
+    "section": "Manuscrit de Thèse",
+    "text": "Manuscrit de Thèse\nPlans d’expériences pour la calibration de codes de calcul coûteux\nDate : 25 juin 2025 — Publié sur : HAL\nRésumé : Dans cette thèse, nous étudions le problème de calibration bayésienne de codes de calculs coûteux, à sortie scalaire, vectorielle ou fonctionnelle, à l’aide de données physiques en nombre limité. Un code de calculs est dit coûteux lorsque son évaluation requiert un temps de calcul important. Dans ce contexte, l’inférence bayésienne sur ses paramètres nécessite l’utilisation d’un émulateur ou modèle de substitution. Nous introduisons une stratégie en deux étapes combinant une sélection optimale du plan d’expériences physiques (pour les mesures physiques à effectuer sur le terrain) et du plan d’expériences numériques (pour la construction de l’émulateur par processus gaussien). La première phase consiste à construire un émulateur initial par processus gaussien, qui servira au calcul des critères d’optimalité du plan d’expériences physiques. Deux types de critères sont introduits. D’une part, des critères bayésiens basés sur la distribution a posteriori des paramètres de calibration. Ces critères ont la particularité de prendre en compte l’ensemble des incertitudes, qu’elles soient liées aux observations physiques, numériques ou aux paramètres du code de calculs. D’autre part, un critère utilisant la variation du code en fonction de ses paramètres combiné à la répartition du plan dans l’espace expérimental. Ce dernier se distingue par son coût d’optimisation réduit. Pour optimiser ces critères, quatre algorithmes sont proposés : le recuit simulé, un algorithme glouton, un algorithme génétique et un algorithme d’optimisation stochastique par perturbation simultanée. Après acquisition des données physiques, l’émulateur est amélioré par une planification séquentielle d’expériences numériques, guidée par un critère d’acquisition visant une réduction progressive de l’incertitude de calibration. Deux critères d’acquisition, exclusivement dédiés à la calibration, ont été définis : le premier repose sur la somme des variances a posteriori des paramètres de calibration et le second est basé sur l’erreur de prédiction des observations physiques. L’émulateur final est ensuite utilisé pour approcher la densité a posteriori des paramètres à l’aide d’un échantillonnage Monte Carlo par chaînes de Markov, couplé à une estimation non paramétrique par noyaux. Une application numérique sur des fonctions analytiques à sortie scalaire a permis d’évaluer la pertinence des critères et des stratégies de planification d’expériences numériques, en les comparant à d’autres approches de l’état de l’art. De plus, une adaptation de la méthodologie de calibration aux codes de calculs à sortie vectorielle ou fonctionnelle est proposée. Enfin, la méthodologie a été appliquée à la calibration d’un simulateur numérique dédié au stockage géologique du CO2, en utilisant des données synthétiques."
+  },
+  {
+    "objectID": "Talks.html#conception-de-plans-dexpériences-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "href": "Talks.html#conception-de-plans-dexpériences-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "title": "Communications orales",
+    "section": "Conception de plans d’expériences pour la calibration de codes de calcul coûteux",
+    "text": "Conception de plans d’expériences pour la calibration de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nJournées de Statistique (SFdS), Université de Bordeaux — 27–31 mai 2024"
+  },
+  {
+    "objectID": "Talks.html#conception-dexpériences-physiques-et-numériques-pour-la-calibration-de-simulateurs",
+    "href": "Talks.html#conception-dexpériences-physiques-et-numériques-pour-la-calibration-de-simulateurs",
+    "title": "Communications orales",
+    "section": "Conception d’expériences physiques et numériques pour la calibration de simulateurs",
+    "text": "Conception d’expériences physiques et numériques pour la calibration de simulateurs\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier CIROQUO, École des Mines de Saint-Étienne — 14–16 mai 2024"
+  },
+  {
+    "objectID": "Talks.html#conception-dexpériences-physiques-et-numériques-pour-la-calibration-de-simulateurs-1",
+    "href": "Talks.html#conception-dexpériences-physiques-et-numériques-pour-la-calibration-de-simulateurs-1",
+    "title": "Communications orales",
+    "section": "Conception d’expériences physiques et numériques pour la calibration de simulateurs",
+    "text": "Conception d’expériences physiques et numériques pour la calibration de simulateurs\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier CIROQUO, Stellantis Poissy — 23–24 novembre 2023"
+  },
+  {
+    "objectID": "Talks.html#conception-dexpériences-physiques-et-numériques-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "href": "Talks.html#conception-dexpériences-physiques-et-numériques-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "title": "Communications orales",
+    "section": "Conception d’expériences physiques et numériques pour la calibration de codes de calcul coûteux",
+    "text": "Conception d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nÉcole thématique sur la quantification des incertitudes en calcul scientifique, Lège-Cap-Ferret — 8–13 octobre 2023"
+  },
+  {
+    "objectID": "Talks.html#calibration-bayesienne-de-codes-de-calcul-coûteux",
+    "href": "Talks.html#calibration-bayesienne-de-codes-de-calcul-coûteux",
+    "title": "Communications orales",
+    "section": "Calibration bayesienne de codes de calcul coûteux",
+    "text": "Calibration bayesienne de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier du GDR Mascotnum « Calibration des codes numériques », Institut Henri Poincaré (IHP), Paris — 31 mai 2023"
+  },
+  {
+    "objectID": "Talks.html#conception-dexpériences-numériques-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "href": "Talks.html#conception-dexpériences-numériques-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "title": "Communications orales",
+    "section": "Conception d’expériences numériques pour la calibration de codes de calcul coûteux",
+    "text": "Conception d’expériences numériques pour la calibration de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier CIROQUO, INRIA Saclay — 23–25 mai 2023"
+  },
+  {
+    "objectID": "Talks.html#optimisation-bayésienne-de-codes-de-calcul-coûteux",
+    "href": "Talks.html#optimisation-bayésienne-de-codes-de-calcul-coûteux",
+    "title": "Communications orales",
+    "section": "Optimisation bayésienne de codes de calcul coûteux",
+    "text": "Optimisation bayésienne de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier RJCAF, Institut Henri Poincaré (IHP), Paris — 5–6 décembre 2022"
+  },
+  {
+    "objectID": "Talks.html#plans-dexpériences-numériques-pour-la-calibration-de-simulateurs-rapport-davancement",
+    "href": "Talks.html#plans-dexpériences-numériques-pour-la-calibration-de-simulateurs-rapport-davancement",
+    "title": "Communications orales",
+    "section": "Plans d’expériences numériques pour la calibration de simulateurs : rapport d’avancement",
+    "text": "Plans d’expériences numériques pour la calibration de simulateurs : rapport d’avancement\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier CIROQUO, BRGM Orléans — 16–17 novembre 2022"
+  },
+  {
+    "objectID": "Talks.html#calibration-bayesienne-de-codes-de-calcul-coûteux-1",
+    "href": "Talks.html#calibration-bayesienne-de-codes-de-calcul-coûteux-1",
+    "title": "Communications orales",
+    "section": "Calibration bayesienne de codes de calcul coûteux",
+    "text": "Calibration bayesienne de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier CIROQUO, INRIA Grenoble — 23–25 mai 2022"
+  },
+  {
+    "objectID": "Talks.html#calibration-de-codes-de-calcul-coûteux",
+    "href": "Talks.html#calibration-de-codes-de-calcul-coûteux",
+    "title": "Communications orales",
+    "section": "Calibration de codes de calcul coûteux",
+    "text": "Calibration de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nJournées des Jeunes Chercheurs en Mathématiques, Massy-Palaiseau — septembre 2022"
+  },
+  {
+    "objectID": "Talks.html#plans-dexpériences-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "href": "Talks.html#plans-dexpériences-pour-la-calibration-de-codes-de-calcul-coûteux",
+    "title": "Communications orales",
+    "section": "Plans d’expériences pour la calibration de codes de calcul coûteux",
+    "text": "Plans d’expériences pour la calibration de codes de calcul coûteux\nAdama Barry, François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga, Clémentine Prieur\nAtelier du GDR Mascotnum, Giens - 3–5 avril 2024"
+  },
+  {
+    "objectID": "Talks.html#section",
+    "href": "Talks.html#section",
+    "title": "Communications scientifiques",
+    "section": "2024",
+    "text": "2024\n\nPlans d’expériences pour la calibration de codes de calcul coûteux\nJournées de Statistique (SFdS) à l’Université de Bordeaux\n📅 27–31 mai 2024\n\n\nPlanification d’expériences physiques et numériques pour la calibration de simulateurs\nAtelier CIROQUO à l’École des Mines de Saint-Étienne\n📅 14–16 mai 2024"
+  },
+  {
+    "objectID": "Talks.html#section-1",
+    "href": "Talks.html#section-1",
+    "title": "Communications scientifiques",
+    "section": "2023",
+    "text": "2023\n\nPlans d’expériences physiques et numériques pour la calibration de simulateurs\nAtelier CIROQUO à Stellantis Poissy\n📅 23–24 novembre 2023\n\n\nPlanification d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nÉcole thématique sur la quantification des incertitudes en calcul scientifique\nà Lège-Cap-Ferret\n📅 8–13 octobre 2023\n\n\nPlan d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nAtelier GDR Mascotnum « Calibration des codes numériques »\nà l’Institut Henri Poincaré (Paris)\n📅 31 mai 2023\n\n\nPlan d’expériences physiques et numériques pour la calibration de codes de calcul coûteux\nAtelier CIROQUO à l’INRIA Saclay\n📅 23–25 mai 2023"
+  },
+  {
+    "objectID": "Talks.html#section-2",
+    "href": "Talks.html#section-2",
+    "title": "Communications scientifiques",
+    "section": "2022",
+    "text": "2022\n\nOptimisation bayésienne de codes de calcul coûteux\nAtelier RJCAF à l’Institut Henri Poincaré (Paris)\n📅 5–6 décembre 2022\n\n\nPlan d’expériences pour la calibration de simulateurs : rapport d’avancement\nAtelier CIROQUO au BRGM-Orléans\n📅 16–17 novembre 2022\n\n\nCalibration de codes de calcul coûteux\nAtelier CIROQUO à l’INRIA Grenoble\n📅 23–25 mai 2022"
+  },
+  {
+    "objectID": "Talks.html#section-3",
+    "href": "Talks.html#section-3",
+    "title": "Communications scientifiques",
+    "section": "2024",
+    "text": "2024\n\nConception de plans d’expériences pour la calibration de codes de calcul coûteux\nAtelier du GDR Mascotnum à Giens\n📅 3–5 avril 2024"
+  },
+  {
+    "objectID": "Talks.html#section-4",
+    "href": "Talks.html#section-4",
+    "title": "Communications scientifiques",
+    "section": "2022",
+    "text": "2022\n\nCalibration de codes de calcul coûteux\nJournées des Jeunes Chercheurs en Mathématiques\nMassy-Palaiseau\n📅 Septembre 2022"
   }
 ]

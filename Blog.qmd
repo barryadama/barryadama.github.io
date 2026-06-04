@@ -1,6 +1,6 @@
 ---
-title: " "
-#draft: true
+title: "Blog"
+draft: true
 editor: visual
 format:
   html:
@@ -16,39 +16,40 @@ execute:
 
 ___
 
-# Gaussian Process Surrogate Modeling
+# Modélisation par processus gaussiens 
 
-In modern scientific computing and engineering, evaluating complex models or simulators can often be **computationally expensive**. Each simulation may take minutes, hours, or even days to complete making tasks like optimization, uncertainty quantification, or sensitivity analysis extremely challenging.  
+Dans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer **très coûteuse en temps de calcul**. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.
 
-To overcome this, researchers increasingly rely on **surrogate models** (also called *emulators* or *metamodels*). These models aim to approximate the behavior of a costly function using a much cheaper-to-evaluate statistical representation. Among the various approaches, **Gaussian Process (GP) modeling** has become one of the most popular and powerful techniques.  
+Pour surmonter cette difficulté, les chercheurs ont de plus en plus recours à des **modèles de substitution** (*surrogate models*), également appelés **émulateurs** ou **métamodèles**. Ces modèles visent à reproduire le comportement d’une fonction coûteuse à évaluer à l’aide d’une représentation statistique beaucoup moins onéreuse en temps. Parmi les différentes approches existantes, la **modélisation par processus gaussiens** s’est imposée comme l’une des méthodes les plus populaires et les plus performantes.
 
-A Gaussian Process provides a **probabilistic framework** to represent uncertainty about the function being modeled. It not only predicts the function’s value at unseen points but also quantifies the **confidence** in each prediction. This property makes GPs particularly suited for **Bayesian optimization**, **sequential experimental design**, and **uncertainty propagation**.  
+Un processus gaussien fournit un **cadre probabiliste** permettant de représenter l’incertitude associée à la fonction étudiée. Il permet non seulement de prédire la valeur de la fonction en des points non observés, mais également de quantifier le **niveau de confiance** associé à chaque prédiction. Cette propriété rend les processus gaussiens adaptés à l’**optimisation bayésienne**, à la **planification séquentielle d’expériences** et à la **propagation des incertitudes**.
 
-In this article, we introduce the key concepts behind Gaussian Process surrogate modeling — explaining how it works, why it is so effective, and how it can be applied to real-world problems where exhaustive simulation is computationally infeasible.➡️ [Continue reading...](gp-modeling.qmd)
-
-___
-
-# Design of experiments
-
-In scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running **experiments or simulations**. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the **Design of Experiments (DoE)** methodology comes into play.  
-
-**Design of Experiments** provides a **systematic and quantitative framework** for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to **maximize information gain** while minimizing the number of experiments or simulations required.  
-
-Originally developed for physical experiments in agriculture and industry, DoE has evolved into a cornerstone of **computational science**, **machine learning**, and **uncertainty quantification**. It enables researchers to build accurate **surrogate models**, perform **sensitivity analyses**, and guide **sequential optimization** processes efficiently.  
-
-A well-designed experimental plan not only improves model accuracy but also enhances interpretability and robustness, allowing better understanding of complex systems under uncertainty.  
-
-In this article, we introduce the fundamental principles of Design of Experiments — what it is, why it matters, and how it can be leveraged to accelerate scientific discovery and data-driven modeling.➡️ [Continue reading...](sp.qmd)
+Dans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ [Lire plus..](gp-modeling.qmd)
 
 ___
 
-# Machine Learning for Projectile Trajectory Prediction
+# Plans d'experiences
 
-How can artificial intelligence predict the trajectory of a basketball, a missile, or even a spacecraft? Behind these spectacular applications lies a fascinating combination of mathematics, physics, and Machine Learning. By learning from data, modern algorithms are now capable of forecasting complex motions with remarkable precision, sometimes even outperforming traditional physical models in uncertain environments. From neural networks to trajectory simulations, this article explores how AI is transforming one of the oldest problems in science: predicting motion. Whether you are curious about mathematics, technology, aerospace, or artificial intelligence, this journey into trajectory prediction will show how equations and data together are shaping the future.➡️ [Continue reading...](ML1.qmd) 
+Blog en cours de traduction en francais ....
+<!-- In scientific research, engineering, and data-driven modeling, exploring the relationship between inputs and outputs often requires running **experiments or simulations**. However, when each experiment is costly or time-consuming, it becomes crucial to plan them strategically. This is where the **Design of Experiments (DoE)** methodology comes into play. -->
 
-___
-# Academic Projects
+<!-- **Design of Experiments** provides a **systematic and quantitative framework** for selecting informative combinations of input variables. Instead of performing random or exhaustive trials, DoE aims to **maximize information gain** while minimizing the number of experiments or simulations required. -->
 
-During my studies at **ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information)**, I had the opportunity to work on several academic projects combining **statistics**, **data science**, and **machine learning**.  
+<!-- Originally developed for physical experiments in agriculture and industry, DoE has evolved into a cornerstone of **computational science**, **machine learning**, and **uncertainty quantification**. It enables researchers to build accurate **surrogate models**, perform **sensitivity analyses**, and guide **sequential optimization** processes efficiently. -->
 
-These projects allowed me to apply theoretical concepts to real-world problems, from data exploration and predictive modeling.➡️ [Continue reading...](acproj.qmd) 
+<!-- A well-designed experimental plan not only improves model accuracy but also enhances interpretability and robustness, allowing better understanding of complex systems under uncertainty. -->
+
+<!-- In this article, we introduce the fundamental principles of Design of Experiments — what it is, why it matters, and how it can be leveraged to accelerate scientific discovery and data-driven modeling.➡️ [Continue reading...](sp.qmd) -->
+
+<!-- ___ -->
+
+<!-- # Machine Learning for Projectile Trajectory Prediction -->
+
+<!-- How can artificial intelligence predict the trajectory of a basketball, a missile, or even a spacecraft? Behind these spectacular applications lies a fascinating combination of mathematics, physics, and Machine Learning. By learning from data, modern algorithms are now capable of forecasting complex motions with remarkable precision, sometimes even outperforming traditional physical models in uncertain environments. From neural networks to trajectory simulations, this article explores how AI is transforming one of the oldest problems in science: predicting motion. Whether you are curious about mathematics, technology, aerospace, or artificial intelligence, this journey into trajectory prediction will show how equations and data together are shaping the future.➡️ [Continue reading...](ML1.qmd) -->
+
+<!-- ___ -->
+<!-- # Academic Projects -->
+
+<!-- During my studies at **ENSAI (École Nationale de la Statistique et de l’Analyse de l’Information)**, I had the opportunity to work on several academic projects combining **statistics**, **data science**, and **machine learning**. -->
+
+<!-- These projects allowed me to apply theoretical concepts to real-world problems, from data exploration and predictive modeling.➡️ [Continue reading...](acproj.qmd) -->

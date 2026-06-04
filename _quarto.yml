@@ -33,12 +33,12 @@ website:
 format:
   html:
     theme:
-      light: yeti #sandstone #
-      dark: cyborg
+      light: spacelab
+      dark: journal
     toggle: true
-    mainfont: "Roboto"         # Police du corps du texte
-    sansfont: "Open Sans"      # Police sans serif
-    monofont: "Fira Code"      # Police pour le code
+    mainfont: "Helvetica Neue"
+    sansfont: "Helvetica Neue"
+    monofont: "Menlo"
     css: styles.css
 
 

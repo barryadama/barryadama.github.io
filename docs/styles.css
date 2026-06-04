@@ -2,3 +2,32 @@
 body {
   transition: background-color 0.3s, color 0.3s;
 }
+
+
+h1 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  color: #1f4e79;
+  font-weight: 600;
+}
+
+.quarto-title-block {
+  margin-bottom: 3rem;
+}
+
+.callout-note {
+  margin-bottom: 2rem;
+}
+
+hr {
+  opacity: 0.15;
+}
