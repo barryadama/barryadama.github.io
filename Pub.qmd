@@ -1,5 +1,5 @@
 ---
-title: "Publications"
+title: " "
 ---
 
 ## Publication
@@ -18,7 +18,7 @@ Une illustration et une analyse des performances, ainsi qu’une comparaison ave
 
 ------------------------------------------------------------------------
 
-## Manuscrit de Thèse
+## Thèse de Doctorat
 
 [**Plans d'expériences pour la calibration de codes de calcul coûteux**](https://theses.hal.science/tel-05186532/)
 

@@ -1,8 +1,8 @@
 ---
-title: "Communications scientifiques"
+title: " "
 ---
 
-Au cours de mon doctorat, j’ai présenté mes travaux de recherche lors de conférences, ateliers scientifiques et écoles thématiques, principalement autour de la calibration bayésienne de simulateurs coûteux, de l’optimisation bayésienne et de la conception de plans d’expériences.
+Durant mes années de thèse, j’ai présenté mes travaux de recherche lors de conférences, ateliers scientifiques et écoles thématiques, principalement autour de la calibration bayésienne de simulateurs coûteux, de l’optimisation bayésienne et de la conception de plans d’expériences.
 
 ::: {.callout-note appearance="simple"}
 **Encadrants :** François Bachoc, Sarah Bouquet, Miguel Muñoz Zúñiga et Clémentine Prieur.

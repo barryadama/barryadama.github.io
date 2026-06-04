@@ -1,5 +1,5 @@
 ---
-title: "Activités d'enseignement"
+title: " "
 ---
 
 ## Activités d'enseignement (2022–2023)
@@ -14,17 +14,17 @@ Dans le cadre de mes fonctions d’enseignement en doctorat à l’Université d
 
 **Volume horaire :** inclus dans les 64h
 
-Ce cours vise à consolider les bases mathématiques essentielles en début de cursus universitaire.
+Ce TD vise à consolider les bases mathématiques essentielles en début de cursus universitaire.
 
 **Contenus abordés :** - Ensembles, applications et relations - Notions fondamentales de fonctions - Manipulation et raisonnement mathématique de base
 
 ------------------------------------------------------------------------
 
-## Travaux pratiques de Probabilités
+## TDs et TPs de Probabilités
 
-*Université Toulouse III – Licence 1*
+*Université Toulouse III – Licence 3*
 
-Ce module introduit les concepts fondamentaux des probabilités et de la simulation numérique.
+Ce TP introduit les concepts fondamentaux des probabilités et de la simulation numérique.
 
 **Contenus abordés :** - Loi des grands nombres et interprétation statistique - Théorème central limite et ses implications - Méthodes de simulation probabiliste (Monte Carlo)
 
@@ -34,7 +34,7 @@ Ce module introduit les concepts fondamentaux des probabilités et de la simulat
 
 *Université Toulouse III – Master 2*
 
-Ce cours porte sur les méthodes avancées de modélisation statistique pour l’analyse de systèmes complexes et coûteux.
+Le TP porte sur les méthodes avancées de modélisation statistique pour l’analyse de systèmes complexes et coûteux.
 
 **Contenus abordés :** - Processus gaussiens (krigeage) et modélisation surrogate - Plans d’expériences optimaux - Fonctions de covariance de Matérn - Simulation de processus gaussiens - Estimation d’indices de sensibilité (analyse de variance globale)
 
