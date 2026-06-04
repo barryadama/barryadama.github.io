@@ -683,7 +683,7 @@
     "href": "Teach.html#mathématiques-fondamentales-ii",
     "title": " ",
     "section": "Mathématiques fondamentales II",
-    "text": "Mathématiques fondamentales II\nUniversité Toulouse III – Licence 1\nVolume horaire : inclus dans les 64h\nCe TD vise à consolider les bases mathématiques essentielles en début de cursus universitaire.\nContenus abordés : - Ensembles, applications et relations - Notions fondamentales de fonctions - Manipulation et raisonnement mathématique de base"
+    "text": "Mathématiques fondamentales II\nUniversité Toulouse III – Licence 1\nVolume horaire : inclus dans les 64h\nCe TD vise à consolider les bases mathématiques essentielles en début de cursus universitaire.\nContenus abordés : Ensembles, applications et relations, notions fondamentales de fonctions, raisonnement mathématique de base."
   },
   {
     "objectID": "Teach.html#travaux-pratiques-de-probabilités",
@@ -697,7 +697,7 @@
     "href": "Teach.html#travaux-pratiques-plans-dexpériences-et-analyse-dincertitudes",
     "title": " ",
     "section": "Travaux pratiques : Plans d’expériences et analyse d’incertitudes",
-    "text": "Travaux pratiques : Plans d’expériences et analyse d’incertitudes\nUniversité Toulouse III – Master 2\nLe TP porte sur les méthodes avancées de modélisation statistique pour l’analyse de systèmes complexes et coûteux.\nContenus abordés : - Processus gaussiens (krigeage) et modélisation surrogate - Plans d’expériences optimaux - Fonctions de covariance de Matérn - Simulation de processus gaussiens - Estimation d’indices de sensibilité (analyse de variance globale)"
+    "text": "Travaux pratiques : Plans d’expériences et analyse d’incertitudes\nUniversité Toulouse III – Master 2\nLe TP porte sur les méthodes avancées de modélisation statistique pour l’analyse de systèmes complexes et coûteux.\nContenus abordés : Processus gaussiens (krigeage) et modélisation surrogate, plans d’expériences optimaux, fonctions de covariance de Matérn, simulation de processus gaussiens, estimation d’indices de sensibilité (analyse de variance globale)."
   },
   {
     "objectID": "Teach.html#synthèse",
@@ -739,6 +739,6 @@
     "href": "Teach.html#tds-et-tps-de-probabilités",
     "title": " ",
     "section": "TDs et TPs de Probabilités",
-    "text": "TDs et TPs de Probabilités\nUniversité Toulouse III – Licence 3\nCe TP introduit les concepts fondamentaux des probabilités et de la simulation numérique.\nContenus abordés : - Loi des grands nombres et interprétation statistique - Théorème central limite et ses implications - Méthodes de simulation probabiliste (Monte Carlo)"
+    "text": "TDs et TPs de Probabilités\nUniversité Toulouse III – Licence 3\nCe TP introduit les concepts fondamentaux des probabilités et de la simulation numérique.\nContenus abordés : Loi des grands nombres et interprétation statistique, théorème central limite et ses implications, méthodes de simulation probabiliste (Monte Carlo)."
   }
 ]
