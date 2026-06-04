@@ -19,9 +19,6 @@ website:
         text: Teaching
       - href: Blog.qmd
         text: Blog
-    right:
-      - href: blog.qmd
-        text: "Blog"
       
     tools:
       - icon: linkedin
