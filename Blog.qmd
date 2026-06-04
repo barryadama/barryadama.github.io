@@ -29,6 +29,7 @@ Un processus gaussien fournit un **cadre probabiliste** permettant de représent
 Dans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ [Lire plus..](gp-modeling.qmd)
 
 ------------------------------------------------------------------------
+
 # Plans d'experiences
 
 Blog en cours de traduction ....

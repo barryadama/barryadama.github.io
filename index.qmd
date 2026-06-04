@@ -3,7 +3,7 @@ title: "Adama Ibrahim Barry"
 subtitle: "PhD en Statistique | Data Scientist | Ingénieur R&D"
 
 about:
-  template: trestles #trestles #solana #jolla 
+  template: solana #trestles #solana #jolla 
   image: images/pp.png
   image-shape: round
   links:
@@ -25,7 +25,7 @@ about:
 
 **Data Scientist** et **statisticien** titulaire d'un doctorat en Statistique. Expert en **modélisation statistique**, **apprentissage automatique**, i**nférence bayésienne** et **analyse de données**. Passionné par la valorisation des données et le développement de solutions innovantes à fort impact.
 
-Mon travail de thèse a été encadré conjointement par [**Prof. Clémentine Prieur**](https://membres-ljk.imag.fr/Clementine.Prieur/) (Université Grenoble Alpes), [**Prof. François Bachoc**](https://francoisbachoc.github.io/) (Université de Lille), [**Dr. Miguel Muñoz Zúñiga**](https://www.ifpenergiesnouvelles.fr/node/900) et [**Dr. Sarah Bouquet**](https://www.researchgate.net/profile/Sarah-Bouquet) (IFP Énergies nouvelles).
+Ma thèse a été encadré conjointement par [**Prof. Clémentine Prieur**](https://membres-ljk.imag.fr/Clementine.Prieur/) (Université Grenoble Alpes), [**Prof. François Bachoc**](https://francoisbachoc.github.io/) (Université de Lille), [**Dr. Miguel Muñoz Zúñiga**](https://www.ifpenergiesnouvelles.fr/node/900) et [**Dr. Sarah Bouquet**](https://www.researchgate.net/profile/Sarah-Bouquet) (IFP Énergies nouvelles).
 
 Je suis titulaire d’un double diplôme d’ingénieur de [**l’ENSAI**](https://ensai.fr/en/) (Data Science appliquée à l'industrie / Génie statistique) et de [**l’INSEA**](https://insea.ac.ma/) (Statistique et Economie Appliquée).\
 
@@ -33,7 +33,7 @@ Mon parcours académique s’inscrit à l’interface entre **statistique théor
 
 Mes travaux de recherche portent sur le **développement et la compréhension des modèles d’apprentissage automatique**, en particulier leurs **fondements mathématiques** ainsi que leur **implémentation**.
 
-À travers cette page, je souhaite partager mes **apprentissages**, **expérimentations** et **projets** en science des données et en intelligence artificielle.
+Sur cette page, je souhaite partager mes **apprentissages**, **expérimentations** et **projets** en science des données et en intelligence artificielle.
 
 ![](images/LinkedInBack.jfif){width="1200"}
 
