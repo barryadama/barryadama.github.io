@@ -1,6 +1,6 @@
 ---
 title: "Adama Ibrahim Barry"
-subtitle: "PhD – Data Science Engineer | Passionate about MLOps and Language Models "
+subtitle: "Docteur en Statistique & Ingénieur en Data Science appliquée à l'industrie"
 
 about:
   template: jolla
@@ -21,23 +21,24 @@ about:
       text: "**Gmail**"
 ---
 
-### 👋 Welcome to my personal page!
+### Bienvenue sur ma page !
 
-I am a **PhD in Statistics and Data Science** from the **University of Toulouse**, specializing in **Gaussian Process (GP) emulation**, **Bayesian optimization**, and **calibration of expensive computer models**.
+**Data Scientist** et statisticien titulaire d'un doctorat en Statistique et Science des Données. Expert en **modélisation statistique**, **apprentissage automatique**, i**nférence bayésienne** et **analyse de données**. Passionné par la valorisation des données et le développement de solutions innovantes à fort impact.
 
-My doctoral research was jointly supervised by [**Prof. Clémentine Prieur**](https://membres-ljk.imag.fr/Clementine.Prieur/) (University of Grenoble Alpes), [**Prof. François Bachoc**](https://francoisbachoc.github.io/) (University of Lille), [**Dr. Miguel Muñoz Zúñiga**](https://www.ifpenergiesnouvelles.fr/node/900), and [**Dr. Sarah Bouquet**](https://www.researchgate.net/profile/Sarah-Bouquet) (IFP Energies Nouvelles).
+Mon travail de thèse a été encadré conjointement par [**Prof. Clémentine Prieur**](https://membres-ljk.imag.fr/Clementine.Prieur/) (Université Grenoble Alpes), [**Prof. François Bachoc**](https://francoisbachoc.github.io/) (Université de Lille), [**Dr. Miguel Muñoz Zúñiga**](https://www.ifpenergiesnouvelles.fr/node/900) et [**Dr. Sarah Bouquet**](https://www.researchgate.net/profile/Sarah-Bouquet) (IFP Énergies nouvelles).
 
-I hold dual engineering degrees from [**ENSAI**](https://ensai.fr/en/) (*Statistical Engineering*) and [**INSEA**](https://insea.ac.ma/) (*Statistics and Applied Economics*).\
-My academic background bridges **theoretical statistics** and **applied data science**, with an increasing focus on **artificial intelligence** and **uncertainty quantification**.
+Je suis titulaire d’un double diplôme d’ingénieur de [**l’ENSAI**](https://ensai.fr/en/) (Data Science appliquée à l'industrie / Génie statistique) et de [**l’INSEA**](https://insea.ac.ma/) (Statistique et Economie Appliquée).\
 
-My research interests focus on the **development and understanding of machine learning models**, particularly their **mathematical foundations** and **implementation from scratch**.
+Mon parcours académique s’inscrit à l’interface entre **statistique théorique** et **science des données appliquée**, avec un intérêt croissant pour l’**intelligence artificielle** et la **quantification des incertitudes**.
 
-Through this page, I aim to share my **learnings**, **experiments**, and **projects** in data science and AI.
+Mes travaux de recherche portent sur le **développement et la compréhension des modèles d’apprentissage automatique**, en particulier leurs **fondements mathématiques** ainsi que leur **implémentation**.
+
+À travers cette page, je souhaite partager mes **apprentissages**, **expérimentations** et **projets** en science des données et en intelligence artificielle.
 
 ![](images/LinkedInBack.jfif){width="1200"}
 
 <p align="center">
 
-<em style="color:#33A4BD;">“Focus is the superpower that turns your intentions into results.” – Robin Sharma.</em>
+<em style="color:#33A4BD;"> "La concentration est le superpouvoir qui transforme vos intentions en résultats."- Robin Sharma.
 
 </p>
