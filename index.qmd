@@ -13,9 +13,7 @@ about:
     - icon: github
       href: "https://github.com/TheseAdama"
       text: "**GitHub-Phd**"
-    - icon: linkedin
-      href: "linkedin.com/in/adama-ibrahim-barry-253314133/"
-      text: "**LinkedIn**"
+
     - icon: google
       href: "mailto:adambarry207@gmail.com"
       text: "**Gmail**"

@@ -22,10 +22,10 @@ website:
 
     tools:
       - icon: linkedin
-        href: "https://www.linkedin.com/in/adama-barry-253314133/"
+        href: "https://www.linkedin.com/in/adama-ibrahim-barry-253314133/"
       - icon: github
       - menu:
-         - text: "My-Git"
+         - text: "Git-Perso"
            href: "https://github.com/barryadama"
          - text: "PhD-Git"
            href: "https://github.com/TheseAdama"
