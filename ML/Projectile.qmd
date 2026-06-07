@@ -1,0 +1,85 @@
+---
+title: " "
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+---
+
+------------------------------------------------------------------------
+
+## Introduction
+
+La prédiction des trajectoires de projectiles est un problème fondamental en balistique, robotique et systèmes autonomes. Les approches traditionnelles reposent sur des modèles physiques avec des paramètres connus (masse, coefficient de traînée, vitesse initiale, etc.). Cependant, dans les scénarios réels, ces paramètres sont souvent inconnus ou variables dans le temps en raison des conditions environnementales.
+
+**L'apprentissage automatique**, en particulier les **Processus Gaussiens (GP)** , offre un cadre probabiliste puissant pour la prédiction de trajectoire qui : - Apprend à partir des données observées - Fournit des estimations d'incertitude - S'adapte aux dynamiques non linéaires - Permet des décisions d'interception en temps réel
+
+Cet article démontre comment implémenter la régression par Processus Gaussiens pour la prédiction de trajectoire de projectile et l'interception.
+
+## Contexte Physique
+
+### Mouvement du Projectile avec Traînée
+
+Un projectile soumis à la gravité et à une traînée linéaire suit :
+
+$$
+\begin{aligned}
+\frac{d^2x}{dt^2} &= -\frac{k}{m} \frac{dx}{dt} \\
+\frac{d^2y}{dt^2} &= -g - \frac{k}{m} \frac{dy}{dt}
+\end{aligned}
+$$
+
+Où : - $g$ = accélération gravitationnelle (9.81 m/s²) - $k$ = coefficient de traînée - $m$ = masse du projectile
+
+La solution analytique donne la position au temps $t$ :
+
+$$
+\begin{aligned}
+x(t) &= v_{x0} \cdot \tau (1 - e^{-t/\tau}) \\
+y(t) &= y_0 + (v_{y0} + g\tau)\tau (1 - e^{-t/\tau}) - g\tau t
+\end{aligned}
+$$
+
+Avec $\tau = m/k$.
+
+## Processus Gaussiens pour la Prédiction de Trajectoire
+
+### Formulation Mathématique
+
+Un Processus Gaussien est défini par :
+
+$$
+f(\mathbf{x}) \sim \mathcal{GP}(m(\mathbf{x}), k(\mathbf{x}, \mathbf{x}'))
+$$
+
+Où : - $m(\mathbf{x})$ est la fonction moyenne - $k(\mathbf{x}, \mathbf{x}')$ est la fonction de covariance (noyau)
+
+Pour la prédiction de trajectoire, nous utilisons le **noyau exponentiel quadratique (RBF)** :
+
+$$
+k_{\text{SE}}(\mathbf{x}_i, \mathbf{x}_j) = \sigma_f^2 \exp\left(-\frac{1}{2l^2} \|\mathbf{x}_i - \mathbf{x}_j\|^2\right) + \sigma_n^2 \delta_{ij}
+$$
+
+Où : - $\sigma_f^2$ : variance du signal - $l$ : échelle de longueur - $\sigma_n^2$ : variance du bruit
+
+### Formule de Prédiction
+
+Étant donné les données d'entraînement $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^n$, la distribution prédictive a posteriori au point de test $\mathbf{x}_*$ est gaussienne :
+
+$$
+y_* | \mathcal{D}, \mathbf{x}_* \sim \mathcal{N}(\mu_*, \sigma_*^2)
+$$
+
+Avec :
+
+$$
+\begin{aligned}
+\mu_* &= \mathbf{k}_*^T (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{y} \\
+\sigma_*^2 &= k_{**} - \mathbf{k}_*^T (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{k}_*
+\end{aligned}
+$$
+
+Où : - $\mathbf{K}$ : matrice de noyau des points d'entraînement - $\mathbf{k}_*$ : vecteur de noyau entre les points de test et d'entraînement - $k_{**}$ : noyau au point de test
+
+En cours...

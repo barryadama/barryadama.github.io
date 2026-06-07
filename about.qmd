@@ -4,7 +4,7 @@ title: ""
 
 # Adama Ibrahim Barry {.center}
 
-**Docteur-Ingénieur en Statistique et Sciences des Données**
+**PhD en Statistique | Data Scientist | Ingénieur R&D**
 
 ::: contact-info
 📧 adambarry207\@gmail.com \| 📞 07 55 85 54 73 \| 🌐 [barryadama.github.io](https://barryadama.github.io) \| 📍 Toulouse, France
@@ -12,7 +12,7 @@ title: ""
 
 ------------------------------------------------------------------------
 
-## 🎓 Formation
+## Formation
 
 **Doctorat en Mathématiques Appliquées** `2022 – 2025`\
 *École Doctorale EDMITT – Université de Toulouse*\
@@ -34,7 +34,7 @@ Statistique, économétrie, science des données.
 
 ------------------------------------------------------------------------
 
-## 💼 Expériences Professionnelles
+## Expériences Professionnelles
 
 **Data Scientist / Ingénieur de Recherche Junior** `2022 – 2025`\
 *IFP Énergies Nouvelles (IFPEN), Rueil-Malmaison*
@@ -67,7 +67,7 @@ Statistique, économétrie, science des données.
 
 ------------------------------------------------------------------------
 
-## 🧑‍🏫 Expérience d'Enseignement
+## Expérience d'Enseignement
 
 **Doctorant Chargé d'Enseignement** – Université de Toulouse III `2022 – 2023`\
 *64 heures de TD et TP*
@@ -80,7 +80,7 @@ Statistique, économétrie, science des données.
 
 ------------------------------------------------------------------------
 
-## 🛠️ Compétences Techniques
+## Compétences Techniques
 
 **Langages de programmation**
 
@@ -107,7 +107,7 @@ Français (avancé) · Anglais (professionnel) · Sonrhaï & Bambara (langues ma
 
 ------------------------------------------------------------------------
 
-## 📄 Publications & Productions Scientifiques
+## Publications & Productions Scientifiques
 
 **Manuscrit de thèse** *(HAL, 2025)*\
 [Plans d'expériences pour la calibration de codes de calcul coûteux, Université de Toulouse.](https://theses.hal.science/tel-05186532/)
@@ -120,7 +120,7 @@ Français (avancé) · Anglais (professionnel) · Sonrhaï & Bambara (langues ma
 
 ------------------------------------------------------------------------
 
-## 📂 Projets Académiques
+## Projets Académiques
 
 **Classification de transitions vidéo** *(ENSAI, oct. 2020 – mars 2021)*\
 Python, OpenCV, classification supervisée et non supervisée, séries temporelles multivariées.
@@ -142,7 +142,7 @@ Conception de questionnaire, collecte terrain, traitement statistique.
 
 ------------------------------------------------------------------------
 
-## 🏅 Certifications
+## Certifications
 
 -   **Coursera:**
     -   [AI Workflow: Machine Learning, Visual Recognition and NLP](https://www.coursera.org/account/accomplishments/verify/JNGNYFJN5UVY)\
@@ -154,6 +154,6 @@ Conception de questionnaire, collecte terrain, traitement statistique.
     -   [Learn Web Scraping with Beautiful Soup](https://www.codecademy.com/profiles/barryAdama0299016940/certificates/f4cba58fa21e556a6a8f5a975cef5388)\
     -   [Complete MLOps Bootcamp with 10 End-to-End ML Projects](https://www.udemy.com/course/complete-mlops-bootcamp-with-10-end-to-end-ml-projects/)
 
-## 💡 Centres d'Intérêt
+## Centres d'Intérêt
 
 Enseignement & mentorat · Entrepreneuriat · Voyages & découvertes culturelles · Cinéma · Marche à pied.

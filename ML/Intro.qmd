@@ -1,0 +1,273 @@
+---
+title: " "
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+---
+
+# Qu'est-ce que le Machine Learning ?
+
+## Programmation classique versus apprentissage automatique
+
+Pendant des décennies, l'informatique a reposé sur un paradigme fondamental : un programmeur humain analyse un problème, en extrait les règles de résolution, puis les traduit en instructions explicites que la machine exécute. Ce modèle a produit des systèmes remarquables — des compilateurs aux bases de données, en passant par les logiciels de gestion. Mais il se heurte à une limite profonde : **que faire lorsque les règles sont trop complexes, trop nombreuses, ou tout simplement inconnues ?**
+
+Reconnaître un visage dans une photo, comprendre une phrase dictée à voix haute, détecter une transaction bancaire frauduleuse parmi des millions — autant de tâches que tout être humain accomplit naturellement, mais pour lesquelles nul ingénieur n'a jamais réussi à écrire les règles explicites qui y correspondent. Le Machine Learning est né de cette impasse.
+
+Le renversement conceptuel est radical. Au lieu que le programmeur fournisse les règles à la machine, c'est la machine qui les **découvre elle-même** à partir de données. On lui présente des exemples — des images avec leur étiquette, des transactions avec leur verdict — et elle en extrait, par optimisation mathématique, une représentation interne capable de généraliser à de nouvelles situations. Comme l'a illustré Aurélien Géron dans *Hands-On Machine Learning*, on ne programme plus le système : on lui apprend.
+
+## Définition formelle
+
+La définition la plus citée dans la littérature reste celle de Tom Mitchell, posée en 1997 dans *Machine Learning* :
+
+> *"A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E."*
+>
+> — Tom Mitchell (1997)
+
+Cette définition, déceptivement simple, contient trois éléments structurants que l'on retrouvera tout au long de ce cours :
+
+- **La tâche T** : ce que l'on cherche à accomplir (classer des e-mails, prédire un prix, traduire un texte).
+- **La mesure de performance P** : comment évaluer la qualité de ce qui est accompli (taux d'erreur, erreur quadratique moyenne, score BLEU).
+- **L'expérience E** : les données à partir desquelles le système apprend (un corpus labellisé, des parties jouées, un historique de transactions).
+
+Un système de Machine Learning est donc défini par la nature de ces trois composantes et par la manière dont il les articule.
+
+## Pourquoi le Machine Learning maintenant ?
+
+L'idée d'apprendre automatiquement à partir de données n'est pas nouvelle. Les fondements théoriques du perceptron datent des années 1950, et les réseaux de neurones profonds ont été théorisés dès les années 1980. Pourquoi alors cette explosion contemporaine ?
+
+Trois facteurs convergents expliquent l'essor actuel, décrits avec précision dans *Deep Learning* de Goodfellow, Bengio et Courville :
+
+Premièrement, la **disponibilité massive des données**. L'explosion d'Internet, des objets connectés et des transactions numériques a produit des quantités de données sans précédent historique. ImageNet, avec ses 14 millions d'images annotées, en est l'emblème.
+
+Deuxièmement, la **puissance de calcul**. Les processeurs graphiques (GPU), initialement conçus pour les jeux vidéo, se sont révélés exceptionnellement bien adaptés aux opérations matricielles massives sur lesquelles repose l'apprentissage profond. La loi de Moore, relayée par la parallélisation, a rendu tractables des calculs qui étaient impossibles deux décennies plus tôt.
+
+Troisièmement, les **avancées algorithmiques**. Des techniques comme la rétropropagation du gradient, les mécanismes d'attention, les méthodes de régularisation et les architectures résiduelles ont résolu des problèmes d'optimisation qui bloquaient les chercheurs depuis des années.
+
+L'articulation de ces trois facteurs a produit un saut qualitatif, et non simplement quantitatif.
+
+---
+
+# Les grands paradigmes d'apprentissage
+
+La taxonomie la plus usuelle distingue trois régimes d'apprentissage selon la nature et la disponibilité des informations fournies au système. Cette classification, exposée en détail dans le *Pattern Recognition and Machine Learning* de Christopher Bishop, structure la quasi-totalité de la littérature du domaine.
+
+## L'apprentissage supervisé
+
+L'apprentissage supervisé est le paradigme le plus répandu dans les applications industrielles. Le principe est direct : on dispose d'un ensemble de paires entrée-sortie $\{(\mathbf{x}_i, y_i)\}_{i=1}^{n}$, où chaque entrée $\mathbf{x}_i$ est associée à une sortie désirée $y_i$ fournie par un "superviseur" — généralement un expert humain ou un processus d'annotation.
+
+L'objectif est d'apprendre une fonction $f : \mathcal{X} \rightarrow \mathcal{Y}$ telle que $f(\mathbf{x}) \approx y$ pour de nouvelles entrées $\mathbf{x}$ non vues lors de l'entraînement. C'est le problème fondamental de la **généralisation**.
+
+On distingue deux grandes catégories selon la nature de $y$ :
+
+**La classification** consiste à prédire une variable catégorielle. L'entrée est une image, un e-mail ou un relevé médical ; la sortie est une étiquette parmi un ensemble fini — "chat" ou "chien", "spam" ou "non-spam", "malin" ou "bénin". Les algorithmes emblématiques incluent la régression logistique, les machines à vecteurs de support (SVM), les arbres de décision et les forêts aléatoires.
+
+**La régression** consiste à prédire une variable continue. Il s'agit d'estimer le prix d'un appartement, la consommation énergétique d'un bâtiment, ou la durée de vie résiduelle d'un équipement industriel. La régression linéaire, les processus gaussiens et les réseaux de neurones en sont les outils principaux.
+
+Le défi central de l'apprentissage supervisé est de ne pas simplement "mémoriser" les données d'entraînement, mais d'en extraire des régularités généralisables. C'est la tension fondamentale entre **biais et variance**, formalisée par le théorème de décomposition biais-variance : un modèle trop simple sous-apprend (biais élevé) ; un modèle trop complexe sur-apprend (variance élevée).
+
+## L'apprentissage non supervisé
+
+Lorsque les données ne sont pas labellisées — ce qui est le cas de la grande majorité des données produites dans le monde réel —, on recourt à l'apprentissage non supervisé. Ici, le système reçoit uniquement des entrées $\{\mathbf{x}_i\}_{i=1}^{n}$ et doit en révéler la structure intrinsèque.
+
+Les tâches principales sont les suivantes :
+
+Le **partitionnement** (*clustering*) consiste à regrouper automatiquement les observations en classes homogènes selon une mesure de similarité. L'algorithme des k-moyennes (*k-means*) reste la référence historique, mais des méthodes plus sophistiquées — DBSCAN, modèles de mélange gaussien — permettent de détecter des structures de forme arbitraire ou d'estimer le nombre de clusters de manière probabiliste.
+
+La **réduction de dimensionnalité** vise à représenter des données de haute dimension dans un espace de dimension inférieure, en préservant au maximum la structure d'origine. L'analyse en composantes principales (ACP) est l'approche linéaire canonique ; les auto-encodeurs et les méthodes comme t-SNE ou UMAP permettent des projections non linéaires.
+
+La **modélisation générative** cherche à apprendre la distribution $p(\mathbf{x})$ des données, afin de générer de nouveaux échantillons plausibles ou d'évaluer la vraisemblance d'une observation. Les modèles de mélange gaussien, les modèles de Markov cachés et, plus récemment, les réseaux antagonistes génératifs (GAN) et les modèles de diffusion appartiennent à cette famille.
+
+L'apprentissage non supervisé pose des questions épistémiques profondes : comment évaluer la qualité d'une solution lorsqu'il n'existe pas de vérité terrain ? Les métriques comme l'indice de silhouette ou le critère d'information bayésien (BIC) offrent des réponses partielles, mais l'interprétation des résultats requiert toujours une expertise métier.
+
+## L'apprentissage par renforcement
+
+Le troisième paradigme s'inspire de la psychologie comportementale et de la théorie des jeux. Un **agent** interagit avec un **environnement** : à chaque pas de temps, il observe un état $s$, choisit une action $a$, reçoit une récompense $r$ et transite vers un nouvel état $s'$. L'objectif est d'apprendre une politique $\pi(a|s)$ — une règle de décision — qui maximise la somme cumulée des récompenses futures.
+
+Ce cadre, formalisé par Sutton et Barto dans *Reinforcement Learning: An Introduction*, est remarquablement expressif. Il a permis à AlphaGo de battre les meilleurs joueurs de Go humains, aux robots d'apprendre à marcher sans programmation explicite, et aux systèmes de recommandation d'optimiser l'engagement des utilisateurs.
+
+La difficulté principale est le **problème du crédit** (*credit assignment problem*) : lorsqu'une partie d'échecs se perd après cent coups, quel coup était responsable de la défaite ? Les algorithmes doivent répartir le crédit ou le blâme sur une longue séquence d'actions passées, en présence d'un signal de récompense souvent rare et retardé.
+
+## Au-delà de la trilogie : variantes et extensions
+
+Cette classification ternaire est utile, mais la réalité des applications dépasse souvent ces frontières. L'**apprentissage semi-supervisé** exploite de grandes quantités de données non étiquetées conjointement avec un petit ensemble labellisé — une situation particulièrement fréquente en médecine, où annoter des images radiologiques est coûteux. L'**apprentissage auto-supervisé**, au cœur des grands modèles de langage, génère ses propres supervisions à partir des données brutes — le modèle prédit le mot suivant ou reconstruit une image masquée. L'**apprentissage par transfert**, enfin, consiste à réutiliser les représentations apprises sur une tâche source (par exemple, la classification d'ImageNet) pour résoudre efficacement une tâche cible avec peu de données.
+
+---
+
+# Le processus d'apprentissage
+
+Comprendre le *quoi* du Machine Learning — les paradigmes, les algorithmes — ne suffit pas. Il faut aussi comprendre le *comment* : par quel processus mathématique un système apprend-il effectivement ?
+
+## Données, modèle et objectif
+
+Tout problème d'apprentissage supervisé se ramène à trois éléments :
+
+**Les données d'entraînement** constituent la matière première. Elles sont supposées tirées indépendamment d'une distribution sous-jacente inconnue $p(\mathbf{x}, y)$. La qualité, la quantité et la représentativité de ces données conditionnent fondamentalement les performances du système appris — un point que les praticiens sous-estiment souvent au profit de la sophistication algorithmique.
+
+**Le modèle** est une famille de fonctions paramétrées $\{f_\theta : \theta \in \Theta\}$. Choisir un modèle, c'est formuler une hypothèse sur la forme de la relation entrée-sortie. Un modèle linéaire suppose que cette relation est une combinaison affine des caractéristiques ; un réseau de neurones profond suppose qu'elle peut être décomposée en couches successives de transformations non linéaires.
+
+**La fonction de perte** $\mathcal{L}(\theta)$ quantifie l'écart entre les prédictions du modèle et les sorties désirées. L'erreur quadratique moyenne $\frac{1}{n}\sum_i (f_\theta(\mathbf{x}_i) - y_i)^2$ est la référence pour la régression ; l'entropie croisée $-\frac{1}{n}\sum_i y_i \log f_\theta(\mathbf{x}_i)$ l'est pour la classification.
+
+## Optimisation par descente de gradient
+
+L'apprentissage se ramène à un problème d'optimisation : trouver les paramètres $\hat\theta$ qui minimisent la fonction de perte,
+
+$$\hat\theta = \arg\min_{\theta \in \Theta} \mathcal{L}(\theta).$$
+
+Pour les modèles différentiables — ce qui inclut tous les réseaux de neurones —, la méthode de référence est la **descente de gradient stochastique** (*Stochastic Gradient Descent*, SGD). Au lieu de calculer le gradient sur l'ensemble des données à chaque itération — une opération prohibitive pour des jeux de données de plusieurs millions d'exemples —, on l'estime sur un mini-lot (*mini-batch*) de quelques dizaines ou centaines d'observations :
+
+$$\theta \leftarrow \theta - \eta \cdot \nabla_\theta \mathcal{L}_{\text{batch}}(\theta),$$
+
+où $\eta > 0$ est le taux d'apprentissage (*learning rate*), un hyperparamètre dont le réglage est souvent déterminant pour la convergence.
+
+Des variantes plus élaborées — Adam, RMSProp, AdaGrad — adaptent automatiquement le taux d'apprentissage par dimension, accélérant considérablement la convergence sur des problèmes de grande dimension.
+
+L'**algorithme de rétropropagation** (*backpropagation*), décrit rigoureusement dans *The Elements of Statistical Learning* de Hastie, Tibshirani et Friedman, permet de calculer efficacement le gradient de la perte par rapport à chacun des paramètres du réseau, en appliquant récursivement la règle de dérivation en chaîne à travers les couches.
+
+## Généralisation et régularisation
+
+Minimiser la perte sur les données d'entraînement n'est qu'un moyen, non une fin. L'objectif véritable est de performer sur des données *nouvelles*, issues de la même distribution mais non vues lors de l'entraînement. Cette distinction entre **erreur d'entraînement** et **erreur de généralisation** est centrale.
+
+Un modèle qui présente une faible erreur d'entraînement mais une erreur de généralisation élevée est dit **sur-ajusté** (*overfitted*) : il a mémorisé le bruit dans les données d'entraînement plutôt que d'en apprendre les régularités profondes. À l'inverse, un modèle trop rigide qui ne parvient pas à capturer la structure des données est dit **sous-ajusté** (*underfitted*).
+
+Plusieurs stratégies permettent de contrôler ce compromis :
+
+La **régularisation** ajoute à la fonction de perte un terme pénalisant la complexité du modèle. La régularisation $L_2$ (*ridge*) pénalise la norme euclidienne des paramètres, encourageant des solutions dont les coefficients sont petits. La régularisation $L_1$ (*lasso*) favorise la parcimonie, en poussant certains coefficients exactement à zéro.
+
+La **validation croisée** permet d'estimer l'erreur de généralisation à partir des données disponibles, en partitionnant celles-ci en sous-ensembles d'entraînement et de validation. La stratégie k-fold, qui effectue k partitions successives et en moyenne les erreurs, est la référence pratique.
+
+Le **dropout**, introduit par Srivastava et al. en 2014, désactive aléatoirement une fraction des neurones lors de chaque passe d'entraînement, forçant le réseau à développer des représentations redondantes et robustes.
+
+L'**arrêt précoce** (*early stopping*) interrompt l'entraînement dès que l'erreur sur un ensemble de validation cesse de décroître, évitant que le modèle ne poursuive une optimisation au détriment de la généralisation.
+
+---
+
+# Les grandes familles de modèles
+
+La littérature du Machine Learning recense plusieurs dizaines de familles d'algorithmes, chacune reposant sur des hypothèses et des mécanismes distincts. Nous présentons ici les plus fondamentales, telles qu'elles sont exposées dans *The Elements of Statistical Learning* et dans *Pattern Recognition and Machine Learning*.
+
+## Modèles linéaires
+
+Les modèles linéaires constituent la famille la plus ancienne et, dans de nombreux contextes, la plus robuste. Leur hypothèse de base est que la sortie est une combinaison linéaire des entrées :
+
+$$f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b,$$
+
+où $\mathbf{w}$ est le vecteur de poids et $b$ le biais. Malgré leur simplicité apparente, ces modèles sont interprétables, peu coûteux en calcul, et offrent des garanties théoriques fortes. Ils restent la référence de base dans de nombreuses applications industrielles et scientifiques, notamment lorsque les données sont limitées ou que l'interprétabilité est requise.
+
+La régression logistique, qui applique une transformation sigmoïde à la sortie linéaire pour produire des probabilités de classe, est l'un des algorithmes de classification les plus utilisés dans la pratique, notamment en crédit scoring et en épidémiologie.
+
+## Méthodes à noyau
+
+Les méthodes à noyau, dont les machines à vecteurs de support (SVM) sont l'exemple le plus célèbre, constituent une extension élégante des modèles linéaires. L'idée centrale est de transformer implicitement les données d'entrée dans un espace de grande dimension — voire de dimension infinie — via une fonction noyau $k(\mathbf{x}, \mathbf{x}')$, puis d'y apprendre un modèle linéaire.
+
+Le théorème de représentation (*representer theorem*) garantit que la solution optimale s'écrit comme une combinaison pondérée des noyaux centrés sur les exemples d'entraînement, rendant le calcul tractable sans jamais expliciter la transformation. Les SVM à marge maximale induisent une solution **parcimonieuse** : seuls les **vecteurs de support** — les exemples les plus proches de la frontière de décision — contribuent à la prédiction.
+
+## Méthodes ensemblistes
+
+Les méthodes ensemblistes reposent sur un principe contre-intuitif mais empiriquement très puissant : **agréger des prédictions de modèles faibles** pour produire un modèle fort. Les arbres de décision sont le composant de base le plus courant — ils sont rapides à entraîner, interprétables, et leurs erreurs ont tendance à être décorrélées lorsqu'ils sont entraînés sur des sous-ensembles aléatoires des données et des caractéristiques.
+
+Les **forêts aléatoires** (*Random Forests*), introduites par Leo Breiman en 2001, agrègent les prédictions de centaines ou de milliers d'arbres entraînés en parallèle sur des sous-échantillons bootstrap. Le **gradient boosting**, formalisé par Friedman, construit les arbres séquentiellement : chaque nouvel arbre apprend à corriger les erreurs résiduelles du modèle courant. Les implémentations modernes — XGBoost, LightGBM, CatBoost — sont aujourd'hui parmi les algorithmes les plus performants sur les données tabulaires structurées.
+
+## Réseaux de neurones profonds
+
+Les réseaux de neurones profonds (*Deep Neural Networks*, DNN) constituent la révolution la plus spectaculaire de ces vingt dernières années. Leur architecture est inspirée — très librement — du cortex visuel biologique : des couches successives de transformations non linéaires permettent d'extraire des représentations de complexité croissante.
+
+Un réseau de neurones profond entièrement connecté transforme une entrée $\mathbf{x}$ via une composition de couches :
+
+$$\mathbf{h}^{(l)} = \sigma\!\left(\mathbf{W}^{(l)} \mathbf{h}^{(l-1)} + \mathbf{b}^{(l)}\right), \quad l = 1, \ldots, L,$$
+
+où $\sigma$ est une fonction d'activation non linéaire (ReLU, tanh, sigmoïde), $\mathbf{W}^{(l)}$ et $\mathbf{b}^{(l)}$ sont les paramètres apprenables de la couche $l$.
+
+Des architectures spécialisées ont émergé pour différents types de données :
+
+Les **réseaux de neurones convolutifs** (CNN) exploitent la structure spatiale des images via des opérations de convolution locales et des poolings hiérarchiques. Ils ont permis des progrès spectaculaires en vision par ordinateur.
+
+Les **réseaux récurrents** (RNN) et leurs variantes (LSTM, GRU) traitent des séquences de longueur variable en maintenant un état caché qui propage l'information dans le temps. Ils ont longtemps dominé le traitement du langage naturel.
+
+Les **transformers**, introduits par Vaswani et al. en 2017, reposent sur un mécanisme d'attention qui permet de modéliser des dépendances à longue portée sans récurrence. Ils sont aujourd'hui à la base de tous les grands modèles de langage (GPT, BERT, LLaMA).
+
+## Méthodes probabilistes et bayésiennes
+
+Une tradition différente, exposée notamment dans *Bayesian Data Analysis* de Gelman et al. et dans le traitement bayésien de Bishop, aborde le Machine Learning sous l'angle de l'inférence probabiliste. Plutôt que d'apprendre un unique vecteur de paramètres $\hat\theta$, on modélise l'incertitude sur ces paramètres par une distribution a posteriori $p(\theta | \mathcal{D})$, obtenue par le théorème de Bayes :
+
+$$p(\theta | \mathcal{D}) \propto p(\mathcal{D} | \theta) \cdot p(\theta).$$
+
+Cette perspective permet de quantifier l'incertitude des prédictions — une propriété cruciale dans les domaines à enjeux élevés (médecine, finance, ingénierie). Les **processus gaussiens**, en particulier, fournissent un cadre non paramétrique où la distribution sur les fonctions est modélisée directement, offrant des intervalles de confiance calibrés sur les prédictions.
+
+---
+
+# Évaluation et bonnes pratiques
+
+## La séparation entraînement-validation-test
+
+La règle d'or de l'évaluation en Machine Learning est la **séparation stricte** des données en trois ensembles : l'ensemble d'entraînement (*train*), sur lequel les paramètres du modèle sont appris ; l'ensemble de validation (*validation*), utilisé pour régler les hyperparamètres et sélectionner les modèles ; et l'ensemble de test (*test*), réservé à l'évaluation finale et consulté **une seule fois**.
+
+Cette discipline, souvent négligée dans des conditions de forte pression temporelle, est la seule garantie d'une estimation honnête des performances réelles du système. Tout contact, même indirect, entre les données de test et les décisions de modélisation constitue une forme de contamination qui produit des estimations de performance artificiellement optimistes.
+
+## Métriques d'évaluation
+
+Le choix de la métrique d'évaluation est une décision à part entière, qui doit refléter l'objectif métier réel et non une facilité mathématique.
+
+En classification, le **taux d'erreur** est souvent insuffisant, car il traite toutes les erreurs comme équivalentes alors qu'elles ne le sont pas : manquer un cancer (faux négatif) n'a pas la même conséquence que faussement alarmer (faux positif). La **précision**, le **rappel**, le **score F1** et l'**aire sous la courbe ROC** (AUC-ROC) offrent des perspectives complémentaires.
+
+En régression, l'**erreur quadratique moyenne** (MSE) pénalise davantage les grandes erreurs ; l'**erreur absolue moyenne** (MAE) est plus robuste aux valeurs aberrantes ; la **racine carrée de l'erreur quadratique** (RMSE) est interprétable dans l'unité de la variable cible.
+
+## L'importance des données
+
+Un enseignement répété par tous les praticiens expérimentés — et documenté rigorousement dans des travaux comme *Hidden Technical Debt in Machine Learning Systems* de Sculley et al. — est que **la qualité des données prime sur la sophistication algorithmique**.
+
+Des données mal collectées, biaisées, ou contenant des erreurs d'annotation produiront invariablement un modèle défaillant, quels que soient l'architecture ou les hyperparamètres choisis. Inversement, des données abondantes et de haute qualité permettent souvent à des algorithmes relativement simples d'atteindre des performances remarquables.
+
+L'**ingénierie des caractéristiques** (*feature engineering*) — l'art de transformer les données brutes en représentations utiles pour l'algorithme — reste, malgré l'avènement du deep learning qui l'automatise partiellement, une source majeure de valeur ajoutée. Comprendre le domaine métier, identifier les variables pertinentes, gérer les valeurs manquantes et les valeurs aberrantes : autant de compétences qui distinguent un praticien expérimenté d'un utilisateur superficiel des outils.
+
+---
+
+# Enjeux contemporains
+
+## Le passage à l'échelle : vers les modèles de fondation
+
+Depuis 2017, le domaine a été profondément reconfiguré par l'émergence de **modèles de fondation** (*foundation models*) : des systèmes pré-entraînés sur des corpus de données gigantesques, qui peuvent être adaptés (*fine-tuned*) à un très grand nombre de tâches avec relativement peu de données supplémentaires.
+
+GPT-4, Gemini, LLaMA — ces architectures transformers entraînées sur des centaines de milliards de mots ont montré des capacités de généralisation et de raisonnement qui étaient inimaginables quelques années plus tôt. Elles remettent en question certaines hypothèses fondatrices du domaine : faut-il toujours disposer de données labellisées spécifiques à la tâche ? Quel est le rôle de la taille du modèle par rapport à la qualité des données d'entraînement ?
+
+## Interprétabilité et confiance
+
+L'adoption du Machine Learning dans des domaines à forts enjeux — crédit bancaire, recrutement, diagnostic médical, justice pénale — soulève des questions d'**interprétabilité** qui ne peuvent être ignorées. Un modèle qui prédit qu'un demandeur de crédit est insolvable sans pouvoir expliquer cette décision ne satisfait pas aux exigences réglementaires (RGPD en Europe, notamment) et érode la confiance des utilisateurs.
+
+Des méthodes d'explication post-hoc — LIME, SHAP, cartes de saliency — permettent d'approximer localement le comportement de modèles complexes. Les **modèles intrinsèquement interprétables** — arbres de décision, modèles linéaires, règles de décision — offrent une transparence native au prix, parfois, d'une performance réduite. La tension entre performance et interprétabilité est l'une des grandes questions ouvertes du domaine.
+
+## Équité et biais algorithmique
+
+Les systèmes de Machine Learning apprennent à partir de données produites par des sociétés humaines, avec toutes leurs asymétries historiques et leurs discriminations structurelles. Un modèle entraîné sur des historiques de recrutement biaisés reproduira et potentiellement amplifiera ces biais. Cette réalité, documentée dans des travaux fondateurs comme ceux de Barocas et Hardt, impose une réflexion éthique et technique sur la **définition et la mesure de l'équité algorithmique**.
+
+Plusieurs notions d'équité — parité démographique, égalité des chances, calibration — coexistent dans la littérature, et un résultat d'impossibilité montre qu'elles ne peuvent être simultanément satisfaites en général. Choisir entre elles n'est pas une décision technique : c'est une décision politique et éthique.
+
+## Incertitude et fiabilité
+
+Dans de nombreuses applications critiques — médecine de précision, conduite autonome, modélisation climatique —, connaître non seulement la prédiction d'un modèle mais aussi son **niveau de confiance** est indispensable. La **quantification de l'incertitude** est ainsi devenue un champ de recherche actif.
+
+On distingue classiquement l'incertitude **aléatoire** (*aleatoric uncertainty*), inhérente à la variabilité irréductible des données, de l'incertitude **épistémique** (*epistemic uncertainty*), due à un manque de connaissance qui peut en principe être réduit par l'ajout de données. Les méthodes bayésiennes, les ensembles de modèles et la calibration des probabilités sont les outils principaux pour quantifier et communiquer cette incertitude de manière honnête.
+
+---
+
+# Conclusion : une discipline en perpétuel mouvement
+
+Le Machine Learning n'est pas une technologie achevée dont il suffirait de maîtriser les recettes. C'est une discipline scientifique vivante, traversée par des tensions productives — entre performance et interprétabilité, entre automatisation et expertise humaine, entre ambition technique et responsabilité sociale — et renouvelée en permanence par une communauté de recherche mondiale d'une vitalité exceptionnelle.
+
+Ce qui ne change pas, en revanche, c'est la nature profonde du problème : apprendre à partir d'exemples, généraliser au-delà des données observées, quantifier l'incertitude de nos prédictions. Ces questions, héritières d'une tradition qui remonte aux travaux de Gauss sur la régression, de Bayes sur l'inférence, de Fisher sur l'estimation, gardent toute leur acuité et toute leur difficulté.
+
+Maîtriser le Machine Learning, c'est donc apprendre à conjuguer rigueur mathématique, sens pratique des données, expertise métier et conscience éthique. C'est ce voyage que les chapitres suivants se proposent d'entreprendre.
+
+---
+
+## Références bibliographiques {.unnumbered}
+
+- Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.
+- Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
+- Géron, A. (2022). *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow* (3rd ed.). O'Reilly.
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer.
+- Mitchell, T. (1997). *Machine Learning*. McGraw-Hill.
+- Murphy, K. P. (2022). *Probabilistic Machine Learning: An Introduction*. MIT Press.
+- Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction* (2nd ed.). MIT Press.
+- Vaswani, A., et al. (2017). Attention Is All You Need. *NeurIPS 2017*.

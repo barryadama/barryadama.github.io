@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-inputda2c182d17597e58</title>
+<title>quarto-input5dd85873ca38f775</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,9 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-146d5ed3b0ee54ef242bfd0bff8436b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ee21629091df01881e8f5b142991f5fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-146d5ed3b0ee54ef242bfd0bff8436b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-af1081cbe1f337f72cc21b68f34435c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-cd97f5d2179ab1b78f58b958db92bc63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-af1081cbe1f337f72cc21b68f34435c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -312,11 +312,40 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+    <h2 id="toc-title">Sommaire</h2>
    
   <ul>
-  <li><a href="#modélisation-par-processus-gaussiens" id="toc-modélisation-par-processus-gaussiens" class="nav-link active" data-scroll-target="#modélisation-par-processus-gaussiens">Modélisation par processus gaussiens</a></li>
-  <li><a href="#plans-dexperiences" id="toc-plans-dexperiences" class="nav-link" data-scroll-target="#plans-dexperiences">Plans d’experiences</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning"><span class="header-section-number">1</span> Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#introdution-au-machine-learning" id="toc-introdution-au-machine-learning" class="nav-link" data-scroll-target="#introdution-au-machine-learning"><span class="header-section-number">1.1</span> Introdution au Machine Learning</a></li>
+  <li><a href="#preparation-de-données" id="toc-preparation-de-données" class="nav-link" data-scroll-target="#preparation-de-données"><span class="header-section-number">1.2</span> Preparation de données</a></li>
+  <li><a href="#apprentissage-supervisé" id="toc-apprentissage-supervisé" class="nav-link" data-scroll-target="#apprentissage-supervisé"><span class="header-section-number">1.3</span> Apprentissage supervisé</a></li>
+  <li><a href="#apprentissage-non-supervisé" id="toc-apprentissage-non-supervisé" class="nav-link" data-scroll-target="#apprentissage-non-supervisé"><span class="header-section-number">1.4</span> Apprentissage non supervisé</a></li>
+  <li><a href="#apprentissage-semi-supervisé" id="toc-apprentissage-semi-supervisé" class="nav-link" data-scroll-target="#apprentissage-semi-supervisé"><span class="header-section-number">1.5</span> Apprentissage semi-supervisé</a></li>
+  <li><a href="#apprentissage-profond" id="toc-apprentissage-profond" class="nav-link" data-scroll-target="#apprentissage-profond"><span class="header-section-number">1.6</span> Apprentissage profond</a></li>
+  <li><a href="#apprentissage-par-renforcement" id="toc-apprentissage-par-renforcement" class="nav-link" data-scroll-target="#apprentissage-par-renforcement"><span class="header-section-number">1.7</span> Apprentissage par renforcement</a></li>
+  </ul></li>
+  <li><a href="#statistique-pour-lindustrie" id="toc-statistique-pour-lindustrie" class="nav-link" data-scroll-target="#statistique-pour-lindustrie"><span class="header-section-number">2</span> Statistique pour l’industrie</a>
+  <ul class="collapse">
+  <li><a href="#quantification-dincertitude" id="toc-quantification-dincertitude" class="nav-link" data-scroll-target="#quantification-dincertitude"><span class="header-section-number">2.1</span> Quantification d’incertitude</a></li>
+  <li><a href="#emulation-de-simulateur-numérique-coûteux" id="toc-emulation-de-simulateur-numérique-coûteux" class="nav-link" data-scroll-target="#emulation-de-simulateur-numérique-coûteux"><span class="header-section-number">2.2</span> Emulation de simulateur numérique coûteux</a></li>
+  <li><a href="#plan-dexperiences" id="toc-plan-dexperiences" class="nav-link" data-scroll-target="#plan-dexperiences"><span class="header-section-number">2.3</span> Plan d’experiences</a></li>
+  <li><a href="#analyse-de-sensibilité" id="toc-analyse-de-sensibilité" class="nav-link" data-scroll-target="#analyse-de-sensibilité"><span class="header-section-number">2.4</span> Analyse de sensibilité</a></li>
+  <li><a href="#autres" id="toc-autres" class="nav-link" data-scroll-target="#autres"><span class="header-section-number">2.5</span> Autres</a></li>
+  </ul></li>
+  <li><a href="#outils-fondamentaux" id="toc-outils-fondamentaux" class="nav-link" data-scroll-target="#outils-fondamentaux"><span class="header-section-number">3</span> Outils fondamentaux</a>
+  <ul class="collapse">
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">3.1</span> Python</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">3.2</span> R</a></li>
+  <li><a href="#sql" id="toc-sql" class="nav-link" data-scroll-target="#sql"><span class="header-section-number">3.3</span> SQL</a></li>
+  <li><a href="#gitgitlab" id="toc-gitgitlab" class="nav-link" data-scroll-target="#gitgitlab"><span class="header-section-number">3.4</span> Git/Gitlab</a></li>
+  <li><a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"><span class="header-section-number">3.5</span> Latex</a></li>
+  </ul></li>
+  <li><a href="#projet-ml" id="toc-projet-ml" class="nav-link" data-scroll-target="#projet-ml"><span class="header-section-number">4</span> Projet ML</a>
+  <ul class="collapse">
+  <li><a href="#prediction-de-la-trajectoire-dun-projectile-par-machine-learning" id="toc-prediction-de-la-trajectoire-dun-projectile-par-machine-learning" class="nav-link" data-scroll-target="#prediction-de-la-trajectoire-dun-projectile-par-machine-learning"><span class="header-section-number">4.1</span> Prediction de la trajectoire d’un projectile par Machine Learning</a></li>
+  <li><a href="#placement-optimal-de-puits-de-stockage-geologique" id="toc-placement-optimal-de-puits-de-stockage-geologique" class="nav-link" data-scroll-target="#placement-optimal-de-puits-de-stockage-geologique"><span class="header-section-number">4.2</span> Placement optimal de puits de stockage geologique</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -331,23 +360,123 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Ce blog a pour objectif de présenter des méthodes de modélisation, d’approximation et d’optimisation de systèmes complexes, en particulier dans des contextes où les données sont rares, coûteuses ou issues de simulateurs numériques intensifs.</p>
-<p>Les contenus couvrent notamment les processus gaussiens et les modèles de krigeage pour la construction de métamodèles, ainsi que l’optimisation bayésienne pour la recherche efficace d’optima sous contrainte de coût. Une attention particulière est également portée à la planification d’expériences, à la calibration bayésienne de modèles numériques et aux approches modernes du machine learning, incluant le deep learning et les méthodes probabilistes.</p>
-<p>L’ensemble s’inscrit dans une démarche à l’interface entre statistique et le machine learning, avec un accent sur la quantification de l’incertitude, l’efficacité computationnelle et l’aide à la décision dans des environnements complexes.</p>
-<hr>
-<section id="modélisation-par-processus-gaussiens" class="level1">
-<h1>Modélisation par processus gaussiens</h1>
-<p>Dans les domaines industriels et de l’ingénierie modernes, l’évaluation de modèles complexes ou de simulateurs peut s’avérer <strong>très coûteuse en temps de calcul</strong>. Une seule simulation peut nécessiter plusieurs minutes, plusieurs heures, voire plusieurs jours d’exécution, rendant des tâches telles que l’optimisation, la quantification des incertitudes ou l’analyse de sensibilité difficiles à mettre en œuvre.</p>
-<p>Pour surmonter cette difficulté, les chercheurs ont de plus en plus recours à des <strong>modèles de substitution</strong>, également appelés <strong>émulateurs</strong> ou <strong>métamodèles</strong>. Ces modèles visent à reproduire le comportement d’une fonction coûteuse à évaluer à l’aide d’une représentation statistique beaucoup moins onéreuse en temps. Parmi les différentes approches existantes, la <strong>modélisation par processus gaussiens</strong> s’est imposée comme l’une des méthodes les plus populaires et les plus performantes.</p>
-<p>Un processus gaussien fournit un <strong>cadre probabiliste</strong> permettant de représenter l’incertitude associée à la fonction étudiée. Il permet non seulement de prédire la valeur de la fonction en des points non observés, mais également de quantifier le <strong>niveau de confiance</strong> associé à chaque prédiction. Cette propriété rend les processus gaussiens adaptés à l’<strong>optimisation bayésienne</strong>, à la <strong>planification séquentielle d’expériences</strong> et à la <strong>propagation des incertitudes</strong>.</p>
-<p>Dans cet article, nous présentons les concepts fondamentaux de la modélisation par processus gaussiens appliquée aux métamodèles. Nous expliquons son fonctionnement, les raisons de son efficacité et la manière dont elle peut être utilisée pour résoudre des problèmes réels dans lesquels une exploration exhaustive du simulateur est irréaliste en raison de son coût de calcul élevé.➡️ <a href="./gp-modeling.html">Lire plus..</a></p>
-<hr>
+<p>Ce blog (en cours de construction et de traduction en français) est consacré à la modélisation, à l’apprentissage statistique et à l’optimisation de systèmes complexes. Il propose une introduction progressive aux méthodes modernes de la statistique, du machine learning et de l’intelligence artificielle, en mettant l’accent sur leur fondement mathématique, leur mise en œuvre pratique et leurs domaines d’application.</p>
+<p>Une attention particulière est portée aux situations où les données sont limitées, coûteuses à obtenir ou générées par des simulateurs numériques complexes. Dans ce contexte, les processus gaussiens et les modèles de krigeage occupent une place centrale pour la construction de métamodèles capables d’approcher efficacement des phénomènes coûteux à évaluer. Ces outils sont naturellement associés à l’optimisation bayésienne, qui permet d’explorer intelligemment l’espace des solutions tout en minimisant le nombre d’évaluations nécessaires.</p>
+<p>Le blog aborde également la planification d’expériences, la calibration bayésienne de modèles numériques, la quantification de l’incertitude ainsi que les principales familles d’algorithmes d’apprentissage automatique : apprentissage supervisé, non supervisé, semi-supervisé, profond et par renforcement.</p>
+<p>À l’interface entre statistique, machine learning et optimisation, l’objectif est de fournir à la fois des bases théoriques solides, des exemples concrets et des implémentations pratiques permettant de comprendre, développer et appliquer ces méthodes à des problématiques réelles d’aide à la décision, de prédiction et d’ingénierie.</p>
+<section id="machine-learning" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Machine Learning</h1>
+<section id="introdution-au-machine-learning" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introdution-au-machine-learning"><span class="header-section-number">1.1</span> Introdution au Machine Learning</h2>
+<p>Pendant des décennies, l’informatique a reposé sur un paradigme fondamental : un programmeur humain analyse un problème, en extrait les règles de résolution, puis les traduit en instructions explicites que la machine exécute. Ce modèle a produit des systèmes remarquables — des compilateurs aux bases de données, en passant par les logiciels de gestion. Mais il se heurte à une limite profonde : <strong>que faire lorsque les règles sont trop complexes, trop nombreuses, ou tout simplement inconnues ?</strong></p>
+<p>Reconnaître un visage dans une photo, comprendre une phrase dictée à voix haute, détecter une transaction bancaire frauduleuse parmi des millions — autant de tâches que tout être humain accomplit naturellement, mais pour lesquelles nul ingénieur n’a jamais réussi à écrire les règles explicites qui y correspondent. Le Machine Learning est né de cette impasse.</p>
+<p>Le renversement conceptuel est radical. Au lieu que le programmeur fournisse les règles à la machine, c’est la machine qui les <strong>découvre elle-même</strong> à partir de données. On lui présente des exemples — des images avec leur étiquette, des transactions avec leur verdict — et elle en extrait, par optimisation mathématique, une représentation interne capable de généraliser à de nouvelles situations. Comme l’a illustré Aurélien Géron dans <em>Hands-On Machine Learning</em>, on ne programme plus le système : on lui apprend (<a href="(ML/intro.qmd)">Lire…</a>).</p>
 </section>
-<section id="plans-dexperiences" class="level1">
-<h1>Plans d’experiences</h1>
-<p>Blog en cours de traduction ….</p>
+<section id="preparation-de-données" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="preparation-de-données"><span class="header-section-number">1.2</span> Preparation de données</h2>
+<p>La préparation des données est une étape fondamentale dans tout projet de machine learning ou de data science. Elle conditionne directement la qualité des modèles et, par conséquent, la pertinence des résultats obtenus. Des données brutes sont souvent incomplètes, bruitées ou hétérogènes, ce qui nécessite un travail rigoureux de nettoyage et de transformation.</p>
+<p>Cette phase inclut notamment la gestion des valeurs manquantes, la détection des anomalies, l’encodage des variables catégorielles et la normalisation ou standardisation des variables numériques. Elle permet également d’harmoniser les données provenant de sources différentes afin de les rendre exploitables.</p>
+<p>Une bonne préparation des données améliore non seulement la performance des algorithmes, mais aussi leur stabilité et leur capacité de généralisation. À l’inverse, des données mal préparées peuvent introduire des biais importants et conduire à des conclusions erronées.</p>
+<p>Ainsi, cette étape, souvent sous-estimée, représente en réalité une part majeure du succès d’un projet data <a href="./ML/PrepaData.html">Lire plus…</a></p>
+</section>
+<section id="apprentissage-supervisé" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="apprentissage-supervisé"><span class="header-section-number">1.3</span> Apprentissage supervisé</h2>
+<p>L’apprentissage supervisé est une branche centrale du machine learning dans laquelle un modèle est entraîné à partir de données étiquetées, c’est-à-dire des exemples pour lesquels la sortie attendue est connue. L’objectif est d’apprendre une fonction de prédiction capable de généraliser à de nouvelles données.</p>
+<p>Cette approche regroupe principalement deux types de problèmes : la classification, où l’on cherche à prédire une catégorie, et la régression, où l’on cherche à estimer une valeur continue. Les algorithmes les plus courants incluent la régression linéaire, les arbres de décision, les forêts aléatoires, les SVM et les réseaux de neurones.</p>
+<p>La qualité des performances dépend fortement de la représentativité des données d’entraînement et de la capacité du modèle à éviter le surapprentissage. L’apprentissage supervisé constitue ainsi la base de nombreuses applications en science des données, de la prédiction à l’aide à la décision <a href="./ML/AppSup.html">Lire plus…</a></p>
+</section>
+<section id="apprentissage-non-supervisé" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="apprentissage-non-supervisé"><span class="header-section-number">1.4</span> Apprentissage non supervisé</h2>
+<p>L’apprentissage non supervisé regroupe les méthodes qui permettent d’analyser des données non étiquetées afin d’en extraire des structures cachées. Contrairement à l’apprentissage supervisé, il n’y a pas de variable cible connue. L’objectif est souvent de découvrir des regroupements, des représentations ou des relations entre les observations. Les techniques principales incluent le clustering, la réduction de dimension et l’estimation de densité. Ces méthodes sont largement utilisées pour l’exploration de données, la segmentation ou la compression d’information <a href="./ML/AppNonSup.html">Lire plus…</a></p>
+</section>
+<section id="apprentissage-semi-supervisé" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="apprentissage-semi-supervisé"><span class="header-section-number">1.5</span> Apprentissage semi-supervisé</h2>
+<p>L’apprentissage semi-supervisé se situe entre l’apprentissage supervisé et non supervisé. Il exploite à la fois un petit ensemble de données étiquetées et un grand volume de données non étiquetées. L’idée est d’améliorer les performances des modèles lorsque l’étiquetage est coûteux ou limité. Cette approche repose sur l’hypothèse que les données non étiquetées contiennent une structure utile pour guider l’apprentissage. Elle est particulièrement utilisée en vision par ordinateur, traitement du langage et bioinformatique <a href="./ML/AppSemiSuperv.html">Lire plus…</a></p>
+</section>
+<section id="apprentissage-profond" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="apprentissage-profond"><span class="header-section-number">1.6</span> Apprentissage profond</h2>
+<p>L’apprentissage profond (deep learning) est une sous-branche du machine learning basée sur des réseaux de neurones à plusieurs couches. Il permet d’apprendre automatiquement des représentations hiérarchiques des données. Grâce à sa capacité à modéliser des relations complexes et non linéaires, il excelle dans des domaines comme la vision, le traitement du langage naturel ou la reconnaissance vocale. Cependant, il nécessite généralement de grandes quantités de données et des ressources de calcul importantes <a href="./ML/AppProfond.html">Lire plus…</a></p>
+</section>
+<section id="apprentissage-par-renforcement" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="apprentissage-par-renforcement"><span class="header-section-number">1.7</span> Apprentissage par renforcement</h2>
+<p>L’apprentissage par renforcement est un paradigme dans lequel un agent apprend à prendre des décisions en interagissant avec un environnement. Il reçoit des récompenses ou des pénalités en fonction de ses actions, et cherche à maximiser une récompense cumulative. Cette approche repose sur l’exploration et l’exploitation des actions possibles. Elle est largement utilisée en robotique, jeux vidéo, contrôle optimal et systèmes autonomes. Les méthodes incluent les Q-learning, policy gradients et les approches basées sur les réseaux de neurones profonds <a href="./ML/AppParRenforcement.html">Lire plus…</a></p>
+</section>
+</section>
+<section id="statistique-pour-lindustrie" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Statistique pour l’industrie</h1>
+<section id="quantification-dincertitude" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="quantification-dincertitude"><span class="header-section-number">2.1</span> Quantification d’incertitude</h2>
+<p>La quantification de l’incertitude (Uncertainty Quantification, UQ) vise à mesurer, analyser et propager les incertitudes présentes dans les modèles, les données ou les prédictions. Elle est essentielle dans les contextes où les décisions reposent sur des modèles imparfaits ou des observations bruitées.</p>
+<p>En machine learning et en statistique, elle permet d’associer une mesure de confiance aux prédictions plutôt que de fournir uniquement des estimations ponctuelles. Les approches bayésiennes, les processus gaussiens et les méthodes de Monte Carlo figurent parmi les outils les plus utilisés.</p>
+<p>La quantification de l’incertitude joue un rôle clé dans les problèmes de simulation coûteuse, de calibration de modèles et d’aide à la décision. Elle permet également d’identifier les zones où le modèle est peu fiable et où des données supplémentaires seraient utiles.</p>
+<p>Ainsi, elle constitue un élément central pour rendre les modèles prédictifs plus robustes, interprétables et fiables dans des applications scientifiques et industrielles <a href="./ML/UQ.html">Lire plus…</a></p>
+</section>
+<section id="emulation-de-simulateur-numérique-coûteux" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="emulation-de-simulateur-numérique-coûteux"><span class="header-section-number">2.2</span> Emulation de simulateur numérique coûteux</h2>
+<p>L’émulation consiste à construire un modèle statistique approchant un simulateur numérique coûteux afin de le remplacer ou de l’accélérer dans des tâches d’inférence, d’optimisation ou de propagation d’incertitudes. Dans la littérature de la communauté UQ (notamment autour des travaux sur les métamodèles et les processus gaussiens), l’émulation est généralement formulée comme une approximation fonctionnelle probabiliste du code de calcul.</p>
+<p>Les méthodes les plus classiques reposent sur les processus gaussiens (ou krigeage), les polynômes de chaos ou encore les modèles basés sur des réseaux de neurones probabilistes. Le krigeage, en particulier, occupe une place centrale dans les approches développées en France (INRIA, IMT, CEA) en raison de sa capacité à fournir simultanément une prédiction et une quantification d’incertitude.</p>
+<p>L’émulateur est construit à partir d’un plan d’expériences numériques limité, ce qui permet de remplacer des simulations coûteuses par des évaluations rapides tout en contrôlant l’erreur d’approximation. Il constitue ainsi un outil fondamental pour la calibration de modèles complexes et l’analyse de sensibilité globale <a href="./ML/Emul.html">Lire plus…</a></p>
+</section>
+<section id="plan-dexperiences" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="plan-dexperiences"><span class="header-section-number">2.3</span> Plan d’experiences</h2>
+<p>Le plan d’expériences consiste à sélectionner de manière optimale un ensemble de points d’évaluation d’un simulateur numérique afin d’extraire un maximum d’information avec un nombre limité de simulations. Cette problématique est centrale en quantification d’incertitude, où chaque évaluation du code peut être coûteuse en temps de calcul.</p>
+<p>Dans la tradition des approches développées en France (notamment autour de la conception optimale d’expériences et des méthodes space-filling), les plans d’expériences visent à assurer une bonne couverture de l’espace des variables d’entrée tout en permettant une estimation précise des quantités d’intérêt.</p>
+<p>Les plans classiques incluent les plans factoriels, les plans de Latin Hypercube Sampling (LHS) et les séquences à faible discrépance. Dans un cadre plus avancé, des stratégies adaptatives peuvent être utilisées, où les points sont sélectionnés de manière séquentielle en fonction de l’incertitude du modèle ou de critères d’apprentissage actif.</p>
+<p>Ainsi, le plan d’expériences constitue la première étape essentielle de toute démarche d’émulation et conditionne fortement la qualité des analyses d’incertitude et de sensibilité <a href="./ML/DOE.html">Lire plus…</a></p>
+</section>
+<section id="analyse-de-sensibilité" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="analyse-de-sensibilité"><span class="header-section-number">2.4</span> Analyse de sensibilité</h2>
+<p>L’analyse de sensibilité vise à quantifier l’influence des variables d’entrée d’un modèle sur sa sortie. Elle permet d’identifier les paramètres les plus influents, de simplifier les modèles et d’orienter la collecte de données ou les efforts de calibration.</p>
+<p>Dans le cadre de la communauté UQ française (notamment les travaux autour des indices de Sobol et des méthodes de variance decomposition), l’analyse de sensibilité globale est privilégiée par rapport aux approches locales, car elle permet de prendre en compte l’ensemble de l’espace des incertitudes d’entrée.</p>
+<p>Les indices de Sobol, fondés sur la décomposition de la variance, constituent une approche standard pour mesurer les contributions individuelles et interactionnelles des variables. D’autres approches incluent les méthodes de screening (Morris), les dérivées globales ou encore les approches basées sur les métamodèles.</p>
+<p>L’analyse de sensibilité joue un rôle fondamental dans la compréhension des modèles complexes, en particulier lorsqu’elle est couplée à des méthodes d’émulation, permettant de réduire le coût de calcul des estimations <a href="./ML/Analysedesensibilite.html">Lire plus…</a></p>
+</section>
+<section id="autres" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="autres"><span class="header-section-number">2.5</span> Autres</h2>
+<p>Cette section est dédiée à des réflexions, idées et cas d’usage concrets de la statistique et du machine learning dans des contextes industriels variés. L’objectif est de faire le lien entre les méthodes théoriques et leurs applications réelles, souvent contraintes par des enjeux de performance, de coût et de robustesse.</p>
+<p>Cette rubrique a également pour vocation de proposer des idées de projets, des retours d’expérience et des pistes de recherche appliquée, en mettant en avant les défis concrets rencontrés dans l’industrie moderne des données <a href="./ML/Autres.html">Lire plus…</a></p>
+</section>
+</section>
+<section id="outils-fondamentaux" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Outils fondamentaux</h1>
+<p>Maîtriser ses outils avant d’aborder les concepts est un investissement qui évite bien des frictions au quotidien. Cette section couvre les environnements de travail incontournables en data science.</p>
+<section id="python" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="python"><span class="header-section-number">3.1</span> Python</h2>
+<p>Python est aujourd’hui l’un des langages les plus utilisés en machine learning et en statistique appliquée. Sa richesse en bibliothèques (NumPy, pandas, scikit-learn, TensorFlow, PyTorch) en fait un outil central pour le traitement des données, la modélisation et l’implémentation d’algorithmes. Sa syntaxe simple et sa forte communauté facilitent le prototypage rapide et la recherche expérimentale. Il est également largement utilisé en production pour le déploiement de modèles data.</p>
+</section>
+<section id="r" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="r"><span class="header-section-number">3.2</span> R</h2>
+<p>R est un langage dédié à l’analyse statistique et à la visualisation de données. Il offre un large écosystème de packages spécialisés (tidyverse, caret, ggplot2, mgcv) particulièrement adaptés aux analyses exploratoires et à la modélisation statistique avancée. Très utilisé en recherche et en biostatistique, R permet une grande expressivité pour la manipulation de données et la création de graphiques de haute qualité. Il reste une référence dans de nombreux domaines de la statistique appliquée.</p>
+</section>
+<section id="sql" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sql"><span class="header-section-number">3.3</span> SQL</h2>
+<p>SQL (Structured Query Language) est le langage standard pour interroger et manipuler des bases de données relationnelles. En data science, il est indispensable pour extraire, filtrer et structurer les données avant toute analyse ou modélisation. Il permet de travailler efficacement sur de grands volumes de données stockées dans des systèmes comme PostgreSQL, MySQL ou BigQuery. La maîtrise de SQL est essentielle pour toute chaîne de traitement de données.</p>
+</section>
+<section id="gitgitlab" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="gitgitlab"><span class="header-section-number">3.4</span> Git/Gitlab</h2>
+<p>Git est un système de contrôle de version qui permet de suivre l’évolution du code et de collaborer efficacement sur des projets. Couplé à des plateformes comme GitLab ou GitHub, il facilite le travail en équipe, la gestion des versions et l’intégration continue. Dans les projets de machine learning, il est essentiel pour assurer la reproductibilité des expériences et la traçabilité des modèles. Il structure le développement de manière rigoureuse et collaborative.</p>
+</section>
+<section id="latex" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="latex"><span class="header-section-number">3.5</span> Latex</h2>
+<p>LaTeX est un système de composition de documents particulièrement adapté à la rédaction scientifique et mathématique. Il permet d’écrire des équations complexes avec une grande précision typographique, ce qui en fait un outil incontournable en statistique et en machine learning théorique. Il est largement utilisé pour la rédaction d’articles de recherche, de rapports techniques et de thèses. Sa structuration claire favorise la production de documents professionnels et reproductibles.</p>
+</section>
+</section>
+<section id="projet-ml" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Projet ML</h1>
+<section id="prediction-de-la-trajectoire-dun-projectile-par-machine-learning" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="prediction-de-la-trajectoire-dun-projectile-par-machine-learning"><span class="header-section-number">4.1</span> Prediction de la trajectoire d’un projectile par Machine Learning</h2>
+<p>La prédiction de la trajectoire d’un projectile est un problème classique de la physique appliquée, traditionnellement décrit par des équations différentielles issues de la mécanique newtonienne. Toutefois, dans des contextes réels, la présence de forces complexes (traînée aérodynamique, vent, variations de densité de l’air) rend souvent ces modèles analytiques difficiles à utiliser directement.</p>
+<p>Le Machine Learning offre une alternative ou un complément en apprenant directement la dynamique à partir de données de trajectoires observées ou simulées. L’objectif est de construire un modèle capable de prédire la position et la vitesse du projectile à partir de ses conditions initiales et de l’évolution temporelle.</p>
+<p>Cette approche s’inscrit dans les problématiques de modélisation de systèmes dynamiques, où les réseaux de neurones, les modèles séquentiels et les méthodes à base de processus gaussiens sont particulièrement utilisés. Elle est également étroitement liée aux méthodes hybrides combinant lois physiques et apprentissage statistique.</p>
+<p>Ainsi, la prédiction de trajectoire par Machine Learning constitue un cadre pertinent pour étudier des systèmes complexes tout en intégrant données, incertitude et contraintes physiques <a href="./ML/Projectile.html">Lire plus…</a></p>
+</section>
+<section id="placement-optimal-de-puits-de-stockage-geologique" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="placement-optimal-de-puits-de-stockage-geologique"><span class="header-section-number">4.2</span> Placement optimal de puits de stockage geologique</h2>
+<p>….</p>
+<hr>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

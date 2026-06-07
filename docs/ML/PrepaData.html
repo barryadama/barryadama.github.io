@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>quarto-inputa055d5db4683c5b7</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-af1081cbe1f337f72cc21b68f34435c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-cd97f5d2179ab1b78f58b958db92bc63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-af1081cbe1f337f72cc21b68f34435c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Accueil</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Pub.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Talks.html"> 
+<span class="menu-text">Communications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Teach.html"> 
+<span class="menu-text">Enseignements</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://www.linkedin.com/in/adama-ibrahim-barry-253314133/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/barryadama">
+            Git-Perso
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/TheseAdama">
+            PhD-Git
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#analyse-exploratoire-eda" id="toc-analyse-exploratoire-eda" class="nav-link active" data-scroll-target="#analyse-exploratoire-eda">Analyse Exploratoire (EDA)</a>
+  <ul class="collapse">
+  <li><a href="#statistiques-descriptives" id="toc-statistiques-descriptives" class="nav-link" data-scroll-target="#statistiques-descriptives">Statistiques descriptives</a>
+  <ul class="collapse">
+  <li><a href="#structure-générale" id="toc-structure-générale" class="nav-link" data-scroll-target="#structure-générale">Structure générale</a></li>
+  <li><a href="#résumé-statistique" id="toc-résumé-statistique" class="nav-link" data-scroll-target="#résumé-statistique">Résumé statistique</a></li>
+  <li><a href="#indicateurs-de-forme-de-distribution" id="toc-indicateurs-de-forme-de-distribution" class="nav-link" data-scroll-target="#indicateurs-de-forme-de-distribution">Indicateurs de forme de distribution</a></li>
+  </ul></li>
+  <li><a href="#visualisation-des-données" id="toc-visualisation-des-données" class="nav-link" data-scroll-target="#visualisation-des-données">Visualisation des données</a>
+  <ul class="collapse">
+  <li><a href="#distribution-des-variables" id="toc-distribution-des-variables" class="nav-link" data-scroll-target="#distribution-des-variables">Distribution des variables</a></li>
+  <li><a href="#boxplots-comparatifs" id="toc-boxplots-comparatifs" class="nav-link" data-scroll-target="#boxplots-comparatifs">Boxplots comparatifs</a></li>
+  <li><a href="#pairplot-nuage-de-points-croisés" id="toc-pairplot-nuage-de-points-croisés" class="nav-link" data-scroll-target="#pairplot-nuage-de-points-croisés">Pairplot (nuage de points croisés)</a></li>
+  </ul></li>
+  <li><a href="#analyse-des-corrélations" id="toc-analyse-des-corrélations" class="nav-link" data-scroll-target="#analyse-des-corrélations">Analyse des corrélations</a>
+  <ul class="collapse">
+  <li><a href="#matrice-de-corrélation" id="toc-matrice-de-corrélation" class="nav-link" data-scroll-target="#matrice-de-corrélation">Matrice de corrélation</a></li>
+  <li><a href="#corrélation-avec-la-variable-cible" id="toc-corrélation-avec-la-variable-cible" class="nav-link" data-scroll-target="#corrélation-avec-la-variable-cible">Corrélation avec la variable cible</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#prétraitement" id="toc-prétraitement" class="nav-link" data-scroll-target="#prétraitement">Prétraitement</a>
+  <ul class="collapse">
+  <li><a href="#valeurs-manquantes" id="toc-valeurs-manquantes" class="nav-link" data-scroll-target="#valeurs-manquantes">Valeurs manquantes</a>
+  <ul class="collapse">
+  <li><a href="#mécanismes-de-manque" id="toc-mécanismes-de-manque" class="nav-link" data-scroll-target="#mécanismes-de-manque">Mécanismes de manque</a></li>
+  <li><a href="#stratégies-dimputation" id="toc-stratégies-dimputation" class="nav-link" data-scroll-target="#stratégies-dimputation">Stratégies d’imputation</a></li>
+  </ul></li>
+  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a>
+  <ul class="collapse">
+  <li><a href="#méthodes-de-détection" id="toc-méthodes-de-détection" class="nav-link" data-scroll-target="#méthodes-de-détection">Méthodes de détection</a></li>
+  <li><a href="#stratégies-de-traitement" id="toc-stratégies-de-traitement" class="nav-link" data-scroll-target="#stratégies-de-traitement">Stratégies de traitement</a></li>
+  </ul></li>
+  <li><a href="#normalisation" id="toc-normalisation" class="nav-link" data-scroll-target="#normalisation">Normalisation</a></li>
+  <li><a href="#standardisation" id="toc-standardisation" class="nav-link" data-scroll-target="#standardisation">Standardisation</a>
+  <ul class="collapse">
+  <li><a href="#normalisation-vs.-standardisation-quand-choisir" id="toc-normalisation-vs.-standardisation-quand-choisir" class="nav-link" data-scroll-target="#normalisation-vs.-standardisation-quand-choisir">Normalisation vs.&nbsp;Standardisation : quand choisir ?</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering">Feature Engineering</a>
+  <ul class="collapse">
+  <li><a href="#création-de-variables" id="toc-création-de-variables" class="nav-link" data-scroll-target="#création-de-variables">Création de variables</a></li>
+  <li><a href="#encodage-des-variables-catégorielles" id="toc-encodage-des-variables-catégorielles" class="nav-link" data-scroll-target="#encodage-des-variables-catégorielles">Encodage des variables catégorielles</a>
+  <ul class="collapse">
+  <li><a href="#label-encoding" id="toc-label-encoding" class="nav-link" data-scroll-target="#label-encoding">Label Encoding</a></li>
+  <li><a href="#one-hot-encoding-ohe" id="toc-one-hot-encoding-ohe" class="nav-link" data-scroll-target="#one-hot-encoding-ohe">One-Hot Encoding (OHE)</a></li>
+  <li><a href="#target-encoding" id="toc-target-encoding" class="nav-link" data-scroll-target="#target-encoding">Target Encoding</a></li>
+  </ul></li>
+  <li><a href="#sélection-de-variables" id="toc-sélection-de-variables" class="nav-link" data-scroll-target="#sélection-de-variables">Sélection de variables</a>
+  <ul class="collapse">
+  <li><a href="#méthodes-filter" id="toc-méthodes-filter" class="nav-link" data-scroll-target="#méthodes-filter">Méthodes Filter</a></li>
+  <li><a href="#méthodes-wrapper" id="toc-méthodes-wrapper" class="nav-link" data-scroll-target="#méthodes-wrapper">Méthodes Wrapper</a></li>
+  <li><a href="#méthodes-embedded" id="toc-méthodes-embedded" class="nav-link" data-scroll-target="#méthodes-embedded">Méthodes Embedded</a></li>
+  </ul></li>
+  <li><a href="#réduction-de-dimension" id="toc-réduction-de-dimension" class="nav-link" data-scroll-target="#réduction-de-dimension">Réduction de dimension</a>
+  <ul class="collapse">
+  <li><a href="#acp-analyse-en-composantes-principales-pca" id="toc-acp-analyse-en-composantes-principales-pca" class="nav-link" data-scroll-target="#acp-analyse-en-composantes-principales-pca">ACP — Analyse en Composantes Principales (PCA)</a></li>
+  <li><a href="#t-sne-visualisation-non-linéaire" id="toc-t-sne-visualisation-non-linéaire" class="nav-link" data-scroll-target="#t-sne-visualisation-non-linéaire">t-SNE — Visualisation non linéaire</a></li>
+  <li><a href="#umap-réduction-universelle" id="toc-umap-réduction-universelle" class="nav-link" data-scroll-target="#umap-réduction-universelle">UMAP — Réduction universelle</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#pipeline-de-préparation-vue-densemble" id="toc-pipeline-de-préparation-vue-densemble" class="nav-link" data-scroll-target="#pipeline-de-préparation-vue-densemble">Pipeline de préparation — Vue d’ensemble</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<blockquote class="blockquote">
+<p><strong>Objectif de ce chapitre</strong> : transformer des données brutes, imparfaites et hétérogènes en un jeu de données propre, exploitable et informatif pour les algorithmes de Machine Learning.</p>
+</blockquote>
+<p>En pratique, la préparation des données représente <strong>70 à 80 % du temps</strong> d’un projet Data Science. C’est une étape décisive : un bon modèle sur de mauvaises données donnera systématiquement de mauvais résultats.</p>
+<hr>
+<section id="analyse-exploratoire-eda" class="level1">
+<h1>Analyse Exploratoire (EDA)</h1>
+<p>L’<strong>Analyse Exploratoire des Données</strong> (<em>Exploratory Data Analysis</em> — EDA) est la première étape après la collecte. Elle vise à comprendre la structure, les distributions et les relations présentes dans les données <strong>avant toute modélisation</strong>.</p>
+<p>L’EDA ne consiste pas à appliquer mécaniquement des fonctions : c’est un dialogue entre le Data Scientist et les données, guidé par des questions métier. Pourquoi certaines valeurs semblent-elles extrêmes ? Les classes sont-elles équilibrées ? Les variables sont-elles corrélées entre elles ?</p>
+<section id="statistiques-descriptives" class="level2">
+<h2 class="anchored" data-anchor-id="statistiques-descriptives">Statistiques descriptives</h2>
+<p>Les statistiques descriptives donnent un premier aperçu synthétique du jeu de données. Elles se lisent en deux temps : d’abord la <strong>structure</strong>, puis les <strong>indicateurs numériques</strong>.</p>
+<section id="structure-générale" class="level3">
+<h3 class="anchored" data-anchor-id="structure-générale">Structure générale</h3>
+<p>Avant tout calcul, il convient d’inspecter la forme brute du jeu de données :</p>
+<ul>
+<li><strong>Dimensions</strong> : nombre de lignes (observations) et de colonnes (variables)</li>
+<li><strong>Types de variables</strong> : numériques, catégorielles, dates, textes libres</li>
+<li><strong>Valeurs manquantes</strong> : combien, où, selon quel mécanisme</li>
+<li><strong>Doublons</strong> : lignes identiques à identifier et supprimer</li>
+</ul>
+<p>Cette inspection révèle souvent des problèmes invisibles à l’œil nu : colonnes mal typées, identifiants encodés comme numériques, variables textuelles contenant des valeurs numériques.</p>
+</section>
+<section id="résumé-statistique" class="level3">
+<h3 class="anchored" data-anchor-id="résumé-statistique">Résumé statistique</h3>
+<p>Pour chaque variable numérique, les indicateurs fondamentaux sont les suivants :</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Lecture d’un résumé statistique</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Indicateur</th>
+<th>Ce qu’il révèle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Moyenne (mean)</strong></td>
+<td>Tendance centrale ; sensible aux valeurs extrêmes</td>
+</tr>
+<tr class="even">
+<td><strong>Médiane (50%)</strong></td>
+<td>Tendance centrale robuste ; un écart mean/médiane signale une asymétrie</td>
+</tr>
+<tr class="odd">
+<td><strong>Écart-type (std)</strong></td>
+<td>Dispersion ; grande valeur → variable très étalée</td>
+</tr>
+<tr class="even">
+<td><strong>Min / Max</strong></td>
+<td>Plage de valeurs ; révèle des outliers potentiels</td>
+</tr>
+<tr class="odd">
+<td><strong>Q1 (25%) / Q3 (75%)</strong></td>
+<td>Distribution interquartile, robuste aux extrêmes</td>
+</tr>
+</tbody>
+</table>
+<p>La comparaison systématique de la <strong>moyenne et de la médiane</strong> est l’un des premiers réflexes à acquérir : un écart important entre les deux signale une distribution asymétrique, ce qui oriente les choix de prétraitement.</p>
+</section>
+<section id="indicateurs-de-forme-de-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="indicateurs-de-forme-de-distribution">Indicateurs de forme de distribution</h3>
+<p>Au-delà de la tendance centrale et de la dispersion, deux indicateurs caractérisent la <strong>forme</strong> d’une distribution :</p>
+<p><strong>La skewness (asymétrie)</strong> mesure le degré d’asymétrie d’une distribution autour de sa moyenne. Une skewness nulle indique une distribution symétrique (comme la loi normale). Une valeur positive indique une queue étirée vers la droite (revenus, prix immobiliers), une valeur négative une queue vers la gauche.</p>
+<p><strong>Le kurtosis (aplatissement)</strong> mesure la “lourdeur” des queues de distribution. Une kurtosis élevée (&gt; 3) indique des queues plus épaisses que la loi normale, c’est-à-dire un risque accru de valeurs extrêmes.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Règles pratiques
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>|Skewness| &gt; 1</strong> → distribution fortement asymétrique → transformation recommandée (log, racine carrée)</li>
+<li><strong>Kurtosis &gt; 3</strong> → queues lourdes → valeurs extrêmes fréquentes → vigilance sur les outliers</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="visualisation-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation-des-données">Visualisation des données</h2>
+<p>La visualisation est indispensable pour détecter ce que les statistiques seules ne révèlent pas. Le célèbre <strong>quartet d’Anscombe</strong> (1973) illustre parfaitement ce point : quatre jeux de données ont exactement les mêmes statistiques descriptives (moyenne, variance, corrélation) mais des distributions visuellement complètement différentes.</p>
+<section id="distribution-des-variables" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-des-variables">Distribution des variables</h3>
+<p>L’<strong>histogramme</strong> est le premier graphique à produire pour chaque variable numérique. Il révèle :</p>
+<ul>
+<li>La forme de la distribution (unimodale, bimodale, asymétrique)</li>
+<li>La présence de valeurs aberrantes (queues très étirées)</li>
+<li>Les différences de distribution entre classes (en superposant les histogrammes par classe cible)</li>
+</ul>
+<p>Une distribution <strong>bimodale</strong> (deux pics) est souvent le signe que la variable contient des sous-populations distinctes — une information précieuse pour la modélisation.</p>
+</section>
+<section id="boxplots-comparatifs" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots-comparatifs">Boxplots comparatifs</h3>
+<p>Le <strong>boxplot</strong> (boîte à moustaches) résume en un seul graphique cinq statistiques : minimum, Q1, médiane, Q3, maximum. Les points au-delà des moustaches (généralement <span class="math inline">\(\pm 1{,}5 \times IQR\)</span>) sont représentés individuellement et constituent des <strong>candidats outliers</strong>.</p>
+<p>En comparant les boxplots par classe cible, on visualise rapidement le <strong>pouvoir discriminant</strong> de chaque variable : une variable dont les médianes sont bien séparées entre classes sera probablement informative pour la prédiction.</p>
+</section>
+<section id="pairplot-nuage-de-points-croisés" class="level3">
+<h3 class="anchored" data-anchor-id="pairplot-nuage-de-points-croisés">Pairplot (nuage de points croisés)</h3>
+<p>Le <strong>pairplot</strong> (ou scatter matrix) affiche tous les nuages de points entre paires de variables. C’est un outil puissant pour détecter :</p>
+<ul>
+<li>Les <strong>relations linéaires</strong> entre variables (collinéarité)</li>
+<li>Les <strong>structures non linéaires</strong> (arcs, clusters)</li>
+<li>La <strong>séparabilité des classes</strong> dans différents sous-espaces de features</li>
+</ul>
+<p>Il devient illisible au-delà d’une dizaine de variables — on le restreint alors aux variables les plus prometteuses, identifiées par les scores de corrélation.</p>
+<hr>
+</section>
+</section>
+<section id="analyse-des-corrélations" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-des-corrélations">Analyse des corrélations</h2>
+<section id="matrice-de-corrélation" class="level3">
+<h3 class="anchored" data-anchor-id="matrice-de-corrélation">Matrice de corrélation</h3>
+<p>La <strong>matrice de corrélation de Pearson</strong> quantifie les relations linéaires entre toutes les paires de variables numériques. Ses valeurs sont comprises entre <span class="math inline">\(-1\)</span> (corrélation négative parfaite) et <span class="math inline">\(+1\)</span> (corrélation positive parfaite), avec <span class="math inline">\(0\)</span> indiquant l’absence de relation linéaire.</p>
+<p>Elle est représentée sous forme de <strong>heatmap</strong> (carte de chaleur), généralement en triangle inférieur pour éviter la redondance. On y cherche :</p>
+<ul>
+<li>Des <strong>blocs de variables fortement corrélées</strong> entre elles (&gt; 0,85) : signe de <strong>multicolinéarité</strong>, problématique pour les modèles linéaires et les arbres peu profonds</li>
+<li>Des variables <strong>fortement corrélées avec la cible</strong> : candidates naturelles à conserver en priorité</li>
+</ul>
+</section>
+<section id="corrélation-avec-la-variable-cible" class="level3">
+<h3 class="anchored" data-anchor-id="corrélation-avec-la-variable-cible">Corrélation avec la variable cible</h3>
+<p>En classification ou régression supervisée, le calcul de la corrélation de chaque feature avec la variable cible donne un premier classement rapide des variables les plus informatives. Ce classement est imparfait — il ne capte que les relations linéaires — mais il oriente efficacement l’exploration.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Corrélations élevées <strong>entre features</strong> (&gt; 0,85) → <strong>multicolinéarité</strong> → envisager une réduction de dimension ou une sélection de variables</li>
+<li>Corrélations élevées <strong>avec la cible</strong> → variables potentiellement très informatives</li>
+<li><strong>Pearson ne capte que les relations linéaires</strong> → compléter avec Spearman (rangs) ou l’information mutuelle pour les relations non linéaires</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="prétraitement" class="level1">
+<h1>Prétraitement</h1>
+<p>Le prétraitement transforme les données brutes pour les rendre exploitables par les algorithmes ML. Il se compose de quatre grandes familles d’opérations : traitement des valeurs manquantes, gestion des outliers, normalisation et standardisation.</p>
+<section id="valeurs-manquantes" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes">Valeurs manquantes</h2>
+<p>Les valeurs manquantes sont la règle, non l’exception, dans les données réelles. Avant de les traiter, il faut comprendre <strong>pourquoi</strong> elles sont manquantes.</p>
+<section id="mécanismes-de-manque" class="level3">
+<h3 class="anchored" data-anchor-id="mécanismes-de-manque">Mécanismes de manque</h3>
+<p>On distingue trois mécanismes fondamentaux, qui orientent le choix du traitement :</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Mécanismes de manque et traitements associés</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mécanisme</th>
+<th>Description</th>
+<th>Traitement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MCAR</strong> (<em>Missing Completely At Random</em>)</td>
+<td>Le manque est indépendant de toute variable</td>
+<td>Imputation simple ou suppression sans biais</td>
+</tr>
+<tr class="even">
+<td><strong>MAR</strong> (<em>Missing At Random</em>)</td>
+<td>Le manque dépend d’autres variables observées</td>
+<td>Imputation conditionnelle (KNN, modèle)</td>
+</tr>
+<tr class="odd">
+<td><strong>MNAR</strong> (<em>Missing Not At Random</em>)</td>
+<td>Le manque dépend de la valeur manquante elle-même</td>
+<td>Créer une variable indicatrice + imputer</td>
+</tr>
+</tbody>
+</table>
+<p>Un exemple classique de MNAR : dans une enquête de santé, les personnes les plus malades sont souvent celles qui ne répondent pas aux questions sur leur état de santé. Supprimer ces lignes ou imputer naïvement introduirait un biais systématique.</p>
+</section>
+<section id="stratégies-dimputation" class="level3">
+<h3 class="anchored" data-anchor-id="stratégies-dimputation">Stratégies d’imputation</h3>
+<table class="table-striped table-hover caption-top table">
+<caption>Stratégies d’imputation selon le contexte</caption>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Stratégie recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 5% manquants, distribution symétrique</td>
+<td>Moyenne</td>
+</tr>
+<tr class="even">
+<td>&lt; 5% manquants, distribution asymétrique</td>
+<td><strong>Médiane</strong></td>
+</tr>
+<tr class="odd">
+<td>&lt; 5% manquants, variable catégorielle</td>
+<td>Mode</td>
+</tr>
+<tr class="even">
+<td>5–30% manquants</td>
+<td><strong>KNN Imputer</strong> ou imputation par modèle</td>
+</tr>
+<tr class="odd">
+<td>&gt; 30% manquants</td>
+<td>Envisager de supprimer la variable</td>
+</tr>
+<tr class="even">
+<td>Données temporelles</td>
+<td>Interpolation (forward fill / backward fill)</td>
+</tr>
+<tr class="odd">
+<td>MNAR</td>
+<td>Créer une variable binaire indicatrice de manque</td>
+</tr>
+</tbody>
+</table>
+<p>L’imputation par <strong>KNN</strong> (<em>K-Nearest Neighbors</em>) remplace chaque valeur manquante par la moyenne pondérée des <span class="math inline">\(k\)</span> observations les plus proches dans l’espace des autres variables. Elle est plus précise que la médiane mais plus coûteuse en calcul.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Règle fondamentale : pas de data leakage
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Toujours <strong>ajuster (fit)</strong> l’imputeur sur le jeu d’entraînement uniquement, puis <strong>appliquer (transform)</strong> sur le jeu de test avec les paramètres appris. Calculer la médiane ou entraîner le KNN sur l’ensemble du dataset revient à faire “fuiter” de l’information du test vers le train.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="outliers" class="level2">
+<h2 class="anchored" data-anchor-id="outliers">Outliers</h2>
+<p>Un <strong>outlier</strong> (valeur aberrante) est une observation qui s’écarte significativement du comportement général des données. Il peut s’agir d’une erreur de saisie, d’un problème de capteur, ou d’un phénomène réel rare (fraude, panne, événement exceptionnel).</p>
+<section id="méthodes-de-détection" class="level3">
+<h3 class="anchored" data-anchor-id="méthodes-de-détection">Méthodes de détection</h3>
+<p><strong>Z-score</strong> : une observation est déclarée outlier si <span class="math inline">\(|z| &gt; 3\)</span>, où <span class="math inline">\(z = (x - \mu) / \sigma\)</span>. Simple et rapide, mais sensible aux distributions non gaussiennes — un outlier extrême “attire” la moyenne et gonfle l’écart-type, masquant d’autres anomalies.</p>
+<p><strong>Règle de Tukey (IQR)</strong> : une observation est outlier si elle est en dehors de l’intervalle <span class="math inline">\([Q1 - 1{,}5 \times IQR,\ Q3 + 1{,}5 \times IQR]\)</span>. Plus robuste que le Z-score car basée sur les quantiles, non affectée par les valeurs extrêmes elles-mêmes.</p>
+<p><strong>Isolation Forest</strong> : algorithme d’apprentissage non supervisé qui isole les anomalies en construisant des arbres de décision aléatoires. Les observations difficiles à isoler (nécessitant beaucoup de coupures) sont considérées comme normales ; celles faciles à isoler (peu de coupures) sont des anomalies. Particulièrement efficace en haute dimension.</p>
+</section>
+<section id="stratégies-de-traitement" class="level3">
+<h3 class="anchored" data-anchor-id="stratégies-de-traitement">Stratégies de traitement</h3>
+<table class="table-striped table-hover caption-top table">
+<caption>Stratégies de traitement des outliers</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Traitement</th>
+<th>Quand l’utiliser</th>
+<th>Risque</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Suppression</strong></td>
+<td>Outlier clairement erroné (erreur de saisie)</td>
+<td>Perte d’information, biais si non-MCAR</td>
+</tr>
+<tr class="even">
+<td><strong>Winsorisation</strong></td>
+<td>Distribution avec queues épaisses</td>
+<td>Introduit un biais vers les percentiles choisis</td>
+</tr>
+<tr class="odd">
+<td><strong>Transformation log / racine carrée</strong></td>
+<td>Distribution très asymétrique à droite</td>
+<td>Interprétabilité réduite des coefficients</td>
+</tr>
+<tr class="even">
+<td><strong>Modèle robuste</strong></td>
+<td>Algorithme sensible aux extrêmes (régression)</td>
+<td>Complexité accrue</td>
+</tr>
+<tr class="odd">
+<td><strong>Conserver</strong></td>
+<td>Outlier réel et informatif (fraude, panne)</td>
+<td>Aucun — c’est souvent le bon choix</td>
+</tr>
+</tbody>
+</table>
+<p>La règle d’or : <strong>comprendre avant d’agir</strong>. Un outlier supprimé trop vite peut être le signal le plus important du jeu de données.</p>
+<hr>
+</section>
+</section>
+<section id="normalisation" class="level2">
+<h2 class="anchored" data-anchor-id="normalisation">Normalisation</h2>
+<p>La <strong>normalisation</strong> (ou mise à l’échelle Min-Max) ramène toutes les valeurs d’une variable dans un intervalle fixe, généralement <span class="math inline">\([0, 1]\)</span> :</p>
+<p><span class="math display">\[x_{\text{norm}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}\]</span></p>
+<p>Elle garantit que toutes les variables contribuent à égalité dans les algorithmes sensibles aux échelles, comme le KNN (qui calcule des distances) ou les réseaux de neurones (où les gradients sont sensibles aux amplitudes).</p>
+<p><strong>Limite principale</strong> : l’intervalle <span class="math inline">\([0, 1]\)</span> est entièrement dicté par les valeurs minimale et maximale. Un seul outlier extrême peut comprimer toute la distribution dans une plage très étroite, rendant la normalisation inefficace.</p>
+<hr>
+</section>
+<section id="standardisation" class="level2">
+<h2 class="anchored" data-anchor-id="standardisation">Standardisation</h2>
+<p>La <strong>standardisation</strong> (Z-score) centre et réduit les variables pour obtenir une <strong>moyenne nulle</strong> et un <strong>écart-type unitaire</strong> :</p>
+<p><span class="math display">\[x_{\text{std}} = \frac{x - \mu}{\sigma}\]</span></p>
+<p>Contrairement à la normalisation, elle ne contraint pas les valeurs dans un intervalle fixe. La distribution standardisée conserve sa forme originale, simplement recentrée et réduite.</p>
+<section id="normalisation-vs.-standardisation-quand-choisir" class="level3">
+<h3 class="anchored" data-anchor-id="normalisation-vs.-standardisation-quand-choisir">Normalisation vs.&nbsp;Standardisation : quand choisir ?</h3>
+<table class="table-striped table-hover caption-top table">
+<caption>Normalisation vs.&nbsp;Standardisation</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Critère</th>
+<th>Normalisation (Min-Max)</th>
+<th>Standardisation (Z-score)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Plage de sortie</strong></td>
+<td><span class="math inline">\([0, 1]\)</span> fixe</td>
+<td>Illimitée (centrée sur 0)</td>
+</tr>
+<tr class="even">
+<td><strong>Sensibilité aux outliers</strong></td>
+<td>⚠️ Très sensible</td>
+<td>✅ Plus robuste</td>
+</tr>
+<tr class="odd">
+<td><strong>Algorithmes adaptés</strong></td>
+<td>KNN, réseaux de neurones, SVM</td>
+<td>Régression linéaire, PCA, LDA</td>
+</tr>
+<tr class="even">
+<td><strong>Distribution requise</strong></td>
+<td>Aucune</td>
+<td>Aucune (mieux avec gaussienne)</td>
+</tr>
+<tr class="odd">
+<td><strong>Interprétabilité</strong></td>
+<td>Intuitive (proportion)</td>
+<td>Moins intuitive (écarts-types)</td>
+</tr>
+</tbody>
+</table>
+<p>En pratique, la <strong>standardisation est le choix par défaut</strong> dans la plupart des projets ML, sauf si l’algorithme requiert explicitement des valeurs dans <span class="math inline">\([0, 1]\)</span> (réseaux de neurones avec activation sigmoïde, certains algorithmes à distance).</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="feature-engineering" class="level1">
+<h1>Feature Engineering</h1>
+<p>Le <strong>Feature Engineering</strong> consiste à créer, transformer et sélectionner les variables pour maximiser la capacité prédictive du modèle. C’est une discipline autant qu’une technique : elle mobilise la connaissance du domaine métier, l’intuition statistique et la créativité analytique.</p>
+<blockquote class="blockquote">
+<p><em>“Coming up with features is difficult, time-consuming, requires expert knowledge. Applied machine learning is basically feature engineering.”</em><br>
+— Andrew Ng</p>
+</blockquote>
+<section id="création-de-variables" class="level2">
+<h2 class="anchored" data-anchor-id="création-de-variables">Création de variables</h2>
+<p>De nouvelles variables peuvent révéler des patterns invisibles dans les données brutes. On distingue plusieurs familles de transformations :</p>
+<p><strong>Ratios et interactions</strong> : combiner deux variables par division ou multiplication crée des indicateurs composites souvent plus informatifs que les variables prises séparément. Par exemple, diviser le périmètre au carré par l’aire donne un indice de compacité géométrique.</p>
+<p><strong>Transformations non linéaires</strong> : appliquer <span class="math inline">\(\log(1 + x)\)</span>, <span class="math inline">\(\sqrt{x}\)</span>, ou <span class="math inline">\(x^2\)</span> à une variable peut linéariser une relation initialement courbe avec la cible, améliorant les performances des modèles linéaires.</p>
+<p><strong>Variables décalées (<em>lags</em>)</strong> : en données temporelles, la valeur d’une variable à <span class="math inline">\(t-1\)</span>, <span class="math inline">\(t-7\)</span> ou <span class="math inline">\(t-30\)</span> est souvent plus prédictive que la valeur courante (prévision de ventes, séries financières).</p>
+<p><strong>Agrégations</strong> : calculer des statistiques (moyenne, écart-type, max) sur des fenêtres temporelles ou des groupes d’observations (par client, par région) crée des features contextuelles très puissantes.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Principe directeur
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le feature engineering est guidé par la <strong>connaissance du domaine</strong>. Un Data Scientist qui comprend le secteur (finance, santé, industrie) saura créer des variables pertinentes bien avant qu’un algorithme automatique ne les découvre.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="encodage-des-variables-catégorielles" class="level2">
+<h2 class="anchored" data-anchor-id="encodage-des-variables-catégorielles">Encodage des variables catégorielles</h2>
+<p>Les algorithmes ML nécessitent des <strong>entrées numériques</strong>. Les variables catégorielles doivent impérativement être encodées avant modélisation.</p>
+<section id="label-encoding" class="level3">
+<h3 class="anchored" data-anchor-id="label-encoding">Label Encoding</h3>
+<p>Chaque modalité est remplacée par un entier : <code>Faible → 0</code>, <code>Moyen → 1</code>, <code>Élevé → 2</code>. Cette approche <strong>impose un ordre</strong> entre les modalités. Elle est donc strictement réservée aux <strong>variables ordinales</strong> (où un ordre naturel existe). L’appliquer à une variable nominale (couleur, région) ferait croire à l’algorithme que “Rouge &gt; Bleu”, ce qui est absurde.</p>
+</section>
+<section id="one-hot-encoding-ohe" class="level3">
+<h3 class="anchored" data-anchor-id="one-hot-encoding-ohe">One-Hot Encoding (OHE)</h3>
+<p>Chaque modalité devient une colonne binaire (0 ou 1). Pour une variable avec <span class="math inline">\(k\)</span> modalités, on crée <span class="math inline">\(k-1\)</span> colonnes (on en supprime une pour éviter la colinéarité parfaite, appelée <em>dummy variable trap</em>).</p>
+<p>C’est la méthode de référence pour les <strong>variables nominales</strong> avec peu de modalités (&lt; 10–15). Au-delà, elle génère trop de colonnes (<em>curse of dimensionality</em>) et des matrices creuses inefficaces.</p>
+</section>
+<section id="target-encoding" class="level3">
+<h3 class="anchored" data-anchor-id="target-encoding">Target Encoding</h3>
+<p>Chaque modalité est remplacée par la moyenne de la variable cible pour cette modalité. Par exemple, si les clients de la région “Nord” ont un taux de churn moyen de 0,35, toutes les observations “Nord” reçoivent la valeur 0,35.</p>
+<p>Compact et informatif, le target encoding est particulièrement adapté aux variables à <strong>haute cardinalité</strong> (centaines ou milliers de modalités). Son principal danger est le <strong>data leakage</strong> : si on calcule la moyenne cible sur l’ensemble du dataset (train + test), on introduit de l’information du futur dans le modèle. Il doit donc être calculé uniquement sur les données d’entraînement, idéalement au sein d’une validation croisée.</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Méthodes d’encodage des variables catégorielles</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Méthode</th>
+<th>Usage</th>
+<th>Avantages</th>
+<th>Inconvénients</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Label Encoding</strong></td>
+<td>Variables ordinales</td>
+<td>Simple, compact</td>
+<td>Ordre artificiel sur nominales</td>
+</tr>
+<tr class="even">
+<td><strong>One-Hot Encoding</strong></td>
+<td>Variables nominales (&lt; 10–15 modalités)</td>
+<td>Aucune hypothèse d’ordre</td>
+<td>Explosion dimensionnelle</td>
+</tr>
+<tr class="odd">
+<td><strong>Target Encoding</strong></td>
+<td>Variables nominales (&gt; 15 modalités)</td>
+<td>Compact et informatif</td>
+<td>Risque de leakage</td>
+</tr>
+<tr class="even">
+<td><strong>Binary Encoding</strong></td>
+<td>Nombreuses modalités</td>
+<td>Compromis OHE / Label</td>
+<td>Moins intuitif</td>
+</tr>
+<tr class="odd">
+<td><strong>Embeddings</strong></td>
+<td>Très haute cardinalité (NLP, IDs utilisateurs)</td>
+<td>Capture la sémantique</td>
+<td>Nécessite beaucoup de données</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="sélection-de-variables" class="level2">
+<h2 class="anchored" data-anchor-id="sélection-de-variables">Sélection de variables</h2>
+<p>Trop de variables nuit à la performance : bruit accru, overfitting, temps de calcul élevé, modèle moins interprétable. La sélection de variables vise à ne conserver que les features les plus <strong>informatives et non redondantes</strong>.</p>
+<p>On distingue trois grandes familles de méthodes.</p>
+<section id="méthodes-filter" class="level3">
+<h3 class="anchored" data-anchor-id="méthodes-filter">Méthodes Filter</h3>
+<p>Les méthodes filter évaluent chaque variable <strong>indépendamment</strong> du modèle final, à l’aide d’un score statistique. Elles sont rapides et peu coûteuses.</p>
+<p><strong>ANOVA F-score</strong> : teste si la moyenne d’une variable numérique diffère significativement entre les classes. Un F-score élevé indique un bon pouvoir discriminant. Suppose une relation linéaire.</p>
+<p><strong>Information Mutuelle (MI)</strong> : mesure la dépendance statistique entre une variable et la cible, <strong>quelle que soit la nature de la relation</strong> (linéaire ou non linéaire). Plus générale que le F-score mais plus coûteuse à calculer.</p>
+<p><strong>Corrélation de Pearson / Spearman</strong> : simple et rapide, mais ne capte que les relations linéaires (Pearson) ou monotones (Spearman).</p>
+</section>
+<section id="méthodes-wrapper" class="level3">
+<h3 class="anchored" data-anchor-id="méthodes-wrapper">Méthodes Wrapper</h3>
+<p>Les méthodes wrapper évaluent des <strong>sous-ensembles de variables</strong> en entraînant réellement un modèle sur chacun. Elles sont plus précises mais coûteuses en calcul.</p>
+<p><strong>Recursive Feature Elimination (RFE)</strong> : entraîne un modèle sur toutes les variables, supprime la moins importante, recommence jusqu’à atteindre le nombre de variables désiré. Efficace avec les modèles qui exposent une mesure d’importance (Random Forest, SVM linéaire).</p>
+<p><strong>Forward / Backward Selection</strong> : ajoute (forward) ou supprime (backward) des variables une par une en évaluant l’impact sur la performance du modèle.</p>
+</section>
+<section id="méthodes-embedded" class="level3">
+<h3 class="anchored" data-anchor-id="méthodes-embedded">Méthodes Embedded</h3>
+<p>Les méthodes embedded intègrent la sélection de variables <strong>dans le processus d’entraînement</strong> lui-même.</p>
+<p><strong>Lasso (régularisation L1)</strong> : force certains coefficients à zéro, effectuant ainsi une sélection automatique de variables. Très efficace en régression et classification linéaire.</p>
+<p><strong>Importance des features (Random Forest, XGBoost)</strong> : mesure la contribution de chaque variable à la réduction d’impureté des arbres. Robuste, non linéaire, et applicable en classification comme en régression.</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Familles de méthodes de sélection de variables</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Famille</th>
+<th>Méthode</th>
+<th>Principe</th>
+<th>Complexité</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Filter</strong></td>
+<td>Pearson, ANOVA, MI</td>
+<td>Score indépendant du modèle</td>
+<td>Faible</td>
+</tr>
+<tr class="even">
+<td><strong>Wrapper</strong></td>
+<td>RFE, Forward/Backward selection</td>
+<td>Sélection basée sur un modèle</td>
+<td>Élevée</td>
+</tr>
+<tr class="odd">
+<td><strong>Embedded</strong></td>
+<td>Lasso (L1), Random Forest importance</td>
+<td>Sélection intégrée à l’entraînement</td>
+<td>Moyenne</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="réduction-de-dimension" class="level2">
+<h2 class="anchored" data-anchor-id="réduction-de-dimension">Réduction de dimension</h2>
+<p>La réduction de dimension projette les données dans un <strong>espace de plus faible dimension</strong> tout en préservant au maximum l’information utile. Elle diffère de la sélection de variables : au lieu de choisir des variables existantes, elle en crée de nouvelles (combinaisons linéaires ou non linéaires).</p>
+<section id="acp-analyse-en-composantes-principales-pca" class="level3">
+<h3 class="anchored" data-anchor-id="acp-analyse-en-composantes-principales-pca">ACP — Analyse en Composantes Principales (PCA)</h3>
+<p>L’ACP est la méthode de réduction de dimension la plus utilisée. Elle projette les données sur les directions de <strong>variance maximale</strong>, appelées composantes principales.</p>
+<p><strong>Principe</strong> : les composantes principales sont des combinaisons linéaires orthogonales des variables originales, ordonnées par variance décroissante. La première composante capte le maximum de variance, la deuxième le maximum de variance résiduelle, et ainsi de suite.</p>
+<p><strong>Critère de choix du nombre de composantes</strong> : on retient généralement le nombre de composantes nécessaires pour expliquer 80% ou 95% de la variance totale. Le <strong>scree plot</strong> (graphique de la variance expliquée par composante) aide à visualiser ce seuil.</p>
+<p><strong>Limites</strong> : l’ACP est une transformation <strong>linéaire</strong>. Elle ne capte pas les structures non linéaires (clusters courbes, spirales, variétés). Elle est aussi sensible aux échelles — une standardisation préalable est indispensable.</p>
+</section>
+<section id="t-sne-visualisation-non-linéaire" class="level3">
+<h3 class="anchored" data-anchor-id="t-sne-visualisation-non-linéaire">t-SNE — Visualisation non linéaire</h3>
+<p>Le <strong>t-SNE</strong> (<em>t-distributed Stochastic Neighbor Embedding</em>) est un algorithme de réduction non linéaire conçu <strong>exclusivement pour la visualisation</strong> en 2D ou 3D. Il préserve la structure locale des données (les voisinages proches), révélant des clusters invisibles à l’ACP.</p>
+<p><strong>Attention</strong> : t-SNE ne doit <strong>jamais</strong> être utilisé comme preprocessing pour un modèle ML. Il est non déterministe (résultats différents à chaque exécution), non inversible, et ses distances inter-clusters n’ont pas d’interprétation directe.</p>
+</section>
+<section id="umap-réduction-universelle" class="level3">
+<h3 class="anchored" data-anchor-id="umap-réduction-universelle">UMAP — Réduction universelle</h3>
+<p><strong>UMAP</strong> (<em>Uniform Manifold Approximation and Projection</em>) est une alternative moderne au t-SNE, plus rapide et plus stable. Contrairement au t-SNE, il préserve mieux la <strong>structure globale</strong> des données et peut être utilisé comme preprocessing (contrairement au t-SNE).</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Méthodes de réduction de dimension</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Méthode</th>
+<th>Type</th>
+<th>Préserve</th>
+<th>Usage principal</th>
+<th>Limite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PCA</strong></td>
+<td>Linéaire</td>
+<td>Variance globale</td>
+<td>Preprocessing, compression</td>
+<td>Ne capte pas le non-linéaire</td>
+</tr>
+<tr class="even">
+<td><strong>t-SNE</strong></td>
+<td>Non linéaire</td>
+<td>Structure locale</td>
+<td>Visualisation uniquement</td>
+<td>Lent, non déterministe, non inversible</td>
+</tr>
+<tr class="odd">
+<td><strong>UMAP</strong></td>
+<td>Non linéaire</td>
+<td>Local + global</td>
+<td>Visualisation + preprocessing</td>
+<td>Hyperparamètres sensibles</td>
+</tr>
+<tr class="even">
+<td><strong>Autoencoders</strong></td>
+<td>Non linéaire (DL)</td>
+<td>Reconstruction</td>
+<td>Données complexes (images, texte)</td>
+<td>Nécessite beaucoup de données</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+</section>
+<section id="pipeline-de-préparation-vue-densemble" class="level1">
+<h1>Pipeline de préparation — Vue d’ensemble</h1>
+<p>Un bon pipeline de préparation enchaîne les étapes dans un ordre logique et évite toute fuite d’information entre train et test. La structure recommandée est la suivante :</p>
+<pre><code>Données brutes
+    │
+    ▼
+[1] Inspection &amp; EDA
+    Statistiques descriptives, visualisations, corrélations
+    │
+    ▼
+[2] Traitement des valeurs manquantes
+    Imputation par médiane / KNN / modèle selon le mécanisme
+    │
+    ▼
+[3] Détection et traitement des outliers
+    Z-score, IQR, Isolation Forest → suppression / winsorisation / transformation
+    │
+    ▼
+[4] Encodage des variables catégorielles
+    Label / OHE / Target selon la cardinalité et l'ordinalité
+    │
+    ▼
+[5] Feature Engineering
+    Création de variables, interactions, transformations
+    │
+    ▼
+[6] Mise à l'échelle
+    Standardisation (défaut) ou normalisation selon l'algorithme cible
+    │
+    ▼
+[7] Sélection / Réduction de dimension
+    Filter → Wrapper → Embedded → PCA si nécessaire
+    │
+    ▼
+Données prêtes pour la modélisation</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Bonnes pratiques à retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Toujours explorer avant de transformer</strong> — l’EDA guide les choix de prétraitement, pas l’inverse</li>
+<li><strong>Fit sur train, transform sur test</strong> — éviter le data leakage à chaque étape du pipeline</li>
+<li><strong>Encapsuler dans un Pipeline sklearn</strong> — reproductibilité garantie et déploiement simplifié</li>
+<li><strong>Documenter chaque transformation</strong> — traçabilité essentielle en production et en audit</li>
+<li><strong>Itérer</strong> — le feature engineering est un processus continu, revisité après chaque cycle de modélisation</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>La préparation des données n’est pas une étape mécanique : c’est un travail analytique exigeant qui mobilise <strong>compréhension du domaine</strong>, <strong>rigueur statistique</strong> et <strong>jugement</strong>.</p>
+<p>Chaque décision — quelle valeur manquante imputer, quel outlier supprimer, quelle variable créer — a un impact direct sur la qualité du modèle final. Un pipeline de préparation bien conçu est souvent ce qui fait la différence entre un modèle médiocre et un modèle performant, bien avant de choisir l’algorithme d’apprentissage.</p>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Pour aller plus loin
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Feature Engineering for Machine Learning</strong> — Alice Zheng &amp; Amanda Casari (O’Reilly)</li>
+<li><strong>Python for Data Analysis</strong> — Wes McKinney (O’Reilly)</li>
+<li><strong>scikit-learn : Preprocessing</strong> — <a href="https://scikit-learn.org/stable/modules/preprocessing.html">scikit-learn.org/stable/modules/preprocessing</a></li>
+<li><strong>Kaggle : Feature Engineering course</strong> — <a href="https://www.kaggle.com/learn/feature-engineering">kaggle.com/learn/feature-engineering</a></li>
+</ul>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,46 @@
+---
+title: " "
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+---
+
+## Quantification d’incertitude (UQ)
+
+La quantification d’incertitude (*Uncertainty Quantification*, UQ) est un domaine des statistiques qui vise à caractériser, propager et réduire les incertitudes présentes dans les modèles. Dans le contexte de la calibration de simulateurs numériques, elle permet de s’assurer que les résultats produits par un simulateur calibré sont fiables et exploitables. Elle fournit un cadre rigoureux pour évaluer la crédibilité des prédictions en prenant en compte à la fois les incertitudes liées aux données (*incertitudes épistémiques*) et celles intrinsèques aux phénomènes ou systèmes physiques étudiés (*incertitudes aléatoires*).
+
+------------------------------------------------------------------------
+
+## Incertitudes épistémiques
+
+L’incertitude épistémique, ou incertitude systématique, provient d’un manque d’information ou de connaissance sur le système étudié. En théorie, elle peut être réduite grâce à des données supplémentaires ou à une meilleure compréhension du phénomène.
+
+Dans le cadre de la calibration, ces incertitudes sont liées à une compréhension incomplète du phénomène physique, à d’éventuelles erreurs dans le code de calcul, à des paramètres mal connus ou encore à des approximations numériques dans les méthodes utilisées.
+
+En pratique, l’ajout de données pertinentes, une meilleure conception des expériences physiques et numériques, ainsi qu’un choix judicieux des conditions d’observation permettent de réduire ce type d’incertitude. Elles sont généralement modélisées par des variables ou des processus aléatoires associés à des distributions de probabilité.
+
+------------------------------------------------------------------------
+
+## Incertitudes aléatoires
+
+L’incertitude aléatoire provient de la nature intrinsèquement variable ou stochastique du phénomène ou du système physique étudié. Contrairement à l’incertitude épistémique, elle est indépendante du niveau de connaissance ou de la quantité de données disponibles et est, par nature, irréductible.
+
+------------------------------------------------------------------------
+
+## Sources d’incertitude
+
+Dans la calibration de codes de calcul, souvent coûteux en temps et en ressources, plusieurs sources d’incertitude doivent être prises en compte. On distingue principalement trois catégories :
+
+-   **Incertitude paramétrique** : elle correspond à l’incertitude sur les valeurs des paramètres du modèle, qui sont mal connus. Elle est généralement représentée par une distribution de probabilité dite *a priori*.
+
+-   **Incertitude expérimentale** : elle provient des erreurs d’observation du phénomène physique et est modélisée par des variables aléatoires. Ces erreurs peuvent être dues à la précision limitée des instruments de mesure, à des erreurs humaines ou à des conditions environnementales influençant les observations.
+
+-   **Incertitude d’émulation ou de modélisation** : elle est associée à l’approximation du simulateur numérique par un émulateur (par exemple un métamodèle). Elle dépend notamment de la qualité du plan d’expériences numériques et des hypothèses de modélisation. Elle est généralement décrite par la distribution a posteriori de l’émulateur.
+
+------------------------------------------------------------------------
+
+## Conclusion
+
+La compréhension et la quantification de ces différentes sources d’incertitude sont essentielles pour une calibration plus précise, afin d’améliorer la fiabilité des simulateurs numériques et leur exploitabilité dans des applications réelles.

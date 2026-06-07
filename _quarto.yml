@@ -43,3 +43,5 @@ format:
 
 
 editor: visual
+execute:
+  python: quarto-env/Scripts/python.exe
