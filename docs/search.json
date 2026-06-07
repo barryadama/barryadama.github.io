@@ -219,37 +219,37 @@
   {
     "objectID": "acproj.html",
     "href": "acproj.html",
-    "title": "Academic Projects",
+    "title": "Projets académiques",
     "section": "",
-    "text": "Video Transition Classification\nPython, OpenCV, supervised & unsupervised learning, feature extraction, multivariate time series\n View on GitHub\n\n\n\nVideo Transition Classification illustration"
+    "text": "Video Transition Classification\nPython, OpenCV, supervised & unsupervised learning, feature extraction, multivariate time series\n View on GitHub\n\n\n\nVideo Transition Classification illustration\n\n\n\n\n\nImage Processing for Plant Disease Analysis\nPython, ImageJ, image registration, literature review, method comparison\n View on GitHub\n\n\n\nPlant disease analysis illustration\n\n\n\n\n\nUTOPIK Fitness Coaching App\nBusiness plan, financial modeling, market analysis\n\n\n\nUTOPIK fitness coaching app illustration\n\n\n\n\n\nImpact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)\nStatistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis\n View on GitHub\n\n\n\nMillet biodiversity project illustration"
   },
   {
     "objectID": "acproj.html#final-year-project-ensai-oct-2020-mar-2021",
     "href": "acproj.html#final-year-project-ensai-oct-2020-mar-2021",
-    "title": "Academic Projects",
+    "title": "Projets académiques",
     "section": "",
     "text": "Video Transition Classification\nPython, OpenCV, supervised & unsupervised learning, feature extraction, multivariate time series\n View on GitHub\n\n\n\nVideo Transition Classification illustration"
   },
   {
     "objectID": "acproj.html#methodological-project-ensai-oct-2020-jan-2021",
     "href": "acproj.html#methodological-project-ensai-oct-2020-jan-2021",
-    "title": "Academic Projects",
-    "section": "Methodological Project — ENSAI (Oct 2020 – Jan 2021)",
-    "text": "Methodological Project — ENSAI (Oct 2020 – Jan 2021)\nImage Processing for Plant Disease Analysis\nPython, ImageJ, image registration, literature review, method comparison\n View on GitHub\n\n\n\nPlant disease analysis illustration"
+    "title": "Projets académiques",
+    "section": "",
+    "text": "Image Processing for Plant Disease Analysis\nPython, ImageJ, image registration, literature review, method comparison\n View on GitHub\n\n\n\nPlant disease analysis illustration"
   },
   {
     "objectID": "acproj.html#entrepreneurship-project-ensai-mar-may-2020",
     "href": "acproj.html#entrepreneurship-project-ensai-mar-may-2020",
-    "title": "Academic Projects",
-    "section": "Entrepreneurship Project — ENSAI (Mar – May 2020)",
-    "text": "Entrepreneurship Project — ENSAI (Mar – May 2020)\nUTOPIK Fitness Coaching App\nBusiness plan, financial modeling, market analysis\n\n\n\nUTOPIK fitness coaching app illustration"
+    "title": "Projets académiques",
+    "section": "",
+    "text": "UTOPIK Fitness Coaching App\nBusiness plan, financial modeling, market analysis\n\n\n\nUTOPIK fitness coaching app illustration"
   },
   {
     "objectID": "acproj.html#statistical-project-ensai-jan-may-2020",
     "href": "acproj.html#statistical-project-ensai-jan-may-2020",
-    "title": "Academic Projects",
-    "section": "Statistical Project — ENSAI (Jan – May 2020)",
-    "text": "Statistical Project — ENSAI (Jan – May 2020)\nImpact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)\nStatistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis\n\n\n\nMillet biodiversity project illustration"
+    "title": "Projets académiques",
+    "section": "",
+    "text": "Impact of Tree Species on the Regulation of Millet Head Miner in Bambey (CIRAD)\nStatistical modeling, QGIS, R spatial, biodiversity indices, satellite image analysis\n View on GitHub\n\n\n\nMillet biodiversity project illustration"
   },
   {
     "objectID": "gp-modeling.html#lidée-intuitive",
@@ -1487,8 +1487,8 @@
     "objectID": "Blog.html#placement-optimal-de-puits-de-stockage-geologique",
     "href": "Blog.html#placement-optimal-de-puits-de-stockage-geologique",
     "title": "1 Machine Learning",
-    "section": "4.2 Placement optimal de puits de stockage geologique",
-    "text": "4.2 Placement optimal de puits de stockage geologique\n…."
+    "section": "4.3 Placement optimal de puits de stockage geologique",
+    "text": "4.3 Placement optimal de puits de stockage geologique\n…."
   },
   {
     "objectID": "ML/Projectile.html#introduction",
@@ -1699,5 +1699,19 @@
     "title": " ",
     "section": "",
     "text": "En cours…"
+  },
+  {
+    "objectID": "Blog.html#projets-académiques",
+    "href": "Blog.html#projets-académiques",
+    "title": "1 Machine Learning",
+    "section": "4.2 Projets académiques",
+    "text": "4.2 Projets académiques\nAu cours de ma formation en ingénierie et en data science, j’ai réalisé plusieurs projets appliqués couvrant l’apprentissage automatique, la statistique, la vision par ordinateur, les données spatiales et le développement d’applications.\nJ’ai travaillé sur la classification de transitions vidéo via des méthodes supervisées et non supervisées sur séries temporelles multivariées (Python, OpenCV), ainsi que sur l’analyse de maladies des plantes à partir d’images, combinant recalage et traitement d’images (Python, ImageJ).\nJ’ai également participé à un projet entrepreneurial autour d’une application de coaching fitness (UTOPIK), incluant analyse de marché et business plan.\nDans le domaine de la statistique appliquée, j’ai étudié l’impact des espèces arborées sur la régulation de ravageurs via des données spatiales et satellitaires (R, QGIS, SIG).\nJ’ai développé une application de gestion de courses (CHRONORUN) intégrant Python, SQL et API, et réalisé une enquête sur les habitudes de consommation étudiantes avec analyse statistique complète.\nCes projets illustrent ma capacité à mobiliser des outils statistiques et informatiques variés pour résoudre des problèmes concrets et interdisciplinaires Voir ici…"
+  },
+  {
+    "objectID": "Blog.html#ces-projets-illustrent-ma-capacité-à-mobiliser-des-outils-statistiques-et-informatiques-variés-pour-résoudre-des-problèmes-concrets-et-interdisciplinaires.lire-plus",
+    "href": "Blog.html#ces-projets-illustrent-ma-capacité-à-mobiliser-des-outils-statistiques-et-informatiques-variés-pour-résoudre-des-problèmes-concrets-et-interdisciplinaires.lire-plus",
+    "title": "1 Machine Learning",
+    "section": "4.4 Ces projets illustrent ma capacité à mobiliser des outils statistiques et informatiques variés pour résoudre des problèmes concrets et interdisciplinaires.Lire plus…",
+    "text": "4.4 Ces projets illustrent ma capacité à mobiliser des outils statistiques et informatiques variés pour résoudre des problèmes concrets et interdisciplinaires.Lire plus…"
   }
 ]
