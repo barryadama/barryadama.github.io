@@ -1,10 +1,15 @@
 ---
 title: " "
+draft: false
+editor: visual
 format:
   html:
     toc: true
-    toc-depth: 4
     toc-title: "Sommaire"
+    toc-depth: 4
+    number-sections: true
+navbar:
+  search: true
 ---
 
 # Projets académiques
