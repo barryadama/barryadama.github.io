@@ -33,8 +33,8 @@ website:
 format:
   html:
     theme:
-      light: sandstone #sandstone spacelab lumen flatly litera
-      dark: darkly #darkly #cyborg
+      light: spacelab #sandstone spacelab lumen flatly litera
+      dark: cyborg #darkly #cyborg
     toggle: true
     mainfont: "Helvetica Neue"
     sansfont: "Helvetica Neue"

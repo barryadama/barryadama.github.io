@@ -4,7 +4,7 @@ title: ""
 
 # Adama Ibrahim Barry {.center}
 
-**PhD en Statistique | Data Scientist | Ingénieur R&D**
+**PhD en Statistique \| Data Scientist \| Ingénieur R&D**
 
 ::: contact-info
 📧 adambarry207\@gmail.com \| 📞 07 55 85 54 73 \| 🌐 [barryadama.github.io](https://barryadama.github.io) \| 📍 Toulouse, France
@@ -73,7 +73,7 @@ Statistique, économétrie, science des données.
 *64 heures de TD et TP*
 
 | Cours | Niveau | Type |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Mathématiques Fondamentales II (ensembles, fonctions, relations) | Licence 1 | TD |
 | Probabilités (loi des grands nombres, TCL, simulations) | Licence 3 | TD + TP |
 | Plans d'Expériences et Analyse d'Incertitude (processus gaussiens, indices de Sobol) | Master 2 | TP |
