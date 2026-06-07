@@ -1803,21 +1803,21 @@
     "href": "ML/Latex.html",
     "title": "Introduction à LaTeX avec Overleaf",
     "section": "",
-    "text": "LaTeX est un système de composition de documents particulièrement populaire dans les communautés scientifiques et universitaires. Contrairement à un traitement de texte classique tel que Microsoft Word ou LibreOffice Writer, LaTeX repose sur une philosophie différente : l’utilisateur décrit la structure de son document à l’aide de commandes, puis un compilateur transforme ce code en un document PDF de grande qualité typographique.\nCette approche peut sembler déroutante au premier abord, mais elle présente de nombreux avantages. La gestion des équations mathématiques est particulièrement élégante, la mise en page reste cohérente même dans les documents volumineux, et les références bibliographiques peuvent être automatisées. Pour ces raisons, LaTeX est devenu un standard dans des disciplines comme les mathématiques, la statistique, l’informatique, la physique ou encore l’ingénierie.\nL’objectif de ce tutoriel est de proposer une prise en main rapide permettant de créer et modifier ses premiers documents LaTeX."
+    "text": "LaTeX est un système de composition de documents particulièrement répandu dans les communautés scientifiques et universitaires. Contrairement aux traitements de texte classiques tels que Microsoft Word ou LibreOffice Writer, LaTeX repose sur une philosophie fondamentalement différente : l’auteur décrit la structure logique de son document à l’aide de commandes textuelles, puis un compilateur transforme ce code en un document PDF à la typographie soignée.\nCette approche peut sembler déroutante au premier abord, mais elle présente des avantages décisifs :\n\nÉquations mathématiques : LaTeX est inégalé pour la composition de formules complexes.\nCohérence typographique : la mise en page reste rigoureusement uniforme, même dans les documents de plusieurs centaines de pages.\nBibliographie automatisée : les références peuvent être gérées dynamiquement via BibTeX ou BibLaTeX.\nReproductibilité : un fichier .tex est un fichier texte brut, facilement versionnable avec Git.\nStandard académique : la plupart des revues scientifiques en mathématiques, statistique, informatique et physique acceptent ou exigent des soumissions en LaTeX.\n\n\n\n\n\n\n\nNotePhilosophie de LaTeX\n\n\n\nLe principe central de LaTeX est la séparation du contenu et de la forme. L’auteur se concentre sur ce qu’il veut dire ; LaTeX s’occupe de comment le présenter. Cette séparation est comparable à la distinction entre HTML (contenu) et CSS (présentation) dans le développement web.\n\n\nL’objectif de ce tutoriel est de vous permettre de créer et modifier vos premiers documents LaTeX en vous appuyant sur la plateforme en ligne Overleaf, sans aucune installation préalable."
   },
   {
     "objectID": "ML/Latex.html#pourquoi-utiliser-overleaf",
     "href": "ML/Latex.html#pourquoi-utiliser-overleaf",
     "title": "Introduction à LaTeX avec Overleaf",
-    "section": "Pourquoi utiliser Overleaf ?",
-    "text": "Pourquoi utiliser Overleaf ?\nOverleaf est une plateforme en ligne permettant d’écrire du code LaTeX directement depuis un navigateur, sans installation."
+    "section": "2.1 Pourquoi utiliser Overleaf ?",
+    "text": "2.1 Pourquoi utiliser Overleaf ?\nOverleaf est une plateforme collaborative en ligne permettant d’écrire du code LaTeX directement depuis un navigateur. Elle est particulièrement adaptée aux débutants pour les raisons suivantes :\n\n\n\n\n\n\n\nAvantage\nDétail\n\n\n\n\nSans installation\nAucun logiciel à installer ; tout fonctionne dans le navigateur.\n\n\nCompilation instantanée\nLe document PDF est généré en quelques secondes.\n\n\nCollaboration\nPartage et co-édition en temps réel, à la manière de Google Docs.\n\n\nTemplates\nBibliothèque de modèles (thèses, articles, CV, présentations Beamer…).\n\n\nHistorique\nSauvegarde automatique et historique des versions (compte gratuit)."
   },
   {
     "objectID": "ML/Latex.html#création-dun-compte",
     "href": "ML/Latex.html#création-dun-compte",
     "title": "Introduction à LaTeX avec Overleaf",
-    "section": "Création d’un compte",
-    "text": "Création d’un compte\nRendez-vous sur : https://www.overleaf.com\nPuis créez un projet via New Project → Blank Project."
+    "section": "2.2 Création d’un compte",
+    "text": "2.2 Création d’un compte\nRendez-vous sur https://www.overleaf.com et cliquez sur Register. Vous pouvez vous inscrire avec une adresse e-mail ou via votre compte Google/ORCID.\nUne fois connecté, créez un nouveau projet : New Project → Blank Project, puis donnez-lui un nom (par exemple mon_premier_document)."
   },
   {
     "objectID": "ML/Latex.html#découverte-de-linterface",
@@ -1832,5 +1832,208 @@
     "title": "Introduction à LaTeX avec Overleaf",
     "section": "Interface",
     "text": "Interface\n\ngauche : éditeur LaTeX\n\ndroite : aperçu PDF\n\nbouton Recompile : mise à jour du document"
+  },
+  {
+    "objectID": "ML/Latex.html#interface-doverleaf",
+    "href": "ML/Latex.html#interface-doverleaf",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "2.3 Interface d’Overleaf",
+    "text": "2.3 Interface d’Overleaf\nL’interface se divise en trois zones principales :\n┌─────────────────┬───────────────────┬─────────────────┐\n│  Explorateur    │   Éditeur LaTeX   │  Aperçu PDF     │\n│  de fichiers    │   (code source)   │  (compilé)      │\n│  (gauche)       │   (centre)        │  (droite)       │\n└─────────────────┴───────────────────┴─────────────────┘\n\nExplorateur de fichiers (colonne gauche) : liste les fichiers du projet (.tex, images, bibliographie…).\nÉditeur (centre) : zone de saisie du code LaTeX, avec coloration syntaxique.\nAperçu PDF (droite) : rendu en temps quasi-réel du document compilé.\nBouton Recompile : déclenche la compilation. Le raccourci clavier est Ctrl+Enter (ou Cmd+Enter sur macOS).\n\n\n\n\n\n\n\nTipRaccourcis utiles dans Overleaf\n\n\n\n\n\n\nAction\nRaccourci\n\n\n\n\nCompiler\nCtrl+Enter\n\n\nCommenter une ligne\nCtrl+/\n\n\nChercher/Remplacer\nCtrl+H\n\n\nAutocomplétion\nTab après une commande"
+  },
+  {
+    "objectID": "ML/Latex.html#document-minimal",
+    "href": "ML/Latex.html#document-minimal",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "3.1 Document minimal",
+    "text": "3.1 Document minimal\nTout document LaTeX possède la structure minimale suivante :\n\\documentclass{article}\n\n\\begin{document}\n\nBonjour tout le monde !\n\n\\end{document}\nChaque élément a un rôle précis :\n\n\\documentclass{article} : déclare le type du document. Les classes courantes sont article, report, book, et beamer (présentations).\n\\begin{document} / \\end{document} : délimitent le corps du document, c’est-à-dire tout le contenu visible.\nTout ce qui précède \\begin{document} constitue le préambule : on y place les options globales et les packages."
+  },
+  {
+    "objectID": "ML/Latex.html#le-préambule-configuration-globale",
+    "href": "ML/Latex.html#le-préambule-configuration-globale",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "3.2 Le préambule : configuration globale",
+    "text": "3.2 Le préambule : configuration globale\nLe préambule est l’endroit où l’on paramètre le document avant son contenu. Voici un préambule typique pour un document en français :\n\\documentclass[12pt, a4paper]{article}\n\n% ----- Encodage et langue -----\n\\usepackage[utf8]{inputenc}       % encodage des caractères (LaTeX &lt; 2018)\n\\usepackage[T1]{fontenc}          % encodage de la police\n\\usepackage[french]{babel}        % typographie française (espaces, guillemets…)\n\n% ----- Mise en page -----\n\\usepackage{geometry}\n\\geometry{margin=2.5cm}\n\n% ----- Mathématiques -----\n\\usepackage{amsmath, amssymb, amsthm}\n\n% ----- Figures et tableaux -----\n\\usepackage{graphicx}\n\\usepackage{booktabs}\n\n% ----- Hyperliens -----\n\\usepackage{hyperref}\n\\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}\n\n% ----- Métadonnées -----\n\\title{Mon premier document}\n\\author{Prénom Nom}\n\\date{\\today}\n\n\\begin{document}\n\n\\maketitle\n\n\\end{document}\n\n\n\n\n\n\nNoteCommentaires en LaTeX\n\n\n\nTout texte précédé du symbole % est un commentaire et est ignoré lors de la compilation. C’est une bonne pratique de commenter son préambule pour s’y retrouver."
+  },
+  {
+    "objectID": "ML/Latex.html#packages-essentiels",
+    "href": "ML/Latex.html#packages-essentiels",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "3.3 Packages essentiels",
+    "text": "3.3 Packages essentiels\nLes packages étendent les fonctionnalités de LaTeX. On les charge avec \\usepackage{nom_du_package}.\n\n\n\nPackage\nUtilité\n\n\n\n\namsmath\nEnvironnements mathématiques avancés\n\n\namssymb\nSymboles mathématiques supplémentaires\n\n\nbabel\nSupport multilingue et typographie locale\n\n\ngeometry\nContrôle des marges et du format de page\n\n\ngraphicx\nInsertion d’images\n\n\nbooktabs\nTableaux de qualité professionnelle\n\n\nhyperref\nLiens cliquables dans le PDF\n\n\nxcolor\nCouleurs\n\n\nlistings / minted\nColoration syntaxique du code source\n\n\nbiblatex\nGestion bibliographique moderne"
+  },
+  {
+    "objectID": "ML/Latex.html#titres-et-sections",
+    "href": "ML/Latex.html#titres-et-sections",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "4.1 Titres et sections",
+    "text": "4.1 Titres et sections\nLaTeX dispose d’une hiérarchie de commandes de sectionnement :\n\\part{Titre de la partie}          % uniquement pour book/report\n\\chapter{Titre du chapitre}        % uniquement pour book/report\n\\section{Titre de section}\n\\subsection{Titre de sous-section}\n\\subsubsection{Titre de sous-sous-section}\n\\paragraph{Titre de paragraphe}\n\\subparagraph{Titre de sous-paragraphe}\nLa numérotation est automatique. Pour supprimer le numéro d’une section, on ajoute une étoile : \\section*{Introduction}."
+  },
+  {
+    "objectID": "ML/Latex.html#emphase-et-formatage",
+    "href": "ML/Latex.html#emphase-et-formatage",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "4.2 Emphase et formatage",
+    "text": "4.2 Emphase et formatage\n\\textbf{Texte en gras}\n\\textit{Texte en italique}\n\\underline{Texte souligné}\n\\texttt{Texte en police à chasse fixe}   % utile pour le code\n\\emph{Texte mis en valeur}               % italique par défaut, inversé si déjà en italique"
+  },
+  {
+    "objectID": "ML/Latex.html#listes",
+    "href": "ML/Latex.html#listes",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "4.3 Listes",
+    "text": "4.3 Listes\n\n4.3.1 Liste non ordonnée (itemize)\n\\begin{itemize}\n  \\item Premier élément\n  \\item Deuxième élément\n  \\item Troisième élément\n\\end{itemize}\n\n\n4.3.2 Liste ordonnée (enumerate)\n\\begin{enumerate}\n  \\item Première étape\n  \\item Deuxième étape\n  \\item Troisième étape\n\\end{enumerate}\n\n\n4.3.3 Liste de définitions (description)\n\\begin{description}\n  \\item[LaTeX] Système de composition de documents.\n  \\item[Overleaf] Éditeur LaTeX en ligne.\n  \\item[BibTeX] Système de gestion bibliographique.\n\\end{description}"
+  },
+  {
+    "objectID": "ML/Latex.html#paragraphes-et-sauts-de-ligne",
+    "href": "ML/Latex.html#paragraphes-et-sauts-de-ligne",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "4.4 Paragraphes et sauts de ligne",
+    "text": "4.4 Paragraphes et sauts de ligne\nEn LaTeX, un simple retour à la ligne dans l’éditeur ne crée pas un nouveau paragraphe. Il faut laisser une ligne vide entre deux paragraphes. Pour forcer un saut de ligne sans nouveau paragraphe, on utilise \\\\ (à éviter en dehors des tableaux et environnements mathématiques)."
+  },
+  {
+    "objectID": "ML/Latex.html#mode-en-ligne-inline",
+    "href": "ML/Latex.html#mode-en-ligne-inline",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "5.1 Mode en ligne (inline)",
+    "text": "5.1 Mode en ligne (inline)\nLes formules en ligne sont encadrées par $...$ :\nLa célèbre équation d'Einstein est $E = mc^2$.\nLa densité de la loi normale est $f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$."
+  },
+  {
+    "objectID": "ML/Latex.html#mode-hors-texte-display",
+    "href": "ML/Latex.html#mode-hors-texte-display",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "5.2 Mode hors-texte (display)",
+    "text": "5.2 Mode hors-texte (display)\nPour les équations importantes, affichées sur leur propre ligne et numérotées, on utilise l’environnement equation :\n\\begin{equation}\n  \\int_{-\\infty}^{+\\infty} e^{-x^2} \\, dx = \\sqrt{\\pi}\n  \\label{eq:gauss}\n\\end{equation}\nPour des équations sans numéro, on utilise equation* (avec le package amsmath)."
+  },
+  {
+    "objectID": "ML/Latex.html#alignement-déquations",
+    "href": "ML/Latex.html#alignement-déquations",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "5.3 Alignement d’équations",
+    "text": "5.3 Alignement d’équations\nL’environnement align permet d’aligner plusieurs équations sur un caractère (typiquement le signe =) :\n\\begin{align}\n  f(x) &= (x+1)^2 \\\\\n       &= x^2 + 2x + 1\n\\end{align}\nLe symbole & est le point d’alignement, et \\\\ passe à la ligne suivante."
+  },
+  {
+    "objectID": "ML/Latex.html#commandes-mathématiques-courantes",
+    "href": "ML/Latex.html#commandes-mathématiques-courantes",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "5.4 Commandes mathématiques courantes",
+    "text": "5.4 Commandes mathématiques courantes\n\n\n\nRésultat souhaité\nCommande LaTeX\n\n\n\n\nFraction : \\(\\frac{a}{b}\\)\n\\frac{a}{b}\n\n\nRacine : \\(\\sqrt{x}\\)\n\\sqrt{x}\n\n\nPuissance : \\(x^{n}\\)\nx^{n}\n\n\nIndice : \\(x_{i}\\)\nx_{i}\n\n\nSomme : \\(\\sum_{i=1}^{n}\\)\n\\sum_{i=1}^{n}\n\n\nIntégrale : \\(\\int_a^b\\)\n\\int_a^b\n\n\nInfini : \\(\\infty\\)\n\\infty\n\n\nNorme : \\(\\|x\\|\\)\n\\|x\\|\n\n\nEspérance : \\(\\mathbb{E}[X]\\)\n\\mathbb{E}[X]"
+  },
+  {
+    "objectID": "ML/Latex.html#environnements-de-théorèmes",
+    "href": "ML/Latex.html#environnements-de-théorèmes",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "5.5 Environnements de théorèmes",
+    "text": "5.5 Environnements de théorèmes\nAvec le package amsthm, on peut définir des environnements numérotés :\n\\newtheorem{theorem}{Théorème}\n\\newtheorem{definition}{Définition}\n\\newtheorem{proposition}{Proposition}\n\\newtheorem{remark}{Remarque}\n\n\\begin{theorem}[Bayes]\n  Pour deux événements $A$ et $B$ avec $P(B) &gt; 0$ :\n  \\[\n    P(A \\mid B) = \\frac{P(B \\mid A) \\, P(A)}{P(B)}.\n  \\]\n\\end{theorem}\n\n\\begin{proof}\n  La preuve découle directement de la définition de la probabilité conditionnelle.\n\\end{proof}"
+  },
+  {
+    "objectID": "ML/Latex.html#insérer-une-image",
+    "href": "ML/Latex.html#insérer-une-image",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "6.1 Insérer une image",
+    "text": "6.1 Insérer une image\n\\usepackage{graphicx}   % dans le préambule\n\n\\begin{figure}[htbp]\n  \\centering\n  \\includegraphics[width=0.7\\textwidth]{mon_image.png}\n  \\caption{Description de la figure.}\n  \\label{fig:mon_image}\n\\end{figure}\nLe paramètre optionnel [htbp] indique les positions préférées : here (ici), top (haut de la page), bottom (bas), page (page dédiée). LaTeX choisit automatiquement la meilleure selon ses algorithmes de placement.\n\n\n\n\n\n\nTipFormats d’images recommandés\n\n\n\nPréférez les formats PDF ou EPS pour les graphiques vectoriels (figures, courbes), et PNG ou JPEG pour les photographies. Les formats vectoriels garantissent une netteté parfaite quelle que soit la résolution d’impression."
+  },
+  {
+    "objectID": "ML/Latex.html#créer-un-tableau",
+    "href": "ML/Latex.html#créer-un-tableau",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "6.2 Créer un tableau",
+    "text": "6.2 Créer un tableau\n\\usepackage{booktabs}   % dans le préambule\n\n\\begin{table}[htbp]\n  \\centering\n  \\caption{Comparaison de méthodes d'optimisation.}\n  \\label{tab:comparaison}\n  \\begin{tabular}{lcc}\n    \\toprule\n    Méthode       & Convergence & Coût calculatoire \\\\\n    \\midrule\n    Gradient      & Locale      & Faible            \\\\\n    Newton        & Quadratique & Moyen             \\\\\n    Optimisation bayésienne & Globale & Élevé        \\\\\n    \\bottomrule\n  \\end{tabular}\n\\end{table}\nLes commandes \\toprule, \\midrule, \\bottomrule du package booktabs produisent des filets horizontaux typographiquement corrects, sans filets verticaux (recommandé par les standards éditoriaux)."
+  },
+  {
+    "objectID": "ML/Latex.html#références-croisées",
+    "href": "ML/Latex.html#références-croisées",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "6.3 Références croisées",
+    "text": "6.3 Références croisées\nL’un des grands avantages de LaTeX est la gestion automatique des références croisées. Tout objet numéroté (section, figure, tableau, équation) peut recevoir un label :\n\\label{fig:mon_image}   % sur la figure\n\\label{tab:comparaison} % sur le tableau\n\\label{eq:gauss}        % sur l'équation\nOn y fait ensuite référence avec :\nComme illustré en Figure~\\ref{fig:mon_image}, ...\nLe Tableau~\\ref{tab:comparaison} présente...\nL'équation~\\eqref{eq:gauss} montre...\nLe tilde ~ est une espace insécable, qui empêche un saut de ligne entre le mot et le numéro."
+  },
+  {
+    "objectID": "ML/Latex.html#principe-général",
+    "href": "ML/Latex.html#principe-général",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "7.1 Principe général",
+    "text": "7.1 Principe général\nLa gestion bibliographique en LaTeX repose sur deux fichiers :\n\nLe fichier .bib : base de données des références bibliographiques.\nLe fichier .tex : citations dans le texte et appel de la bibliographie."
+  },
+  {
+    "objectID": "ML/Latex.html#structure-dun-fichier-.bib",
+    "href": "ML/Latex.html#structure-dun-fichier-.bib",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "7.2 Structure d’un fichier .bib",
+    "text": "7.2 Structure d’un fichier .bib\n@article{bachoc2020,\n  author  = {Bachoc, François and Durrande, Nicolas and Rullière, Didier and Chevalier, Clément},\n  title   = {Properties and Comparison of some Kriging Sub-model Aggregation Methods},\n  journal = {Mathematical Geosciences},\n  year    = {2020},\n  volume  = {52},\n  pages   = {179--220},\n  doi     = {10.1007/s11004-019-09786-x}\n}\n\n@book{rasmussen2006,\n  author    = {Rasmussen, Carl Edward and Williams, Christopher K. I.},\n  title     = {Gaussian Processes for Machine Learning},\n  publisher = {MIT Press},\n  year      = {2006},\n  address   = {Cambridge, MA}\n}\nLes types de références courants sont @article, @book, @inproceedings, @phdthesis, @techreport, @misc."
+  },
+  {
+    "objectID": "ML/Latex.html#citer-dans-le-texte",
+    "href": "ML/Latex.html#citer-dans-le-texte",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "7.3 Citer dans le texte",
+    "text": "7.3 Citer dans le texte\nAvec le package natbib (recommandé pour les sciences) :\n\\usepackage{natbib}   % dans le préambule\n\n% Différents styles de citation\n\\citet{bachoc2020}   % → Bachoc et al. (2020)\n\\citep{bachoc2020}   % → (Bachoc et al., 2020)\n\\citealt{bachoc2020} % → Bachoc et al., 2020 (sans parenthèses)"
+  },
+  {
+    "objectID": "ML/Latex.html#compiler-la-bibliographie",
+    "href": "ML/Latex.html#compiler-la-bibliographie",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "7.4 Compiler la bibliographie",
+    "text": "7.4 Compiler la bibliographie\nLa compilation d’un document avec bibliographie requiert quatre passes dans l’éditeur local :\npdflatex   mon_document.tex\nbibtex     mon_document\npdflatex   mon_document.tex\npdflatex   mon_document.tex\nSur Overleaf, ces passes sont gérées automatiquement lors du clic sur Recompile."
+  },
+  {
+    "objectID": "ML/Latex.html#structure-minimale-beamer",
+    "href": "ML/Latex.html#structure-minimale-beamer",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "8.1 Structure minimale Beamer",
+    "text": "8.1 Structure minimale Beamer\n\\documentclass{beamer}\n\\usetheme{Madrid}       % thème visuel (Warsaw, Berlin, AnnArbor…)\n\\usecolortheme{beaver}  % palette de couleurs\n\n\\title{Introduction aux Processus Gaussiens}\n\\author{Adama I. Barry}\n\\institute{IFPEN / Université de Toulouse}\n\\date{\\today}\n\n\\begin{document}\n\n\\begin{frame}\n  \\titlepage\n\\end{frame}\n\n\\begin{frame}{Sommaire}\n  \\tableofcontents\n\\end{frame}\n\n\\section{Motivation}\n\n\\begin{frame}{Pourquoi les processus gaussiens ?}\n  \\begin{itemize}\n    \\item Interpolation bayésienne de fonctions coûteuses\n    \\item&lt;2-&gt; Quantification naturelle de l'incertitude\n    \\item&lt;3-&gt; Utilisés en optimisation bayésienne (BO)\n  \\end{itemize}\n\\end{frame}\n\n\\begin{frame}{Définition}\n  Un processus gaussien $\\{Z(x)\\}_{x \\in \\mathcal{X}}$ est caractérisé par :\n  \\begin{block}{Définition}\n    \\[\n      Z \\sim \\mathcal{GP}(m, k)\n    \\]\n    où $m(x) = \\mathbb{E}[Z(x)]$ est la moyenne et $k(x, x') = \\text{Cov}(Z(x), Z(x'))$ le noyau.\n  \\end{block}\n\\end{frame}\n\n\\end{document}\n\n\n\n\n\n\nNoteIncréments dans Beamer\n\n\n\nLa syntaxe \\item&lt;2-&gt; permet de faire apparaître un élément seulement à partir du deuxième clic. C’est la gestion des overlays, très utile pour les présentations pédagogiques."
+  },
+  {
+    "objectID": "ML/Latex.html#erreurs-de-compilation-courantes",
+    "href": "ML/Latex.html#erreurs-de-compilation-courantes",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "9.1 Erreurs de compilation courantes",
+    "text": "9.1 Erreurs de compilation courantes\nLes erreurs LaTeX peuvent être cryptiques. Voici les plus fréquentes et leur solution :\n\n\n\n\n\n\n\n\nMessage d’erreur\nCause probable\nSolution\n\n\n\n\n! Undefined control sequence\nCommande inexistante ou package manquant\nVérifier l’orthographe de la commande ; ajouter le bon package\n\n\n! Missing $ inserted\nSymbole mathématique hors du mode math\nEncadrer le symbole par $...$\n\n\n! File not found\nImage ou fichier .bib introuvable\nVérifier le nom et l’emplacement du fichier\n\n\nOverfull \\hbox\nUne ligne dépasse la marge\nAjouter un - dans un mot pour permettre la coupure, ou utiliser \\sloppy\n\n\nBibliographie vide\nBibTeX non exécuté\nRecompiler deux fois (Overleaf le fait automatiquement)"
+  },
+  {
+    "objectID": "ML/Latex.html#bonnes-pratiques-générales",
+    "href": "ML/Latex.html#bonnes-pratiques-générales",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "9.2 Bonnes pratiques générales",
+    "text": "9.2 Bonnes pratiques générales\n\nUtiliser des labels explicites : préfixer les labels par leur type (fig:, tab:, eq:, sec:).\nCommenter le préambule : noter pourquoi chaque package est chargé.\nUn fichier par chapitre : pour les longs documents, utiliser \\input{chapitre1.tex} ou \\include{chapitre1}.\nVersionner avec Git : les fichiers .tex sont du texte brut, idéaux pour le versionnage.\nÉviter les sauts de ligne forcés (\\\\) dans le texte courant ; préférer une ligne vide pour les paragraphes.\nTilde pour les espaces insécables : Figure~\\ref{...}, M.~Dupont."
+  },
+  {
+    "objectID": "ML/Latex.html#exercice-1-document-minimal",
+    "href": "ML/Latex.html#exercice-1-document-minimal",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "10.1 Exercice 1 — Document minimal",
+    "text": "10.1 Exercice 1 — Document minimal\nCréez un document Overleaf contenant :\n\nUn titre, un auteur et la date du jour.\nUne section Introduction avec deux paragraphes.\nUne liste non ordonnée de trois éléments.\n\n\n\n\n\n\n\nCautionCorrection\n\n\n\n\n\n\\documentclass[12pt, a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage[french]{babel}\n\n\\title{Mon premier document}\n\\author{Prénom Nom}\n\\date{\\today}\n\n\\begin{document}\n\n\\maketitle\n\n\\section{Introduction}\n\nLaTeX est un système de composition de documents utilisé dans le monde académique.\nSa prise en main demande un peu de temps, mais les résultats sont d'une qualité\ntypographique irréprochable.\n\nCe tutoriel vous guide dans vos premiers pas. Vous allez rapidement prendre\nconfiance et produire des documents de qualité professionnelle.\n\n\\begin{itemize}\n  \\item Gestion automatique des numéros de section\n  \\item Composition mathématique de haute qualité\n  \\item Bibliographie automatisée\n\\end{itemize}\n\n\\end{document}"
+  },
+  {
+    "objectID": "ML/Latex.html#exercice-2-formules-mathématiques",
+    "href": "ML/Latex.html#exercice-2-formules-mathématiques",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "10.2 Exercice 2 — Formules mathématiques",
+    "text": "10.2 Exercice 2 — Formules mathématiques\nComposez les expressions suivantes en LaTeX :\n\nLa formule de Bayes : \\(P(A \\mid B) = \\dfrac{P(B \\mid A)\\,P(A)}{P(B)}\\)\nLa loi normale : \\(f(x) = \\dfrac{1}{\\sigma\\sqrt{2\\pi}} \\exp\\!\\left(-\\dfrac{(x-\\mu)^2}{2\\sigma^2}\\right)\\)\nLa définition du noyau de covariance gaussien : \\(k(x, x') = \\sigma^2 \\exp\\!\\left(-\\dfrac{\\|x - x'\\|^2}{2\\ell^2}\\right)\\)\n\n\n\n\n\n\n\nCautionCorrection\n\n\n\n\n\n\\begin{equation}\n  P(A \\mid B) = \\frac{P(B \\mid A)\\,P(A)}{P(B)}\n\\end{equation}\n\n\\begin{equation}\n  f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\exp\\!\\left(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\right)\n\\end{equation}\n\n\\begin{equation}\n  k(x, x') = \\sigma^2 \\exp\\!\\left(-\\frac{\\|x - x'\\|^2}{2\\ell^2}\\right)\n\\end{equation}"
+  },
+  {
+    "objectID": "ML/Latex.html#exercice-3-tableau-et-figure",
+    "href": "ML/Latex.html#exercice-3-tableau-et-figure",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "10.3 Exercice 3 — Tableau et figure",
+    "text": "10.3 Exercice 3 — Tableau et figure\n\nCréez un tableau comparant trois lois de probabilité (normale, exponentielle, de Poisson) selon leurs paramètres, leur support et leur espérance.\nImportez une image de votre choix avec une légende et un label."
+  },
+  {
+    "objectID": "ML/Latex.html#documentation-officielle-et-référence",
+    "href": "ML/Latex.html#documentation-officielle-et-référence",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "11.1 Documentation officielle et référence",
+    "text": "11.1 Documentation officielle et référence\n\nOverleaf Documentation : la ressource la plus complète pour débuter, entièrement en anglais.\nThe LaTeX Companion (Mittelbach et al.) : la référence exhaustive.\nlshort (The Not So Short Introduction to LaTeX2e) : disponible en français, idéal pour apprendre rapidement."
+  },
+  {
+    "objectID": "ML/Latex.html#outils-en-ligne",
+    "href": "ML/Latex.html#outils-en-ligne",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "11.2 Outils en ligne",
+    "text": "11.2 Outils en ligne\n\nDetexify : dessinez un symbole à la main pour trouver la commande LaTeX correspondante.\nTables Generator : créez des tableaux LaTeX visuellement.\nMathpix : convertit des formules photographiées en code LaTeX.\nCTAN : dépôt central de tous les packages LaTeX."
+  },
+  {
+    "objectID": "ML/Latex.html#templates-overleaf-utiles",
+    "href": "ML/Latex.html#templates-overleaf-utiles",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "11.3 Templates Overleaf utiles",
+    "text": "11.3 Templates Overleaf utiles\n\nArticle scientifique : modèles IEEE, Springer, Elsevier directement dans Overleaf.\nThèse : templates pour les principales universités françaises.\nCV académique : template moderncv ou AltaCV.\nPrésentation : templates Beamer personnalisés pour chaque thème.\n\n\n\n\n\n\n\n\nTipPour aller plus loin\n\n\n\nUne fois à l’aise avec les bases, explorez :\n\nTikZ : dessins et schémas vectoriels directement en LaTeX.\npgfplots : tracés de courbes et visualisation de données.\nBibLaTeX + Biber : gestion bibliographique avancée.\nsiunitx : notation des unités physiques selon les normes SI.\nalgorithm2e : description d’algorithmes."
   }
 ]
