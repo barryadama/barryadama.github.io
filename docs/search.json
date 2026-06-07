@@ -1692,5 +1692,12 @@
     "title": "Qu’est-ce que le Machine Learning ?",
     "section": "Références bibliographiques",
     "text": "Références bibliographiques\n\nBishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.\nGoodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.\nGéron, A. (2022). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (3rd ed.). O’Reilly.\nHastie, T., Tibshirani, R., & Friedman, J. (2009). The Elements of Statistical Learning (2nd ed.). Springer.\nMitchell, T. (1997). Machine Learning. McGraw-Hill.\nMurphy, K. P. (2022). Probabilistic Machine Learning: An Introduction. MIT Press.\nSutton, R. S., & Barto, A. G. (2018). Reinforcement Learning: An Introduction (2nd ed.). MIT Press.\nVaswani, A., et al. (2017). Attention Is All You Need. NeurIPS 2017."
+  },
+  {
+    "objectID": "ML/AppNonSup.html",
+    "href": "ML/AppNonSup.html",
+    "title": " ",
+    "section": "",
+    "text": "En cours…"
   }
 ]
