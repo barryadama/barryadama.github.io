@@ -1,0 +1,191 @@
+---
+title: " "
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    toc-location: left
+    css: styles.css
+---
+
+# Introduction
+
+Git est un outil de gestion de versions. Il permet de suivre l’évolution d’un projet dans le temps, de revenir en arrière si nécessaire et de travailler proprement sur des projets complexes.
+
+GitHub est une plateforme en ligne qui permet de stocker des dépôts Git, de les partager et de collaborer facilement.
+
+------------------------------------------------------------------------
+
+# 1. Configuration de base
+
+Avant de commencer, il faut se présenter à Git. Chaque modification sera associée à ton identité.
+
+::: code-block
+git config --global user.name "TonNom"\
+git config --global user.email "tonemail\@example.com"
+:::
+
+Pour vérifier la configuration :
+
+::: code-block
+git config --list
+:::
+
+------------------------------------------------------------------------
+
+# 2. Créer ou récupérer un projet
+
+## Initialiser un projet local
+
+Quand tu démarres un projet :
+
+::: code-block
+git init
+:::
+
+Cela initialise un dépôt Git dans le dossier courant.
+
+## Cloner un projet existant
+
+Pour récupérer un projet déjà présent sur GitHub :
+
+::: code-block
+git clone https://github.com/user/nom-du-projet.git
+:::
+
+------------------------------------------------------------------------
+
+# 3. Le cycle de base Git
+
+Git fonctionne toujours selon un cycle simple et répétitif.
+
+## Vérifier l’état du projet
+
+::: code-block
+git status
+:::
+
+## Ajouter des fichiers
+
+Ajouter un fichier spécifique :
+
+::: code-block
+git add fichier.py
+:::
+
+Ajouter tous les fichiers modifiés :
+
+::: code-block
+git add .
+:::
+
+## Sauvegarder les modifications
+
+On crée un commit pour enregistrer une version du projet :
+
+::: code-block
+git commit -m "Ajout de la première version du projet"
+:::
+
+## Voir l’historique
+
+::: code-block
+git log
+:::
+
+------------------------------------------------------------------------
+
+# 4. Envoyer sur GitHub
+
+## Lier le projet à GitHub
+
+::: code-block
+git remote add origin https://github.com/user/nom-du-projet.git
+:::
+
+## Envoyer les modifications
+
+Premier push :
+
+::: code-block
+git push -u origin main
+:::
+
+Ensuite :
+
+::: code-block
+git push
+:::
+
+------------------------------------------------------------------------
+
+# 5. Récupérer les modifications
+
+Si le projet a changé à distance :
+
+::: code-block
+git pull
+:::
+
+------------------------------------------------------------------------
+
+# 6. Les branches
+
+Les branches permettent de travailler sur une fonctionnalité sans toucher au code principal.
+
+## Créer une branche
+
+::: code-block
+git branch nouvelle-fonction
+:::
+
+## Changer de branche
+
+::: code-block
+git switch nouvelle-fonction
+:::
+
+## Fusionner avec main
+
+::: code-block
+git switch main\
+git merge nouvelle-fonction
+:::
+
+------------------------------------------------------------------------
+
+# 7. Workflow classique
+
+Toujours la même boucle :
+
+::: code-block
+git status\
+git add .\
+git commit -m "message clair"\
+git push
+:::
+
+------------------------------------------------------------------------
+
+# Conclusion
+
+Git n’est pas seulement un outil de sauvegarde de code. C’est un véritable outil de structuration du travail, indispensable dès que les projets deviennent un minimum sérieux.
+
+Dans un contexte de Machine Learning ou de Data Science, Git devient encore plus important. Les projets impliquent souvent : des expérimentations multiples (modèles, features, hyperparamètres), des notebooks et scripts qui évoluent rapidement, des données et pipelines complexes, des résultats à reproduire et comparer.
+
+Sans Git, il devient très difficile de garder une trace claire de ce qui a été testé, validé ou rejeté.
+
+GitHub ajoute une dimension encore plus forte : la collaboration. Dans une équipe Data, il permet de :
+
+-   travailler à plusieurs sur un même projet sans conflit
+
+-   suivre précisément les contributions de chacun
+
+-   centraliser le code, les modèles et les expérimentations
+
+-   faciliter la revue de code et la reproductibilité
+
+En pratique, Git est donc un outil central dans tout projet de Machine Learning sérieux, que ce soit en recherche, en industrie ou en production.
+
+Maîtriser ces commandes de base, c’est déjà se donner une base solide pour travailler proprement sur des projets Data collaboratifs.

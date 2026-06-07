@@ -27,7 +27,7 @@ Pendant des décennies, l'informatique a reposé sur un paradigme fondamental : 
 
 Reconnaître un visage dans une photo, comprendre une phrase dictée à voix haute, détecter une transaction bancaire frauduleuse parmi des millions; autant de tâches que tout être humain accomplit naturellement, mais pour lesquelles nul ingénieur n'a jamais réussi à écrire les règles explicites qui y correspondent. Le Machine Learning est né de cette impasse.
 
-Le renversement conceptuel est radical. Au lieu que le programmeur fournisse les règles à la machine, c'est la machine qui les **découvre elle-même** à partir de données. On lui présente des exemples (des images avec leur étiquette, des transactions avec leur verdict) et elle en extrait, par optimisation mathématique, une représentation interne capable de généraliser à de nouvelles situations. Comme l'a illustré Aurélien Géron dans *Hands-On Machine Learning*, on ne programme plus le système : on lui apprend [Lire plus...](ML/Introd.qmd)
+Le renversement conceptuel est radical. Au lieu que le programmeur fournisse les règles à la machine, c'est la machine qui les **découvre elle-même** à partir de données. On lui présente des exemples (des images avec leur étiquette, des transactions avec leur verdict) et elle en extrait, par optimisation mathématique, une représentation interne capable de généraliser à de nouvelles situations. Comme l'a illustré Aurélien Géron dans *Hands-On Machine Learning*, on ne programme plus le système : on lui apprend [en savoir plus](ML/Introd.qmd)
 
 
 ## Preparation de données
@@ -37,27 +37,27 @@ Cette phase inclut notamment la gestion des valeurs manquantes, la détection de
 
 Une bonne préparation des données améliore non seulement la performance des algorithmes, mais aussi leur stabilité et leur capacité de généralisation. À l'inverse, des données mal préparées peuvent introduire des biais importants et conduire à des conclusions erronées.
 
-Ainsi, cette étape, souvent sous-estimée, représente en réalité une part majeure du succès d'un projet data [Lire plus...](ML/PrepaData.qmd)
+Ainsi, cette étape, souvent sous-estimée, représente en réalité une part majeure du succès d'un projet data [en savoir plus](ML/PrepaData.qmd)
 
 ## Apprentissage supervisé
 L'apprentissage supervisé est une branche centrale du machine learning dans laquelle un modèle est entraîné à partir de données étiquetées, c'est-à-dire des exemples pour lesquels la sortie attendue est connue. L'objectif est d'apprendre une fonction de prédiction capable de généraliser à de nouvelles données.
 
 Cette approche regroupe principalement deux types de problèmes : la classification, où l'on cherche à prédire une catégorie, et la régression, où l'on cherche à estimer une valeur continue. Les algorithmes les plus courants incluent la régression linéaire, les arbres de décision, les forêts aléatoires, les SVM et les réseaux de neurones.
 
-La qualité des performances dépend fortement de la représentativité des données d'entraînement et de la capacité du modèle à éviter le surapprentissage. L'apprentissage supervisé constitue ainsi la base de nombreuses applications en science des données, de la prédiction à l'aide à la décision [Lire plus...](ML/AppSup.qmd)
+La qualité des performances dépend fortement de la représentativité des données d'entraînement et de la capacité du modèle à éviter le surapprentissage. L'apprentissage supervisé constitue ainsi la base de nombreuses applications en science des données, de la prédiction à l'aide à la décision [en savoir plus](ML/AppSup.qmd)
 
 
 ## Apprentissage non supervisé
-L'apprentissage non supervisé regroupe les méthodes qui permettent d'analyser des données non étiquetées afin d'en extraire des structures cachées. Contrairement à l'apprentissage supervisé, il n'y a pas de variable cible connue. L'objectif est souvent de découvrir des regroupements, des représentations ou des relations entre les observations. Les techniques principales incluent le clustering, la réduction de dimension et l'estimation de densité. Ces méthodes sont largement utilisées pour l'exploration de données, la segmentation ou la compression d'information [Lire plus...](ML/AppNonSup.qmd)
+L'apprentissage non supervisé regroupe les méthodes qui permettent d'analyser des données non étiquetées afin d'en extraire des structures cachées. Contrairement à l'apprentissage supervisé, il n'y a pas de variable cible connue. L'objectif est souvent de découvrir des regroupements, des représentations ou des relations entre les observations. Les techniques principales incluent le clustering, la réduction de dimension et l'estimation de densité. Ces méthodes sont largement utilisées pour l'exploration de données, la segmentation ou la compression d'information [en savoir plus](ML/AppNonSup.qmd)
 
 ## Apprentissage semi-supervisé
-L'apprentissage semi-supervisé se situe entre l'apprentissage supervisé et non supervisé. Il exploite à la fois un petit ensemble de données étiquetées et un grand volume de données non étiquetées. L'idée est d'améliorer les performances des modèles lorsque l'étiquetage est coûteux ou limité. Cette approche repose sur l'hypothèse que les données non étiquetées contiennent une structure utile pour guider l'apprentissage. Elle est particulièrement utilisée en vision par ordinateur, traitement du langage et bioinformatique [Lire plus...](ML/AppSemiSuperv.qmd)
+L'apprentissage semi-supervisé se situe entre l'apprentissage supervisé et non supervisé. Il exploite à la fois un petit ensemble de données étiquetées et un grand volume de données non étiquetées. L'idée est d'améliorer les performances des modèles lorsque l'étiquetage est coûteux ou limité. Cette approche repose sur l'hypothèse que les données non étiquetées contiennent une structure utile pour guider l'apprentissage. Elle est particulièrement utilisée en vision par ordinateur, traitement du langage et bioinformatique [en savoir plus](ML/AppSemiSuperv.qmd)
 
 ## Apprentissage profond
-L'apprentissage profond (deep learning) est une sous-branche du machine learning basée sur des réseaux de neurones à plusieurs couches. Il permet d'apprendre automatiquement des représentations hiérarchiques des données. Grâce à sa capacité à modéliser des relations complexes et non linéaires, il excelle dans des domaines comme la vision, le traitement du langage naturel ou la reconnaissance vocale. Cependant, il nécessite généralement de grandes quantités de données et des ressources de calcul importantes   [Lire plus...](ML/AppProfond.qmd)
+L'apprentissage profond (deep learning) est une sous-branche du machine learning basée sur des réseaux de neurones à plusieurs couches. Il permet d'apprendre automatiquement des représentations hiérarchiques des données. Grâce à sa capacité à modéliser des relations complexes et non linéaires, il excelle dans des domaines comme la vision, le traitement du langage naturel ou la reconnaissance vocale. Cependant, il nécessite généralement de grandes quantités de données et des ressources de calcul importantes   [en savoir plus](ML/AppProfond.qmd)
 
 ## Apprentissage par renforcement
-L'apprentissage par renforcement est un paradigme dans lequel un agent apprend à prendre des décisions en interagissant avec un environnement. Il reçoit des récompenses ou des pénalités en fonction de ses actions, et cherche à maximiser une récompense cumulative. Cette approche repose sur l'exploration et l'exploitation des actions possibles. Elle est largement utilisée en robotique, jeux vidéo, contrôle optimal et systèmes autonomes. Les méthodes incluent les Q-learning, policy gradients et les approches basées sur les réseaux de neurones profonds [Lire plus...](ML/AppParRenforcement.qmd)
+L'apprentissage par renforcement est un paradigme dans lequel un agent apprend à prendre des décisions en interagissant avec un environnement. Il reçoit des récompenses ou des pénalités en fonction de ses actions, et cherche à maximiser une récompense cumulative. Cette approche repose sur l'exploration et l'exploitation des actions possibles. Elle est largement utilisée en robotique, jeux vidéo, contrôle optimal et systèmes autonomes. Les méthodes incluent les Q-learning, policy gradients et les approches basées sur les réseaux de neurones profonds [en savoir plus](ML/AppParRenforcement.qmd)
 
 # Statistique pour l'industrie
 
@@ -68,7 +68,7 @@ En machine learning et en statistique, elle permet d'associer une mesure de conf
 
 La quantification de l'incertitude joue un rôle clé dans les problèmes de simulation coûteuse, de calibration de modèles et d'aide à la décision. Elle permet également d'identifier les zones où le modèle est peu fiable et où des données supplémentaires seraient utiles.
 
-Ainsi, elle constitue un élément central pour rendre les modèles prédictifs plus robustes, interprétables et fiables dans des applications scientifiques et industrielles [Lire plus...](ML/UQ.qmd)
+Ainsi, elle constitue un élément central pour rendre les modèles prédictifs plus robustes, interprétables et fiables dans des applications scientifiques et industrielles [en savoir plus](ML/UQ.qmd)
 
 ## Emulation de simulateur numérique coûteux
 
@@ -76,7 +76,7 @@ L'émulation consiste à construire un modèle statistique approchant un simulat
 
 Les méthodes les plus classiques reposent sur les processus gaussiens (ou krigeage), les polynômes de chaos ou encore les modèles basés sur des réseaux de neurones probabilistes. Le krigeage, en particulier, occupe une place centrale dans les approches développées en France (INRIA, IMT, CEA) en raison de sa capacité à fournir simultanément une prédiction et une quantification d'incertitude.
 
-L'émulateur est construit à partir d'un plan d'expériences numériques limité, ce qui permet de remplacer des simulations coûteuses par des évaluations rapides tout en contrôlant l'erreur d'approximation. Il constitue ainsi un outil fondamental pour la calibration de modèles complexes et l'analyse de sensibilité globale [Lire plus...](ML/Emul.qmd)
+L'émulateur est construit à partir d'un plan d'expériences numériques limité, ce qui permet de remplacer des simulations coûteuses par des évaluations rapides tout en contrôlant l'erreur d'approximation. Il constitue ainsi un outil fondamental pour la calibration de modèles complexes et l'analyse de sensibilité globale [en savoir plus](ML/Emul.qmd)
 
 ## Plan d'experiences
 
@@ -86,7 +86,7 @@ Dans la tradition des approches développées en France (notamment autour de la 
 
 Les plans classiques incluent les plans factoriels, les plans de Latin Hypercube Sampling (LHS) et les séquences à faible discrépance. Dans un cadre plus avancé, des stratégies adaptatives peuvent être utilisées, où les points sont sélectionnés de manière séquentielle en fonction de l'incertitude du modèle ou de critères d'apprentissage actif.
 
-Ainsi, le plan d'expériences constitue la première étape essentielle de toute démarche d'émulation et conditionne fortement la qualité des analyses d'incertitude et de sensibilité [Lire plus...](ML/DOE.qmd)
+Ainsi, le plan d'expériences constitue la première étape essentielle de toute démarche d'émulation et conditionne fortement la qualité des analyses d'incertitude et de sensibilité [en savoir plus](ML/DOE.qmd)
 
 ## Analyse de sensibilité
 
@@ -96,12 +96,12 @@ Dans le cadre de la communauté UQ française (notamment les travaux autour des 
 
 Les indices de Sobol, fondés sur la décomposition de la variance, constituent une approche standard pour mesurer les contributions individuelles et interactionnelles des variables. D'autres approches incluent les méthodes de screening (Morris), les dérivées globales ou encore les approches basées sur les métamodèles.
 
-L'analyse de sensibilité joue un rôle fondamental dans la compréhension des modèles complexes, en particulier lorsqu'elle est couplée à des méthodes d'émulation, permettant de réduire le coût de calcul des estimations [Lire plus...](ML/Analysedesensibilite.qmd)
+L'analyse de sensibilité joue un rôle fondamental dans la compréhension des modèles complexes, en particulier lorsqu'elle est couplée à des méthodes d'émulation, permettant de réduire le coût de calcul des estimations [en savoir plus](ML/Analysedesensibilite.qmd)
 
 ## Autres
 Cette section est dédiée à des réflexions, idées et cas d'usage concrets de la statistique et du machine learning dans des contextes industriels variés. L'objectif est de faire le lien entre les méthodes théoriques et leurs applications réelles, souvent contraintes par des enjeux de performance, de coût et de robustesse.
 
-Cette rubrique a également pour vocation de proposer des idées de projets, des retours d'expérience et des pistes de recherche appliquée, en mettant en avant les défis concrets rencontrés dans l'industrie moderne des données [Lire plus...](ML/Autres.qmd)
+Cette rubrique a également pour vocation de proposer des idées de projets, des retours d'expérience et des pistes de recherche appliquée, en mettant en avant les défis concrets rencontrés dans l'industrie moderne des données [en savoir plus](ML/Autres.qmd)
 
 # Outils fondamentaux
 Maîtriser ses outils avant d'aborder les concepts est un investissement qui évite bien des frictions au quotidien. Cette section couvre les environnements de travail incontournables en data science.
@@ -118,7 +118,7 @@ SQL (Structured Query Language) est le langage standard pour interroger et manip
 
 
 ## Git/Gitlab
-Git est un système de contrôle de version qui permet de suivre l'évolution du code et de collaborer efficacement sur des projets. Couplé à des plateformes comme GitLab ou GitHub, il facilite le travail en équipe, la gestion des versions et l'intégration continue. Dans les projets de machine learning, il est essentiel pour assurer la reproductibilité des expériences et la traçabilité des modèles. Il structure le développement de manière rigoureuse et collaborative.
+Git est un système de contrôle de version qui permet de suivre l'évolution du code et de collaborer efficacement sur des projets. Couplé à des plateformes comme GitLab ou GitHub, il facilite le travail en équipe, la gestion des versions et l'intégration continue. Dans les projets de machine learning, il est essentiel pour assurer la reproductibilité des expériences et la traçabilité des modèles. Il structure le développement de manière rigoureuse et collaborative [en savoir plus](ML/Git.qmd)
 
 
 ## Latex
@@ -134,7 +134,7 @@ Le Machine Learning offre une alternative ou un complément en apprenant directe
 
 Cette approche s'inscrit dans les problématiques de modélisation de systèmes dynamiques, où les réseaux de neurones, les modèles séquentiels et les méthodes à base de processus gaussiens sont particulièrement utilisés. Elle est également étroitement liée aux méthodes hybrides combinant lois physiques et apprentissage statistique.
 
-Ainsi, la prédiction de trajectoire par Machine Learning constitue un cadre pertinent pour étudier des systèmes complexes tout en intégrant données, incertitude et contraintes physiques [Lire plus...](ML/Projectile.qmd)
+Ainsi, la prédiction de trajectoire par Machine Learning constitue un cadre pertinent pour étudier des systèmes complexes tout en intégrant données, incertitude et contraintes physiques [en savoir plus](ML/Projectile.qmd)
 
 
 ## Projets académiques
@@ -149,7 +149,7 @@ Dans le domaine de la statistique appliquée, j'ai étudié l'impact des espèce
 
 J'ai développé une application de gestion de courses (CHRONORUN) intégrant Python, SQL et API, et réalisé une enquête sur les habitudes de consommation étudiantes avec analyse statistique complète.
 
-Ces projets illustrent ma capacité à mobiliser des outils statistiques et informatiques variés pour résoudre des problèmes concrets et interdisciplinaires [Voir ici...](acproj.qmd)
+Ces projets illustrent ma capacité à mobiliser des outils statistiques et informatiques variés pour résoudre des problèmes concrets et interdisciplinaires [en savoir plus](acproj.qmd)
 
 ## Placement optimal de puits de stockage geologique
 ....
