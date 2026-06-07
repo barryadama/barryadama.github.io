@@ -6,7 +6,6 @@ format:
     toc: true
     toc-depth: 3
     toc-title: "Sommaire"
-    toc-location: left
     number-sections: true
     number-depth: 3
     code-fold: false
@@ -38,7 +37,7 @@ Git est le logiciel de contrôle de version (installé localement). GitHub est u
 ## Environnements recommandés
 
 | Environnement | Usage |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Terminal / Bash** | Maîtrise complète, scripting, automatisation |
 | **VS Code + extension Git** | Développement quotidien avec interface graphique |
 | **GitHub Desktop** | Interface graphique dédiée, idéale pour débutants |
@@ -620,7 +619,7 @@ git remote set-url origin git@github.com:utilisateur/depot.git
 ## Concepts clés de GitHub
 
 | Concept | Définition |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Repository** | Dépôt hébergé sur GitHub (public ou privé) |
 | **Fork** | Copie personnelle d'un dépôt sur votre compte |
 | **Pull Request (PR)** | Proposition de fusion de branches avec revue de code |
