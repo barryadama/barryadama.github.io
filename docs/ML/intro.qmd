@@ -27,9 +27,9 @@ La définition la plus citée dans la littérature reste celle de Tom Mitchell, 
 
 Cette définition, déceptivement simple, contient trois éléments structurants que l'on retrouvera tout au long de ce cours :
 
-- **La tâche T** : ce que l'on cherche à accomplir (classer des e-mails, prédire un prix, traduire un texte).
-- **La mesure de performance P** : comment évaluer la qualité de ce qui est accompli (taux d'erreur, erreur quadratique moyenne, score BLEU).
-- **L'expérience E** : les données à partir desquelles le système apprend (un corpus labellisé, des parties jouées, un historique de transactions).
+-   **La tâche T** : ce que l'on cherche à accomplir (classer des e-mails, prédire un prix, traduire un texte).
+-   **La mesure de performance P** : comment évaluer la qualité de ce qui est accompli (taux d'erreur, erreur quadratique moyenne, score BLEU).
+-   **L'expérience E** : les données à partir desquelles le système apprend (un corpus labellisé, des parties jouées, un historique de transactions).
 
 Un système de Machine Learning est donc défini par la nature de ces trois composantes et par la manière dont il les articule.
 
@@ -47,7 +47,7 @@ Troisièmement, les **avancées algorithmiques**. Des techniques comme la rétro
 
 L'articulation de ces trois facteurs a produit un saut qualitatif, et non simplement quantitatif.
 
----
+------------------------------------------------------------------------
 
 # Les grands paradigmes d'apprentissage
 
@@ -93,7 +93,7 @@ La difficulté principale est le **problème du crédit** (*credit assignment pr
 
 Cette classification ternaire est utile, mais la réalité des applications dépasse souvent ces frontières. L'**apprentissage semi-supervisé** exploite de grandes quantités de données non étiquetées conjointement avec un petit ensemble labellisé — une situation particulièrement fréquente en médecine, où annoter des images radiologiques est coûteux. L'**apprentissage auto-supervisé**, au cœur des grands modèles de langage, génère ses propres supervisions à partir des données brutes — le modèle prédit le mot suivant ou reconstruit une image masquée. L'**apprentissage par transfert**, enfin, consiste à réutiliser les représentations apprises sur une tâche source (par exemple, la classification d'ImageNet) pour résoudre efficacement une tâche cible avec peu de données.
 
----
+------------------------------------------------------------------------
 
 # Le processus d'apprentissage
 
@@ -141,7 +141,7 @@ Le **dropout**, introduit par Srivastava et al. en 2014, désactive aléatoireme
 
 L'**arrêt précoce** (*early stopping*) interrompt l'entraînement dès que l'erreur sur un ensemble de validation cesse de décroître, évitant que le modèle ne poursuive une optimisation au détriment de la généralisation.
 
----
+------------------------------------------------------------------------
 
 # Les grandes familles de modèles
 
@@ -195,7 +195,7 @@ $$p(\theta | \mathcal{D}) \propto p(\mathcal{D} | \theta) \cdot p(\theta).$$
 
 Cette perspective permet de quantifier l'incertitude des prédictions — une propriété cruciale dans les domaines à enjeux élevés (médecine, finance, ingénierie). Les **processus gaussiens**, en particulier, fournissent un cadre non paramétrique où la distribution sur les fonctions est modélisée directement, offrant des intervalles de confiance calibrés sur les prédictions.
 
----
+------------------------------------------------------------------------
 
 # Évaluation et bonnes pratiques
 
@@ -221,7 +221,7 @@ Des données mal collectées, biaisées, ou contenant des erreurs d'annotation p
 
 L'**ingénierie des caractéristiques** (*feature engineering*) — l'art de transformer les données brutes en représentations utiles pour l'algorithme — reste, malgré l'avènement du deep learning qui l'automatise partiellement, une source majeure de valeur ajoutée. Comprendre le domaine métier, identifier les variables pertinentes, gérer les valeurs manquantes et les valeurs aberrantes : autant de compétences qui distinguent un praticien expérimenté d'un utilisateur superficiel des outils.
 
----
+------------------------------------------------------------------------
 
 # Enjeux contemporains
 
@@ -249,7 +249,7 @@ Dans de nombreuses applications critiques — médecine de précision, conduite 
 
 On distingue classiquement l'incertitude **aléatoire** (*aleatoric uncertainty*), inhérente à la variabilité irréductible des données, de l'incertitude **épistémique** (*epistemic uncertainty*), due à un manque de connaissance qui peut en principe être réduit par l'ajout de données. Les méthodes bayésiennes, les ensembles de modèles et la calibration des probabilités sont les outils principaux pour quantifier et communiquer cette incertitude de manière honnête.
 
----
+------------------------------------------------------------------------
 
 # Conclusion : une discipline en perpétuel mouvement
 
@@ -259,15 +259,15 @@ Ce qui ne change pas, en revanche, c'est la nature profonde du problème : appre
 
 Maîtriser le Machine Learning, c'est donc apprendre à conjuguer rigueur mathématique, sens pratique des données, expertise métier et conscience éthique. C'est ce voyage que les chapitres suivants se proposent d'entreprendre.
 
----
+------------------------------------------------------------------------
 
 ## Références bibliographiques {.unnumbered}
 
-- Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.
-- Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
-- Géron, A. (2022). *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow* (3rd ed.). O'Reilly.
-- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer.
-- Mitchell, T. (1997). *Machine Learning*. McGraw-Hill.
-- Murphy, K. P. (2022). *Probabilistic Machine Learning: An Introduction*. MIT Press.
-- Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction* (2nd ed.). MIT Press.
-- Vaswani, A., et al. (2017). Attention Is All You Need. *NeurIPS 2017*.
+-   Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.
+-   Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
+-   Géron, A. (2022). *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow* (3rd ed.). O'Reilly.
+-   Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer.
+-   Mitchell, T. (1997). *Machine Learning*. McGraw-Hill.
+-   Murphy, K. P. (2022). *Probabilistic Machine Learning: An Introduction*. MIT Press.
+-   Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction* (2nd ed.). MIT Press.
+-   Vaswani, A., et al. (2017). Attention Is All You Need. *NeurIPS 2017*.
