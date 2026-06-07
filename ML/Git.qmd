@@ -1,191 +1,1268 @@
 ---
 title: " "
+
 format:
   html:
     toc: true
     toc-depth: 3
     toc-title: "Sommaire"
     toc-location: left
-    css: styles.css
+    number-sections: true
+    number-depth: 3
+    code-fold: false
+    code-copy: true
+    css: style.css
+    self-contained: true
 ---
 
-# Introduction
+# Introduction {#sec-intro}
 
-Git est un outil de gestion de versions. Il permet de suivre l’évolution d’un projet dans le temps, de revenir en arrière si nécessaire et de travailler proprement sur des projets complexes.
+**Git** est un système de contrôle de version distribué, créé par Linus Torvalds en 2005 pour gérer le développement du noyau Linux. Il permet de suivre l'historique des modifications d'un projet, de travailler en parallèle sur plusieurs fonctionnalités et de collaborer efficacement à plusieurs développeurs.
 
-GitHub est une plateforme en ligne qui permet de stocker des dépôts Git, de les partager et de collaborer facilement.
+**GitHub** est une plateforme web hébergeant des dépôts Git dans le cloud. Elle ajoute des fonctionnalités sociales et collaboratives : pull requests, issues, actions CI/CD, wikis, et bien plus.
+
+Aujourd'hui, Git et GitHub sont devenus des standards incontournables dans :
+
+-   **Le développement logiciel** : versionnage de code source, collaboration en équipe
+-   **La science des données** : reproductibilité des analyses, partage de notebooks
+-   **La rédaction technique** : documentation, livres, articles scientifiques
+-   **DevOps et CI/CD** : automatisation des pipelines de déploiement
+-   **L'open source** : contribution à des projets communautaires mondiaux
+
+::: callout-note
+## Git ≠ GitHub
+
+Git est le logiciel de contrôle de version (installé localement). GitHub est une plateforme d'hébergement qui utilise Git. Des alternatives à GitHub existent : **GitLab**, **Bitbucket**, **Gitea**. Tout ce qui concerne Git fonctionne avec toutes ces plateformes.
+:::
+
+## Environnements recommandés
+
+| Environnement | Usage |
+|----|----|
+| **Terminal / Bash** | Maîtrise complète, scripting, automatisation |
+| **VS Code + extension Git** | Développement quotidien avec interface graphique |
+| **GitHub Desktop** | Interface graphique dédiée, idéale pour débutants |
+| **GitKraken / SourceTree** | Visualisation avancée des branches |
+| **JupyterLab** | Intégration Git pour les notebooks |
+
+Pour installer Git : téléchargez [git-scm.com](https://git-scm.com/) (Linux/macOS/Windows) ou via votre gestionnaire de paquets (`apt install git`, `brew install git`).
+
+## Structure du tutoriel
+
+| Partie        | Sections | Thèmes                                     |
+|---------------|----------|--------------------------------------------|
+| Fondamentaux  | 2 à 5    | Configuration, dépôts, commits, historique |
+| Branches      | 6 à 7    | Création, fusion, résolution de conflits   |
+| Collaboration | 8 à 10   | Dépôts distants, GitHub, pull requests     |
+| Workflows     | 11 à 12  | Git Flow, GitHub Flow, bonnes pratiques    |
+| Avancé        | 13 à 15  | Rebase, stash, hooks, sous-modules         |
+| CI/CD         | 16       | GitHub Actions                             |
 
 ------------------------------------------------------------------------
 
-# 1. Configuration de base
+# Configuration initiale {#sec-config}
 
-Avant de commencer, il faut se présenter à Git. Chaque modification sera associée à ton identité.
+## Identité et paramètres globaux
 
-::: code-block
-git config --global user.name "TonNom"\
-git config --global user.email "tonemail\@example.com"
-:::
+Avant tout commit, Git a besoin de connaître votre identité. Cette configuration est stockée dans `~/.gitconfig`.
 
-Pour vérifier la configuration :
+``` bash
+# Identité (obligatoire)
+git config --global user.name  "Alice Dupont"
+git config --global user.email "alice.dupont@exemple.fr"
 
-::: code-block
-git config --list
-:::
+# Éditeur par défaut (pour les messages de commit, rebase interactif…)
+git config --global core.editor "code --wait"   # VS Code
+git config --global core.editor "nano"           # Nano
+git config --global core.editor "vim"            # Vim
+
+# Branche principale par défaut (Git >= 2.28)
+git config --global init.defaultBranch main
+
+# Gestion des fins de ligne (Windows ↔ Unix)
+git config --global core.autocrlf input   # macOS/Linux
+git config --global core.autocrlf true    # Windows
+
+# Couleurs dans le terminal
+git config --global color.ui auto
+
+# Alias utiles
+git config --global alias.st    status
+git config --global alias.co    checkout
+git config --global alias.br    branch
+git config --global alias.lg    "log --oneline --graph --decorate --all"
+git config --global alias.last  "log -1 HEAD --stat"
+```
+
+## Afficher la configuration
+
+``` bash
+git config --list                    # toute la configuration
+git config --global --list           # configuration globale uniquement
+git config user.name                 # valeur d'une clé spécifique
+git config --show-origin user.email  # affiche aussi le fichier source
+```
+
+## Niveaux de configuration
+
+Git applique les configurations par ordre de priorité (le plus précis gagne) :
+
+| Niveau     | Fichier          | Portée                           |
+|------------|------------------|----------------------------------|
+| `--system` | `/etc/gitconfig` | Tous les utilisateurs du système |
+| `--global` | `~/.gitconfig`   | Utilisateur courant              |
+| `--local`  | `.git/config`    | Dépôt courant uniquement         |
 
 ------------------------------------------------------------------------
 
-# 2. Créer ou récupérer un projet
+# Dépôts Git {#sec-depots}
 
-## Initialiser un projet local
+## Créer un dépôt
 
-Quand tu démarres un projet :
-
-::: code-block
+``` bash
+# Initialiser un nouveau dépôt dans le répertoire courant
+mkdir mon-projet && cd mon-projet
 git init
-:::
 
-Cela initialise un dépôt Git dans le dossier courant.
+# Initialiser avec une branche nommée 'main'
+git init -b main
 
-## Cloner un projet existant
+# Cloner un dépôt existant (GitHub, GitLab…)
+git clone https://github.com/utilisateur/depot.git
 
-Pour récupérer un projet déjà présent sur GitHub :
+# Cloner dans un dossier spécifique
+git clone https://github.com/utilisateur/depot.git mon-dossier
 
-::: code-block
-git clone https://github.com/user/nom-du-projet.git
+# Cloner une branche spécifique
+git clone --branch develop https://github.com/utilisateur/depot.git
+
+# Cloner sans historique (shallow clone — plus rapide)
+git clone --depth 1 https://github.com/utilisateur/depot.git
+```
+
+## Structure d'un dépôt Git
+
+```         
+mon-projet/
+├── .git/                  ← Répertoire interne Git (ne pas modifier manuellement)
+│   ├── HEAD               ← Pointeur vers la branche courante
+│   ├── config             ← Configuration locale du dépôt
+│   ├── objects/           ← Base de données Git (blobs, trees, commits, tags)
+│   ├── refs/              ← Références (branches, tags)
+│   └── index              ← Zone de transit (staging area)
+├── src/
+│   └── main.py
+├── README.md
+└── .gitignore             ← Fichiers à ignorer
+```
+
+## Le fichier `.gitignore`
+
+Le fichier `.gitignore` liste les fichiers et dossiers que Git doit ignorer (fichiers temporaires, secrets, artefacts de compilation…).
+
+``` gitignore
+# Environnements virtuels Python
+venv/
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Fichiers de secrets (NE JAMAIS committer !)
+.env
+*.key
+config/secrets.yml
+credentials.json
+
+# IDE et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Données volumineuses ou générées
+data/raw/
+*.csv
+*.xlsx
+*.parquet
+logs/
+*.log
+
+# Rapports et artefacts
+reports/figures/
+*.pdf
+htmlcov/
+.coverage
+```
+
+::: callout-tip
+## Générer un `.gitignore` automatiquement
+
+Le site [gitignore.io](https://www.toptal.com/developers/gitignore) génère des fichiers `.gitignore` adaptés à votre stack (Python, Node, macOS, Windows, VS Code…). La commande `git rm --cached <fichier>` retire un fichier déjà tracké du suivi sans le supprimer du disque.
 :::
 
 ------------------------------------------------------------------------
 
-# 3. Le cycle de base Git
+# Commits — enregistrer les modifications {#sec-commits}
 
-Git fonctionne toujours selon un cycle simple et répétitif.
+## Les trois zones de Git
 
-## Vérifier l’état du projet
+Comprendre ces trois zones est fondamental pour maîtriser Git :
 
-::: code-block
+```         
+Répertoire de travail   →   Zone de transit (Index)   →   Dépôt (Historique)
+  (Working Directory)           (Staging Area)               (Repository)
+
+  Fichiers modifiés        git add →  Fichiers préparés   git commit → Commits
+                           ← git restore --staged          ← git reset HEAD~1
+```
+
+## Cycle de vie d'un fichier
+
+``` bash
+# 1. Créer ou modifier un fichier
+echo "# Mon Projet" > README.md
+
+# 2. Vérifier l'état du dépôt
 git status
-:::
 
-## Ajouter des fichiers
+# 3. Ajouter à la zone de transit
+git add README.md              # fichier spécifique
+git add src/                   # tout un dossier
+git add *.py                   # pattern glob
+git add -A                     # tous les fichiers (nouveaux, modifiés, supprimés)
+git add -p                     # mode interactif : choisir hunk par hunk
 
-Ajouter un fichier spécifique :
+# 4. Vérifier ce qui sera commité
+git diff --staged              # différences entre index et dernier commit
+git diff                       # différences entre répertoire et index
 
-::: code-block
-git add fichier.py
-:::
+# 5. Créer le commit
+git commit -m "feat: ajouter la page d'accueil README"
 
-Ajouter tous les fichiers modifiés :
+# Raccourci : ajouter et committer les fichiers déjà suivis
+git commit -am "fix: corriger la coquille dans le titre"
+```
 
-::: code-block
-git add .
-:::
+## Messages de commit : la convention Conventional Commits
 
-## Sauvegarder les modifications
+Un bon message de commit est une lettre à votre futur vous (et à vos collègues). La convention **Conventional Commits** structure les messages pour permettre la génération automatique de changelogs.
 
-On crée un commit pour enregistrer une version du projet :
+```         
+<type>(<portée optionnelle>): <description courte en impératif>
 
-::: code-block
-git commit -m "Ajout de la première version du projet"
-:::
+[Corps optionnel : expliquer le POURQUOI, pas le COMMENT]
 
-## Voir l’historique
+[Pied de page optionnel : références aux issues, breaking changes…]
+```
 
-::: code-block
+``` bash
+# Types principaux
+feat:     # Nouvelle fonctionnalité
+fix:      # Correction de bug
+docs:     # Documentation uniquement
+style:    # Formatage (pas de changement fonctionnel)
+refactor: # Refactorisation (ni feat, ni fix)
+test:     # Ajout ou modification de tests
+chore:    # Tâches de maintenance (build, dépendances…)
+perf:     # Amélioration de performance
+ci:       # Configuration CI/CD
+
+# Exemples de bons messages
+git commit -m "feat(auth): ajouter l'authentification OAuth2 avec GitHub"
+git commit -m "fix(api): corriger le timeout sur les requêtes longues"
+git commit -m "docs: mettre à jour le guide d'installation"
+git commit -m "refactor(data): remplacer la boucle for par une vectorisation NumPy"
+
+# Commit avec corps détaillé (ouvre l'éditeur)
+git commit
+```
+
+## Modifier et annuler des commits
+
+``` bash
+# Modifier le dernier commit (message ou contenu)
+git commit --amend -m "feat: nouveau message corrigé"
+# ⚠️ Ne jamais amender un commit déjà pushé sur une branche partagée
+
+# Annuler les modifications d'un fichier (non stagé)
+git restore fichier.py            # Git >= 2.23
+git checkout -- fichier.py        # ancienne syntaxe
+
+# Désindexer un fichier (retirer de la staging area)
+git restore --staged fichier.py
+
+# Revenir au dernier commit (DANGEREUX : perd les modifications non commitées)
+git reset --hard HEAD
+
+# Annuler le dernier commit en conservant les modifications
+git reset --soft HEAD~1   # modifications restent dans le staging
+git reset --mixed HEAD~1  # modifications restent dans le working directory
+
+# Créer un commit d'annulation (safe — préserve l'historique)
+git revert HEAD           # annule le dernier commit
+git revert abc123         # annule un commit spécifique
+```
+
+------------------------------------------------------------------------
+
+# Historique et exploration {#sec-historique}
+
+## Consulter l'historique
+
+``` bash
+# Historique de base
 git log
+
+# Format condensé (une ligne par commit)
+git log --oneline
+
+# Avec graphe des branches
+git log --oneline --graph --decorate --all
+
+# Limiter le nombre de commits
+git log -10
+
+# Filtrer par auteur
+git log --author="Alice"
+
+# Filtrer par date
+git log --since="2024-01-01" --until="2024-12-31"
+
+# Filtrer par message
+git log --grep="feat"
+
+# Voir les commits modifiant un fichier spécifique
+git log --follow -- src/main.py
+
+# Rechercher les commits ayant ajouté/supprimé une chaîne
+git log -S "nom_de_fonction"
+
+# Format personnalisé
+git log --pretty=format:"%h %ad | %s [%an]" --date=short
+```
+
+## Inspecter un commit
+
+``` bash
+# Voir les détails d'un commit
+git show abc1234
+
+# Voir un fichier dans un commit donné
+git show abc1234:src/main.py
+
+# Comparer deux commits
+git diff abc1234 def5678
+
+# Comparer un commit avec HEAD
+git diff abc1234 HEAD -- fichier.py
+
+# Qui a modifié chaque ligne ? (blame)
+git blame src/main.py
+git blame -L 10,25 src/main.py   # lignes 10 à 25 seulement
+```
+
+## Rechercher dans l'historique
+
+``` bash
+# Recherche binaire pour trouver le commit fautif
+git bisect start
+git bisect bad                   # commit actuel est mauvais
+git bisect good v1.0             # ce tag était bon
+# Git checkoutera automatiquement le commit médian
+# Tester → git bisect good / git bisect bad → répéter
+git bisect reset                 # terminer la recherche
+
+# Recherche de texte dans tous les fichiers suivis
+git grep "TODO"
+git grep -n "ma_fonction"        # avec numéros de ligne
+git grep --count "import"        # nombre d'occurrences par fichier
+```
+
+------------------------------------------------------------------------
+
+# Branches {#sec-branches}
+
+## Créer et naviguer
+
+Une **branche** est simplement un pointeur léger vers un commit. Créer une branche est instantané.
+
+``` bash
+# Lister les branches
+git branch                       # branches locales
+git branch -r                    # branches distantes
+git branch -a                    # toutes les branches
+
+# Créer une branche
+git branch ma-fonctionnalite
+
+# Basculer vers une branche
+git checkout ma-fonctionnalite
+git switch ma-fonctionnalite     # syntaxe moderne (Git >= 2.23)
+
+# Créer ET basculer
+git checkout -b ma-fonctionnalite
+git switch -c ma-fonctionnalite  # syntaxe moderne
+
+# Créer une branche depuis un commit ou tag spécifique
+git switch -c hotfix v2.1.0
+
+# Renommer une branche
+git branch -m ancien-nom nouveau-nom
+
+# Supprimer une branche (fusionnée)
+git branch -d ma-fonctionnalite
+
+# Supprimer une branche (non fusionnée — forcer)
+git branch -D ma-fonctionnalite
+```
+
+## Fusionner des branches (`merge`)
+
+``` bash
+# Se placer sur la branche de destination
+git switch main
+
+# Fusion standard (crée un commit de merge)
+git merge ma-fonctionnalite
+
+# Fusion fast-forward uniquement (pas de commit de merge)
+git merge --ff-only ma-fonctionnalite
+
+# Fusion avec commit de merge forcé (préserve la topologie)
+git merge --no-ff ma-fonctionnalite -m "Merge: intégrer la fonctionnalité X"
+
+# Fusion en écrasant l'historique (squash)
+git merge --squash ma-fonctionnalite
+git commit -m "feat: intégrer la fonctionnalité X (squash)"
+```
+
+## Résoudre les conflits
+
+Un **conflit** survient quand deux branches ont modifié la même zone du même fichier.
+
+``` bash
+# Lors d'un merge, Git signale les conflits
+git merge feature-branch
+# CONFLICT (content): Merge conflict in src/calcul.py
+# Automatic merge failed; fix conflicts and then commit the result.
+
+# Voir les fichiers en conflit
+git status
+
+# Le fichier en conflit contient des marqueurs :
+# <<<<<<< HEAD
+# version de la branche courante (main)
+# =======
+# version de la branche fusionnée (feature-branch)
+# >>>>>>> feature-branch
+
+# Après résolution manuelle :
+git add src/calcul.py
+git commit    # finalise le merge
+
+# Abandonner le merge en cours
+git merge --abort
+
+# Utiliser un outil graphique de résolution
+git mergetool                    # ouvre l'outil configuré (VS Code, vimdiff…)
+```
+
+::: callout-note
+## Stratégies pour minimiser les conflits
+
+Merges fréquents (`git pull` régulier), branches courtes et ciblées, communication en équipe sur les zones de code modifiées. Les conflits sur des fichiers binaires (images, Excel) nécessitent un choix manuel : `git checkout --ours fichier` ou `git checkout --theirs fichier`.
 :::
 
 ------------------------------------------------------------------------
 
-# 4. Envoyer sur GitHub
+# Rebaser l'historique {#sec-rebase}
 
-## Lier le projet à GitHub
+## `rebase` vs `merge`
 
-::: code-block
-git remote add origin https://github.com/user/nom-du-projet.git
+Le **rebase** rejoue les commits d'une branche sur une autre, produisant un historique linéaire (sans commit de merge). À préférer pour les branches de fonctionnalité avant de les intégrer.
+
+``` bash
+# Situation : main a avancé, ma feature-branch est en retard
+git switch feature-branch
+git rebase main           # rejoue les commits de feature-branch sur main
+
+# En cas de conflit pendant le rebase
+git status                # voir les fichiers en conflit
+# ... résoudre les conflits ...
+git add fichier-resolu.py
+git rebase --continue     # passer au commit suivant
+git rebase --abort        # annuler le rebase
+
+# Rebase interactif : réécrire les N derniers commits
+git rebase -i HEAD~5
+
+# Dans l'éditeur, chaque commit peut être :
+# pick   → garder tel quel
+# reword → garder mais modifier le message
+# edit   → s'arrêter pour modifier le contenu
+# squash → fusionner avec le commit précédent (garde les deux messages)
+# fixup  → fusionner avec le commit précédent (supprime le message)
+# drop   → supprimer le commit
+```
+
+::: callout-caution
+## La règle d'or du rebase
+
+**Ne jamais rebaser une branche publique (déjà pushée et partagée).** Le rebase réécrit l'historique, ce qui crée des problèmes pour tous ceux qui ont basé leur travail sur ces commits. Rebaser uniquement les branches locales ou les branches de fonctionnalité personnelles avant leur première publication.
 :::
 
-## Envoyer les modifications
+## `cherry-pick` — appliquer un commit isolé
 
-Premier push :
+``` bash
+# Appliquer un commit spécifique sur la branche courante
+git cherry-pick abc1234
 
-::: code-block
-git push -u origin main
-:::
+# Appliquer plusieurs commits
+git cherry-pick abc1234 def5678
 
-Ensuite :
+# Appliquer une plage de commits
+git cherry-pick abc1234^..def5678
 
-::: code-block
-git push
-:::
+# Cherry-pick sans créer de commit (staging uniquement)
+git cherry-pick --no-commit abc1234
+```
 
 ------------------------------------------------------------------------
 
-# 5. Récupérer les modifications
+# Dépôts distants {#sec-distants}
 
-Si le projet a changé à distance :
+## Gérer les remotes
 
-::: code-block
-git pull
-:::
+``` bash
+# Voir les dépôts distants configurés
+git remote -v
+
+# Ajouter un dépôt distant
+git remote add origin https://github.com/utilisateur/depot.git
+
+# Renommer un remote
+git remote rename origin upstream
+
+# Supprimer un remote
+git remote remove upstream
+
+# Changer l'URL d'un remote
+git remote set-url origin git@github.com:utilisateur/depot.git
+
+# Inspecter un remote
+git remote show origin
+```
+
+## Synchroniser avec le distant
+
+``` bash
+# Envoyer les commits locaux vers le distant
+git push origin main
+
+# Premier push d'une nouvelle branche (+ lier la branche distante)
+git push -u origin ma-fonctionnalite
+# Ensuite, git push suffit
+
+# Forcer le push (DANGEREUX sur branches partagées)
+git push --force-with-lease   # plus sûr : vérifie qu'on n'écrase rien
+git push --force              # ⚠️ à éviter
+
+# Récupérer les modifications distantes sans merger
+git fetch origin              # met à jour les branches distantes
+git fetch --all               # tous les remotes
+
+# Récupérer ET merger (= fetch + merge)
+git pull origin main
+
+# Récupérer ET rebaser (historique plus propre)
+git pull --rebase origin main
+
+# Supprimer une branche distante
+git push origin --delete ma-fonctionnalite
+```
+
+## Authentification
+
+``` bash
+# HTTPS avec token (recommandé pour GitHub)
+# Générer un Personal Access Token sur GitHub > Settings > Developer settings
+# Stocker les credentials
+git config --global credential.helper store   # Linux (en clair)
+git config --global credential.helper osxkeychain  # macOS (trousseau)
+git config --global credential.helper manager       # Windows (Credential Manager)
+
+# SSH (recommandé pour usage régulier)
+# Générer une clé SSH
+ssh-keygen -t ed25519 -C "alice@exemple.fr"
+
+# Ajouter la clé publique sur GitHub > Settings > SSH and GPG keys
+cat ~/.ssh/id_ed25519.pub
+
+# Tester la connexion
+ssh -T git@github.com
+
+# Utiliser SSH pour un dépôt
+git remote set-url origin git@github.com:utilisateur/depot.git
+```
 
 ------------------------------------------------------------------------
 
-# 6. Les branches
+# Collaboration sur GitHub {#sec-github}
 
-Les branches permettent de travailler sur une fonctionnalité sans toucher au code principal.
+## Concepts clés de GitHub
 
-## Créer une branche
+| Concept | Définition |
+|----|----|
+| **Repository** | Dépôt hébergé sur GitHub (public ou privé) |
+| **Fork** | Copie personnelle d'un dépôt sur votre compte |
+| **Pull Request (PR)** | Proposition de fusion de branches avec revue de code |
+| **Issue** | Ticket de suivi (bug, fonctionnalité, question) |
+| **Review** | Relecture et commentaire d'une PR |
+| **Actions** | Pipelines CI/CD intégrés |
+| **Release** | Version taguée avec notes de publication |
+| **Wiki** | Documentation collaborative intégrée |
 
-::: code-block
-git branch nouvelle-fonction
-:::
+## Workflow de contribution (Fork & Pull Request)
 
-## Changer de branche
+``` bash
+# 1. Forker le dépôt sur GitHub (bouton Fork dans l'interface)
 
-::: code-block
-git switch nouvelle-fonction
-:::
+# 2. Cloner son fork
+git clone https://github.com/MON-COMPTE/depot-forke.git
+cd depot-forke
 
-## Fusionner avec main
+# 3. Ajouter le dépôt original comme remote "upstream"
+git remote add upstream https://github.com/AUTEUR-ORIGINAL/depot.git
+git remote -v  # vérifier : origin (fork) + upstream (original)
 
-::: code-block
-git switch main\
-git merge nouvelle-fonction
-:::
+# 4. Créer une branche pour sa contribution
+git switch -c feat/amelioration-readme
+
+# 5. Faire ses modifications et committer
+git add README.md
+git commit -m "docs: clarifier la section installation"
+
+# 6. Maintenir sa branche à jour avec l'upstream
+git fetch upstream
+git rebase upstream/main
+
+# 7. Pousser vers son fork
+git push origin feat/amelioration-readme
+
+# 8. Ouvrir une Pull Request sur GitHub (bouton dans l'interface)
+#    → Comparer feat/amelioration-readme (fork) → main (upstream)
+```
+
+## Rédiger une bonne Pull Request
+
+Une PR de qualité facilite la revue et accélère son intégration :
+
+``` markdown
+## Description
+Bref résumé des changements apportés et du problème résolu.
+
+## Motivation
+Pourquoi ce changement est-il nécessaire ? Référence à l'issue concernée.
+Fixes #42
+
+## Type de changement
+- [ ] Bug fix
+- [x] Nouvelle fonctionnalité
+- [ ] Refactorisation
+- [ ] Documentation
+
+## Tests
+Décrire comment les modifications ont été testées.
+- [x] Tests unitaires existants passent
+- [x] Nouveaux tests ajoutés
+
+## Captures d'écran (si pertinent)
+```
+
+## Issues et project management
+
+``` markdown
+# Référencer une issue dans un commit ou PR
+git commit -m "fix: corriger le crash à l'ouverture (closes #42)"
+# "closes", "fixes", "resolves" + #numéro ferme automatiquement l'issue lors du merge
+
+# Labels courants
+bug          → problème à corriger
+enhancement  → nouvelle fonctionnalité
+documentation → amélioration de la doc
+good first issue → adapté aux nouveaux contributeurs
+help wanted  → contributions bienvenues
+wontfix      → ne sera pas traité
+```
 
 ------------------------------------------------------------------------
 
-# 7. Workflow classique
+# Tags et releases {#sec-tags}
 
-Toujours la même boucle :
+## Créer des tags
 
-::: code-block
-git status\
-git add .\
-git commit -m "message clair"\
-git push
-:::
+Les **tags** marquent des points importants de l'historique (versions stables, releases).
+
+``` bash
+# Tag léger (simple pointeur)
+git tag v1.0.0
+
+# Tag annoté (recommandé — contient auteur, date, message)
+git tag -a v1.0.0 -m "Version 1.0.0 — première release stable"
+
+# Tagger un commit spécifique
+git tag -a v0.9.0 abc1234 -m "Version 0.9.0 bêta"
+
+# Lister les tags
+git tag
+git tag -l "v1.*"             # filtrer par pattern
+
+# Voir les détails d'un tag annoté
+git show v1.0.0
+
+# Pousser les tags vers le distant
+git push origin v1.0.0        # un tag spécifique
+git push origin --tags        # tous les tags
+
+# Supprimer un tag
+git tag -d v1.0.0             # local
+git push origin --delete v1.0.0  # distant
+```
+
+## Versionnage sémantique (SemVer)
+
+La convention **SemVer** (Semantic Versioning) structure les numéros de version :
+
+```         
+MAJEURE.MINEURE.CORRECTIF   (ex: 2.4.1)
+
+MAJEURE  → Changements incompatibles avec l'API précédente (breaking changes)
+MINEURE  → Nouvelles fonctionnalités rétrocompatibles
+CORRECTIF → Corrections de bugs rétrocompatibles
+
+Préfixes courants :
+v1.0.0-alpha.1   → version alpha (instable)
+v1.0.0-beta.2    → version bêta (fonctionnalités complètes, tests en cours)
+v1.0.0-rc.1      → release candidate (prête sauf bugs critiques)
+v1.0.0           → version stable
+```
 
 ------------------------------------------------------------------------
 
-# Conclusion
+# Workflows Git {#sec-workflows}
 
-Git n’est pas seulement un outil de sauvegarde de code. C’est un véritable outil de structuration du travail, indispensable dès que les projets deviennent un minimum sérieux.
+## Git Flow
 
-Dans un contexte de Machine Learning ou de Data Science, Git devient encore plus important. Les projets impliquent souvent : des expérimentations multiples (modèles, features, hyperparamètres), des notebooks et scripts qui évoluent rapidement, des données et pipelines complexes, des résultats à reproduire et comparer.
+**Git Flow** est un modèle de branches adapté aux projets avec des cycles de release définis.
 
-Sans Git, il devient très difficile de garder une trace claire de ce qui a été testé, validé ou rejeté.
+```         
+main          ─────●──────────────────────────●──── (production, toujours stable)
+                   │  (tags v1.0, v1.1…)      │
+develop       ──●──●──●──●──●──●──●──●──●──●──●──── (intégration continue)
+                 │           │              │
+feature/X     ───●──●──●──●──┘              │    (fonctionnalités)
+                                            │
+release/1.1        ────────────────────●───┘    (préparation release)
+                                       │
+hotfix/urgent ─────────────────────────●────────    (corrections urgentes)
+```
 
-GitHub ajoute une dimension encore plus forte : la collaboration. Dans une équipe Data, il permet de :
+``` bash
+# Initialiser Git Flow (requiert git-flow)
+git flow init
 
--   travailler à plusieurs sur un même projet sans conflit
+# Fonctionnalité
+git flow feature start ma-fonctionnalite
+# ... développement ...
+git flow feature finish ma-fonctionnalite   # merge dans develop
 
--   suivre précisément les contributions de chacun
+# Release
+git flow release start 1.1.0
+# ... corrections mineures, bump de version ...
+git flow release finish 1.1.0              # merge dans main ET develop + tag
 
--   centraliser le code, les modèles et les expérimentations
+# Hotfix (depuis main)
+git flow hotfix start correction-critique
+git flow hotfix finish correction-critique  # merge dans main ET develop + tag
+```
 
--   faciliter la revue de code et la reproductibilité
+## GitHub Flow
 
-En pratique, Git est donc un outil central dans tout projet de Machine Learning sérieux, que ce soit en recherche, en industrie ou en production.
+**GitHub Flow** est un workflow plus simple, adapté au déploiement continu.
 
-Maîtriser ces commandes de base, c’est déjà se donner une base solide pour travailler proprement sur des projets Data collaboratifs.
+```         
+main          ───●──────────────────────────●───── (toujours déployable)
+                 │                          │
+feature/X    ────●──●──●──●──●──── PR ──merge
+```
+
+``` bash
+# Principe : une seule branche stable (main), toujours déployable
+# Toute modification passe par une branche + Pull Request
+
+# 1. Créer une branche depuis main
+git switch -c feat/nouvelle-api main
+
+# 2. Développer et committer régulièrement
+git commit -m "feat: ajouter endpoint /api/v2/users"
+
+# 3. Pousser et ouvrir une PR dès que possible (même en cours)
+git push -u origin feat/nouvelle-api
+# Ouvrir la PR en "Draft" si le travail n'est pas terminé
+
+# 4. Revue de code → merge → déploiement automatique
+```
+
+## Bonnes pratiques générales
+
+``` bash
+# 1. Committer souvent, en petites unités cohérentes
+# ✅  feat: ajouter la validation du formulaire de connexion
+# ❌  modifications diverses et ajouts de tests
+
+# 2. Synchroniser régulièrement avec le tronc commun
+git fetch origin && git rebase origin/main
+
+# 3. Utiliser des branches courtes (idéalement < 2 jours de travail)
+
+# 4. Ne jamais committer de secrets
+git secrets --install && git secrets --register-aws   # plugin git-secrets
+
+# 5. Revue obligatoire avant merge (au moins 1 approbateur)
+
+# 6. Tests verts avant merge (CI/CD)
+
+# 7. Supprimer les branches fusionnées
+git fetch --prune   # nettoie les branches distantes supprimées localement
+```
+
+------------------------------------------------------------------------
+
+# Stash — mise de côté temporaire {#sec-stash}
+
+Le **stash** permet de mettre de côté des modifications non commitées pour changer de contexte.
+
+``` bash
+# Sauvegarder les modifications en cours
+git stash                              # stash minimal
+git stash push -m "WIP: formulaire de connexion"   # avec message
+
+# Inclure les fichiers non suivis
+git stash push -u -m "WIP avec nouveaux fichiers"
+
+# Lister les stashs
+git stash list
+# stash@{0}: On main: WIP: formulaire de connexion
+# stash@{1}: On feature/x: ...
+
+# Appliquer le stash (sans le supprimer)
+git stash apply stash@{0}
+
+# Appliquer ET supprimer
+git stash pop                          # le plus récent
+git stash pop stash@{1}                # un stash spécifique
+
+# Voir le contenu d'un stash
+git stash show -p stash@{0}
+
+# Supprimer un stash
+git stash drop stash@{0}
+git stash clear                        # vider tous les stashs
+
+# Créer une branche depuis un stash
+git stash branch ma-branche stash@{0}
+```
+
+------------------------------------------------------------------------
+
+# Outils avancés {#sec-avance}
+
+## `git bisect` — trouver le commit fautif
+
+``` bash
+# Démarrer la recherche binaire
+git bisect start
+git bisect bad HEAD              # la version actuelle est mauvaise
+git bisect good v2.0.0           # cette version fonctionnait
+
+# Git checkoutera le commit médian
+# Tester → marquer
+git bisect good    # ou :
+git bisect bad
+
+# Répéter jusqu'à identifier le commit fautif
+# Git affiche : "abc1234 is the first bad commit"
+
+git bisect reset   # revenir à HEAD
+
+# Automatiser avec un script de test
+git bisect run python tests/test_regression.py
+```
+
+## `git worktree` — plusieurs répertoires de travail
+
+``` bash
+# Travailler sur deux branches simultanément sans stash
+git worktree add ../hotfix-branch hotfix/urgent
+
+# Lister les worktrees
+git worktree list
+
+# Supprimer un worktree
+git worktree remove ../hotfix-branch
+```
+
+## `git reflog` — filet de sécurité
+
+Le **reflog** enregistre tous les déplacements de HEAD. C'est le dernier recours pour récupérer des commits "perdus".
+
+``` bash
+# Voir l'historique complet des mouvements de HEAD
+git reflog
+
+# Récupérer un commit "perdu" après un reset --hard
+git reflog                           # trouver le hash du commit
+git checkout abc1234                 # inspecter
+git switch -c recuperation abc1234  # créer une branche pour récupérer
+
+# Récupérer une branche supprimée
+git reflog | grep "ma-branche-supprimee"
+git switch -c ma-branche-supprimee abc1234
+```
+
+## Sous-modules (`submodule`)
+
+``` bash
+# Ajouter un sous-module (dépôt Git imbriqué)
+git submodule add https://github.com/lib/utilitaires.git libs/utilitaires
+
+# Cloner un dépôt avec ses sous-modules
+git clone --recurse-submodules https://github.com/utilisateur/depot.git
+
+# Initialiser les sous-modules après un clone classique
+git submodule init && git submodule update
+
+# Mettre à jour tous les sous-modules
+git submodule update --remote --merge
+
+# Supprimer un sous-module
+git submodule deinit libs/utilitaires
+git rm libs/utilitaires
+```
+
+## Hooks Git
+
+Les **hooks** sont des scripts exécutés automatiquement lors d'événements Git.
+
+``` bash
+# Localisation : .git/hooks/
+# Hooks côté client courants :
+pre-commit       # avant chaque commit (linting, tests rapides)
+commit-msg       # valider le format du message de commit
+pre-push         # avant chaque push (tests complets)
+post-checkout    # après un switch de branche
+
+# Exemple : hook pre-commit pour le linting Python
+cat > .git/hooks/pre-commit << 'EOF'
+#!/bin/bash
+echo "Vérification du code Python..."
+python -m flake8 src/ --max-line-length=100
+if [ $? -ne 0 ]; then
+    echo "❌ Erreurs de lint détectées. Commit annulé."
+    exit 1
+fi
+echo "✅ Lint OK"
+EOF
+chmod +x .git/hooks/pre-commit
+
+# Partager les hooks avec l'équipe : utiliser pre-commit (outil)
+pip install pre-commit
+# Créer .pre-commit-config.yaml
+pre-commit install
+pre-commit run --all-files
+```
+
+------------------------------------------------------------------------
+
+# GitHub Actions — CI/CD {#sec-actions}
+
+**GitHub Actions** permet d'automatiser des workflows directement dans GitHub : tests, déploiements, publications de packages…
+
+## Structure d'un workflow
+
+``` yaml
+# .github/workflows/ci.yml
+
+name: CI Pipeline                    # Nom du workflow
+
+on:                                  # Déclencheurs
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 8 * * 1"            # Tous les lundis à 8h
+
+jobs:
+  tests:                            # Identifiant du job
+    runs-on: ubuntu-latest          # Runner (ubuntu, windows, macos)
+    
+    strategy:
+      matrix:                       # Tests sur plusieurs versions
+        python-version: ["3.10", "3.11", "3.12"]
+    
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Configurer Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Installer les dépendances
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Lint avec flake8
+        run: flake8 src/ --max-line-length=100
+
+      - name: Tests avec pytest
+        run: pytest tests/ --cov=src --cov-report=xml -v
+
+      - name: Upload coverage vers Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: coverage.xml
+```
+
+## Workflow de déploiement continu
+
+``` yaml
+# .github/workflows/deploy.yml
+
+name: Déploiement Production
+
+on:
+  push:
+    tags:
+      - "v*"                        # Déclenché à chaque tag vX.Y.Z
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production         # Environnement avec secrets protégés
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Construire l'image Docker
+        run: docker build -t mon-app:${{ github.ref_name }} .
+
+      - name: Se connecter au registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Pousser l'image
+        run: |
+          docker push mon-app:${{ github.ref_name }}
+          docker tag mon-app:${{ github.ref_name }} mon-app:latest
+          docker push mon-app:latest
+
+      - name: Notifier l'équipe
+        uses: slackapi/slack-github-action@v2
+        with:
+          payload: |
+            {"text": "🚀 Déploiement ${{ github.ref_name }} réussi !"}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+```
+
+## Actions utiles
+
+| Action                       | Usage                                   |
+|------------------------------|-----------------------------------------|
+| `actions/checkout`           | Cloner le dépôt                         |
+| `actions/setup-python`       | Configurer Python                       |
+| `actions/setup-node`         | Configurer Node.js                      |
+| `actions/cache`              | Mettre en cache les dépendances         |
+| `actions/upload-artifact`    | Stocker des artefacts de build          |
+| `docker/build-push-action`   | Construire et pousser des images Docker |
+| `peaceiris/actions-gh-pages` | Déployer sur GitHub Pages               |
+
+------------------------------------------------------------------------
+
+# Exercices pratiques {#sec-exercices}
+
+## Exercice 1 — Premiers pas
+
+1.  Créez un nouveau dépôt local `mon-projet`, ajoutez un fichier `README.md` et faites votre premier commit.
+2.  Modifiez le README, puis annulez ces modifications sans les committer.
+3.  Créez un `.gitignore` ignorant les fichiers `.log` et le dossier `venv/`.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` bash
+# 1. Initialisation
+mkdir mon-projet && cd mon-projet
+git init -b main
+echo "# Mon Projet" > README.md
+git add README.md
+git commit -m "docs: initialiser le README"
+
+# 2. Modifier et annuler
+echo "Modification indésirable" >> README.md
+git status                        # README.md modified
+git restore README.md             # annuler
+git status                        # nothing to commit
+
+# 3. .gitignore
+cat > .gitignore << 'EOF'
+*.log
+venv/
+EOF
+git add .gitignore
+git commit -m "chore: ajouter .gitignore"
+```
+:::
+
+## Exercice 2 — Branches et fusions
+
+1.  Depuis `main`, créez une branche `feature/calcul` et ajoutez un fichier `calcul.py` avec une fonction `addition`.
+2.  Sur `main`, modifiez `README.md`. Fusionnez `feature/calcul` dans `main`.
+3.  Créez un conflit volontaire et résolvez-le.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` bash
+# 1. Branche feature
+git switch -c feature/calcul
+cat > calcul.py << 'EOF'
+def addition(a, b):
+    return a + b
+EOF
+git add calcul.py
+git commit -m "feat: ajouter la fonction addition"
+
+# 2. Retour sur main, modification, fusion
+git switch main
+echo "## Usage" >> README.md
+git commit -am "docs: ajouter section usage"
+git merge feature/calcul          # fast-forward ou merge commit
+
+# 3. Conflit volontaire
+git switch -c branche-a
+echo "version A" >> README.md
+git commit -am "A: modifier README"
+
+git switch main
+echo "version B" >> README.md
+git commit -am "B: modifier README"
+
+git merge branche-a               # CONFLICT
+# Éditer README.md pour résoudre
+git add README.md
+git commit -m "merge: résoudre conflit README"
+```
+:::
+
+## Exercice 3 — Rebase interactif
+
+1.  Créez 4 commits successifs : 3 petits commits de type "WIP" et 1 commit de finalisation.
+2.  Utilisez `git rebase -i` pour fusionner (squash) les 3 commits WIP dans le commit de finalisation.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` bash
+echo "début" > feature.txt && git add -A && git commit -m "WIP: début de la feature"
+echo "milieu" >> feature.txt && git commit -am "WIP: avancement"
+echo "presque" >> feature.txt && git commit -am "WIP: presque terminé"
+echo "fini" >> feature.txt && git commit -am "feat: implémenter la fonctionnalité X"
+
+# Rebase interactif sur les 4 derniers commits
+git rebase -i HEAD~4
+
+# Dans l'éditeur, changer :
+# pick abc1 WIP: début de la feature
+# pick abc2 WIP: avancement
+# pick abc3 WIP: presque terminé
+# pick abc4 feat: implémenter la fonctionnalité X
+#
+# En :
+# squash abc1 WIP: début de la feature
+# squash abc2 WIP: avancement
+# squash abc3 WIP: presque terminé
+# pick   abc4 feat: implémenter la fonctionnalité X
+# (puis sauvegarder et éditer le message de commit final)
+```
+:::
+
+## Exercice 4 — GitHub Flow complet
+
+1.  Forkez un dépôt public sur GitHub (par exemple un dépôt de documentation).
+2.  Clonez votre fork, créez une branche `fix/typo`, corrigez une coquille dans le README.
+3.  Poussez la branche et ouvrez une Pull Request vers le dépôt original.
+
+------------------------------------------------------------------------
+
+# Ressources complémentaires {#sec-ressources}
+
+## Documentation officielle
+
+-   [**Documentation Git**](https://git-scm.com/doc) : manuel complet et référence des commandes.
+-   [**GitHub Docs**](https://docs.github.com/fr) : documentation GitHub en français.
+-   [**Pro Git**](https://git-scm.com/book/fr/v2) : livre de référence, libre et en français.
+-   [**Conventional Commits**](https://www.conventionalcommits.org/fr/) : spécification des messages de commit.
+
+## Outils en ligne
+
+-   [**Learn Git Branching**](https://learngitbranching.js.org/?locale=fr_FR) : tutoriel interactif et visuel sur les branches.
+-   [**Oh My Git!**](https://ohmygit.org/) : jeu pour apprendre Git.
+-   [**gitignore.io**](https://www.toptal.com/developers/gitignore) : générateur de `.gitignore`.
+-   [**Explain Git with D3**](https://onlywei.github.io/explain-git-with-d3/) : visualisateur de commandes Git.
+
+## Pour approfondir
+
+-   [**Atlassian Git Tutorials**](https://www.atlassian.com/fr/git/tutorials) : guides détaillés sur les workflows.
+-   [**GitHub Skills**](https://skills.github.com/) : cours interactifs GitHub officiels.
+-   [**Git Internals**](https://git-scm.com/book/fr/v2/Les-tripes-de-Git-Plomberie-et-porcelaine) : comprendre le fonctionnement interne.
+
+## Outils et extensions recommandés
+
+| Outil               | Usage                                    |
+|---------------------|------------------------------------------|
+| `pre-commit`        | Gérer les hooks Git en équipe            |
+| `git-secrets`       | Prévenir les commits de secrets          |
+| `gitlens` (VS Code) | Visualisation Git avancée dans l'éditeur |
+| `delta`             | Coloration syntaxique des diffs          |
+| `lazygit`           | Interface TUI Git dans le terminal       |
+| `gh` (GitHub CLI)   | Gérer GitHub depuis le terminal          |
+| `act`               | Tester les GitHub Actions localement     |
+
+::: callout-tip
+## Pour aller plus loin
+
+Une fois les bases maîtrisées, explorez dans l'ordre :
+
+1.  **Signed commits** : signer ses commits avec GPG pour prouver son identité.
+2.  **Branch protection rules** : protéger `main` contre les pushs directs sur GitHub.
+3.  **GitHub Actions** : automatiser tests, déploiements et publications.
+4.  **Monorepo tools** : Nx, Turborepo pour gérer des dépôts monolithiques.
+5.  **Git LFS** : gérer les fichiers volumineux (données, modèles ML) dans Git.
+:::

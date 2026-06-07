@@ -1,0 +1,1510 @@
+---
+title: " "
+lang: fr
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    number-sections: true
+    number-depth: 3
+    code-fold: false
+    code-copy: true
+    css: style.css
+    self-contained: true
+---
+
+# Introduction {#sec-intro}
+
+SQL (*Structured Query Language*) est le langage standard pour interagir avec les bases de données relationnelles. Conçu dans les années 1970 par IBM sur la base des travaux de Edgar F. Codd sur le modèle relationnel, SQL est aujourd'hui omniprésent : il alimente les applications web, les entrepôts de données d'entreprise, les pipelines d'analyse et les plateformes de *business intelligence*.
+
+Contrairement à un langage de programmation général comme Python ou R, SQL est un langage **déclaratif** : on décrit *ce que l'on veut obtenir*, et non *comment l'obtenir*. C'est le moteur de la base de données qui se charge de trouver le chemin d'exécution optimal.
+
+## Pourquoi apprendre SQL ?
+
+-   **Ubiquité** : toutes les organisations stockent des données dans des bases relationnelles (PostgreSQL, MySQL, SQLite, SQL Server, Oracle…).
+-   **Expressivité** : avec quelques dizaines de mots-clés, on peut formuler des requêtes d'une grande complexité analytique.
+-   **Performance** : les moteurs SQL sont optimisés pour manipuler des millions, voire des milliards de lignes.
+-   **Standard métier** : SQL figure parmi les compétences les plus demandées dans les offres Data Scientist, Data Analyst et Data Engineer.
+-   **Complémentarité** : SQL s'intègre nativement à Python (via `pandas`, `SQLAlchemy`, `DuckDB`) et à R (via `DBI`, `dplyr`).
+
+::: callout-note
+## SQL et ses variantes
+
+Il existe un standard SQL défini par l'ISO (SQL:2023 est la version la plus récente), mais chaque système de gestion de bases de données (SGBD) y ajoute ses propres extensions. Ce tutoriel s'appuie sur la syntaxe **standard ANSI/ISO**, valable pour PostgreSQL, MySQL, SQLite et la plupart des autres SGBD. Les différences notables entre systèmes seront signalées au fil du texte.
+:::
+
+## Structure du tutoriel
+
+Ce tutoriel est organisé en niveaux progressifs :
+
+| Niveau | Sections | Contenu |
+|----|----|----|
+| Débutant | 2 à 5 | Modèle relationnel, création de tables, `SELECT` de base |
+| Intermédiaire | 6 à 9 | Jointures, agrégations, sous-requêtes, vues |
+| Avancé | 10 à 13 | Fonctions de fenêtrage, CTEs, indexes, transactions |
+| Expert | 14 à 15 | Optimisation, modélisation, bonnes pratiques |
+
+------------------------------------------------------------------------
+
+# Le modèle relationnel {#sec-modele}
+
+## Concepts fondamentaux
+
+Une **base de données relationnelle** organise les données en **tables** (aussi appelées *relations*). Chaque table est une grille à deux dimensions :
+
+-   Les **colonnes** (ou *attributs*) définissent la structure : chaque colonne a un nom et un type de données.
+-   Les **lignes** (ou *tuples*, *enregistrements*) contiennent les données elles-mêmes.
+
+Exemple de table `employes` :
+
+| id_employe | nom    | prenom | departement  | salaire |
+|------------|--------|--------|--------------|---------|
+| 1          | Martin | Sophie | Informatique | 52 000  |
+| 2          | Dubois | Marc   | Finance      | 48 000  |
+| 3          | Leroy  | Julie  | Informatique | 58 000  |
+| 4          | Moreau | Thomas | RH           | 42 000  |
+
+## Clés primaires et étrangères
+
+La **clé primaire** (*primary key*, PK) est une colonne (ou combinaison de colonnes) dont la valeur identifie de façon unique chaque ligne de la table. Dans l'exemple ci-dessus, `id_employe` est la clé primaire.
+
+La **clé étrangère** (*foreign key*, FK) est une colonne qui fait référence à la clé primaire d'une autre table. Elle permet de créer des **relations** entre tables.
+
+```         
+Table employes              Table departements
+─────────────────           ──────────────────────
+id_employe (PK)             id_departement (PK)
+nom                         nom_departement
+prenom             ─────►   budget
+id_departement (FK)
+salaire
+```
+
+## Types de données courants
+
+| Type | Description | Exemple |
+|----|----|----|
+| `INTEGER` / `INT` | Entier | `42`, `-7` |
+| `BIGINT` | Grand entier | `1 000 000 000` |
+| `NUMERIC(p, s)` | Décimal exact (précision, échelle) | `3.14159` |
+| `FLOAT` / `REAL` | Décimal approché | `2.71828` |
+| `VARCHAR(n)` | Chaîne de caractères variable (max n) | `'Alice'` |
+| `CHAR(n)` | Chaîne de longueur fixe | Code pays `'FR'` |
+| `TEXT` | Chaîne sans limite | Long texte |
+| `DATE` | Date (YYYY-MM-DD) | `'2024-01-15'` |
+| `TIMESTAMP` | Date et heure | `'2024-01-15 14:30:00'` |
+| `BOOLEAN` | Vrai/Faux | `TRUE`, `FALSE` |
+
+------------------------------------------------------------------------
+
+# Créer et gérer des tables : le DDL {#sec-ddl}
+
+Le **DDL** (*Data Definition Language*) regroupe les commandes qui définissent la structure de la base de données : création, modification et suppression de tables.
+
+## Créer une table : `CREATE TABLE`
+
+``` sql
+CREATE TABLE departements (
+    id_departement  INTEGER      PRIMARY KEY,
+    nom             VARCHAR(100) NOT NULL,
+    localisation    VARCHAR(100),
+    budget          NUMERIC(12, 2) DEFAULT 0
+);
+
+CREATE TABLE employes (
+    id_employe     INTEGER       PRIMARY KEY,
+    nom            VARCHAR(100)  NOT NULL,
+    prenom         VARCHAR(100)  NOT NULL,
+    email          VARCHAR(255)  UNIQUE,
+    date_embauche  DATE          NOT NULL DEFAULT CURRENT_DATE,
+    salaire        NUMERIC(10, 2) CHECK (salaire > 0),
+    id_departement INTEGER       REFERENCES departements(id_departement)
+);
+```
+
+Les **contraintes** garantissent l'intégrité des données :
+
+| Contrainte    | Rôle                                     |
+|---------------|------------------------------------------|
+| `PRIMARY KEY` | Identifiant unique, jamais nul           |
+| `NOT NULL`    | La valeur ne peut pas être nulle         |
+| `UNIQUE`      | Valeurs distinctes dans toute la colonne |
+| `CHECK`       | Condition booléenne sur la valeur        |
+| `DEFAULT`     | Valeur par défaut si non fournie         |
+| `REFERENCES`  | Clé étrangère vers une autre table       |
+
+## Modifier une table : `ALTER TABLE`
+
+``` sql
+-- Ajouter une colonne
+ALTER TABLE employes
+ADD COLUMN telephone VARCHAR(20);
+
+-- Modifier le type d'une colonne (PostgreSQL)
+ALTER TABLE employes
+ALTER COLUMN telephone TYPE VARCHAR(30);
+
+-- Renommer une colonne
+ALTER TABLE employes
+RENAME COLUMN telephone TO tel_mobile;
+
+-- Supprimer une colonne
+ALTER TABLE employes
+DROP COLUMN tel_mobile;
+
+-- Ajouter une contrainte
+ALTER TABLE employes
+ADD CONSTRAINT ck_salaire_min CHECK (salaire >= 1500);
+```
+
+## Supprimer une table : `DROP TABLE`
+
+``` sql
+-- Suppression simple (échoue si d'autres tables y font référence)
+DROP TABLE employes;
+
+-- Suppression en cascade (supprime aussi les contraintes FK dépendantes)
+DROP TABLE departements CASCADE;
+
+-- Suppression conditionnelle (pas d'erreur si la table n'existe pas)
+DROP TABLE IF EXISTS employes;
+```
+
+::: callout-warning
+## Attention au `DROP TABLE`
+
+L'opération `DROP TABLE` est **irréversible** en dehors d'une transaction. Elle supprime la table et toutes ses données définitivement. Toujours s'assurer d'avoir une sauvegarde avant d'exécuter cette commande en production.
+:::
+
+------------------------------------------------------------------------
+
+# Insérer, modifier et supprimer des données : le DML {#sec-dml}
+
+Le **DML** (*Data Manipulation Language*) regroupe les commandes qui manipulent les données contenues dans les tables.
+
+## Insérer des lignes : `INSERT INTO`
+
+``` sql
+-- Insertion d'une seule ligne (toutes les colonnes)
+INSERT INTO departements
+VALUES (1, 'Informatique', 'Paris', 250000.00);
+
+-- Insertion avec colonnes explicites (recommandé)
+INSERT INTO departements (id_departement, nom, localisation)
+VALUES (2, 'Finance', 'Lyon');
+
+-- Insertion de plusieurs lignes en une seule requête
+INSERT INTO employes (id_employe, nom, prenom, email, salaire, id_departement)
+VALUES
+    (1, 'Martin',  'Sophie', 'smartin@corp.fr',  52000, 1),
+    (2, 'Dubois',  'Marc',   'mdubois@corp.fr',  48000, 2),
+    (3, 'Leroy',   'Julie',  'jleroy@corp.fr',   58000, 1),
+    (4, 'Moreau',  'Thomas', 'tmoreau@corp.fr',  42000, 3),
+    (5, 'Bernard', 'Claire', 'cbernard@corp.fr', 61000, 1);
+
+-- Insertion depuis une autre table
+INSERT INTO employes_archive
+SELECT * FROM employes WHERE date_embauche < '2020-01-01';
+```
+
+## Modifier des lignes : `UPDATE`
+
+``` sql
+-- Augmenter le salaire d'un employé spécifique
+UPDATE employes
+SET salaire = 55000
+WHERE id_employe = 2;
+
+-- Augmentation générale de 5% pour le département Informatique
+UPDATE employes
+SET salaire = salaire * 1.05
+WHERE id_departement = 1;
+
+-- Modifier plusieurs colonnes simultanément
+UPDATE employes
+SET
+    salaire       = 65000,
+    id_departement = 2
+WHERE nom = 'Leroy' AND prenom = 'Julie';
+```
+
+::: callout-warning
+## `UPDATE` sans `WHERE`
+
+Un `UPDATE` sans clause `WHERE` modifie **toutes** les lignes de la table. Toujours vérifier la clause `WHERE` avant d'exécuter un `UPDATE` en production. Bonne pratique : exécuter d'abord un `SELECT` avec la même clause `WHERE` pour visualiser les lignes qui seront affectées.
+:::
+
+## Supprimer des lignes : `DELETE`
+
+``` sql
+-- Supprimer un enregistrement précis
+DELETE FROM employes
+WHERE id_employe = 4;
+
+-- Supprimer tous les employés d'un département
+DELETE FROM employes
+WHERE id_departement = 3;
+
+-- Vider une table entière (TRUNCATE est plus rapide que DELETE sans WHERE)
+TRUNCATE TABLE employes;
+```
+
+------------------------------------------------------------------------
+
+# Interroger les données : `SELECT` {#sec-select}
+
+La commande `SELECT` est le cœur de SQL. Sa syntaxe générale est :
+
+``` sql
+SELECT   colonne1, colonne2, ...   -- 1. Colonnes à afficher
+FROM     table                     -- 2. Source des données
+WHERE    condition                 -- 3. Filtre sur les lignes
+GROUP BY colonne                   -- 4. Regroupement
+HAVING   condition_agregat         -- 5. Filtre sur les groupes
+ORDER BY colonne [ASC | DESC]      -- 6. Tri
+LIMIT    n                         -- 7. Limitation du nombre de résultats
+OFFSET   m;                        -- 8. Décalage (pagination)
+```
+
+::: callout-note
+## Ordre d'exécution logique
+
+L'ordre d'écriture du `SELECT` ne correspond pas à l'ordre d'exécution. Le moteur SQL évalue les clauses dans cet ordre : `FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY` → `LIMIT`. Comprendre cet ordre est essentiel pour éviter les erreurs, notamment l'utilisation d'alias de `SELECT` dans `WHERE`.
+:::
+
+## Sélection de colonnes
+
+``` sql
+-- Toutes les colonnes (déconseillé en production)
+SELECT * FROM employes;
+
+-- Colonnes spécifiques
+SELECT nom, prenom, salaire FROM employes;
+
+-- Alias de colonne
+SELECT
+    nom                          AS nom_famille,
+    prenom,
+    salaire * 12                 AS salaire_annuel,
+    salaire * 12 * 1.22          AS cout_total_employeur
+FROM employes;
+
+-- Éliminer les doublons
+SELECT DISTINCT id_departement FROM employes;
+```
+
+## Filtrer avec `WHERE`
+
+``` sql
+-- Égalité
+SELECT * FROM employes WHERE id_departement = 1;
+
+-- Comparaisons numériques
+SELECT * FROM employes WHERE salaire > 50000;
+SELECT * FROM employes WHERE salaire BETWEEN 40000 AND 60000;
+
+-- Chaînes de caractères
+SELECT * FROM employes WHERE nom = 'Martin';
+SELECT * FROM employes WHERE nom LIKE 'M%';       -- commence par M
+SELECT * FROM employes WHERE nom LIKE '%ois';     -- finit par ois
+SELECT * FROM employes WHERE nom ILIKE 'mart%';   -- insensible à la casse (PostgreSQL)
+
+-- Listes de valeurs
+SELECT * FROM employes WHERE id_departement IN (1, 3);
+SELECT * FROM employes WHERE id_departement NOT IN (2);
+
+-- Valeurs nulles
+SELECT * FROM employes WHERE email IS NULL;
+SELECT * FROM employes WHERE email IS NOT NULL;
+
+-- Combinaisons logiques
+SELECT * FROM employes
+WHERE id_departement = 1
+  AND salaire > 50000;
+
+SELECT * FROM employes
+WHERE id_departement = 2
+   OR salaire > 60000;
+
+SELECT * FROM employes
+WHERE NOT (id_departement = 3);
+```
+
+## Trier les résultats : `ORDER BY`
+
+``` sql
+-- Tri croissant (par défaut)
+SELECT nom, prenom, salaire
+FROM employes
+ORDER BY salaire;
+
+-- Tri décroissant
+SELECT nom, prenom, salaire
+FROM employes
+ORDER BY salaire DESC;
+
+-- Tri multi-critères
+SELECT nom, prenom, salaire, id_departement
+FROM employes
+ORDER BY id_departement ASC, salaire DESC;
+
+-- Tri avec gestion des nulls (PostgreSQL)
+SELECT * FROM employes ORDER BY email NULLS LAST;
+```
+
+## Limiter les résultats : `LIMIT` / `OFFSET`
+
+``` sql
+-- Les 5 employés les mieux payés
+SELECT nom, prenom, salaire
+FROM employes
+ORDER BY salaire DESC
+LIMIT 5;
+
+-- Pagination : page 2 de 10 résultats par page
+SELECT nom, prenom
+FROM employes
+ORDER BY nom
+LIMIT 10
+OFFSET 10;   -- sauter les 10 premiers résultats
+```
+
+------------------------------------------------------------------------
+
+# Fonctions SQL {#sec-fonctions}
+
+## Fonctions scalaires sur les chaînes
+
+``` sql
+SELECT
+    UPPER(nom)                    AS nom_majuscule,
+    LOWER(prenom)                 AS prenom_minuscule,
+    LENGTH(nom)                   AS longueur_nom,
+    TRIM('  Alice  ')             AS sans_espaces,
+    LTRIM('   Alice')             AS sans_espaces_gauche,
+    RTRIM('Alice   ')             AS sans_espaces_droite,
+    SUBSTRING(nom FROM 1 FOR 3)   AS trois_premiers,
+    CONCAT(prenom, ' ', nom)      AS nom_complet,
+    REPLACE(email, '@corp.fr', '@newdomain.com') AS nouvel_email,
+    POSITION('@' IN email)        AS position_arobase
+FROM employes;
+```
+
+## Fonctions scalaires sur les nombres
+
+``` sql
+SELECT
+    ROUND(salaire / 12.0, 2)   AS salaire_mensuel,
+    CEIL(3.2)                  AS plafond,        -- 4
+    FLOOR(3.9)                 AS plancher,       -- 3
+    ABS(-42)                   AS valeur_absolue, -- 42
+    MOD(17, 5)                 AS reste,          -- 2
+    POWER(2, 10)               AS puissance,      -- 1024
+    SQRT(144)                  AS racine_carree   -- 12
+FROM employes;
+```
+
+## Fonctions scalaires sur les dates
+
+``` sql
+SELECT
+    CURRENT_DATE                              AS date_auj,
+    CURRENT_TIMESTAMP                         AS horodatage,
+    date_embauche,
+    EXTRACT(YEAR  FROM date_embauche)         AS annee_embauche,
+    EXTRACT(MONTH FROM date_embauche)         AS mois_embauche,
+    AGE(CURRENT_DATE, date_embauche)          AS anciennete,   -- PostgreSQL
+    date_embauche + INTERVAL '1 year'         AS premier_anniversaire,
+    date_embauche + INTERVAL '30 days'        AS fin_periode_essai
+FROM employes;
+```
+
+## Expression conditionnelle : `CASE WHEN`
+
+L'expression `CASE WHEN` est l'équivalent SQL du `if/else` :
+
+``` sql
+-- Forme recherchée
+SELECT
+    nom,
+    prenom,
+    salaire,
+    CASE
+        WHEN salaire < 40000 THEN 'Junior'
+        WHEN salaire < 55000 THEN 'Confirmé'
+        WHEN salaire < 70000 THEN 'Senior'
+        ELSE 'Expert'
+    END AS niveau_salarial
+FROM employes;
+
+-- Forme simple (équivalent au SWITCH)
+SELECT
+    id_departement,
+    CASE id_departement
+        WHEN 1 THEN 'Informatique'
+        WHEN 2 THEN 'Finance'
+        WHEN 3 THEN 'RH'
+        ELSE 'Autre'
+    END AS nom_departement
+FROM employes;
+```
+
+## Gestion des valeurs nulles
+
+``` sql
+-- COALESCE : retourne la première valeur non nulle
+SELECT
+    nom,
+    COALESCE(email, 'non renseigné')   AS email_affiche
+FROM employes;
+
+-- NULLIF : retourne NULL si les deux valeurs sont égales
+SELECT NULLIF(salaire, 0) FROM employes;   -- évite les divisions par zéro
+
+-- GREATEST / LEAST
+SELECT GREATEST(40000, salaire, 35000) FROM employes;
+```
+
+------------------------------------------------------------------------
+
+# Agrégations et regroupements {#sec-agregations}
+
+## Fonctions d'agrégation
+
+Les fonctions d'agrégation calculent une valeur unique à partir d'un ensemble de lignes :
+
+| Fonction              | Description                             |
+|-----------------------|-----------------------------------------|
+| `COUNT(*)`            | Nombre total de lignes                  |
+| `COUNT(col)`          | Nombre de valeurs non nulles            |
+| `COUNT(DISTINCT col)` | Nombre de valeurs distinctes non nulles |
+| `SUM(col)`            | Somme                                   |
+| `AVG(col)`            | Moyenne                                 |
+| `MIN(col)`            | Minimum                                 |
+| `MAX(col)`            | Maximum                                 |
+| `STDDEV(col)`         | Écart-type (PostgreSQL)                 |
+| `VARIANCE(col)`       | Variance (PostgreSQL)                   |
+
+``` sql
+-- Statistiques globales sur la table employes
+SELECT
+    COUNT(*)                   AS nb_employes,
+    COUNT(email)               AS nb_avec_email,
+    COUNT(DISTINCT id_departement) AS nb_departements,
+    ROUND(AVG(salaire), 2)     AS salaire_moyen,
+    MIN(salaire)               AS salaire_min,
+    MAX(salaire)               AS salaire_max,
+    SUM(salaire)               AS masse_salariale
+FROM employes;
+```
+
+## Regrouper avec `GROUP BY`
+
+`GROUP BY` divise les lignes en groupes partageant les mêmes valeurs dans les colonnes spécifiées, puis applique les fonctions d'agrégation à chaque groupe :
+
+``` sql
+-- Statistiques par département
+SELECT
+    id_departement,
+    COUNT(*)                   AS nb_employes,
+    ROUND(AVG(salaire), 2)     AS salaire_moyen,
+    MIN(salaire)               AS salaire_min,
+    MAX(salaire)               AS salaire_max,
+    SUM(salaire)               AS masse_salariale
+FROM employes
+GROUP BY id_departement
+ORDER BY salaire_moyen DESC;
+```
+
+::: callout-note
+## Règle du `GROUP BY`
+
+Dans une requête avec `GROUP BY`, la clause `SELECT` ne peut contenir que : 1. Les colonnes listées dans `GROUP BY`. 2. Des expressions d'agrégation (`COUNT`, `SUM`, `AVG`…).
+
+Toute autre colonne produira une erreur (ou un résultat non déterministe selon le SGBD).
+:::
+
+## Filtrer les groupes avec `HAVING`
+
+`WHERE` filtre les **lignes individuelles** avant le regroupement. `HAVING` filtre les **groupes** après agrégation :
+
+``` sql
+-- Départements avec plus de 2 employés ET salaire moyen supérieur à 50 000
+SELECT
+    id_departement,
+    COUNT(*)             AS nb_employes,
+    AVG(salaire)         AS salaire_moyen
+FROM employes
+WHERE date_embauche >= '2020-01-01'   -- filtre avant GROUP BY
+GROUP BY id_departement
+HAVING COUNT(*) > 2                   -- filtre après GROUP BY
+   AND AVG(salaire) > 50000
+ORDER BY salaire_moyen DESC;
+```
+
+------------------------------------------------------------------------
+
+# Jointures {#sec-jointures}
+
+Les jointures permettent de combiner des lignes de plusieurs tables en se basant sur une condition de correspondance, généralement l'égalité entre une clé étrangère et une clé primaire.
+
+## Types de jointures
+
+```         
+Table A          Table B
+┌─────┐          ┌─────┐
+│  1  │          │  1  │
+│  2  │          │  2  │
+│  3  │          │  4  │
+└─────┘          └─────┘
+
+INNER JOIN  →  1, 2
+LEFT JOIN   →  1, 2, 3 (NULL pour B.4 absent)
+RIGHT JOIN  →  1, 2, 4 (NULL pour A.3 absent)
+FULL JOIN   →  1, 2, 3, 4 (NULLs pour les absents de chaque côté)
+CROSS JOIN  →  Produit cartésien
+```
+
+## `INNER JOIN` : intersection
+
+Ne retourne que les lignes ayant une correspondance dans les deux tables :
+
+``` sql
+SELECT
+    e.nom,
+    e.prenom,
+    e.salaire,
+    d.nom        AS departement,
+    d.localisation
+FROM employes  AS e
+INNER JOIN departements AS d
+    ON e.id_departement = d.id_departement;
+```
+
+## `LEFT JOIN` : toutes les lignes de gauche
+
+Retourne toutes les lignes de la table de gauche, et les correspondances de la table de droite (NULL si absentes) :
+
+``` sql
+-- Tous les employés, même ceux sans département assigné
+SELECT
+    e.nom,
+    e.prenom,
+    d.nom   AS departement
+FROM employes AS e
+LEFT JOIN departements AS d
+    ON e.id_departement = d.id_departement;
+
+-- Trouver les employés sans département (anti-jointure)
+SELECT e.nom, e.prenom
+FROM employes AS e
+LEFT JOIN departements AS d
+    ON e.id_departement = d.id_departement
+WHERE d.id_departement IS NULL;
+```
+
+## `RIGHT JOIN` et `FULL OUTER JOIN`
+
+``` sql
+-- Tous les départements, même ceux sans employé
+SELECT
+    d.nom   AS departement,
+    COUNT(e.id_employe) AS nb_employes
+FROM employes AS e
+RIGHT JOIN departements AS d
+    ON e.id_departement = d.id_departement
+GROUP BY d.nom;
+
+-- Union des deux tables (lignes correspondantes + lignes orphelines des deux côtés)
+SELECT e.nom, e.prenom, d.nom AS departement
+FROM employes AS e
+FULL OUTER JOIN departements AS d
+    ON e.id_departement = d.id_departement;
+```
+
+## `CROSS JOIN` : produit cartésien
+
+``` sql
+-- Toutes les combinaisons employé × projet (utile pour générer des grilles)
+SELECT e.nom, p.nom_projet
+FROM employes AS e
+CROSS JOIN projets AS p;
+```
+
+## Jointures multiples
+
+On peut enchaîner plusieurs jointures dans une même requête :
+
+``` sql
+SELECT
+    e.nom                       AS employe,
+    d.nom                       AS departement,
+    p.nom_projet                AS projet,
+    ep.heures_allouees
+FROM employes            AS e
+INNER JOIN departements  AS d  ON e.id_departement = d.id_departement
+INNER JOIN employe_projet AS ep ON e.id_employe    = ep.id_employe
+INNER JOIN projets        AS p  ON ep.id_projet    = p.id_projet
+WHERE d.localisation = 'Paris'
+ORDER BY e.nom, p.nom_projet;
+```
+
+## Auto-jointure
+
+Une table peut être jointe avec elle-même, utile pour les structures hiérarchiques :
+
+``` sql
+-- Table employes avec une colonne id_manager référençant id_employe
+SELECT
+    e.nom                 AS employe,
+    m.nom                 AS manager
+FROM employes AS e
+LEFT JOIN employes AS m
+    ON e.id_manager = m.id_employe
+ORDER BY manager NULLS FIRST;
+```
+
+------------------------------------------------------------------------
+
+# Sous-requêtes {#sec-sous-requetes}
+
+Une sous-requête (ou *subquery*) est une requête `SELECT` imbriquée dans une autre requête SQL.
+
+## Sous-requête scalaire
+
+Retourne une seule valeur, utilisable partout où une valeur est attendue :
+
+``` sql
+-- Employés dont le salaire dépasse la moyenne générale
+SELECT nom, prenom, salaire
+FROM employes
+WHERE salaire > (SELECT AVG(salaire) FROM employes);
+
+-- Afficher le salaire et l'écart à la moyenne
+SELECT
+    nom,
+    prenom,
+    salaire,
+    salaire - (SELECT AVG(salaire) FROM employes)  AS ecart_moyenne
+FROM employes
+ORDER BY ecart_moyenne DESC;
+```
+
+## Sous-requête dans `FROM` (table dérivée)
+
+``` sql
+-- Classement des départements par salaire moyen
+SELECT
+    departement,
+    salaire_moyen,
+    RANK() OVER (ORDER BY salaire_moyen DESC) AS classement
+FROM (
+    SELECT
+        d.nom               AS departement,
+        AVG(e.salaire)      AS salaire_moyen
+    FROM employes AS e
+    INNER JOIN departements AS d ON e.id_departement = d.id_departement
+    GROUP BY d.nom
+) AS stats_dept;
+```
+
+## Sous-requête corrélée
+
+Une sous-requête corrélée fait référence à la table de la requête externe. Elle est évaluée pour **chaque ligne** de la requête externe :
+
+``` sql
+-- Pour chaque employé, afficher le salaire max de son département
+SELECT
+    e.nom,
+    e.prenom,
+    e.salaire,
+    (
+        SELECT MAX(e2.salaire)
+        FROM employes AS e2
+        WHERE e2.id_departement = e.id_departement
+    ) AS max_dept
+FROM employes AS e;
+```
+
+::: callout-tip
+## Sous-requête corrélée vs jointure
+
+Les sous-requêtes corrélées sont souvent moins performantes que les jointures ou les CTEs équivalentes, car elles sont exécutées une fois par ligne. Préférez une jointure ou une fonction de fenêtrage lorsque c'est possible.
+:::
+
+## Opérateurs `EXISTS`, `IN`, `ANY`, `ALL`
+
+``` sql
+-- EXISTS : vrai si la sous-requête retourne au moins une ligne
+SELECT d.nom
+FROM departements AS d
+WHERE EXISTS (
+    SELECT 1
+    FROM employes AS e
+    WHERE e.id_departement = d.id_departement
+);
+
+-- NOT EXISTS : départements sans aucun employé
+SELECT d.nom
+FROM departements AS d
+WHERE NOT EXISTS (
+    SELECT 1 FROM employes AS e
+    WHERE e.id_departement = d.id_departement
+);
+
+-- ANY : comparaison avec au moins une valeur de la sous-requête
+SELECT nom, salaire
+FROM employes
+WHERE salaire > ANY (SELECT salaire FROM employes WHERE id_departement = 2);
+
+-- ALL : comparaison vraie pour toutes les valeurs de la sous-requête
+SELECT nom, salaire
+FROM employes
+WHERE salaire > ALL (SELECT salaire FROM employes WHERE id_departement = 3);
+```
+
+------------------------------------------------------------------------
+
+# Expressions de table communes (CTEs) {#sec-cte}
+
+Les CTEs (*Common Table Expressions*), introduites par `WITH`, permettent de nommer et de réutiliser des sous-requêtes comme des tables temporaires. Elles améliorent considérablement la lisibilité des requêtes complexes.
+
+## CTE simple
+
+``` sql
+WITH stats_salaires AS (
+    SELECT
+        id_departement,
+        AVG(salaire)    AS salaire_moyen,
+        MAX(salaire)    AS salaire_max,
+        MIN(salaire)    AS salaire_min,
+        COUNT(*)        AS nb_employes
+    FROM employes
+    GROUP BY id_departement
+)
+SELECT
+    d.nom                     AS departement,
+    s.salaire_moyen,
+    s.salaire_max,
+    s.nb_employes
+FROM stats_salaires AS s
+INNER JOIN departements AS d ON s.id_departement = d.id_departement
+ORDER BY s.salaire_moyen DESC;
+```
+
+## CTEs multiples en chaîne
+
+``` sql
+WITH
+-- CTE 1 : salaires par département
+dept_stats AS (
+    SELECT
+        id_departement,
+        AVG(salaire) AS salaire_moyen
+    FROM employes
+    GROUP BY id_departement
+),
+-- CTE 2 : médiane globale (utilise la CTE 1)
+mediane AS (
+    SELECT PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salaire_moyen)
+           AS mediane_dept
+    FROM dept_stats
+)
+-- Requête finale
+SELECT
+    d.nom,
+    ds.salaire_moyen,
+    m.mediane_dept,
+    CASE
+        WHEN ds.salaire_moyen > m.mediane_dept THEN 'Au-dessus'
+        ELSE 'En-dessous'
+    END AS position_mediane
+FROM dept_stats AS ds
+INNER JOIN departements AS d ON ds.id_departement = d.id_departement
+CROSS JOIN mediane AS m
+ORDER BY ds.salaire_moyen DESC;
+```
+
+## CTE récursive
+
+Les CTEs récursives permettent de parcourir des structures hiérarchiques (organigrammes, catégories, graphes) :
+
+``` sql
+-- Afficher la hiérarchie complète d'un organigramme
+WITH RECURSIVE hierarchie AS (
+    -- Cas de base : les directeurs (sans manager)
+    SELECT
+        id_employe,
+        nom,
+        prenom,
+        id_manager,
+        0           AS niveau,
+        nom         AS chemin
+    FROM employes
+    WHERE id_manager IS NULL
+
+    UNION ALL
+
+    -- Étape récursive : ajouter les subordonnés
+    SELECT
+        e.id_employe,
+        e.nom,
+        e.prenom,
+        e.id_manager,
+        h.niveau + 1,
+        h.chemin || ' > ' || e.nom
+    FROM employes AS e
+    INNER JOIN hierarchie AS h ON e.id_manager = h.id_employe
+)
+SELECT
+    REPEAT('  ', niveau) || nom || ' ' || prenom   AS organigramme,
+    niveau
+FROM hierarchie
+ORDER BY chemin;
+```
+
+------------------------------------------------------------------------
+
+# Fonctions de fenêtrage (*Window Functions*) {#sec-window}
+
+Les fonctions de fenêtrage sont parmi les outils les plus puissants de SQL analytique. Contrairement aux agrégations avec `GROUP BY`, elles calculent une valeur pour chaque ligne **tout en conservant le détail de chaque ligne**.
+
+## Syntaxe générale
+
+``` sql
+fonction_fenetre() OVER (
+    [PARTITION BY colonne1, ...]
+    [ORDER BY colonne2 [ASC|DESC]]
+    [ROWS|RANGE BETWEEN ... AND ...]
+)
+```
+
+## Fonctions de classement
+
+``` sql
+SELECT
+    nom,
+    prenom,
+    id_departement,
+    salaire,
+    -- Rang global (sans ex-aequo : laisse des trous)
+    RANK()        OVER (ORDER BY salaire DESC) AS rang_global,
+    -- Rang global (sans trous, avec ex-aequo)
+    DENSE_RANK()  OVER (ORDER BY salaire DESC) AS rang_dense,
+    -- Rang séquentiel (1, 2, 3… sans trous ni ex-aequo)
+    ROW_NUMBER()  OVER (ORDER BY salaire DESC, id_employe) AS numero,
+    -- Rang par département
+    RANK()        OVER (PARTITION BY id_departement ORDER BY salaire DESC) AS rang_dept,
+    -- Percentile (décile)
+    NTILE(10)     OVER (ORDER BY salaire) AS decile
+FROM employes;
+```
+
+## Fonctions d'agrégation fenêtrées
+
+``` sql
+SELECT
+    nom,
+    prenom,
+    id_departement,
+    salaire,
+    -- Moyenne par département (sans GROUP BY)
+    AVG(salaire) OVER (PARTITION BY id_departement) AS moy_dept,
+    -- Écart au salaire moyen du département
+    salaire - AVG(salaire) OVER (PARTITION BY id_departement) AS ecart_dept,
+    -- Somme cumulée des salaires (par ordre d'embauche)
+    SUM(salaire) OVER (
+        PARTITION BY id_departement
+        ORDER BY date_embauche
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+    ) AS masse_salariale_cumul,
+    -- Salaire maximum de la fenêtre glissante des 3 derniers mois
+    MAX(salaire) OVER (
+        ORDER BY date_embauche
+        RANGE BETWEEN INTERVAL '3 months' PRECEDING AND CURRENT ROW
+    ) AS max_glissant
+FROM employes;
+```
+
+## Fonctions de décalage : `LAG` et `LEAD`
+
+Ces fonctions accèdent à des lignes précédentes ou suivantes dans la fenêtre :
+
+``` sql
+SELECT
+    date_embauche,
+    salaire,
+    -- Salaire de l'employé précédent (selon l'ordre d'embauche)
+    LAG(salaire, 1) OVER (ORDER BY date_embauche)   AS salaire_precedent,
+    -- Salaire de l'employé suivant
+    LEAD(salaire, 1) OVER (ORDER BY date_embauche)  AS salaire_suivant,
+    -- Variation par rapport au précédent
+    salaire - LAG(salaire, 1) OVER (ORDER BY date_embauche) AS variation
+FROM employes;
+```
+
+## Fonctions de valeurs limites : `FIRST_VALUE`, `LAST_VALUE`, `NTH_VALUE`
+
+``` sql
+SELECT
+    nom,
+    id_departement,
+    salaire,
+    FIRST_VALUE(nom) OVER (
+        PARTITION BY id_departement
+        ORDER BY salaire DESC
+    ) AS employe_mieux_paye_dept,
+    LAST_VALUE(nom) OVER (
+        PARTITION BY id_departement
+        ORDER BY salaire DESC
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) AS employe_moins_paye_dept
+FROM employes;
+```
+
+------------------------------------------------------------------------
+
+# Vues et vues matérialisées {#sec-vues}
+
+## Créer une vue
+
+Une **vue** est une requête SQL enregistrée sous un nom, accessible comme une table virtuelle. Elle ne stocke pas de données : chaque appel à la vue exécute la requête sous-jacente.
+
+``` sql
+-- Création d'une vue
+CREATE VIEW v_employes_details AS
+SELECT
+    e.id_employe,
+    e.nom,
+    e.prenom,
+    e.email,
+    e.salaire,
+    d.nom           AS departement,
+    d.localisation
+FROM employes AS e
+INNER JOIN departements AS d ON e.id_departement = d.id_departement;
+
+-- Utilisation de la vue comme une table ordinaire
+SELECT * FROM v_employes_details WHERE departement = 'Informatique';
+
+-- Mise à jour d'une vue
+CREATE OR REPLACE VIEW v_employes_details AS
+SELECT
+    e.id_employe,
+    e.nom,
+    e.prenom,
+    e.email,
+    e.salaire,
+    e.date_embauche,
+    d.nom           AS departement,
+    d.localisation
+FROM employes AS e
+INNER JOIN departements AS d ON e.id_departement = d.id_departement;
+
+-- Suppression d'une vue
+DROP VIEW IF EXISTS v_employes_details;
+```
+
+Les vues sont utiles pour : - **Sécurité** : exposer seulement certaines colonnes aux utilisateurs. - **Simplification** : masquer la complexité des jointures derrière un nom simple. - **Cohérence** : centraliser la logique métier dans un seul endroit.
+
+## Vues matérialisées (PostgreSQL)
+
+Une **vue matérialisée** stocke physiquement le résultat de la requête. Elle est plus performante en lecture mais doit être rafraîchie manuellement :
+
+``` sql
+-- Création
+CREATE MATERIALIZED VIEW mv_stats_dept AS
+SELECT
+    d.nom               AS departement,
+    COUNT(*)            AS nb_employes,
+    AVG(e.salaire)      AS salaire_moyen,
+    SUM(e.salaire)      AS masse_salariale
+FROM employes AS e
+INNER JOIN departements AS d ON e.id_departement = d.id_departement
+GROUP BY d.nom;
+
+-- Rafraîchissement (après modification des données sources)
+REFRESH MATERIALIZED VIEW mv_stats_dept;
+
+-- Rafraîchissement sans verrouiller la vue (lecture possible pendant le refresh)
+REFRESH MATERIALIZED VIEW CONCURRENTLY mv_stats_dept;
+```
+
+------------------------------------------------------------------------
+
+# Transactions et intégrité des données {#sec-transactions}
+
+## Principe ACID
+
+Une **transaction** est un ensemble d'opérations SQL traitées comme une unité atomique. Les SGBD relationnels garantissent les propriétés ACID :
+
+| Propriété | Description |
+|----|----|
+| **Atomicité** | Toutes les opérations réussissent, ou aucune n'est appliquée. |
+| **Cohérence** | La base passe d'un état valide à un autre état valide. |
+| **Isolation** | Les transactions concurrentes s'exécutent sans interférence visible. |
+| **Durabilité** | Une transaction validée est persistante, même en cas de panne. |
+
+## Syntaxe des transactions
+
+``` sql
+-- Début explicite d'une transaction
+BEGIN;
+
+-- Opérations
+UPDATE employes SET salaire = salaire * 1.10 WHERE id_departement = 1;
+INSERT INTO historique_salaires (id_employe, ancien_salaire, date_modification)
+    SELECT id_employe, salaire / 1.10, CURRENT_DATE FROM employes
+    WHERE id_departement = 1;
+
+-- Valider (rend les modifications permanentes)
+COMMIT;
+
+-- OU annuler (revient à l'état avant BEGIN)
+ROLLBACK;
+```
+
+## Points de sauvegarde : `SAVEPOINT`
+
+``` sql
+BEGIN;
+
+UPDATE employes SET salaire = 70000 WHERE id_employe = 1;
+
+SAVEPOINT avant_modification_2;
+
+UPDATE employes SET salaire = 80000 WHERE id_employe = 2;
+
+-- Annuler seulement la deuxième modification
+ROLLBACK TO SAVEPOINT avant_modification_2;
+
+-- La première modification est toujours en attente
+COMMIT;   -- valide uniquement la première modification
+```
+
+------------------------------------------------------------------------
+
+# Index et optimisation des performances {#sec-index}
+
+## Comprendre les index
+
+Un **index** est une structure de données auxiliaire qui accélère la recherche de lignes dans une table, au prix d'un espace disque supplémentaire et d'un léger ralentissement des insertions/mises à jour.
+
+``` sql
+-- Index simple sur une colonne fréquemment filtrée
+CREATE INDEX idx_employes_departement
+    ON employes (id_departement);
+
+-- Index unique (garantit l'unicité, comme une contrainte UNIQUE)
+CREATE UNIQUE INDEX idx_employes_email
+    ON employes (email);
+
+-- Index composite (pour les requêtes filtrant sur plusieurs colonnes)
+CREATE INDEX idx_employes_dept_salaire
+    ON employes (id_departement, salaire);
+
+-- Index partiel (uniquement sur un sous-ensemble de lignes)
+CREATE INDEX idx_employes_actifs
+    ON employes (id_departement)
+    WHERE date_depart IS NULL;
+
+-- Suppression d'un index
+DROP INDEX IF EXISTS idx_employes_departement;
+```
+
+## Analyser une requête : `EXPLAIN`
+
+``` sql
+-- Afficher le plan d'exécution
+EXPLAIN
+SELECT * FROM employes WHERE id_departement = 1;
+
+-- Plan d'exécution avec statistiques réelles (PostgreSQL)
+EXPLAIN ANALYZE
+SELECT e.nom, d.nom AS departement
+FROM employes AS e
+INNER JOIN departements AS d ON e.id_departement = d.id_departement
+WHERE e.salaire > 50000;
+```
+
+Le plan d'exécution indique si un index est utilisé (*Index Scan*) ou si la table est lue entièrement (*Sequential Scan*), ainsi que le coût estimé de chaque opération.
+
+## Bonnes pratiques d'optimisation
+
+1.  **Indexer les colonnes de `WHERE` et de `JOIN`** fréquemment utilisées.
+2.  **Éviter `SELECT *`** en production ; sélectionner uniquement les colonnes nécessaires.
+3.  **Filtrer tôt** : les conditions `WHERE` les plus sélectives doivent apparaître en premier.
+4.  **Préférer les jointures aux sous-requêtes corrélées** pour les grandes tables.
+5.  **Utiliser des CTEs** pour décomposer les requêtes complexes et faciliter l'optimisation.
+6.  **Limiter `DISTINCT`** : il implique un tri complet de la table résultat.
+7.  **Mettre à jour les statistiques** régulièrement (`ANALYZE` sous PostgreSQL) pour que l'optimiseur dispose d'informations fraîches.
+
+------------------------------------------------------------------------
+
+# Opérateurs ensemblistes {#sec-ensembles}
+
+Les opérateurs ensemblistes combinent les résultats de deux requêtes `SELECT` ayant le même nombre de colonnes et des types compatibles.
+
+``` sql
+-- UNION : union sans doublons (équivalent à DISTINCT)
+SELECT nom, prenom FROM employes_paris
+UNION
+SELECT nom, prenom FROM employes_lyon;
+
+-- UNION ALL : union avec doublons (plus rapide, pas de tri)
+SELECT nom, prenom FROM employes_paris
+UNION ALL
+SELECT nom, prenom FROM employes_lyon;
+
+-- INTERSECT : lignes présentes dans les deux résultats
+SELECT email FROM liste_A
+INTERSECT
+SELECT email FROM liste_B;
+
+-- EXCEPT (ou MINUS sous Oracle) : lignes de la première absentes de la seconde
+SELECT email FROM liste_A
+EXCEPT
+SELECT email FROM liste_B;
+```
+
+------------------------------------------------------------------------
+
+# Modélisation relationnelle {#sec-modelisation}
+
+## Formes normales
+
+La **normalisation** est le processus d'organisation des données pour réduire la redondance et améliorer l'intégrité.
+
+| Forme normale | Condition principale |
+|----|----|
+| **1FN** | Attributs atomiques (pas de groupes répétitifs dans une colonne) |
+| **2FN** | 1FN + tout attribut non-clé dépend de la clé entière (pas de dépendance partielle) |
+| **3FN** | 2FN + pas de dépendance transitive entre attributs non-clés |
+| **BCNF** | Forme renforcée de la 3FN : chaque déterminant est une clé candidate |
+
+## Exemple de normalisation
+
+**Table non normalisée (1FN violée)**
+
+| commande_id | client | produits      |
+|-------------|--------|---------------|
+| 1           | Alice  | Stylo, Cahier |
+| 2           | Bob    | Livre         |
+
+**Après normalisation (3FN)**
+
+``` sql
+-- Table clients
+CREATE TABLE clients (
+    id_client  INTEGER PRIMARY KEY,
+    nom        VARCHAR(100) NOT NULL
+);
+
+-- Table produits
+CREATE TABLE produits (
+    id_produit  INTEGER PRIMARY KEY,
+    nom         VARCHAR(100) NOT NULL,
+    prix        NUMERIC(8, 2)
+);
+
+-- Table commandes
+CREATE TABLE commandes (
+    id_commande  INTEGER PRIMARY KEY,
+    id_client    INTEGER REFERENCES clients(id_client),
+    date_commande DATE DEFAULT CURRENT_DATE
+);
+
+-- Table de liaison (Many-to-Many entre commandes et produits)
+CREATE TABLE lignes_commande (
+    id_commande  INTEGER REFERENCES commandes(id_commande),
+    id_produit   INTEGER REFERENCES produits(id_produit),
+    quantite     INTEGER NOT NULL CHECK (quantite > 0),
+    PRIMARY KEY (id_commande, id_produit)
+);
+```
+
+## Schémas en étoile et en flocon
+
+Dans le contexte des **entrepôts de données** (*data warehouses*), on utilise des schémas dénormalisés pour optimiser les performances analytiques :
+
+-   **Schéma en étoile** : une table de faits centrale (transactions, ventes, événements) entourée de tables de dimensions (date, produit, client, géographie). Simple et performant pour les requêtes analytiques.
+-   **Schéma en flocon** : les tables de dimensions sont elles-mêmes normalisées, formant une structure arborescente. Plus économe en espace mais plus complexe à interroger.
+
+``` sql
+-- Exemple de table de faits (schéma en étoile)
+CREATE TABLE faits_ventes (
+    id_vente       INTEGER PRIMARY KEY,
+    id_date        INTEGER REFERENCES dim_date(id_date),
+    id_produit     INTEGER REFERENCES dim_produit(id_produit),
+    id_client      INTEGER REFERENCES dim_client(id_client),
+    id_magasin     INTEGER REFERENCES dim_magasin(id_magasin),
+    quantite       INTEGER,
+    montant_ht     NUMERIC(12, 2),
+    montant_tva    NUMERIC(12, 2)
+);
+```
+
+------------------------------------------------------------------------
+
+# Bonnes pratiques et erreurs fréquentes {#sec-bonnes-pratiques}
+
+## Conventions de nommage
+
+Adoptez et respectez une convention cohérente dans tout le projet :
+
+| Objet | Convention recommandée | Exemple |
+|----|----|----|
+| Tables | `snake_case`, pluriel | `employes`, `lignes_commande` |
+| Colonnes | `snake_case` | `date_embauche`, `id_departement` |
+| Clés primaires | `id_[table_singulier]` | `id_employe` |
+| Clés étrangères | Même nom que la PK cible | `id_departement` |
+| Index | `idx_[table]_[colonnes]` | `idx_employes_departement` |
+| Vues | Préfixe `v_` | `v_employes_details` |
+| Vues matérialisées | Préfixe `mv_` | `mv_stats_dept` |
+
+## Erreurs SQL fréquentes
+
+| Erreur | Cause | Solution |
+|----|----|----|
+| `UPDATE` sans `WHERE` | Modification de toutes les lignes | Toujours spécifier `WHERE` ; tester avec `SELECT` d'abord |
+| Alias dans `WHERE` | L'alias du `SELECT` n'est pas encore défini | Répéter l'expression, ou utiliser une CTE |
+| Division par zéro | `salaire / 0` | Utiliser `NULLIF(diviseur, 0)` |
+| Jointure sur NULL | `NULL = NULL` est `UNKNOWN`, pas `TRUE` | Utiliser `IS NULL` ou `COALESCE` |
+| `SELECT *` en production | Colonnes implicites, performances dégradées | Toujours nommer les colonnes explicitement |
+| Oublier `COMMIT` | Transaction pendante bloque d'autres sessions | Toujours terminer par `COMMIT` ou `ROLLBACK` |
+| Filtrer dans `WHERE` au lieu de `ON` | Annule l'effet du `LEFT JOIN` | Conditions sur la table de droite dans `ON` pour les LEFT JOINs |
+
+## Checklist avant d'exécuter en production
+
+-   [ ] La requête a-t-elle été testée sur un environnement de développement ?
+-   [ ] Le `WHERE` du `UPDATE`/`DELETE` a-t-il été vérifié avec un `SELECT` préalable ?
+-   [ ] Les sauvegardes sont-elles à jour ?
+-   [ ] La requête est-elle encapsulée dans une transaction pour permettre un rollback ?
+-   [ ] Les index nécessaires sont-ils en place (vérifier avec `EXPLAIN`) ?
+
+------------------------------------------------------------------------
+
+# Exercices pratiques {#sec-exercices}
+
+Utilisez les tables suivantes pour les exercices :
+
+``` sql
+-- Schéma de référence
+employes(id_employe, nom, prenom, email, date_embauche, salaire, id_departement, id_manager)
+departements(id_departement, nom, localisation, budget)
+projets(id_projet, nom_projet, date_debut, date_fin, id_departement)
+employe_projet(id_employe, id_projet, heures_allouees, role)
+```
+
+## Exercice 1 — Requêtes de base
+
+1.  Listez tous les employés dont le salaire est supérieur à 50 000 €, triés par nom.
+2.  Affichez les 3 employés les mieux payés.
+3.  Listez les emails de tous les employés commençant par la lettre `'m'` (insensible à la casse).
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` sql
+-- 1.
+SELECT nom, prenom, salaire
+FROM employes
+WHERE salaire > 50000
+ORDER BY nom;
+
+-- 2.
+SELECT nom, prenom, salaire
+FROM employes
+ORDER BY salaire DESC
+LIMIT 3;
+
+-- 3.
+SELECT email
+FROM employes
+WHERE LOWER(email) LIKE 'm%';
+```
+:::
+
+## Exercice 2 — Agrégations
+
+1.  Calculez le salaire moyen, minimum et maximum par département.
+2.  Trouvez les départements dont le budget est inférieur à la masse salariale totale de leurs employés.
+3.  Affichez le nombre de projets en cours (date_debut ≤ aujourd'hui ≤ date_fin) par département.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` sql
+-- 1.
+SELECT
+    id_departement,
+    ROUND(AVG(salaire), 2) AS salaire_moyen,
+    MIN(salaire)           AS salaire_min,
+    MAX(salaire)           AS salaire_max
+FROM employes
+GROUP BY id_departement;
+
+-- 2.
+SELECT
+    d.nom        AS departement,
+    d.budget,
+    SUM(e.salaire) AS masse_salariale
+FROM departements AS d
+INNER JOIN employes AS e ON e.id_departement = d.id_departement
+GROUP BY d.id_departement, d.nom, d.budget
+HAVING d.budget < SUM(e.salaire);
+
+-- 3.
+SELECT
+    d.nom         AS departement,
+    COUNT(p.id_projet) AS projets_en_cours
+FROM departements AS d
+LEFT JOIN projets AS p
+    ON p.id_departement = d.id_departement
+   AND p.date_debut <= CURRENT_DATE
+   AND p.date_fin   >= CURRENT_DATE
+GROUP BY d.nom
+ORDER BY projets_en_cours DESC;
+```
+:::
+
+## Exercice 3 — Jointures
+
+1.  Affichez pour chaque employé son nom, son département et le nombre de projets auxquels il participe.
+2.  Trouvez les employés qui ne sont affectés à aucun projet.
+3.  Affichez les projets avec le nom du manager du département responsable.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` sql
+-- 1.
+SELECT
+    e.nom,
+    e.prenom,
+    d.nom                    AS departement,
+    COUNT(ep.id_projet)      AS nb_projets
+FROM employes AS e
+INNER JOIN departements   AS d  ON e.id_departement = d.id_departement
+LEFT  JOIN employe_projet AS ep ON e.id_employe     = ep.id_employe
+GROUP BY e.id_employe, e.nom, e.prenom, d.nom
+ORDER BY nb_projets DESC;
+
+-- 2.
+SELECT e.nom, e.prenom
+FROM employes AS e
+LEFT JOIN employe_projet AS ep ON e.id_employe = ep.id_employe
+WHERE ep.id_employe IS NULL;
+
+-- 3.
+SELECT
+    p.nom_projet,
+    d.nom          AS departement,
+    m.nom          AS manager_nom,
+    m.prenom       AS manager_prenom
+FROM projets AS p
+INNER JOIN departements AS d ON p.id_departement = d.id_departement
+INNER JOIN employes     AS m ON d.id_manager     = m.id_employe;
+```
+:::
+
+## Exercice 4 — Fonctions de fenêtrage
+
+1.  Pour chaque employé, affichez son rang salarial au sein de son département.
+2.  Calculez la somme cumulée des salaires par date d'embauche (ordre chronologique).
+3.  Pour chaque employé, affichez l'écart de salaire avec le mieux payé de son département.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` sql
+-- 1.
+SELECT
+    nom,
+    prenom,
+    id_departement,
+    salaire,
+    RANK() OVER (PARTITION BY id_departement ORDER BY salaire DESC) AS rang_dept
+FROM employes;
+
+-- 2.
+SELECT
+    nom,
+    prenom,
+    date_embauche,
+    salaire,
+    SUM(salaire) OVER (ORDER BY date_embauche ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumul_salaires
+FROM employes;
+
+-- 3.
+SELECT
+    nom,
+    prenom,
+    salaire,
+    MAX(salaire) OVER (PARTITION BY id_departement) - salaire AS ecart_max_dept
+FROM employes;
+```
+:::
+
+------------------------------------------------------------------------
+
+# Ressources complémentaires {#sec-ressources}
+
+## Environnements de pratique en ligne
+
+-   [**SQLiteOnline**](https://sqliteonline.com/) : éditeur SQLite dans le navigateur, sans inscription.
+-   [**DB Fiddle**](https://www.db-fiddle.com/) : test de requêtes sur PostgreSQL, MySQL ou SQLite.
+-   [**Mode Analytics SQL Tutorial**](https://mode.com/sql-tutorial/) : tutoriel interactif avec jeux de données réels.
+-   [**LeetCode SQL**](https://leetcode.com/problemset/database/) : exercices progressifs pour l'entraînement et les entretiens.
+-   [**SQLZoo**](https://sqlzoo.net/) : tutoriel interactif en ligne, classique et complet.
+
+## Documentation de référence
+
+-   [**PostgreSQL Documentation**](https://www.postgresql.org/docs/) : la référence la plus exhaustive, bien structurée.
+-   [**MySQL Reference Manual**](https://dev.mysql.com/doc/refman/8.0/en/)
+-   [**SQLite Documentation**](https://www.sqlite.org/docs.html)
+-   [**Mode: SQL Style Guide**](https://mode.com/sql-style-guide/) : convention de formatage SQL largement adoptée.
+
+## SQL et Python/R
+
+``` python
+# Python : DuckDB (SQL analytique directement sur DataFrames)
+import duckdb
+import pandas as pd
+
+df = pd.read_csv("employes.csv")
+result = duckdb.query("""
+    SELECT id_departement, AVG(salaire) AS salaire_moyen
+    FROM df
+    GROUP BY id_departement
+    ORDER BY salaire_moyen DESC
+""").df()
+```
+
+``` r
+# R : dplyr avec traduction SQL via dbplyr
+library(DBI)
+library(dplyr)
+
+con <- dbConnect(RSQLite::SQLite(), "ma_base.sqlite")
+employes <- tbl(con, "employes")
+
+employes |>
+  group_by(id_departement) |>
+  summarise(salaire_moyen = mean(salaire, na.rm = TRUE)) |>
+  arrange(desc(salaire_moyen))
+```
+
+::: callout-tip
+## Pour aller plus loin
+
+Une fois les bases maîtrisées, explorez :
+
+-   **Procédures stockées et fonctions** : logique métier côté base de données.
+-   **Triggers** : actions automatiques déclenchées par des événements (`INSERT`, `UPDATE`).
+-   **Partitionnement de tables** : découper une très grande table en partitions pour des performances optimales.
+-   **Réplication et haute disponibilité** : PostgreSQL Streaming Replication, MySQL Group Replication.
+-   **SQL analytique** : Snowflake, BigQuery, Amazon Redshift, DuckDB pour les analyses à grande échelle.
+-   **dbt** (*data build tool*) : orchestration de transformations SQL versionnées et testables.
+:::

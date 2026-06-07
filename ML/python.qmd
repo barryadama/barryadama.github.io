@@ -1,0 +1,2331 @@
+---
+title: ""
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    toc-location: left
+    number-sections: true
+    number-depth: 3
+    code-fold: false
+    code-copy: true
+    css: style.css
+    self-contained: true
+---
+
+# Introduction {#sec-intro}
+
+Python est un langage de programmation généraliste, interprété et à typage dynamique, créé par Guido van Rossum et publié en 1991. Sa philosophie repose sur la lisibilité du code et la simplicité de la syntaxe : en Python, un problème bien posé se traduit souvent en quelques lignes claires et expressives.
+
+Aujourd'hui, Python s'est imposé comme le langage de référence dans des domaines aussi variés que :
+
+-   **L'analyse et la science des données** : `pandas`, `NumPy`, `SciPy`
+-   **L'apprentissage automatique** : `scikit-learn`, `PyTorch`, `TensorFlow`
+-   **La visualisation** : `Matplotlib`, `Seaborn`, `Plotly`
+-   **Le développement web** : `Django`, `FastAPI`, `Flask`
+-   **L'automatisation et le scripting** : manipulation de fichiers, APIs, pipelines
+
+::: callout-note
+## Le Zen de Python
+
+Exécutez `import this` dans un interpréteur Python pour afficher les 19 principes de conception du langage. Parmi les plus importants : *"Beautiful is better than ugly"*, *"Explicit is better than implicit"*, *"Simple is better than complex"*.
+:::
+
+## Environnements recommandés
+
+| Environnement                     | Usage                                 |
+|-----------------------------------|---------------------------------------|
+| **Jupyter Notebook / JupyterLab** | Exploration interactive, data science |
+| **VS Code**                       | Développement général, scripts        |
+| **PyCharm**                       | Projets Python complexes              |
+| **Google Colab**                  | Notebooks en ligne, GPU gratuit       |
+| **Spyder**                        | Scientifique, proche de RStudio       |
+
+Pour installer Python : téléchargez [Anaconda](https://www.anaconda.com/) (inclut Python, Jupyter et les packages scientifiques) ou [Python](https://www.python.org/) seul.
+
+## Structure du tutoriel
+
+| Partie | Sections | Thèmes |
+|----|----|----|
+| Fondamentaux | 2 à 6 | Variables, types, chaînes, opérateurs, entrées/sorties |
+| Structures de données | 7 à 10 | Listes, tuples, dictionnaires, ensembles |
+| Contrôle du flux | 11 à 12 | Conditions, boucles |
+| Fonctions et modules | 13 à 14 | Fonctions, portée, modules |
+| POO | 15 | Classes, héritage, polymorphisme |
+| Data science | 16 à 18 | NumPy, Pandas, Matplotlib |
+
+------------------------------------------------------------------------
+
+# Variables et types de données {#sec-variables}
+
+## Déclaration et affectation
+
+En Python, une variable est créée au moment de son affectation. Il n'y a pas de déclaration de type explicite : le type est **inféré dynamiquement** à partir de la valeur assignée.
+
+``` python
+# Affectation simple
+nom       = "Alice"
+age       = 30
+taille    = 1.68
+est_actif = True
+
+# Affectation multiple sur une ligne
+x, y, z = 1, 2, 3
+
+# Affectation d'une même valeur à plusieurs variables
+a = b = c = 0
+
+# Échange de valeurs (sans variable temporaire)
+x, y = y, x
+
+# Afficher le type d'une variable
+print(type(age))       # <class 'int'>
+print(type(taille))    # <class 'float'>
+print(type(nom))       # <class 'str'>
+```
+
+## Types de base
+
+### Entiers (`int`)
+
+``` python
+x = 42
+y = -7
+grand = 1_000_000      # underscores autorisés pour la lisibilité
+binaire = 0b1010       # base 2  → 10
+octal   = 0o17         # base 8  → 15
+hexa    = 0xFF         # base 16 → 255
+
+# Python gère nativement les grands entiers (pas de overflow)
+factorielle_20 = 2432902008176640000
+```
+
+### Flottants (`float`)
+
+``` python
+pi      = 3.14159
+e       = 2.71828
+petit   = 1.5e-10      # notation scientifique
+grand   = 6.022e23     # nombre d'Avogadro
+
+# Précision flottante : attention aux comparaisons
+0.1 + 0.2 == 0.3       # False ! (erreur de représentation binaire)
+abs(0.1 + 0.2 - 0.3) < 1e-9  # True : comparer avec une tolérance
+```
+
+### Booléens (`bool`)
+
+``` python
+vrai  = True
+faux  = False
+
+# Les booléens héritent de int
+True  + True  == 2     # True
+False + 1     == 1     # True
+bool(0)       == False # True
+bool("")      == False # True  (chaîne vide = falsy)
+bool([])      == False # True  (liste vide = falsy)
+bool(None)    == False # True
+```
+
+### Valeur nulle (`None`)
+
+``` python
+resultat = None   # absence de valeur, équivalent de NULL en SQL
+
+# Test d'identité (toujours utiliser 'is', jamais '==')
+if resultat is None:
+    print("Pas encore calculé")
+```
+
+## Conversion de types
+
+``` python
+# Conversions explicites (casting)
+int("42")         # → 42
+int(3.9)          # → 3   (troncature, pas arrondi)
+float("3.14")     # → 3.14
+str(42)           # → "42"
+bool(0)           # → False
+bool("hello")     # → True
+
+# Vérifier le type
+isinstance(42, int)        # True
+isinstance(42, (int, float))  # True (plusieurs types)
+```
+
+## Constantes et conventions de nommage
+
+``` python
+# Convention PEP 8 pour les noms de variables
+nom_de_variable    = "snake_case recommandé"
+NOM_CONSTANTE      = 3.14159   # majuscules pour les constantes (convention)
+_variable_privee   = "usage interne"
+__variable_mangled = "name mangling dans les classes"
+
+# Noms réservés (mots-clés) — ne pas utiliser comme identifiants
+# False, None, True, and, as, assert, async, await, break, class,
+# continue, def, del, elif, else, except, finally, for, from,
+# global, if, import, in, is, lambda, nonlocal, not, or, pass,
+# raise, return, try, while, with, yield
+```
+
+------------------------------------------------------------------------
+
+# Chaînes de caractères {#sec-chaines}
+
+Les chaînes (`str`) sont des séquences **immuables** de caractères Unicode. Python offre un arsenal très riche pour les manipuler.
+
+## Création et délimiteurs
+
+``` python
+simple   = 'Bonjour'
+double   = "Bonjour"
+triple_s = '''Texte sur
+plusieurs lignes'''
+triple_d = """Autre texte
+multiligne"""
+
+# Chaîne brute (ignore les séquences d'échappement)
+chemin   = r"C:\Users\Alice\Documents"
+
+# Chaîne d'octets
+octets   = b"données binaires"
+```
+
+## Séquences d'échappement
+
+``` python
+print("Ligne 1\nLigne 2")    # saut de ligne
+print("col1\tcol2")          # tabulation
+print("Il a dit : \"Bonjour\"")  # guillemets
+print("C:\\Users\\Alice")    # antislash
+```
+
+## F-strings (formatage moderne, Python 3.6+)
+
+``` python
+nom    = "Alice"
+age    = 30
+salaire = 52000.5
+
+# Interpolation simple
+print(f"Bonjour, {nom} ! Tu as {age} ans.")
+
+# Expressions dans les f-strings
+print(f"Dans 10 ans tu auras {age + 10} ans.")
+
+# Formatage numérique
+print(f"Salaire : {salaire:,.2f} €")       # 52,000.50 €
+print(f"Salaire : {salaire:>12.2f}")       # aligné à droite
+print(f"Pi ≈ {3.14159:.3f}")               # 3 décimales → 3.142
+print(f"Ratio : {0.857:.1%}")              # pourcentage → 85.7%
+print(f"Entier : {255:#010b}")             # binaire avec préfixe
+
+# Débogage (Python 3.8+)
+valeur = 42
+print(f"{valeur = }")   # affiche : valeur = 42
+```
+
+## Méthodes de chaînes
+
+``` python
+s = "  Bonjour, Monde !  "
+
+# Casse
+s.upper()          # "  BONJOUR, MONDE !  "
+s.lower()          # "  bonjour, monde !  "
+s.title()          # "  Bonjour, Monde !  "
+s.capitalize()     # "  bonjour, monde !  " (première lettre seulement)
+s.swapcase()       # inverse la casse
+
+# Nettoyage
+s.strip()          # "Bonjour, Monde !"   (supprime espaces des deux côtés)
+s.lstrip()         # supprime à gauche
+s.rstrip()         # supprime à droite
+s.strip("!")       # supprime le caractère spécifié
+
+# Recherche
+s.find("Monde")    # index de la première occurrence (-1 si absent)
+s.index("Monde")   # idem mais lève ValueError si absent
+s.count("o")       # nombre d'occurrences
+s.startswith("  B")  # True
+s.endswith("!  ")    # True
+"Monde" in s         # True
+
+# Remplacement et découpage
+s.replace("Monde", "Python")
+s.split(",")         # ["  Bonjour", " Monde !  "]
+s.split()            # ["Bonjour,", "Monde", "!"]  (séparateur = espaces)
+", ".join(["a", "b", "c"])  # "a, b, c"
+
+# Vérification
+"123".isdigit()      # True
+"abc".isalpha()      # True
+"abc123".isalnum()   # True
+"   ".isspace()      # True
+```
+
+## Indexation et slicing
+
+Les chaînes sont des séquences indexées à partir de 0. Les indices négatifs partent de la fin :
+
+``` python
+s = "Python"
+#    P  y  t  h  o  n
+#    0  1  2  3  4  5
+#   -6 -5 -4 -3 -2 -1
+
+s[0]      # 'P'
+s[-1]     # 'n'  (dernier caractère)
+s[1:4]    # 'yth'   (du 1 inclus au 4 exclus)
+s[:3]     # 'Pyt'   (depuis le début)
+s[3:]     # 'hon'   (jusqu'à la fin)
+s[::2]    # 'Pto'   (un caractère sur deux)
+s[::-1]   # 'nohtyP' (inversion)
+```
+
+------------------------------------------------------------------------
+
+# Opérateurs {#sec-operateurs}
+
+## Opérateurs arithmétiques
+
+``` python
+a, b = 17, 5
+
+a + b     # 22  (addition)
+a - b     # 12  (soustraction)
+a * b     # 85  (multiplication)
+a / b     # 3.4 (division réelle — toujours un float)
+a // b    # 3   (division entière — quotient)
+a % b     # 2   (modulo — reste)
+a ** b    # 1419857  (puissance)
+
+# Affectation augmentée
+x = 10
+x += 5    # x = 15
+x -= 3    # x = 12
+x *= 2    # x = 24
+x //= 5   # x = 4
+x **= 3   # x = 64
+```
+
+## Opérateurs de comparaison
+
+``` python
+5 == 5    # True  (égalité de valeur)
+5 != 3    # True  (différence)
+5 >  3    # True
+5 >= 5    # True
+3 <  5    # True
+3 <= 3    # True
+
+# Chaînage de comparaisons (pythonique)
+0 < x < 10       # équivalent à (0 < x) and (x < 10)
+1 <= age <= 120
+```
+
+## Opérateurs logiques
+
+``` python
+True  and False   # False
+True  or  False   # True
+not   True        # False
+
+# Court-circuit : Python s'arrête dès que le résultat est déterminé
+x = None
+if x is not None and x > 0:   # pas d'erreur : si x est None, la 2e condition n'est pas évaluée
+    print(x)
+
+# Opérateur ternaire (if-else en une ligne)
+statut = "majeur" if age >= 18 else "mineur"
+```
+
+## Opérateurs sur les identités et l'appartenance
+
+``` python
+a = [1, 2, 3]
+b = a          # b pointe vers le même objet
+c = [1, 2, 3]  # c est un objet distinct
+
+a is b         # True  (même objet en mémoire)
+a is c         # False (objets distincts)
+a == c         # True  (même valeur)
+
+2 in  a        # True
+5 not in a     # True
+```
+
+------------------------------------------------------------------------
+
+# Entrées / Sorties {#sec-io}
+
+## La fonction `print()`
+
+``` python
+# Affichage simple
+print("Bonjour le monde")
+
+# Plusieurs arguments
+print("x =", 42, "et y =", 3.14)
+
+# Séparateur personnalisé
+print("a", "b", "c", sep=" | ")   # a | b | c
+
+# Fin de ligne personnalisée
+print("Ligne 1", end=" ")
+print("suite sur la même ligne")
+
+# Afficher dans un fichier
+with open("sortie.txt", "w") as f:
+    print("Contenu du fichier", file=f)
+```
+
+## La fonction `input()`
+
+``` python
+nom = input("Entrez votre nom : ")
+print(f"Bonjour, {nom} !")
+
+# input() retourne toujours une chaîne — convertir si nécessaire
+age_str = input("Entrez votre âge : ")
+age     = int(age_str)
+
+# En une ligne
+salaire = float(input("Salaire mensuel : "))
+```
+
+## Lecture et écriture de fichiers
+
+``` python
+# Écriture
+with open("donnees.txt", "w", encoding="utf-8") as f:
+    f.write("Ligne 1\n")
+    f.write("Ligne 2\n")
+    f.writelines(["Ligne 3\n", "Ligne 4\n"])
+
+# Lecture complète
+with open("donnees.txt", "r", encoding="utf-8") as f:
+    contenu = f.read()         # tout le fichier en une chaîne
+
+# Lecture ligne par ligne (efficace pour les grands fichiers)
+with open("donnees.txt", "r", encoding="utf-8") as f:
+    for ligne in f:
+        print(ligne.strip())
+
+# Lecture en liste de lignes
+with open("donnees.txt", "r", encoding="utf-8") as f:
+    lignes = f.readlines()     # liste de chaînes avec '\n'
+```
+
+::: callout-tip
+## Le gestionnaire `with`
+
+L'instruction `with open(...) as f:` garantit que le fichier est **fermé automatiquement** à la sortie du bloc, même en cas d'exception. C'est la façon recommandée de manipuler des fichiers en Python.
+:::
+
+------------------------------------------------------------------------
+
+# Listes {#sec-listes}
+
+Une **liste** (`list`) est une séquence **ordonnée** et **mutable** d'éléments hétérogènes. C'est la structure de données la plus utilisée en Python.
+
+## Création
+
+``` python
+vide        = []
+entiers     = [1, 2, 3, 4, 5]
+mixte       = [42, "Alice", 3.14, True, None]
+imbriquee   = [[1, 2], [3, 4], [5, 6]]
+
+# Depuis une séquence
+lettres     = list("Python")   # ['P', 'y', 't', 'h', 'o', 'n']
+plage       = list(range(10))  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+## Indexation et slicing
+
+Identique aux chaînes : indices 0 à n-1, indices négatifs depuis la fin, slicing `[début:fin:pas]`.
+
+``` python
+lst = [10, 20, 30, 40, 50]
+
+lst[0]       # 10
+lst[-1]      # 50
+lst[1:3]     # [20, 30]
+lst[::-1]    # [50, 40, 30, 20, 10]
+
+# Modification via indexation (les listes sont mutables)
+lst[0] = 99
+lst[1:3] = [200, 300]
+```
+
+## Méthodes principales
+
+``` python
+lst = [3, 1, 4, 1, 5, 9, 2, 6]
+
+# Ajout
+lst.append(7)           # ajoute 7 à la fin
+lst.insert(2, 99)       # insère 99 à l'index 2
+lst.extend([8, 8])      # ajoute plusieurs éléments
+
+# Suppression
+lst.remove(1)           # supprime la première occurrence de 1
+popped = lst.pop()      # retire et retourne le dernier élément
+popped = lst.pop(0)     # retire et retourne l'élément à l'index 0
+del lst[2]              # supprime l'élément à l'index 2
+del lst[1:3]            # supprime une tranche
+
+# Recherche et tri
+lst.index(5)            # index de la première occurrence de 5
+lst.count(1)            # nombre d'occurrences de 1
+lst.sort()              # tri en place (modifie la liste)
+lst.sort(reverse=True)  # tri décroissant
+lst.reverse()           # inversion en place
+sorted(lst)             # retourne une nouvelle liste triée (lst inchangée)
+
+# Copie
+copie_shallow = lst.copy()     # ou lst[:]
+import copy
+copie_deep    = copy.deepcopy(lst)  # pour les listes imbriquées
+
+# Divers
+len(lst)        # longueur
+sum(lst)        # somme (si éléments numériques)
+min(lst)        # minimum
+max(lst)        # maximum
+lst.clear()     # vide la liste
+```
+
+## Compréhensions de listes
+
+Les **list comprehensions** sont une syntaxe concise et pythonique pour construire des listes :
+
+``` python
+# Syntaxe : [expression for variable in itérable if condition]
+
+# Carrés de 0 à 9
+carres = [x**2 for x in range(10)]
+# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# Nombres pairs uniquement
+pairs = [x for x in range(20) if x % 2 == 0]
+
+# Transformation de chaînes
+mots  = ["python", "sql", "r"]
+upper = [m.upper() for m in mots]
+
+# Compréhension imbriquée (produit cartésien)
+paires = [(x, y) for x in range(3) for y in range(3)]
+
+# Avec condition if/else dans l'expression
+signe = ["positif" if x > 0 else "négatif ou nul" for x in [-2, 0, 3, 7]]
+
+# Aplatissement d'une liste imbriquée
+matrice = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+plat    = [val for ligne in matrice for val in ligne]
+```
+
+------------------------------------------------------------------------
+
+# Tuples {#sec-tuples}
+
+Un **tuple** (`tuple`) est une séquence **ordonnée** et **immuable**. On l'utilise pour des collections dont les éléments ne doivent pas changer (coordonnées, couleurs RGB, résultats de fonctions…).
+
+## Création
+
+``` python
+vide         = ()
+singleton    = (42,)         # la virgule est obligatoire pour un singleton
+coordonnees  = (48.8566, 2.3522)   # latitude, longitude de Paris
+couleur_rgb  = (255, 128, 0)
+mixte        = (1, "deux", 3.0, True)
+
+# Sans parenthèses (packing)
+point = 3, 4              # équivalent à (3, 4)
+
+# Depuis un itérable
+depuis_liste = tuple([1, 2, 3])
+depuis_chaine = tuple("abc")  # ('a', 'b', 'c')
+```
+
+## Opérations
+
+``` python
+t = (10, 20, 30, 40, 50)
+
+t[0]         # 10
+t[-1]        # 50
+t[1:3]       # (20, 30)
+len(t)       # 5
+20 in t      # True
+
+# Concaténation et répétition
+t + (60, 70)    # (10, 20, 30, 40, 50, 60, 70)
+(0,) * 5        # (0, 0, 0, 0, 0)
+
+# Déballage (unpacking)
+x, y, z, a, b  = t
+lat, lon        = (48.8566, 2.3522)
+
+# Déballage étendu (Python 3+)
+premier, *reste = t             # premier=10, reste=[20, 30, 40, 50]
+*debut, dernier = t             # debut=[10, 20, 30, 40], dernier=50
+premier, *milieu, dernier = t   # premier=10, milieu=[20,30,40], dernier=50
+
+# Retour multiple de fonctions (en réalité un tuple)
+def divmod_custom(a, b):
+    return a // b, a % b        # retourne un tuple
+
+quotient, reste = divmod_custom(17, 5)
+```
+
+## Tuples nommés (`namedtuple`)
+
+``` python
+from collections import namedtuple
+
+Point    = namedtuple("Point", ["x", "y"])
+Employe  = namedtuple("Employe", ["nom", "prenom", "salaire"])
+
+p = Point(3, 4)
+e = Employe("Martin", "Sophie", 52000)
+
+print(p.x, p.y)           # 3 4
+print(e.nom, e.salaire)   # Martin 52000
+print(p)                  # Point(x=3, y=4)
+
+# Convertir en dictionnaire
+print(e._asdict())         # OrderedDict(...)
+```
+
+## Tuple vs Liste : quand choisir ?
+
+| Critère | Liste | Tuple |
+|----|----|----|
+| Mutabilité | Mutable | Immuable |
+| Utilisation | Collections évolutives | Données fixes, coordonnées, clés de dict |
+| Performance | Légèrement plus lent | Plus rapide (immuable) |
+| Mémoire | Plus gourmand | Plus léger |
+| Peut être clé de dict | Non | Oui (si tous les éléments sont hashables) |
+
+------------------------------------------------------------------------
+
+# Dictionnaires {#sec-dictionnaires}
+
+Un **dictionnaire** (`dict`) est une collection **non ordonnée** (ordonnée depuis Python 3.7) de paires **clé → valeur**. Les clés doivent être immuables (chaînes, entiers, tuples).
+
+## Création
+
+``` python
+vide  = {}
+vide2 = dict()
+
+employe = {
+    "nom":          "Martin",
+    "prenom":       "Sophie",
+    "age":          32,
+    "salaire":      52000.0,
+    "competences":  ["Python", "SQL", "R"],
+    "actif":        True
+}
+
+# Depuis une liste de paires
+paires = dict([("a", 1), ("b", 2), ("c", 3)])
+
+# Depuis des listes de clés et valeurs
+cles   = ["x", "y", "z"]
+vals   = [10, 20, 30]
+d = dict(zip(cles, vals))     # {"x": 10, "y": 20, "z": 30}
+
+# dict.fromkeys : initialiser toutes les clés à une même valeur
+compteurs = dict.fromkeys(["paris", "lyon", "nantes"], 0)
+```
+
+## Accès et modification
+
+``` python
+d = {"a": 1, "b": 2, "c": 3}
+
+# Accès
+d["a"]                    # 1
+d.get("a")                # 1  (retourne None si absent, pas d'erreur)
+d.get("z", 0)             # 0  (valeur par défaut si absent)
+
+# Modification
+d["a"]  = 10              # modifier une valeur existante
+d["d"]  = 4               # ajouter une nouvelle paire clé-valeur
+
+# Mise à jour par fusion
+d.update({"e": 5, "f": 6})
+d.update(g=7, h=8)        # syntaxe mot-clé
+
+# Fusion de dictionnaires (Python 3.9+)
+d1 = {"a": 1, "b": 2}
+d2 = {"b": 20, "c": 3}
+fusionne = d1 | d2        # {"a": 1, "b": 20, "c": 3}  (d2 écrase d1)
+
+# Suppression
+del d["a"]
+valeur = d.pop("b")       # retire et retourne la valeur
+d.pop("z", None)          # pas d'erreur si la clé est absente
+d.popitem()               # retire et retourne la dernière paire insérée
+d.clear()                 # vide le dictionnaire
+```
+
+## Méthodes d'itération
+
+``` python
+d = {"nom": "Alice", "age": 30, "ville": "Paris"}
+
+# Itérer sur les clés (par défaut)
+for cle in d:
+    print(cle)
+
+# Itérer sur les valeurs
+for val in d.values():
+    print(val)
+
+# Itérer sur les paires clé-valeur
+for cle, val in d.items():
+    print(f"{cle} : {val}")
+
+# Vérifier l'appartenance
+"nom" in d          # True  (cherche dans les clés)
+"Alice" in d.values()  # True
+```
+
+## Compréhensions de dictionnaires
+
+``` python
+# Syntaxe : {cle: valeur for var in itérable if condition}
+
+# Carré de chaque nombre
+carres = {x: x**2 for x in range(6)}
+# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+# Filtrer un dictionnaire (garder les salaires > 50 000)
+salaires = {"Alice": 52000, "Bob": 48000, "Claire": 61000}
+hauts_salaires = {nom: sal for nom, sal in salaires.items() if sal > 50000}
+
+# Inverser clés et valeurs
+inverse = {v: k for k, v in d.items()}
+```
+
+## `defaultdict` et `Counter`
+
+``` python
+from collections import defaultdict, Counter
+
+# defaultdict : valeur par défaut si clé absente
+compteur = defaultdict(int)
+mots = ["python", "sql", "python", "r", "python"]
+for mot in mots:
+    compteur[mot] += 1     # pas d'erreur si la clé n'existe pas encore
+# defaultdict(<class 'int'>, {'python': 3, 'sql': 1, 'r': 1})
+
+# Counter : comptage automatique
+c = Counter(mots)
+print(c.most_common(2))    # [('python', 3), ('sql', 1)]
+```
+
+------------------------------------------------------------------------
+
+# Ensembles (`set`) {#sec-ensembles}
+
+Un **ensemble** (`set`) est une collection **non ordonnée** d'éléments **uniques** et **hashables**.
+
+``` python
+a = {1, 2, 3, 4, 5}
+b = {3, 4, 5, 6, 7}
+
+# Opérations ensemblistes
+a | b              # union         : {1,2,3,4,5,6,7}
+a & b              # intersection  : {3,4,5}
+a - b              # différence    : {1,2}
+b - a              # différence    : {6,7}
+a ^ b              # différence symétrique : {1,2,6,7}
+
+# Méthodes
+a.add(6)           # ajouter un élément
+a.discard(99)      # supprimer sans erreur si absent
+a.remove(1)        # supprimer (lève KeyError si absent)
+len(a)             # cardinal
+
+# Tests
+3 in a             # True
+a.issubset(b)      # True si a ⊆ b
+a.issuperset(b)    # True si a ⊇ b
+a.isdisjoint(b)    # True si a ∩ b = ∅
+
+# Dédoublonnage d'une liste
+liste_avec_doublons = [1, 2, 2, 3, 3, 3, 4]
+unique = list(set(liste_avec_doublons))   # [1, 2, 3, 4] (ordre non garanti)
+```
+
+------------------------------------------------------------------------
+
+# Conditions et branchements {#sec-conditions}
+
+## `if`, `elif`, `else`
+
+``` python
+score = 75
+
+if score >= 90:
+    mention = "Très bien"
+elif score >= 75:
+    mention = "Bien"
+elif score >= 60:
+    mention = "Assez bien"
+elif score >= 50:
+    mention = "Passable"
+else:
+    mention = "Insuffisant"
+
+print(f"Mention : {mention}")
+```
+
+## `match` / `case` (Python 3.10+)
+
+Équivalent du `switch` d'autres langages, mais bien plus puissant :
+
+``` python
+commande = "quitter"
+
+match commande:
+    case "aide":
+        print("Afficher l'aide")
+    case "quitter" | "exit" | "q":
+        print("Au revoir !")
+    case "version":
+        print("Python 3.12")
+    case _:
+        print(f"Commande inconnue : {commande}")
+
+# Pattern matching sur des structures
+point = (0, 5)
+match point:
+    case (0, 0):
+        print("Origine")
+    case (0, y):
+        print(f"Sur l'axe Y : y={y}")
+    case (x, 0):
+        print(f"Sur l'axe X : x={x}")
+    case (x, y):
+        print(f"Point quelconque ({x}, {y})")
+```
+
+------------------------------------------------------------------------
+
+# Boucles {#sec-boucles}
+
+## Boucle `for`
+
+La boucle `for` itère sur n'importe quel **itérable** (liste, tuple, chaîne, dictionnaire, fichier…).
+
+``` python
+# Sur une liste
+for fruit in ["pomme", "banane", "cerise"]:
+    print(fruit)
+
+# Sur un range
+for i in range(5):         # 0, 1, 2, 3, 4
+    print(i)
+
+for i in range(2, 10, 2):  # 2, 4, 6, 8 (début, fin exclusive, pas)
+    print(i)
+
+# Sur une chaîne
+for lettre in "Python":
+    print(lettre)
+
+# Sur un dictionnaire
+employe = {"nom": "Alice", "age": 30}
+for cle, valeur in employe.items():
+    print(f"{cle} : {valeur}")
+
+# Avec index : enumerate()
+fruits = ["pomme", "banane", "cerise"]
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")
+
+for i, fruit in enumerate(fruits, start=1):  # numérotation depuis 1
+    print(f"{i}. {fruit}")
+
+# Parallèle sur plusieurs listes : zip()
+noms    = ["Alice", "Bob", "Claire"]
+scores  = [85, 92, 78]
+for nom, score in zip(noms, scores):
+    print(f"{nom} : {score}")
+
+# zip_longest : continue même si les listes ont des tailles différentes
+from itertools import zip_longest
+for a, b in zip_longest([1, 2, 3], ["x", "y"], fillvalue=None):
+    print(a, b)
+```
+
+## Boucle `while`
+
+La boucle `while` s'exécute tant qu'une condition est vraie.
+
+``` python
+# Compte à rebours
+compteur = 5
+while compteur > 0:
+    print(f"T-{compteur}")
+    compteur -= 1
+print("Décollage !")
+
+# Lecture tant que l'entrée n'est pas valide
+while True:
+    reponse = input("Continuer ? (o/n) : ").lower()
+    if reponse in ("o", "n"):
+        break
+    print("Réponse invalide, recommencez.")
+
+# Algorithme itératif (méthode de Newton pour sqrt)
+def racine_newton(n, tolerance=1e-10):
+    x = n / 2.0
+    while abs(x**2 - n) > tolerance:
+        x = (x + n / x) / 2
+    return x
+```
+
+::: callout-note
+## `do...while` en Python
+
+Python ne possède pas de boucle `do...while` native (qui exécute le corps au moins une fois). L'idiome équivalent est `while True:` avec un `break` conditionnel à la fin du corps.
+
+``` python
+# Équivalent do...while
+while True:
+    action = input("Commande : ")
+    traiter(action)
+    if action == "quitter":
+        break
+```
+:::
+
+## Instructions de contrôle de boucle
+
+``` python
+# break : sortir immédiatement de la boucle
+for i in range(10):
+    if i == 5:
+        break
+    print(i)   # affiche 0, 1, 2, 3, 4
+
+# continue : passer à l'itération suivante
+for i in range(10):
+    if i % 2 == 0:
+        continue
+    print(i)   # affiche 1, 3, 5, 7, 9
+
+# else sur une boucle : exécuté si la boucle se termine sans break
+for i in range(2, 20):
+    for j in range(2, i):
+        if i % j == 0:
+            break
+    else:
+        print(f"{i} est premier")
+
+# pass : instruction nulle (corps vide)
+for i in range(5):
+    pass   # ne fait rien, mais évite l'erreur de syntaxe
+```
+
+## Générateurs et expressions génératrices
+
+``` python
+# Expression génératrice (comme une list comprehension mais sans créer la liste)
+somme_carres = sum(x**2 for x in range(1000000))  # pas de liste intermédiaire
+
+# Fonction génératrice (utilise yield)
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+gen = fibonacci()
+for _ in range(10):
+    print(next(gen))   # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+```
+
+------------------------------------------------------------------------
+
+# Fonctions {#sec-fonctions}
+
+## Définition et appel
+
+``` python
+# Définition
+def saluer(prenom):
+    """Affiche un message de salutation.
+
+    Args:
+        prenom (str): Le prénom de la personne à saluer.
+
+    Returns:
+        str: Le message de salutation.
+    """
+    message = f"Bonjour, {prenom} !"
+    return message
+
+# Appel
+resultat = saluer("Alice")
+print(resultat)
+```
+
+## Paramètres et arguments
+
+``` python
+# Paramètre par défaut
+def puissance(base, exposant=2):
+    return base ** exposant
+
+puissance(3)      # 9  (exposant=2 par défaut)
+puissance(3, 3)   # 27
+
+# Arguments nommés (keyword arguments)
+def creer_profil(nom, age, ville="Paris"):
+    return {"nom": nom, "age": age, "ville": ville}
+
+creer_profil("Alice", age=30)
+creer_profil(age=25, nom="Bob", ville="Lyon")
+
+# *args : nombre variable d'arguments positionnels
+def somme(*args):
+    return sum(args)
+
+somme(1, 2, 3)         # 6
+somme(1, 2, 3, 4, 5)   # 15
+
+# **kwargs : nombre variable d'arguments nommés
+def afficher_infos(**kwargs):
+    for cle, val in kwargs.items():
+        print(f"{cle} = {val}")
+
+afficher_infos(nom="Alice", age=30, ville="Paris")
+
+# Combinaison complète
+def fonction_complete(obligatoire, *args, opt=0, **kwargs):
+    print(obligatoire, args, opt, kwargs)
+
+fonction_complete("req", 1, 2, 3, opt=99, extra="x")
+```
+
+## Fonctions lambda
+
+``` python
+# Fonction anonyme (une seule expression)
+carre   = lambda x: x**2
+addition = lambda x, y: x + y
+
+# Utilisation avec sorted(), map(), filter()
+points  = [(1, 5), (3, 2), (2, 8), (4, 1)]
+trie_y  = sorted(points, key=lambda p: p[1])
+
+noms     = ["alice", "BOB", "claire"]
+normalises = list(map(lambda s: s.title(), noms))
+
+entiers  = range(-5, 6)
+positifs = list(filter(lambda x: x > 0, entiers))
+```
+
+## Portée des variables (LEGB)
+
+Python résout les noms selon la règle **LEGB** : Local → Enclosing → Global → Built-in.
+
+``` python
+x = "global"
+
+def externe():
+    x = "externe"
+
+    def interne():
+        # nonlocal : modifier la variable de la portée englobante
+        nonlocal x
+        x = "modifié par interne"
+
+    interne()
+    print(x)   # "modifié par interne"
+
+externe()
+
+# global : accéder et modifier une variable globale depuis une fonction
+compteur = 0
+
+def incrementer():
+    global compteur
+    compteur += 1
+```
+
+## Décorateurs
+
+``` python
+import time
+import functools
+
+# Décorateur simple
+def minuterie(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        debut = time.time()
+        resultat = func(*args, **kwargs)
+        duree = time.time() - debut
+        print(f"{func.__name__} exécutée en {duree:.4f}s")
+        return resultat
+    return wrapper
+
+@minuterie
+def calcul_lent(n):
+    return sum(range(n))
+
+calcul_lent(10_000_000)
+```
+
+------------------------------------------------------------------------
+
+# Modules et packages {#sec-modules}
+
+## Importer un module
+
+``` python
+# Import complet
+import math
+print(math.sqrt(16))       # 4.0
+print(math.pi)             # 3.141592…
+
+# Import avec alias
+import numpy as np
+import pandas as pd
+
+# Import sélectif
+from math import sqrt, pi, factorial
+print(sqrt(25))            # 5.0 (sans préfixe)
+
+# Import de tout (déconseillé en production)
+from math import *
+```
+
+## Modules standard utiles
+
+``` python
+import os
+import sys
+import json
+import re
+import datetime
+import itertools
+import functools
+import collections
+import pathlib
+
+# os : système de fichiers
+os.getcwd()                     # répertoire courant
+os.listdir(".")                 # contenu d'un répertoire
+os.path.join("dossier", "fich") # chemin portable
+os.makedirs("mon/dossier", exist_ok=True)
+
+# pathlib : manipulation de chemins (moderne)
+from pathlib import Path
+p = Path("donnees") / "fichier.csv"
+p.exists()
+p.suffix       # ".csv"
+p.stem         # "fichier"
+p.parent       # Path("donnees")
+
+# json : sérialisation
+data = {"nom": "Alice", "scores": [85, 92, 78]}
+json_str = json.dumps(data, indent=2, ensure_ascii=False)
+data2    = json.loads(json_str)
+with open("data.json", "w") as f:
+    json.dump(data, f, indent=2)
+
+# datetime
+from datetime import datetime, timedelta
+maintenant = datetime.now()
+hier       = maintenant - timedelta(days=1)
+format_fr  = maintenant.strftime("%d/%m/%Y %H:%M")
+```
+
+------------------------------------------------------------------------
+
+# Programmation orientée objet (POO) {#sec-poo}
+
+La POO est un paradigme de programmation qui organise le code autour d'**objets** combinant données (attributs) et comportements (méthodes). Python est entièrement orienté objet : tout est un objet, y compris les entiers, les fonctions et les classes.
+
+## Concepts fondamentaux
+
+| Concept | Définition |
+|----|----|
+| **Classe** | Modèle (blueprint) décrivant la structure et le comportement d'un objet |
+| **Objet / Instance** | Exemplaire concret créé à partir d'une classe |
+| **Attribut** | Variable attachée à un objet (données) |
+| **Méthode** | Fonction attachée à un objet (comportements) |
+| **Encapsulation** | Regrouper données et méthodes, contrôler l'accès |
+| **Héritage** | Une classe hérite des attributs et méthodes d'une autre |
+| **Polymorphisme** | Des objets de types différents répondent à la même interface |
+
+## Définir une classe
+
+``` python
+class Employe:
+    """Représente un employé d'une entreprise."""
+
+    # Attribut de classe (partagé par toutes les instances)
+    entreprise = "CorpTech"
+    nb_employes = 0
+
+    def __init__(self, nom, prenom, salaire):
+        """Constructeur : initialise les attributs d'instance."""
+        # Attributs d'instance (propres à chaque objet)
+        self.nom     = nom
+        self.prenom  = prenom
+        self.salaire = salaire
+        self._anciennete = 0    # conventionnellement "privé" (un underscore)
+        Employe.nb_employes += 1
+
+    # Méthode d'instance
+    def presenter(self):
+        """Retourne une présentation de l'employé."""
+        return f"{self.prenom} {self.nom} — Salaire : {self.salaire:,.0f} €"
+
+    def augmenter(self, pourcentage):
+        """Applique une augmentation de salaire."""
+        if pourcentage <= 0:
+            raise ValueError("Le pourcentage doit être positif.")
+        self.salaire *= (1 + pourcentage / 100)
+
+    # Méthode de classe (reçoit la classe, pas l'instance)
+    @classmethod
+    def depuis_dict(cls, data):
+        """Crée un Employe depuis un dictionnaire."""
+        return cls(data["nom"], data["prenom"], data["salaire"])
+
+    # Méthode statique (ni instance ni classe)
+    @staticmethod
+    def est_salaire_valide(salaire):
+        """Vérifie qu'un salaire est dans une plage raisonnable."""
+        return 1_500 <= salaire <= 500_000
+
+    # Représentations spéciales
+    def __str__(self):
+        """Représentation lisible (pour print)."""
+        return f"Employe({self.prenom} {self.nom})"
+
+    def __repr__(self):
+        """Représentation officielle (pour le débogage)."""
+        return f"Employe(nom={self.nom!r}, prenom={self.prenom!r}, salaire={self.salaire})"
+
+    def __eq__(self, other):
+        """Comparaison d'égalité."""
+        if not isinstance(other, Employe):
+            return NotImplemented
+        return self.nom == other.nom and self.prenom == other.prenom
+
+    def __lt__(self, other):
+        """Comparaison par salaire (permet sorted())."""
+        return self.salaire < other.salaire
+```
+
+## Créer et utiliser des instances
+
+``` python
+# Instanciation
+e1 = Employe("Martin", "Sophie", 52000)
+e2 = Employe("Dubois", "Marc", 48000)
+e3 = Employe.depuis_dict({"nom": "Leroy", "prenom": "Julie", "salaire": 58000})
+
+# Accès aux attributs et méthodes
+print(e1.presenter())
+e1.augmenter(5)
+print(f"Nouveau salaire : {e1.salaire:,.0f} €")
+
+# Attribut de classe
+print(Employe.nb_employes)   # 3
+print(e1.entreprise)          # "CorpTech"
+
+# Méthode statique
+Employe.est_salaire_valide(52000)   # True
+
+# Représentations
+print(str(e1))    # Employe(Sophie Martin)
+print(repr(e1))   # Employe(nom='Martin', prenom='Sophie', salaire=54600.0)
+
+# Tri (utilise __lt__)
+employes = [e1, e2, e3]
+employes_tries = sorted(employes)   # du moins au plus payé
+```
+
+## Héritage
+
+``` python
+class Manager(Employe):
+    """Un manager hérite d'Employe et gère une équipe."""
+
+    def __init__(self, nom, prenom, salaire, departement):
+        # Appel du constructeur parent
+        super().__init__(nom, prenom, salaire)
+        self.departement = departement
+        self.equipe      = []
+
+    def ajouter_membre(self, employe):
+        """Ajoute un employé à l'équipe."""
+        if not isinstance(employe, Employe):
+            raise TypeError("L'argument doit être un Employe.")
+        self.equipe.append(employe)
+
+    def masse_salariale_equipe(self):
+        """Calcule la masse salariale de l'équipe (hors manager)."""
+        return sum(e.salaire for e in self.equipe)
+
+    # Surcharge (override) d'une méthode du parent
+    def presenter(self):
+        base = super().presenter()
+        return f"{base} | Département : {self.departement} | Équipe : {len(self.equipe)} pers."
+
+
+class DirecteurGeneral(Manager):
+    """Hérite de Manager et ajoute des responsabilités stratégiques."""
+
+    def __init__(self, nom, prenom, salaire):
+        super().__init__(nom, prenom, salaire, "Direction")
+        self.budget_global = 0
+
+    def allouer_budget(self, montant):
+        self.budget_global += montant
+
+
+# Utilisation
+mgr = Manager("Bernard", "Claire", 70000, "Informatique")
+mgr.ajouter_membre(e1)
+mgr.ajouter_membre(e2)
+print(mgr.presenter())
+print(f"Masse salariale équipe : {mgr.masse_salariale_equipe():,.0f} €")
+
+# Vérification d'héritage
+isinstance(mgr, Manager)    # True
+isinstance(mgr, Employe)    # True  (héritage transitif)
+issubclass(Manager, Employe)  # True
+```
+
+## Encapsulation et propriétés
+
+``` python
+class CompteBancaire:
+    def __init__(self, titulaire, solde_initial=0):
+        self.titulaire = titulaire
+        self.__solde   = solde_initial   # attribut "privé" (double underscore)
+
+    @property
+    def solde(self):
+        """Getter : accès en lecture."""
+        return self.__solde
+
+    @solde.setter
+    def solde(self, valeur):
+        """Setter : validation à l'écriture."""
+        if valeur < 0:
+            raise ValueError("Le solde ne peut pas être négatif.")
+        self.__solde = valeur
+
+    def deposer(self, montant):
+        if montant <= 0:
+            raise ValueError("Le montant doit être positif.")
+        self.__solde += montant
+
+    def retirer(self, montant):
+        if montant > self.__solde:
+            raise ValueError("Fonds insuffisants.")
+        self.__solde -= montant
+
+compte = CompteBancaire("Alice", 1000)
+print(compte.solde)       # 1000
+compte.deposer(500)
+compte.retirer(200)
+print(compte.solde)       # 1300
+# compte.__solde          # AttributeError (inaccessible de l'extérieur)
+```
+
+## Polymorphisme et classes abstraites
+
+``` python
+from abc import ABC, abstractmethod
+
+class FormeGeometrique(ABC):
+    """Classe abstraite : ne peut pas être instanciée directement."""
+
+    @abstractmethod
+    def aire(self):
+        """Toute sous-classe doit implémenter cette méthode."""
+        pass
+
+    @abstractmethod
+    def perimetre(self):
+        pass
+
+    def decrire(self):
+        """Méthode concrète partagée par toutes les formes."""
+        return f"{type(self).__name__} — Aire : {self.aire():.2f}, Périmètre : {self.perimetre():.2f}"
+
+
+class Cercle(FormeGeometrique):
+    import math
+    def __init__(self, rayon):
+        self.rayon = rayon
+
+    def aire(self):
+        return 3.14159 * self.rayon ** 2
+
+    def perimetre(self):
+        return 2 * 3.14159 * self.rayon
+
+
+class Rectangle(FormeGeometrique):
+    def __init__(self, largeur, hauteur):
+        self.largeur = largeur
+        self.hauteur = hauteur
+
+    def aire(self):
+        return self.largeur * self.hauteur
+
+    def perimetre(self):
+        return 2 * (self.largeur + self.hauteur)
+
+
+class Triangle(FormeGeometrique):
+    def __init__(self, a, b, c):
+        self.a, self.b, self.c = a, b, c
+
+    def aire(self):
+        s = self.perimetre() / 2
+        return (s * (s-self.a) * (s-self.b) * (s-self.c)) ** 0.5
+
+    def perimetre(self):
+        return self.a + self.b + self.c
+
+
+# Polymorphisme : même interface, comportements différents
+formes = [Cercle(5), Rectangle(4, 6), Triangle(3, 4, 5)]
+for forme in formes:
+    print(forme.decrire())   # chaque forme calcule sa propre aire et périmètre
+```
+
+## Méthodes spéciales (*dunder methods*)
+
+``` python
+class Vecteur:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):      return Vecteur(self.x + other.x, self.y + other.y)
+    def __sub__(self, other):      return Vecteur(self.x - other.x, self.y - other.y)
+    def __mul__(self, scalar):     return Vecteur(self.x * scalar, self.y * scalar)
+    def __rmul__(self, scalar):    return self.__mul__(scalar)
+    def __abs__(self):             return (self.x**2 + self.y**2) ** 0.5
+    def __len__(self):             return 2
+    def __getitem__(self, index):  return (self.x, self.y)[index]
+    def __iter__(self):            return iter((self.x, self.y))
+    def __repr__(self):            return f"Vecteur({self.x}, {self.y})"
+    def __eq__(self, other):       return self.x == other.x and self.y == other.y
+
+v1 = Vecteur(1, 2)
+v2 = Vecteur(3, 4)
+print(v1 + v2)   # Vecteur(4, 6)
+print(3 * v1)    # Vecteur(3, 6)
+print(abs(v2))   # 5.0
+x, y = v1        # déballage grâce à __iter__
+```
+
+------------------------------------------------------------------------
+
+# NumPy : calcul numérique {#sec-numpy}
+
+**NumPy** (*Numerical Python*) est la bibliothèque fondamentale pour le calcul scientifique en Python. Elle fournit un objet tableau multidimensionnel (`ndarray`) et des opérations vectorisées ultra-performantes.
+
+``` python
+import numpy as np
+```
+
+## Créer des tableaux (`ndarray`)
+
+``` python
+# Depuis une liste Python
+a = np.array([1, 2, 3, 4, 5])
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+# Tableaux spéciaux
+np.zeros((3, 4))           # matrice de zéros 3×4
+np.ones((2, 3))            # matrice de uns 2×3
+np.eye(4)                  # matrice identité 4×4
+np.full((3, 3), 7)         # matrice remplie de 7
+
+# Séquences
+np.arange(0, 10, 2)        # [0, 2, 4, 6, 8]  (comme range)
+np.linspace(0, 1, 11)      # 11 points entre 0 et 1 inclus
+np.logspace(0, 3, 4)       # [1, 10, 100, 1000]
+
+# Aléatoire (reproductible avec une graine)
+rng = np.random.default_rng(seed=42)
+rng.random((3, 3))         # uniformes [0, 1)
+rng.normal(0, 1, (3, 3))   # loi normale standard
+rng.integers(0, 10, (2, 5))  # entiers aléatoires
+```
+
+## Attributs et propriétés
+
+``` python
+A = np.array([[1, 2, 3], [4, 5, 6]])
+
+A.shape       # (2, 3)  — dimensions
+A.ndim        # 2       — nombre de dimensions
+A.size        # 6       — nombre total d'éléments
+A.dtype       # dtype('int64')
+A.itemsize    # 8       — octets par élément
+A.nbytes      # 48      — octets totaux
+```
+
+## Indexation et slicing
+
+``` python
+A = np.array([[10, 20, 30],
+              [40, 50, 60],
+              [70, 80, 90]])
+
+A[0, 0]       # 10   (ligne 0, colonne 0)
+A[1, :]       # array([40, 50, 60])  — ligne 1 entière
+A[:, 2]       # array([30, 60, 90]) — colonne 2 entière
+A[0:2, 1:3]   # sous-matrice 2×2
+
+# Indexation booléenne
+A[A > 50]     # array([60, 70, 80, 90])
+A[A % 20 == 0]  # éléments divisibles par 20
+
+# Fancy indexing
+indices = [0, 2]
+A[indices, :]  # lignes 0 et 2
+```
+
+## Opérations vectorisées
+
+``` python
+a = np.array([1.0, 2.0, 3.0, 4.0])
+b = np.array([10.0, 20.0, 30.0, 40.0])
+
+# Opérations élément par élément (pas de boucle !)
+a + b          # [11, 22, 33, 44]
+a * b          # [10, 40, 90, 160]
+a ** 2         # [1, 4, 9, 16]
+np.sqrt(a)     # [1, 1.414, 1.732, 2]
+np.exp(a)      # [e^1, e^2, e^3, e^4]
+np.log(a)      # [0, 0.693, 1.099, 1.386]
+
+# Opérations de réduction
+a.sum()        # 10.0
+a.mean()       # 2.5
+a.std()        # écart-type
+a.var()        # variance
+a.min()        # 1.0
+a.max()        # 4.0
+a.cumsum()     # sommes cumulées : [1, 3, 6, 10]
+a.argmax()     # index du maximum : 3
+```
+
+## Algèbre linéaire
+
+``` python
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+# Produit matriciel
+C = A @ B                   # ou np.matmul(A, B)
+# [[19, 22], [43, 50]]
+
+# Transposée
+A.T
+
+# Opérations de la librairie linalg
+np.linalg.det(A)            # déterminant
+np.linalg.inv(A)            # inverse
+np.linalg.eig(A)            # valeurs et vecteurs propres
+np.linalg.norm(A)           # norme de Frobenius
+np.linalg.solve(A, b)       # résoudre Ax = b
+
+# Décompositions
+U, S, Vt = np.linalg.svd(A)          # SVD
+L, U_lu = np.linalg.qr(A)            # QR (attention : c'est QR, pas LU)
+valeurs, vecteurs = np.linalg.eigh(A) # valeurs propres (matrice symétrique)
+```
+
+## Broadcasting
+
+Le **broadcasting** permet d'appliquer des opérations sur des tableaux de formes différentes :
+
+``` python
+A = np.ones((3, 4))     # shape (3, 4)
+v = np.array([1, 2, 3, 4])  # shape (4,)
+
+# v est "étendu" (broadcasté) sur chaque ligne de A
+A + v                    # chaque ligne de A reçoit v
+
+# Règles du broadcasting :
+# 1. Si les tableaux n'ont pas le même nombre de dimensions,
+#    le plus petit est complété à gauche avec des 1.
+# 2. Les dimensions de taille 1 sont "étirées" pour correspondre.
+# 3. Les dimensions doivent être égales ou l'une d'elles doit être 1.
+
+col = np.array([[10], [20], [30]])  # shape (3, 1)
+A + col   # chaque colonne de A reçoit les valeurs 10, 20, 30
+```
+
+## Remodelage et manipulation de tableaux
+
+``` python
+a = np.arange(12)         # [0, 1, 2, ..., 11]
+
+a.reshape(3, 4)           # matrice 3×4
+a.reshape(2, 2, 3)        # tenseur 2×2×3
+a.reshape(-1, 3)          # -1 : NumPy infère la dimension (ici 4)
+
+A = np.array([[1, 2], [3, 4], [5, 6]])
+A.flatten()               # [1, 2, 3, 4, 5, 6] — copie
+A.ravel()                 # vue aplatie (plus efficace)
+
+np.hstack([A, A])         # empilement horizontal
+np.vstack([A, A])         # empilement vertical
+np.concatenate([A, A], axis=0)  # équivalent à vstack
+
+np.split(a, 3)            # découpe en 3 parties égales
+np.hsplit(A, 2)           # découpe horizontale
+```
+
+------------------------------------------------------------------------
+
+# Pandas : analyse de données tabulaires {#sec-pandas}
+
+**Pandas** est la bibliothèque de référence pour la manipulation et l'analyse de données tabulaires. Ses deux structures principales sont la **Series** (1D) et le **DataFrame** (2D).
+
+``` python
+import pandas as pd
+import numpy as np
+```
+
+## Series
+
+``` python
+# Création
+s = pd.Series([10, 20, 30, 40, 50])
+s_index = pd.Series([10, 20, 30], index=["a", "b", "c"])
+s_dict  = pd.Series({"Paris": 2.1, "Lyon": 0.5, "Marseille": 0.9})
+
+# Accès
+s[0]              # 10
+s_index["a"]      # 10
+s_index[["a","c"]] # plusieurs éléments
+s[s > 20]         # filtrage booléen
+
+# Opérations vectorisées (identique à NumPy)
+s * 2
+s.mean()
+s.describe()      # statistiques descriptives
+```
+
+## DataFrame
+
+``` python
+# Création depuis un dictionnaire
+data = {
+    "nom":         ["Martin", "Dubois", "Leroy", "Moreau", "Bernard"],
+    "prenom":      ["Sophie", "Marc",   "Julie", "Thomas", "Claire"],
+    "departement": ["Informatique", "Finance", "Informatique", "RH", "Informatique"],
+    "salaire":     [52000, 48000, 58000, 42000, 61000],
+    "anciennete":  [5, 3, 8, 2, 10],
+    "date_embauche": pd.to_datetime(["2019-03-15", "2021-06-01",
+                                     "2016-09-12", "2022-01-08",
+                                     "2014-11-30"])
+}
+df = pd.DataFrame(data)
+
+# Depuis un fichier CSV
+df = pd.read_csv("employes.csv", encoding="utf-8", sep=";")
+
+# Depuis un fichier Excel
+df = pd.read_excel("employes.xlsx", sheet_name="Feuil1")
+
+# Exporter
+df.to_csv("sortie.csv", index=False, encoding="utf-8")
+df.to_excel("sortie.xlsx", index=False)
+```
+
+## Exploration initiale
+
+``` python
+df.shape             # (5, 6)  — lignes × colonnes
+df.dtypes            # types de chaque colonne
+df.info()            # résumé complet (types, valeurs nulles, mémoire)
+df.describe()        # statistiques descriptives des colonnes numériques
+df.describe(include="all")    # inclut les colonnes catégorielles
+
+df.head(3)           # 3 premières lignes
+df.tail(3)           # 3 dernières lignes
+df.sample(3)         # 3 lignes aléatoires
+
+df.columns           # Index des noms de colonnes
+df.index             # Index des lignes
+df.values            # tableau NumPy sous-jacent
+```
+
+## Sélection de données
+
+``` python
+# Sélectionner une colonne → Series
+df["salaire"]
+df.salaire            # syntaxe attribut (fonctionne si pas d'espace)
+
+# Sélectionner plusieurs colonnes → DataFrame
+df[["nom", "prenom", "salaire"]]
+
+# loc : sélection par label (lignes et colonnes par nom)
+df.loc[0, "salaire"]                    # valeur unique
+df.loc[0:2, "nom":"salaire"]            # plage incluse des deux côtés
+df.loc[df["departement"] == "Informatique", ["nom", "salaire"]]
+
+# iloc : sélection par position entière
+df.iloc[0, 3]                           # ligne 0, colonne 3
+df.iloc[:3, :]                          # 3 premières lignes, toutes colonnes
+df.iloc[[0, 2, 4], [0, 3]]             # lignes et colonnes spécifiques
+
+# Filtrage booléen
+df[df["salaire"] > 50000]
+df[(df["departement"] == "Informatique") & (df["salaire"] > 55000)]
+df[df["nom"].isin(["Martin", "Leroy"])]
+df[df["salaire"].between(45000, 60000)]
+```
+
+## Manipulation des données
+
+``` python
+# Ajouter une colonne
+df["salaire_mensuel"] = df["salaire"] / 12
+df["niveau"] = df["salaire"].apply(
+    lambda s: "Senior" if s > 55000 else "Confirmé" if s > 45000 else "Junior"
+)
+
+# Modifier des valeurs
+df.loc[df["nom"] == "Dubois", "salaire"] = 50000
+
+# Renommer des colonnes
+df.rename(columns={"nom": "nom_famille", "prenom": "prenom_employe"}, inplace=True)
+
+# Supprimer des colonnes
+df.drop(columns=["salaire_mensuel"], inplace=True)
+
+# Supprimer des lignes
+df.drop(index=[0, 2], inplace=True)
+
+# Réinitialiser l'index
+df.reset_index(drop=True, inplace=True)
+
+# Tri
+df.sort_values("salaire", ascending=False, inplace=True)
+df.sort_values(["departement", "salaire"], ascending=[True, False])
+
+# Changer le type d'une colonne
+df["anciennete"] = df["anciennete"].astype(int)
+df["departement"] = df["departement"].astype("category")
+```
+
+## Valeurs manquantes
+
+``` python
+# Détecter
+df.isnull().sum()            # nombre de NaN par colonne
+df.isnull().any(axis=1)      # lignes contenant au moins un NaN
+df["salaire"].isna()
+
+# Supprimer
+df.dropna()                  # supprimer toute ligne avec un NaN
+df.dropna(subset=["email"])  # uniquement sur une colonne
+df.dropna(thresh=4)          # garder les lignes avec au moins 4 valeurs non-NaN
+
+# Remplir
+df.fillna(0)                                   # remplacer par 0
+df["email"].fillna("inconnu@corp.fr", inplace=True)
+df["salaire"].fillna(df["salaire"].mean(), inplace=True)  # par la moyenne
+df.ffill()                                     # forward fill (valeur précédente)
+df.bfill()                                     # backward fill (valeur suivante)
+```
+
+## Agrégation et `groupby`
+
+``` python
+# groupby simple
+groupe = df.groupby("departement")
+
+groupe["salaire"].mean()                        # moyenne par département
+groupe["salaire"].agg(["mean", "min", "max", "count"])  # plusieurs stats
+
+# agg avec dictionnaire (stats différentes par colonne)
+df.groupby("departement").agg(
+    salaire_moyen   = ("salaire",   "mean"),
+    salaire_max     = ("salaire",   "max"),
+    nb_employes     = ("nom",       "count"),
+    anciennete_moy  = ("anciennete","mean")
+).reset_index()
+
+# Transformation (garder la même forme)
+df["salaire_center"] = df.groupby("departement")["salaire"].transform(
+    lambda x: x - x.mean()
+)
+
+# Apply (fonction personnalisée par groupe)
+def top2(sous_df):
+    return sous_df.nlargest(2, "salaire")
+
+df.groupby("departement").apply(top2).reset_index(drop=True)
+
+# pivot_table (comme les tableaux croisés Excel)
+pd.pivot_table(
+    df,
+    values="salaire",
+    index="departement",
+    aggfunc=["mean", "count"]
+)
+```
+
+## Jointures et fusion
+
+``` python
+# merge : équivalent SQL JOIN
+dept = pd.DataFrame({
+    "departement": ["Informatique", "Finance", "RH"],
+    "localisation": ["Paris", "Lyon", "Paris"],
+    "budget": [250000, 180000, 120000]
+})
+
+# INNER JOIN
+fusion = pd.merge(df, dept, on="departement", how="inner")
+
+# LEFT JOIN
+fusion = pd.merge(df, dept, on="departement", how="left")
+
+# Concaténation verticale (UNION)
+df_total = pd.concat([df_paris, df_lyon], ignore_index=True)
+
+# Concaténation horizontale
+df_large = pd.concat([df1, df2], axis=1)
+```
+
+## Opérations sur les dates
+
+``` python
+df["date_embauche"] = pd.to_datetime(df["date_embauche"])
+
+df["annee"]    = df["date_embauche"].dt.year
+df["mois"]     = df["date_embauche"].dt.month
+df["jour"]     = df["date_embauche"].dt.day
+df["jour_sem"] = df["date_embauche"].dt.day_name()
+df["anciennete_jours"] = (pd.Timestamp.today() - df["date_embauche"]).dt.days
+```
+
+------------------------------------------------------------------------
+
+# Matplotlib : visualisation {#sec-matplotlib}
+
+**Matplotlib** est la bibliothèque de visualisation de base de l'écosystème Python. Elle offre un contrôle total sur chaque élément d'une figure.
+
+``` python
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
+## Anatomie d'une figure Matplotlib
+
+```         
+Figure
+└── Axes (subplot)
+    ├── Title
+    ├── X-axis (xlabel, xticks, xlim)
+    ├── Y-axis (ylabel, yticks, ylim)
+    ├── Lines / Patches / Collections
+    └── Legend
+```
+
+## Courbe (`plot`)
+
+``` python
+x = np.linspace(0, 2 * np.pi, 300)
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+# Graphique gauche : plusieurs courbes
+axes[0].plot(x, np.sin(x), label="sin(x)", color="steelblue", linewidth=2)
+axes[0].plot(x, np.cos(x), label="cos(x)", color="tomato",    linewidth=2,
+             linestyle="--")
+axes[0].plot(x, np.sin(2*x)*0.5, label="0.5·sin(2x)", color="seagreen",
+             linewidth=1.5, linestyle=":")
+axes[0].axhline(0, color="black", linewidth=0.5)   # ligne horizontale
+axes[0].set_title("Fonctions trigonométriques", fontsize=13)
+axes[0].set_xlabel("x (radians)")
+axes[0].set_ylabel("y")
+axes[0].legend()
+axes[0].grid(True, alpha=0.3)
+
+# Graphique droit : remplissage
+axes[1].fill_between(x, np.sin(x), alpha=0.4, color="steelblue")
+axes[1].plot(x, np.sin(x), color="steelblue", linewidth=2)
+axes[1].set_title("Aire sous sin(x)")
+axes[1].set_xlabel("x")
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.savefig("courbes.png", dpi=150, bbox_inches="tight")
+plt.show()
+```
+
+## Nuage de points (`scatter`)
+
+``` python
+rng = np.random.default_rng(42)
+n   = 200
+
+x      = rng.normal(0, 1, n)
+y      = 2 * x + rng.normal(0, 0.8, n)
+taille = rng.uniform(20, 200, n)
+couleur = rng.uniform(0, 1, n)
+
+fig, ax = plt.subplots(figsize=(7, 5))
+sc = ax.scatter(x, y, s=taille, c=couleur, cmap="viridis",
+                alpha=0.7, edgecolors="white", linewidths=0.5)
+plt.colorbar(sc, ax=ax, label="Valeur aléatoire")
+ax.set_title("Nuage de points — données simulées")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+## Histogramme
+
+``` python
+rng  = np.random.default_rng(42)
+data = rng.normal(loc=52000, scale=8000, size=500)   # salaires simulés
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+# Histogramme simple
+axes[0].hist(data, bins=30, color="steelblue", edgecolor="white", alpha=0.8)
+axes[0].axvline(data.mean(), color="tomato", linestyle="--", label=f"Moyenne : {data.mean():,.0f}")
+axes[0].axvline(np.median(data), color="seagreen", linestyle="--", label=f"Médiane : {np.median(data):,.0f}")
+axes[0].set_title("Distribution des salaires")
+axes[0].set_xlabel("Salaire (€)")
+axes[0].set_ylabel("Fréquence")
+axes[0].legend()
+axes[0].grid(axis="y", alpha=0.3)
+
+# Histogramme normalisé + courbe de densité
+axes[1].hist(data, bins=30, density=True, color="steelblue",
+             edgecolor="white", alpha=0.6, label="Histogramme normalisé")
+# Superposer la densité gaussienne théorique
+mu, sigma = data.mean(), data.std()
+x_plot = np.linspace(mu - 4*sigma, mu + 4*sigma, 300)
+from scipy.stats import norm
+axes[1].plot(x_plot, norm.pdf(x_plot, mu, sigma),
+             color="tomato", linewidth=2, label="Densité N(μ, σ²)")
+axes[1].set_title("Densité estimée")
+axes[1].set_xlabel("Salaire (€)")
+axes[1].legend()
+axes[1].grid(axis="y", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Graphique en barres
+
+``` python
+departements = ["Informatique", "Finance", "RH", "Marketing", "Juridique"]
+salaires_moy = [58000, 54000, 42000, 49000, 61000]
+nb_employes  = [25, 12, 8, 15, 6]
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+
+# Barres verticales
+bars = axes[0].bar(departements, salaires_moy,
+                   color=["steelblue", "tomato", "seagreen", "orange", "purple"],
+                   edgecolor="white", linewidth=0.8)
+axes[0].bar_label(bars, fmt="{:,.0f} €", padding=3, fontsize=9)
+axes[0].set_title("Salaire moyen par département")
+axes[0].set_ylabel("Salaire (€)")
+axes[0].set_ylim(0, 75000)
+axes[0].tick_params(axis="x", rotation=15)
+axes[0].grid(axis="y", alpha=0.3)
+
+# Barres horizontales
+y_pos = range(len(departements))
+axes[1].barh(y_pos, nb_employes, color="steelblue", edgecolor="white")
+axes[1].set_yticks(y_pos)
+axes[1].set_yticklabels(departements)
+axes[1].set_title("Effectif par département")
+axes[1].set_xlabel("Nombre d'employés")
+axes[1].grid(axis="x", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Camembert (`pie`)
+
+``` python
+fig, ax = plt.subplots(figsize=(6, 6))
+
+tailles     = [25, 12, 8, 15, 6]
+etiquettes  = ["Informatique", "Finance", "RH", "Marketing", "Juridique"]
+explosions  = [0.05, 0, 0, 0, 0]  # mettre en avant le premier secteur
+
+wedges, texts, autotexts = ax.pie(
+    tailles,
+    labels     = etiquettes,
+    autopct    = "%1.1f%%",
+    explode    = explosions,
+    startangle = 90,
+    colors     = plt.cm.Set3.colors[:len(tailles)],
+    wedgeprops = {"edgecolor": "white", "linewidth": 1.5}
+)
+ax.set_title("Répartition des effectifs")
+plt.show()
+```
+
+## Carte de chaleur (`imshow` / `pcolor`)
+
+``` python
+# Matrice de corrélation simulée
+variables = ["Salaire", "Ancienneté", "Score", "Âge", "Formation"]
+matrice   = np.array([
+    [1.00,  0.65,  0.45, 0.30,  0.50],
+    [0.65,  1.00,  0.30, 0.75,  0.20],
+    [0.45,  0.30,  1.00, 0.10,  0.70],
+    [0.30,  0.75,  0.10, 1.00,  0.15],
+    [0.50,  0.20,  0.70, 0.15,  1.00]
+])
+
+fig, ax = plt.subplots(figsize=(7, 6))
+im = ax.imshow(matrice, cmap="RdBu_r", vmin=-1, vmax=1)
+plt.colorbar(im, ax=ax, label="Corrélation")
+
+ax.set_xticks(range(len(variables)))
+ax.set_yticks(range(len(variables)))
+ax.set_xticklabels(variables, rotation=45, ha="right")
+ax.set_yticklabels(variables)
+
+# Annoter chaque cellule
+for i in range(len(variables)):
+    for j in range(len(variables)):
+        ax.text(j, i, f"{matrice[i, j]:.2f}",
+                ha="center", va="center", fontsize=9,
+                color="white" if abs(matrice[i, j]) > 0.6 else "black")
+
+ax.set_title("Matrice de corrélation")
+plt.tight_layout()
+plt.show()
+```
+
+## Subplots complexes
+
+``` python
+rng = np.random.default_rng(42)
+x   = np.linspace(0, 10, 200)
+
+fig = plt.figure(figsize=(14, 8))
+
+# gridspec : layout personnalisé
+gs = fig.add_gridspec(2, 3, hspace=0.4, wspace=0.35)
+
+ax1 = fig.add_subplot(gs[0, :2])   # ligne 0, colonnes 0-1
+ax2 = fig.add_subplot(gs[0, 2])    # ligne 0, colonne 2
+ax3 = fig.add_subplot(gs[1, 0])    # ligne 1, colonne 0
+ax4 = fig.add_subplot(gs[1, 1])    # ligne 1, colonne 1
+ax5 = fig.add_subplot(gs[1, 2])    # ligne 1, colonne 2
+
+ax1.plot(x, np.sin(x) * np.exp(-x/5), color="steelblue", linewidth=2)
+ax1.set_title("Oscillation amortie")
+ax1.grid(alpha=0.3)
+
+ax2.hist(rng.normal(0, 1, 500), bins=25, color="tomato", edgecolor="white")
+ax2.set_title("Histogramme")
+
+ax3.scatter(rng.normal(0,1,100), rng.normal(0,1,100),
+            alpha=0.6, color="seagreen")
+ax3.set_title("Nuage de points")
+
+categories = ["A", "B", "C", "D"]
+ax4.bar(categories, [15, 25, 10, 30], color="purple", edgecolor="white")
+ax4.set_title("Barres")
+
+theta = np.linspace(0, 2*np.pi, 300)
+ax5.plot(np.cos(theta), np.sin(theta), color="orange", linewidth=2)
+ax5.set_aspect("equal")
+ax5.set_title("Cercle")
+ax5.grid(alpha=0.3)
+
+fig.suptitle("Tableau de bord — exemples de graphiques", fontsize=14, y=1.01)
+plt.savefig("dashboard.png", dpi=150, bbox_inches="tight")
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+# Gestion des erreurs et exceptions {#sec-exceptions}
+
+``` python
+# Structure try / except / else / finally
+def diviser(a, b):
+    try:
+        resultat = a / b
+    except ZeroDivisionError:
+        print("Erreur : division par zéro.")
+        return None
+    except TypeError as e:
+        print(f"Erreur de type : {e}")
+        return None
+    else:
+        # Exécuté uniquement si aucune exception n'a été levée
+        print(f"Résultat : {resultat:.4f}")
+        return resultat
+    finally:
+        # Exécuté dans tous les cas (nettoyage)
+        print("Calcul terminé.")
+
+# Lever une exception
+def valider_age(age):
+    if not isinstance(age, int):
+        raise TypeError(f"L'âge doit être un entier, reçu {type(age).__name__}.")
+    if age < 0 or age > 150:
+        raise ValueError(f"L'âge {age} est hors limites [0, 150].")
+    return age
+
+# Créer une exception personnalisée
+class ErreurSalaire(ValueError):
+    """Exception levée pour un salaire invalide."""
+    def __init__(self, salaire, message="Salaire invalide."):
+        self.salaire = salaire
+        super().__init__(f"{message} Valeur reçue : {salaire}")
+
+try:
+    raise ErreurSalaire(-500)
+except ErreurSalaire as e:
+    print(e)   # Salaire invalide. Valeur reçue : -500
+```
+
+------------------------------------------------------------------------
+
+# Exercices pratiques {#sec-exercices}
+
+## Exercice 1 — Structures de données
+
+1.  Créez un dictionnaire représentant un étudiant (nom, notes, programme) et calculez sa moyenne.
+2.  À partir d'une liste de mots, créez un dictionnaire comptant les occurrences de chaque lettre.
+3.  Écrivez une fonction qui prend une liste de tuples `(nom, score)` et retourne les 3 meilleurs.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` python
+# 1. Dictionnaire étudiant
+etudiant = {
+    "nom":      "Alice Dupont",
+    "programme": "Master Statistique",
+    "notes":    {"Probabilités": 16, "ML": 18, "Bases de données": 14, "Analyse": 17}
+}
+moyenne = sum(etudiant["notes"].values()) / len(etudiant["notes"])
+print(f"Moyenne de {etudiant['nom']} : {moyenne:.2f}/20")
+
+# 2. Comptage de lettres
+mots    = ["python", "statistique", "donnees"]
+lettres = {}
+for mot in mots:
+    for lettre in mot:
+        lettres[lettre] = lettres.get(lettre, 0) + 1
+# Avec Counter
+from collections import Counter
+lettres2 = Counter("".join(mots))
+
+# 3. Top 3
+def top3(resultats):
+    """Retourne les 3 meilleurs (nom, score)."""
+    tries = sorted(resultats, key=lambda x: x[1], reverse=True)
+    return tries[:3]
+
+resultats = [("Alice", 85), ("Bob", 92), ("Claire", 78),
+             ("David", 95), ("Eve", 88)]
+print(top3(resultats))
+```
+:::
+
+## Exercice 2 — POO
+
+Implémentez une classe `Fraction` représentant une fraction mathématique avec : - Les opérations `+`, `-`, `*`, `/` - La simplification automatique par le PGCD - Un affichage `__str__` de la forme `3/4`
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` python
+from math import gcd
+
+class Fraction:
+    def __init__(self, numerateur, denominateur):
+        if denominateur == 0:
+            raise ZeroDivisionError("Le dénominateur ne peut pas être 0.")
+        signe = -1 if (numerateur * denominateur < 0) else 1
+        pgcd  = gcd(abs(numerateur), abs(denominateur))
+        self.num = signe * abs(numerateur) // pgcd
+        self.den = abs(denominateur) // pgcd
+
+    def __str__(self):    return f"{self.num}/{self.den}"
+    def __repr__(self):   return f"Fraction({self.num}, {self.den})"
+
+    def __add__(self, other):
+        return Fraction(self.num * other.den + other.num * self.den,
+                        self.den * other.den)
+    def __sub__(self, other):
+        return Fraction(self.num * other.den - other.num * self.den,
+                        self.den * other.den)
+    def __mul__(self, other):
+        return Fraction(self.num * other.num, self.den * other.den)
+    def __truediv__(self, other):
+        return Fraction(self.num * other.den, self.den * other.num)
+    def __eq__(self, other):
+        return self.num == other.num and self.den == other.den
+
+f1, f2 = Fraction(1, 2), Fraction(1, 3)
+print(f1 + f2)   # 5/6
+print(f1 * f2)   # 1/6
+print(f1 / f2)   # 3/2
+```
+:::
+
+## Exercice 3 — NumPy
+
+1.  Créez une matrice 5×5 de nombres aléatoires issus d'une loi normale.
+2.  Normalisez-la (soustrayez la moyenne et divisez par l'écart-type, par colonne).
+3.  Calculez et affichez les valeurs propres.
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` python
+import numpy as np
+
+rng = np.random.default_rng(42)
+M   = rng.normal(0, 1, (5, 5))
+
+# Normalisation par colonne
+M_norm = (M - M.mean(axis=0)) / M.std(axis=0)
+print("Moyennes des colonnes normalisées :", M_norm.mean(axis=0).round(10))
+
+# Valeurs propres
+valeurs_propres, _ = np.linalg.eig(M)
+print("Valeurs propres :", valeurs_propres)
+```
+:::
+
+## Exercice 4 — Pandas + Matplotlib
+
+À partir du DataFrame `df` des employés :
+
+1.  Calculez le salaire moyen et l'effectif par département dans un DataFrame `stats`.
+2.  Représentez les résultats dans un graphique à double axe (barres pour l'effectif, courbe pour le salaire moyen).
+
+::: {.callout-caution collapse="true"}
+## Correction
+
+``` python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+stats = df.groupby("departement").agg(
+    salaire_moyen = ("salaire", "mean"),
+    effectif      = ("nom", "count")
+).reset_index().sort_values("salaire_moyen", ascending=False)
+
+fig, ax1 = plt.subplots(figsize=(9, 5))
+
+# Axe gauche : effectif (barres)
+bars = ax1.bar(stats["departement"], stats["effectif"],
+               color="steelblue", alpha=0.6, label="Effectif")
+ax1.set_ylabel("Effectif", color="steelblue")
+ax1.tick_params(axis="y", labelcolor="steelblue")
+ax1.set_xlabel("Département")
+ax1.tick_params(axis="x", rotation=15)
+
+# Axe droit : salaire moyen (courbe)
+ax2 = ax1.twinx()
+ax2.plot(stats["departement"], stats["salaire_moyen"],
+         color="tomato", marker="o", linewidth=2, label="Salaire moyen")
+ax2.set_ylabel("Salaire moyen (€)", color="tomato")
+ax2.tick_params(axis="y", labelcolor="tomato")
+
+plt.title("Effectif et salaire moyen par département")
+fig.legend(loc="upper right", bbox_to_anchor=(0.88, 0.88))
+plt.tight_layout()
+plt.show()
+```
+:::
+
+------------------------------------------------------------------------
+
+# Ressources complémentaires {#sec-ressources}
+
+## Documentation officielle
+
+-   [**Python**](https://docs.python.org/fr/3/) : documentation complète en français.
+-   [**NumPy**](https://numpy.org/doc/stable/) : référence NumPy avec exemples.
+-   [**Pandas**](https://pandas.pydata.org/docs/) : guide utilisateur et API complète.
+-   [**Matplotlib**](https://matplotlib.org/stable/) : galerie d'exemples et documentation.
+
+## Environnements interactifs en ligne
+
+-   [**Google Colab**](https://colab.research.google.com/) : Jupyter dans le navigateur avec GPU gratuit.
+-   [**Kaggle Notebooks**](https://www.kaggle.com/code) : notebooks avec datasets réels.
+-   [**Replit**](https://replit.com/) : IDE Python en ligne.
+
+## Pour approfondir
+
+-   [**Real Python**](https://realpython.com/) : tutoriels approfondis en anglais.
+-   [**Python Cookbook**](https://www.oreilly.com/library/view/python-cookbook-3rd/9781449357337/) : recettes avancées.
+-   [**Fluent Python**](https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/) : maîtriser les idiomes pythoniques.
+
+## Bibliothèques complémentaires
+
+| Bibliothèque   | Usage                                      |
+|----------------|--------------------------------------------|
+| `Seaborn`      | Visualisation statistique (sur Matplotlib) |
+| `Plotly`       | Graphiques interactifs                     |
+| `scikit-learn` | Machine Learning                           |
+| `statsmodels`  | Modèles statistiques classiques            |
+| `SciPy`        | Calcul scientifique avancé                 |
+| `SQLAlchemy`   | ORM et connexion SQL                       |
+| `FastAPI`      | API REST modernes                          |
+| `Pydantic`     | Validation de données avec types           |
+
+::: callout-tip
+## Pour aller plus loin en Python scientifique
+
+Une fois ces bases maîtrisées, explorez dans l'ordre :
+
+1.  **SciPy** : optimisation, intégration numérique, distributions statistiques.
+2.  **scikit-learn** : régression, classification, clustering, pipelines ML.
+3.  **Seaborn** : visualisations statistiques en quelques lignes.
+4.  **Plotly / Dash** : tableaux de bord interactifs.
+5.  **Quarto / Jupyter** : rapports reproductibles combinant code, résultats et prose.
+:::

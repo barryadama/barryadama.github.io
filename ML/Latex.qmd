@@ -1,5 +1,5 @@
 ---
-title: "Introduction à LaTeX avec Overleaf"
+title: " "
 format:
   html:
     toc: true
@@ -9,8 +9,6 @@ format:
     number-depth: 3
     code-fold: false
     code-copy: true
-    highlight-style: github
-    theme: cosmo
     css: style.css
     self-contained: true
 ---
@@ -21,13 +19,13 @@ LaTeX est un système de composition de documents particulièrement répandu dan
 
 Cette approche peut sembler déroutante au premier abord, mais elle présente des avantages décisifs :
 
-- **Équations mathématiques** : LaTeX est inégalé pour la composition de formules complexes.
-- **Cohérence typographique** : la mise en page reste rigoureusement uniforme, même dans les documents de plusieurs centaines de pages.
-- **Bibliographie automatisée** : les références peuvent être gérées dynamiquement via BibTeX ou BibLaTeX.
-- **Reproductibilité** : un fichier `.tex` est un fichier texte brut, facilement versionnable avec Git.
-- **Standard académique** : la plupart des revues scientifiques en mathématiques, statistique, informatique et physique acceptent ou exigent des soumissions en LaTeX.
+-   **Équations mathématiques** : LaTeX est inégalé pour la composition de formules complexes.
+-   **Cohérence typographique** : la mise en page reste rigoureusement uniforme, même dans les documents de plusieurs centaines de pages.
+-   **Bibliographie automatisée** : les références peuvent être gérées dynamiquement via BibTeX ou BibLaTeX.
+-   **Reproductibilité** : un fichier `.tex` est un fichier texte brut, facilement versionnable avec Git.
+-   **Standard académique** : la plupart des revues scientifiques en mathématiques, statistique, informatique et physique acceptent ou exigent des soumissions en LaTeX.
 
-::: {.callout-note}
+::: callout-note
 ## Philosophie de LaTeX
 
 Le principe central de LaTeX est la **séparation du contenu et de la forme**. L'auteur se concentre sur ce qu'il veut dire ; LaTeX s'occupe de comment le présenter. Cette séparation est comparable à la distinction entre HTML (contenu) et CSS (présentation) dans le développement web.
@@ -35,7 +33,7 @@ Le principe central de LaTeX est la **séparation du contenu et de la forme**. L
 
 L'objectif de ce tutoriel est de vous permettre de créer et modifier vos premiers documents LaTeX en vous appuyant sur la plateforme en ligne **Overleaf**, sans aucune installation préalable.
 
----
+------------------------------------------------------------------------
 
 # Découvrir Overleaf {#sec-overleaf}
 
@@ -44,7 +42,7 @@ L'objectif de ce tutoriel est de vous permettre de créer et modifier vos premie
 Overleaf est une plateforme collaborative en ligne permettant d'écrire du code LaTeX directement depuis un navigateur. Elle est particulièrement adaptée aux débutants pour les raisons suivantes :
 
 | Avantage | Détail |
-|---|---|
+|----|----|
 | **Sans installation** | Aucun logiciel à installer ; tout fonctionne dans le navigateur. |
 | **Compilation instantanée** | Le document PDF est généré en quelques secondes. |
 | **Collaboration** | Partage et co-édition en temps réel, à la manière de Google Docs. |
@@ -53,7 +51,7 @@ Overleaf est une plateforme collaborative en ligne permettant d'écrire du code 
 
 ## Création d'un compte
 
-Rendez-vous sur [https://www.overleaf.com](https://www.overleaf.com) et cliquez sur **Register**. Vous pouvez vous inscrire avec une adresse e-mail ou via votre compte Google/ORCID.
+Rendez-vous sur <https://www.overleaf.com> et cliquez sur **Register**. Vous pouvez vous inscrire avec une adresse e-mail ou via votre compte Google/ORCID.
 
 Une fois connecté, créez un nouveau projet : **New Project → Blank Project**, puis donnez-lui un nom (par exemple `mon_premier_document`).
 
@@ -61,7 +59,7 @@ Une fois connecté, créez un nouveau projet : **New Project → Blank Project**
 
 L'interface se divise en trois zones principales :
 
-```
+```         
 ┌─────────────────┬───────────────────┬─────────────────┐
 │  Explorateur    │   Éditeur LaTeX   │  Aperçu PDF     │
 │  de fichiers    │   (code source)   │  (compilé)      │
@@ -69,23 +67,23 @@ L'interface se divise en trois zones principales :
 └─────────────────┴───────────────────┴─────────────────┘
 ```
 
-- **Explorateur de fichiers** (colonne gauche) : liste les fichiers du projet (`.tex`, images, bibliographie…).
-- **Éditeur** (centre) : zone de saisie du code LaTeX, avec coloration syntaxique.
-- **Aperçu PDF** (droite) : rendu en temps quasi-réel du document compilé.
-- **Bouton Recompile** : déclenche la compilation. Le raccourci clavier est `Ctrl+Enter` (ou `Cmd+Enter` sur macOS).
+-   **Explorateur de fichiers** (colonne gauche) : liste les fichiers du projet (`.tex`, images, bibliographie…).
+-   **Éditeur** (centre) : zone de saisie du code LaTeX, avec coloration syntaxique.
+-   **Aperçu PDF** (droite) : rendu en temps quasi-réel du document compilé.
+-   **Bouton Recompile** : déclenche la compilation. Le raccourci clavier est `Ctrl+Enter` (ou `Cmd+Enter` sur macOS).
 
-::: {.callout-tip}
+::: callout-tip
 ## Raccourcis utiles dans Overleaf
 
-| Action | Raccourci |
-|---|---|
-| Compiler | `Ctrl+Enter` |
-| Commenter une ligne | `Ctrl+/` |
-| Chercher/Remplacer | `Ctrl+H` |
-| Autocomplétion | `Tab` après une commande |
+| Action              | Raccourci                |
+|---------------------|--------------------------|
+| Compiler            | `Ctrl+Enter`             |
+| Commenter une ligne | `Ctrl+/`                 |
+| Chercher/Remplacer  | `Ctrl+H`                 |
+| Autocomplétion      | `Tab` après une commande |
 :::
 
----
+------------------------------------------------------------------------
 
 # Structure d'un document LaTeX {#sec-structure}
 
@@ -93,7 +91,7 @@ L'interface se divise en trois zones principales :
 
 Tout document LaTeX possède la structure minimale suivante :
 
-```latex
+``` latex
 \documentclass{article}
 
 \begin{document}
@@ -105,15 +103,15 @@ Bonjour tout le monde !
 
 Chaque élément a un rôle précis :
 
-- `\documentclass{article}` : déclare le **type** du document. Les classes courantes sont `article`, `report`, `book`, et `beamer` (présentations).
-- `\begin{document}` / `\end{document}` : délimitent le **corps** du document, c'est-à-dire tout le contenu visible.
-- Tout ce qui précède `\begin{document}` constitue le **préambule** : on y place les options globales et les packages.
+-   `\documentclass{article}` : déclare le **type** du document. Les classes courantes sont `article`, `report`, `book`, et `beamer` (présentations).
+-   `\begin{document}` / `\end{document}` : délimitent le **corps** du document, c'est-à-dire tout le contenu visible.
+-   Tout ce qui précède `\begin{document}` constitue le **préambule** : on y place les options globales et les packages.
 
 ## Le préambule : configuration globale
 
 Le préambule est l'endroit où l'on paramètre le document avant son contenu. Voici un préambule typique pour un document en français :
 
-```latex
+``` latex
 \documentclass[12pt, a4paper]{article}
 
 % ----- Encodage et langue -----
@@ -148,7 +146,7 @@ Le préambule est l'endroit où l'on paramètre le document avant son contenu. V
 \end{document}
 ```
 
-::: {.callout-note}
+::: callout-note
 ## Commentaires en LaTeX
 
 Tout texte précédé du symbole `%` est un commentaire et est ignoré lors de la compilation. C'est une bonne pratique de commenter son préambule pour s'y retrouver.
@@ -158,20 +156,20 @@ Tout texte précédé du symbole `%` est un commentaire et est ignoré lors de l
 
 Les packages étendent les fonctionnalités de LaTeX. On les charge avec `\usepackage{nom_du_package}`.
 
-| Package | Utilité |
-|---|---|
-| `amsmath` | Environnements mathématiques avancés |
-| `amssymb` | Symboles mathématiques supplémentaires |
-| `babel` | Support multilingue et typographie locale |
-| `geometry` | Contrôle des marges et du format de page |
-| `graphicx` | Insertion d'images |
-| `booktabs` | Tableaux de qualité professionnelle |
-| `hyperref` | Liens cliquables dans le PDF |
-| `xcolor` | Couleurs |
-| `listings` / `minted` | Coloration syntaxique du code source |
-| `biblatex` | Gestion bibliographique moderne |
+| Package               | Utilité                                   |
+|-----------------------|-------------------------------------------|
+| `amsmath`             | Environnements mathématiques avancés      |
+| `amssymb`             | Symboles mathématiques supplémentaires    |
+| `babel`               | Support multilingue et typographie locale |
+| `geometry`            | Contrôle des marges et du format de page  |
+| `graphicx`            | Insertion d'images                        |
+| `booktabs`            | Tableaux de qualité professionnelle       |
+| `hyperref`            | Liens cliquables dans le PDF              |
+| `xcolor`              | Couleurs                                  |
+| `listings` / `minted` | Coloration syntaxique du code source      |
+| `biblatex`            | Gestion bibliographique moderne           |
 
----
+------------------------------------------------------------------------
 
 # Mise en forme du texte {#sec-texte}
 
@@ -179,7 +177,7 @@ Les packages étendent les fonctionnalités de LaTeX. On les charge avec `\usepa
 
 LaTeX dispose d'une hiérarchie de commandes de sectionnement :
 
-```latex
+``` latex
 \part{Titre de la partie}          % uniquement pour book/report
 \chapter{Titre du chapitre}        % uniquement pour book/report
 \section{Titre de section}
@@ -193,7 +191,7 @@ La numérotation est automatique. Pour supprimer le numéro d'une section, on aj
 
 ## Emphase et formatage
 
-```latex
+``` latex
 \textbf{Texte en gras}
 \textit{Texte en italique}
 \underline{Texte souligné}
@@ -205,7 +203,7 @@ La numérotation est automatique. Pour supprimer le numéro d'une section, on aj
 
 ### Liste non ordonnée (`itemize`)
 
-```latex
+``` latex
 \begin{itemize}
   \item Premier élément
   \item Deuxième élément
@@ -215,7 +213,7 @@ La numérotation est automatique. Pour supprimer le numéro d'une section, on aj
 
 ### Liste ordonnée (`enumerate`)
 
-```latex
+``` latex
 \begin{enumerate}
   \item Première étape
   \item Deuxième étape
@@ -225,7 +223,7 @@ La numérotation est automatique. Pour supprimer le numéro d'une section, on aj
 
 ### Liste de définitions (`description`)
 
-```latex
+``` latex
 \begin{description}
   \item[LaTeX] Système de composition de documents.
   \item[Overleaf] Éditeur LaTeX en ligne.
@@ -237,7 +235,7 @@ La numérotation est automatique. Pour supprimer le numéro d'une section, on aj
 
 En LaTeX, un simple retour à la ligne dans l'éditeur ne crée **pas** un nouveau paragraphe. Il faut laisser une **ligne vide** entre deux paragraphes. Pour forcer un saut de ligne sans nouveau paragraphe, on utilise `\\` (à éviter en dehors des tableaux et environnements mathématiques).
 
----
+------------------------------------------------------------------------
 
 # Mathématiques {#sec-math}
 
@@ -247,7 +245,7 @@ C'est l'un des domaines où LaTeX excelle le plus. Il existe deux modes principa
 
 Les formules en ligne sont encadrées par `$...$` :
 
-```latex
+``` latex
 La célèbre équation d'Einstein est $E = mc^2$.
 La densité de la loi normale est $f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$.
 ```
@@ -256,7 +254,7 @@ La densité de la loi normale est $f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{
 
 Pour les équations importantes, affichées sur leur propre ligne et numérotées, on utilise l'environnement `equation` :
 
-```latex
+``` latex
 \begin{equation}
   \int_{-\infty}^{+\infty} e^{-x^2} \, dx = \sqrt{\pi}
   \label{eq:gauss}
@@ -269,7 +267,7 @@ Pour des équations sans numéro, on utilise `equation*` (avec le package `amsma
 
 L'environnement `align` permet d'aligner plusieurs équations sur un caractère (typiquement le signe `=`) :
 
-```latex
+``` latex
 \begin{align}
   f(x) &= (x+1)^2 \\
        &= x^2 + 2x + 1
@@ -280,23 +278,23 @@ Le symbole `&` est le point d'alignement, et `\\` passe à la ligne suivante.
 
 ## Commandes mathématiques courantes
 
-| Résultat souhaité | Commande LaTeX |
-|---|---|
-| Fraction : $\frac{a}{b}$ | `\frac{a}{b}` |
-| Racine : $\sqrt{x}$ | `\sqrt{x}` |
-| Puissance : $x^{n}$ | `x^{n}` |
-| Indice : $x_{i}$ | `x_{i}` |
-| Somme : $\sum_{i=1}^{n}$ | `\sum_{i=1}^{n}` |
-| Intégrale : $\int_a^b$ | `\int_a^b` |
-| Infini : $\infty$ | `\infty` |
-| Norme : $\|x\|$ | `\|x\|` |
-| Espérance : $\mathbb{E}[X]$ | `\mathbb{E}[X]` |
+| Résultat souhaité           | Commande LaTeX   |
+|-----------------------------|------------------|
+| Fraction : $\frac{a}{b}$    | `\frac{a}{b}`    |
+| Racine : $\sqrt{x}$         | `\sqrt{x}`       |
+| Puissance : $x^{n}$         | `x^{n}`          |
+| Indice : $x_{i}$            | `x_{i}`          |
+| Somme : $\sum_{i=1}^{n}$    | `\sum_{i=1}^{n}` |
+| Intégrale : $\int_a^b$      | `\int_a^b`       |
+| Infini : $\infty$           | `\infty`         |
+| Norme : $\|x\|$             | `\|x\|`          |
+| Espérance : $\mathbb{E}[X]$ | `\mathbb{E}[X]`  |
 
 ## Environnements de théorèmes
 
 Avec le package `amsthm`, on peut définir des environnements numérotés :
 
-```latex
+``` latex
 \newtheorem{theorem}{Théorème}
 \newtheorem{definition}{Définition}
 \newtheorem{proposition}{Proposition}
@@ -314,13 +312,13 @@ Avec le package `amsthm`, on peut définir des environnements numérotés :
 \end{proof}
 ```
 
----
+------------------------------------------------------------------------
 
 # Figures et tableaux {#sec-figures}
 
 ## Insérer une image
 
-```latex
+``` latex
 \usepackage{graphicx}   % dans le préambule
 
 \begin{figure}[htbp]
@@ -333,7 +331,7 @@ Avec le package `amsthm`, on peut définir des environnements numérotés :
 
 Le paramètre optionnel `[htbp]` indique les positions préférées : **h**ere (ici), **t**op (haut de la page), **b**ottom (bas), **p**age (page dédiée). LaTeX choisit automatiquement la meilleure selon ses algorithmes de placement.
 
-::: {.callout-tip}
+::: callout-tip
 ## Formats d'images recommandés
 
 Préférez les formats **PDF** ou **EPS** pour les graphiques vectoriels (figures, courbes), et **PNG** ou **JPEG** pour les photographies. Les formats vectoriels garantissent une netteté parfaite quelle que soit la résolution d'impression.
@@ -341,7 +339,7 @@ Préférez les formats **PDF** ou **EPS** pour les graphiques vectoriels (figure
 
 ## Créer un tableau
 
-```latex
+``` latex
 \usepackage{booktabs}   % dans le préambule
 
 \begin{table}[htbp]
@@ -366,7 +364,7 @@ Les commandes `\toprule`, `\midrule`, `\bottomrule` du package `booktabs` produi
 
 L'un des grands avantages de LaTeX est la gestion automatique des références croisées. Tout objet numéroté (section, figure, tableau, équation) peut recevoir un label :
 
-```latex
+``` latex
 \label{fig:mon_image}   % sur la figure
 \label{tab:comparaison} % sur le tableau
 \label{eq:gauss}        % sur l'équation
@@ -374,7 +372,7 @@ L'un des grands avantages de LaTeX est la gestion automatique des références c
 
 On y fait ensuite référence avec :
 
-```latex
+``` latex
 Comme illustré en Figure~\ref{fig:mon_image}, ...
 Le Tableau~\ref{tab:comparaison} présente...
 L'équation~\eqref{eq:gauss} montre...
@@ -382,7 +380,7 @@ L'équation~\eqref{eq:gauss} montre...
 
 Le tilde `~` est une espace insécable, qui empêche un saut de ligne entre le mot et le numéro.
 
----
+------------------------------------------------------------------------
 
 # Bibliographie avec BibTeX {#sec-biblio}
 
@@ -390,12 +388,12 @@ Le tilde `~` est une espace insécable, qui empêche un saut de ligne entre le m
 
 La gestion bibliographique en LaTeX repose sur deux fichiers :
 
-1. **Le fichier `.bib`** : base de données des références bibliographiques.
-2. **Le fichier `.tex`** : citations dans le texte et appel de la bibliographie.
+1.  **Le fichier `.bib`** : base de données des références bibliographiques.
+2.  **Le fichier `.tex`** : citations dans le texte et appel de la bibliographie.
 
 ## Structure d'un fichier `.bib`
 
-```bibtex
+``` bibtex
 @article{bachoc2020,
   author  = {Bachoc, François and Durrande, Nicolas and Rullière, Didier and Chevalier, Clément},
   title   = {Properties and Comparison of some Kriging Sub-model Aggregation Methods},
@@ -421,7 +419,7 @@ Les types de références courants sont `@article`, `@book`, `@inproceedings`, `
 
 Avec le package `natbib` (recommandé pour les sciences) :
 
-```latex
+``` latex
 \usepackage{natbib}   % dans le préambule
 
 % Différents styles de citation
@@ -434,7 +432,7 @@ Avec le package `natbib` (recommandé pour les sciences) :
 
 La compilation d'un document avec bibliographie requiert **quatre passes** dans l'éditeur local :
 
-```
+```         
 pdflatex   mon_document.tex
 bibtex     mon_document
 pdflatex   mon_document.tex
@@ -443,7 +441,7 @@ pdflatex   mon_document.tex
 
 Sur Overleaf, ces passes sont gérées automatiquement lors du clic sur **Recompile**.
 
----
+------------------------------------------------------------------------
 
 # Présentation avec Beamer {#sec-beamer}
 
@@ -451,7 +449,7 @@ La classe `beamer` permet de créer des présentations PDF (équivalent à Power
 
 ## Structure minimale Beamer
 
-```latex
+``` latex
 \documentclass{beamer}
 \usetheme{Madrid}       % thème visuel (Warsaw, Berlin, AnnArbor…)
 \usecolortheme{beaver}  % palette de couleurs
@@ -494,13 +492,13 @@ La classe `beamer` permet de créer des présentations PDF (équivalent à Power
 \end{document}
 ```
 
-::: {.callout-note}
+::: callout-note
 ## Incréments dans Beamer
 
 La syntaxe `\item<2->` permet de faire apparaître un élément seulement à partir du deuxième clic. C'est la gestion des **overlays**, très utile pour les présentations pédagogiques.
 :::
 
----
+------------------------------------------------------------------------
 
 # Bonnes pratiques et erreurs fréquentes {#sec-bonnes-pratiques}
 
@@ -509,7 +507,7 @@ La syntaxe `\item<2->` permet de faire apparaître un élément seulement à par
 Les erreurs LaTeX peuvent être cryptiques. Voici les plus fréquentes et leur solution :
 
 | Message d'erreur | Cause probable | Solution |
-|---|---|---|
+|----|----|----|
 | `! Undefined control sequence` | Commande inexistante ou package manquant | Vérifier l'orthographe de la commande ; ajouter le bon package |
 | `! Missing $ inserted` | Symbole mathématique hors du mode math | Encadrer le symbole par `$...$` |
 | `! File not found` | Image ou fichier `.bib` introuvable | Vérifier le nom et l'emplacement du fichier |
@@ -518,14 +516,14 @@ Les erreurs LaTeX peuvent être cryptiques. Voici les plus fréquentes et leur s
 
 ## Bonnes pratiques générales
 
-1. **Utiliser des labels explicites** : préfixer les labels par leur type (`fig:`, `tab:`, `eq:`, `sec:`).
-2. **Commenter le préambule** : noter pourquoi chaque package est chargé.
-3. **Un fichier par chapitre** : pour les longs documents, utiliser `\input{chapitre1.tex}` ou `\include{chapitre1}`.
-4. **Versionner avec Git** : les fichiers `.tex` sont du texte brut, idéaux pour le versionnage.
-5. **Éviter les sauts de ligne forcés** (`\\`) dans le texte courant ; préférer une ligne vide pour les paragraphes.
-6. **Tilde pour les espaces insécables** : `Figure~\ref{...}`, `M.~Dupont`.
+1.  **Utiliser des labels explicites** : préfixer les labels par leur type (`fig:`, `tab:`, `eq:`, `sec:`).
+2.  **Commenter le préambule** : noter pourquoi chaque package est chargé.
+3.  **Un fichier par chapitre** : pour les longs documents, utiliser `\input{chapitre1.tex}` ou `\include{chapitre1}`.
+4.  **Versionner avec Git** : les fichiers `.tex` sont du texte brut, idéaux pour le versionnage.
+5.  **Éviter les sauts de ligne forcés** (`\\`) dans le texte courant ; préférer une ligne vide pour les paragraphes.
+6.  **Tilde pour les espaces insécables** : `Figure~\ref{...}`, `M.~Dupont`.
 
----
+------------------------------------------------------------------------
 
 # Exercices pratiques {#sec-exercices}
 
@@ -533,14 +531,14 @@ Les erreurs LaTeX peuvent être cryptiques. Voici les plus fréquentes et leur s
 
 Créez un document Overleaf contenant :
 
-- Un titre, un auteur et la date du jour.
-- Une section *Introduction* avec deux paragraphes.
-- Une liste non ordonnée de trois éléments.
+-   Un titre, un auteur et la date du jour.
+-   Une section *Introduction* avec deux paragraphes.
+-   Une liste non ordonnée de trois éléments.
 
 ::: {.callout-caution collapse="true"}
 ## Correction
 
-```latex
+``` latex
 \documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -577,14 +575,14 @@ confiance et produire des documents de qualité professionnelle.
 
 Composez les expressions suivantes en LaTeX :
 
-1. La formule de Bayes : $P(A \mid B) = \dfrac{P(B \mid A)\,P(A)}{P(B)}$
-2. La loi normale : $f(x) = \dfrac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\dfrac{(x-\mu)^2}{2\sigma^2}\right)$
-3. La définition du noyau de covariance gaussien : $k(x, x') = \sigma^2 \exp\!\left(-\dfrac{\|x - x'\|^2}{2\ell^2}\right)$
+1.  La formule de Bayes : $P(A \mid B) = \dfrac{P(B \mid A)\,P(A)}{P(B)}$
+2.  La loi normale : $f(x) = \dfrac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\dfrac{(x-\mu)^2}{2\sigma^2}\right)$
+3.  La définition du noyau de covariance gaussien : $k(x, x') = \sigma^2 \exp\!\left(-\dfrac{\|x - x'\|^2}{2\ell^2}\right)$
 
 ::: {.callout-caution collapse="true"}
 ## Correction
 
-```latex
+``` latex
 \begin{equation}
   P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}
 \end{equation}
@@ -601,43 +599,43 @@ Composez les expressions suivantes en LaTeX :
 
 ## Exercice 3 — Tableau et figure
 
-1. Créez un tableau comparant trois lois de probabilité (normale, exponentielle, de Poisson) selon leurs paramètres, leur support et leur espérance.
-2. Importez une image de votre choix avec une légende et un label.
+1.  Créez un tableau comparant trois lois de probabilité (normale, exponentielle, de Poisson) selon leurs paramètres, leur support et leur espérance.
+2.  Importez une image de votre choix avec une légende et un label.
 
----
+------------------------------------------------------------------------
 
 # Ressources complémentaires {#sec-ressources}
 
 ## Documentation officielle et référence
 
-- [**Overleaf Documentation**](https://www.overleaf.com/learn) : la ressource la plus complète pour débuter, entièrement en anglais.
-- [**The LaTeX Companion**](https://www.latex-project.org/) (Mittelbach et al.) : la référence exhaustive.
-- [**lshort**](https://ctan.org/pkg/lshort-french) (*The Not So Short Introduction to LaTeX2e*) : disponible en français, idéal pour apprendre rapidement.
+-   [**Overleaf Documentation**](https://www.overleaf.com/learn) : la ressource la plus complète pour débuter, entièrement en anglais.
+-   [**The LaTeX Companion**](https://www.latex-project.org/) (Mittelbach et al.) : la référence exhaustive.
+-   [**lshort**](https://ctan.org/pkg/lshort-french) (*The Not So Short Introduction to LaTeX2e*) : disponible en français, idéal pour apprendre rapidement.
 
 ## Outils en ligne
 
-- [**Detexify**](https://detexify.kirelabs.org/) : dessinez un symbole à la main pour trouver la commande LaTeX correspondante.
-- [**Tables Generator**](https://www.tablesgenerator.com/) : créez des tableaux LaTeX visuellement.
-- [**Mathpix**](https://mathpix.com/) : convertit des formules photographiées en code LaTeX.
-- [**CTAN**](https://ctan.org/) : dépôt central de tous les packages LaTeX.
+-   [**Detexify**](https://detexify.kirelabs.org/) : dessinez un symbole à la main pour trouver la commande LaTeX correspondante.
+-   [**Tables Generator**](https://www.tablesgenerator.com/) : créez des tableaux LaTeX visuellement.
+-   [**Mathpix**](https://mathpix.com/) : convertit des formules photographiées en code LaTeX.
+-   [**CTAN**](https://ctan.org/) : dépôt central de tous les packages LaTeX.
 
 ## Templates Overleaf utiles
 
-- **Article scientifique** : modèles IEEE, Springer, Elsevier directement dans Overleaf.
-- **Thèse** : templates pour les principales universités françaises.
-- **CV académique** : template `moderncv` ou `AltaCV`.
-- **Présentation** : templates Beamer personnalisés pour chaque thème.
+-   **Article scientifique** : modèles IEEE, Springer, Elsevier directement dans Overleaf.
+-   **Thèse** : templates pour les principales universités françaises.
+-   **CV académique** : template `moderncv` ou `AltaCV`.
+-   **Présentation** : templates Beamer personnalisés pour chaque thème.
 
----
+------------------------------------------------------------------------
 
-::: {.callout-tip}
+::: callout-tip
 ## Pour aller plus loin
 
 Une fois à l'aise avec les bases, explorez :
 
-- **TikZ** : dessins et schémas vectoriels directement en LaTeX.
-- **pgfplots** : tracés de courbes et visualisation de données.
-- **BibLaTeX + Biber** : gestion bibliographique avancée.
-- **siunitx** : notation des unités physiques selon les normes SI.
-- **algorithm2e** : description d'algorithmes.
+-   **TikZ** : dessins et schémas vectoriels directement en LaTeX.
+-   **pgfplots** : tracés de courbes et visualisation de données.
+-   **BibLaTeX + Biber** : gestion bibliographique avancée.
+-   **siunitx** : notation des unités physiques selon les normes SI.
+-   **algorithm2e** : description d'algorithmes.
 :::

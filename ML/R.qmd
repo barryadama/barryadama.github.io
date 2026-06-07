@@ -1,0 +1,1643 @@
+---
+title: " "
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    toc-location: left
+    number-sections: true
+    number-depth: 3
+    code-fold: false
+    code-copy: true
+    css: style.css
+    self-contained: true
+---
+
+# Introduction {#sec-intro}
+
+**R** est un langage de programmation et un environnement logiciel libre dédié au calcul statistique et à la visualisation de données. Il a été créé par Ross Ihaka et Robert Gentleman à l'Université d'Auckland (Nouvelle-Zélande) et publié en 1995, dans la lignée du langage S développé aux Bell Laboratories.
+
+Sa philosophie repose sur l'interactivité, la reproductibilité et la richesse de son écosystème de packages. Aujourd'hui, R est le langage de référence dans de nombreux domaines :
+
+- **Statistiques et biostatistiques** : modèles linéaires, tests d'hypothèses, survie
+- **Analyse et science des données** : `dplyr`, `tidyr`, `data.table`
+- **Visualisation** : `ggplot2`, `plotly`, `shiny`
+- **Économétrie et finance** : `lme4`, `forecast`, `PerformanceAnalytics`
+- **Bioinformatique** : Bioconductor, `DESeq2`, `Seurat`
+- **Communication scientifique** : R Markdown, Quarto, `knitr`
+
+::: {.callout-note}
+## Le CRAN et Bioconductor
+
+Le **CRAN** (*Comprehensive R Archive Network*) héberge plus de 21 000 packages validés. **Bioconductor** est un dépôt spécialisé en bioinformatique avec plus de 2 000 packages. La commande `install.packages("nom")` installe depuis le CRAN ; `BiocManager::install("nom")` depuis Bioconductor.
+:::
+
+## Environnements recommandés
+
+| Environnement | Usage |
+|---|---|
+| **RStudio** | IDE de référence pour R, très complet |
+| **VS Code + extension R** | Développement général, intégration Git |
+| **Positron** | Nouvel IDE de Posit (successeur de RStudio) |
+| **Jupyter + noyau IRkernel** | Notebooks interactifs |
+| **Google Colab** | Notebooks R en ligne (runtime R disponible) |
+
+Pour installer R : téléchargez [cran.r-project.org](https://cran.r-project.org/). RStudio Desktop est disponible sur [posit.co](https://posit.co/downloads/).
+
+## Structure du tutoriel
+
+| Partie | Sections | Thèmes |
+|---|---|---|
+| Fondamentaux | 2 à 6 | Variables, types, vecteurs, opérateurs, E/S |
+| Structures de données | 7 à 10 | Vecteurs, matrices, listes, data frames |
+| Contrôle du flux | 11 à 12 | Conditions, boucles, fonctions apply |
+| Fonctions et environnements | 13 à 14 | Fonctions, portée, packages |
+| POO | 15 | S3, S4, R5/R6 |
+| Packages clés | 16 à 18 | dplyr/tidyr, ggplot2, tidymodels |
+| R Markdown | 19 | Documents reproductibles |
+
+---
+
+# Variables et types de données {#sec-variables}
+
+## Affectation
+
+En R, l'opérateur d'affectation conventionnel est `<-` (Alt + `-` dans RStudio). Le signe `=` fonctionne également, mais est réservé par convention aux arguments de fonctions.
+
+```r
+# Affectation simple
+nom       <- "Alice"
+age       <- 30
+taille    <- 1.68
+est_actif <- TRUE
+
+# Affectation avec =  (fonctionne mais déconseillée hors arguments)
+x = 42
+
+# Affectation de droite à gauche (rare mais valide)
+"Alice" -> prenom
+
+# Affectation globale (depuis une fonction, dans l'environnement global)
+compteur <<- 0
+
+# Afficher une valeur : print() ou simplement taper le nom
+print(age)
+age           # équivalent dans la console
+```
+
+## Types de base
+
+### Nombres (`numeric` et `integer`)
+
+```r
+# Numeric (double précision par défaut)
+pi_val  <- 3.14159
+e_val   <- 2.71828
+grand   <- 6.022e23       # notation scientifique
+
+# Integer (suffixe L)
+n       <- 42L
+annee   <- 2024L
+
+# Vérification de type
+is.numeric(3.14)          # TRUE
+is.integer(42L)           # TRUE
+is.double(42L)            # FALSE
+
+# Conversion
+as.integer(3.9)           # 3  (troncature)
+as.double(42L)            # 42
+
+# Valeurs spéciales
+Inf                       # infini positif
+-Inf                      # infini négatif
+NaN                       # Not a Number (ex: 0/0)
+NA                        # Not Available (valeur manquante)
+NA_real_                  # NA typé pour les doubles
+NA_integer_               # NA typé pour les entiers
+
+is.na(NA)                 # TRUE
+is.nan(NaN)               # TRUE
+is.infinite(Inf)          # TRUE
+```
+
+### Chaînes de caractères (`character`)
+
+```r
+prenom  <- "Alice"
+message <- 'Bonjour le monde'
+
+# Concaténation
+paste("Bonjour", prenom)          # "Bonjour Alice"  (séparateur = espace)
+paste0("Bonjour", prenom)         # "BonjourAlice"  (sans séparateur)
+paste("a", "b", "c", sep = "-")   # "a-b-c"
+
+# sprintf : formatage à la printf
+sprintf("Bonjour %s, tu as %d ans.", prenom, age)
+sprintf("Pi ≈ %.4f", pi)          # "Pi ≈ 3.1416"
+
+# glue (package glue, très répandu)
+# glue::glue("Bonjour {prenom}, tu as {age} ans.")
+
+# Longueur et manipulation
+nchar("Python")                   # 6
+toupper("bonjour")                # "BONJOUR"
+tolower("BONJOUR")                # "bonjour"
+substr("Python", 1, 3)            # "Pyt"  (indices à partir de 1 !)
+gsub("o", "0", "bonjour")        # "b0nj0ur"
+sub("o", "0", "bonjour")         # "b0njour" (première occurrence seulement)
+trimws("  bonjour  ")             # "bonjour"
+strsplit("a,b,c", ",")           # list: c("a","b","c")
+```
+
+### Logiques (`logical`)
+
+```r
+vrai <- TRUE    # ou T
+faux <- FALSE   # ou F
+
+# Opérateurs logiques
+TRUE  & FALSE   # FALSE  (ET, vectorisé)
+TRUE  | FALSE   # TRUE   (OU, vectorisé)
+!TRUE           # FALSE  (NON)
+TRUE  && FALSE  # FALSE  (ET scalaire, court-circuit)
+TRUE  || FALSE  # TRUE   (OU scalaire, court-circuit)
+
+# Conversion
+as.logical(0)     # FALSE
+as.logical(1)     # TRUE
+as.logical("TRUE") # TRUE
+as.integer(TRUE)   # 1
+as.integer(FALSE)  # 0
+```
+
+### Valeur nulle et absente
+
+```r
+# NULL : absence d'objet (pas une valeur manquante)
+x <- NULL
+is.null(x)        # TRUE
+length(NULL)      # 0
+
+# NA : valeur manquante (présent mais inconnu)
+y <- NA
+is.na(y)          # TRUE
+length(NA)        # 1
+
+# Différence fondamentale
+c(1, NULL, 3)     # c(1, 3)  — NULL disparaît
+c(1, NA, 3)       # c(1, NA, 3) — NA est conservé
+```
+
+## Vérification et conversion de types
+
+```r
+# Fonctions is.*
+is.numeric(3.14)     # TRUE
+is.character("abc")  # TRUE
+is.logical(TRUE)     # TRUE
+is.integer(42L)      # TRUE
+is.na(NA)            # TRUE
+
+# Fonctions as.*
+as.numeric("3.14")   # 3.14
+as.character(42)     # "42"
+as.logical(0)        # FALSE
+as.integer(3.9)      # 3
+
+# class() vs typeof() vs mode()
+class(42L)           # "integer"
+typeof(42L)          # "integer"
+class(3.14)          # "numeric"
+typeof(3.14)         # "double"
+class(TRUE)          # "logical"
+class("abc")         # "character"
+```
+
+---
+
+# Vecteurs {#sec-vecteurs}
+
+Le **vecteur** est la structure de données fondamentale de R. Tout scalaire est en réalité un vecteur de longueur 1. Les vecteurs sont **homogènes** (un seul type) et **indexés à partir de 1**.
+
+## Création
+
+```r
+# Fonction c() — concatenate
+entiers  <- c(1, 2, 3, 4, 5)
+mots     <- c("pomme", "banane", "cerise")
+logiques <- c(TRUE, FALSE, TRUE, TRUE)
+
+# Séquences
+1:10                              # 1 2 3 4 5 6 7 8 9 10
+seq(0, 1, by = 0.25)              # 0.00 0.25 0.50 0.75 1.00
+seq(0, 1, length.out = 5)         # 5 valeurs équidistantes entre 0 et 1
+seq_len(5)                        # 1 2 3 4 5 (équivalent sûr de 1:n)
+seq_along(mots)                   # 1 2 3 (indices de chaque élément)
+
+# Répétitions
+rep(0, times = 5)                 # 0 0 0 0 0
+rep(c(1, 2), times = 3)           # 1 2 1 2 1 2
+rep(c(1, 2), each = 3)            # 1 1 1 2 2 2
+
+# Valeurs aléatoires
+set.seed(42)                      # reproductibilité
+runif(5)                          # 5 uniformes [0,1]
+rnorm(5, mean = 0, sd = 1)        # 5 normales standard
+sample(1:100, size = 10)          # 10 entiers aléatoires sans remise
+sample(1:6, size = 10, replace = TRUE)  # dé à 6 faces, 10 lancers
+```
+
+## Indexation
+
+::: {.callout-note}
+## Attention : R indexe à partir de 1
+
+Contrairement à Python (base 0), R indexe à partir de **1**. `x[1]` est le premier élément, `x[length(x)]` est le dernier.
+:::
+
+```r
+x <- c(10, 20, 30, 40, 50)
+
+# Par position
+x[1]              # 10  (premier)
+x[5]              # 50  (dernier)
+x[length(x)]      # 50  (dernier — portable)
+x[c(1, 3, 5)]     # 10 30 50
+x[2:4]            # 20 30 40
+
+# Indices négatifs : exclure
+x[-1]             # 20 30 40 50  (tout sauf le 1er)
+x[c(-1, -5)]      # 20 30 40    (tout sauf 1er et dernier)
+
+# Indexation logique
+x[x > 25]         # 30 40 50
+x[x %% 20 == 0]   # 20 40
+
+# Par nom (si le vecteur est nommé)
+notes <- c(maths = 16, physique = 14, info = 18)
+notes["info"]             # 18
+notes[c("maths", "info")] # 16 18
+
+# Modification
+x[1] <- 99
+x[x < 30] <- 0
+```
+
+## Opérations vectorisées
+
+R est **vectorisé par nature** : les opérations s'appliquent élément par élément sans boucle explicite.
+
+```r
+a <- c(1, 2, 3, 4)
+b <- c(10, 20, 30, 40)
+
+a + b           # 11 22 33 44
+a * b           # 10 40 90 160
+a ^ 2           # 1  4  9 16
+sqrt(a)         # 1.000 1.414 1.732 2.000
+log(a)          # 0.000 0.693 1.099 1.386
+exp(a)          # 2.718 7.389 20.086 54.598
+
+# Recyclage : le vecteur le plus court est répété
+c(1, 2, 3, 4) + c(10, 20)   # 11 22 13 24  (c(10,20) recyclé)
+
+# Fonctions d'agrégation
+sum(a)          # 10
+prod(a)         # 24
+mean(a)         # 2.5
+median(a)       # 2.5
+var(a)          # variance (n-1)
+sd(a)           # écart-type
+min(a)          # 1
+max(a)          # 4
+range(a)        # 1 4
+cumsum(a)       # 1 3 6 10  (sommes cumulées)
+diff(a)         # 1 1 1     (différences successives)
+which.min(a)    # 1         (index du minimum)
+which.max(a)    # 4         (index du maximum)
+which(a > 2)    # 3 4       (indices des éléments > 2)
+```
+
+## Vecteurs nommés et `factor`
+
+```r
+# Nommer les éléments
+villes <- c(Paris = 2.1, Lyon = 0.5, Marseille = 0.9)
+names(villes)    # "Paris"    "Lyon"     "Marseille"
+names(villes)[2] <- "Lyon (Métropole)"
+
+# Factor : variable catégorielle (stockée comme entiers + niveaux)
+genre    <- factor(c("F", "M", "F", "F", "M"))
+niveaux  <- factor(c("faible", "moyen", "élevé", "moyen"),
+                   levels = c("faible", "moyen", "élevé"),
+                   ordered = TRUE)
+
+levels(genre)         # "F" "M"
+nlevels(genre)        # 2
+table(genre)          # tableau de fréquences : F=3, M=2
+as.integer(genre)     # 1 2 1 1 2 (codes internes)
+
+# Factor ordonné
+niveaux[1] < niveaux[3]   # TRUE  (faible < élevé)
+```
+
+---
+
+# Matrices et arrays {#sec-matrices}
+
+## Matrices
+
+Une **matrice** (`matrix`) est un vecteur à deux dimensions, homogène.
+
+```r
+# Création
+M <- matrix(1:12, nrow = 3, ncol = 4)           # rempli par colonnes
+M <- matrix(1:12, nrow = 3, byrow = TRUE)        # rempli par lignes
+
+# Matrices spéciales
+diag(4)                          # matrice identité 4×4
+matrix(0, nrow = 3, ncol = 3)    # matrice nulle
+
+# Attributs
+dim(M)        # c(3, 4)
+nrow(M)       # 3
+ncol(M)       # 4
+length(M)     # 12  (nombre total d'éléments)
+
+# Nommer lignes et colonnes
+rownames(M) <- c("L1", "L2", "L3")
+colnames(M) <- c("C1", "C2", "C3", "C4")
+```
+
+## Indexation matricielle
+
+```r
+M <- matrix(1:9, nrow = 3)
+#      [,1] [,2] [,3]
+# [1,]    1    4    7
+# [2,]    2    5    8
+# [3,]    3    6    9
+
+M[1, 1]      # 1    (ligne 1, colonne 1)
+M[2, ]       # 2 5 8  (ligne 2 entière)
+M[, 3]       # 7 8 9  (colonne 3 entière)
+M[1:2, 2:3]  # sous-matrice
+
+# Indexation logique
+M[M > 5]     # 6 7 8 9 (retourne un vecteur)
+```
+
+## Opérations matricielles
+
+```r
+A <- matrix(c(1,2,3,4), nrow = 2)
+B <- matrix(c(5,6,7,8), nrow = 2)
+
+A + B           # addition élément par élément
+A * B           # multiplication élément par élément (PAS produit matriciel)
+A %*% B         # produit matriciel
+
+t(A)            # transposée
+det(A)          # déterminant
+solve(A)        # inverse
+solve(A, b)     # résoudre Ax = b
+
+# Valeurs propres et vecteurs propres
+eigen(A)        # list : values, vectors
+
+# Fonctions par ligne / colonne
+rowSums(M)      # somme de chaque ligne
+colSums(M)      # somme de chaque colonne
+rowMeans(M)     # moyenne de chaque ligne
+colMeans(M)     # moyenne de chaque colonne
+apply(M, 1, max)  # max de chaque ligne
+apply(M, 2, sd)   # écart-type de chaque colonne
+```
+
+---
+
+# Listes et data frames {#sec-listes}
+
+## Listes
+
+Une **liste** (`list`) est une collection ordonnée et **hétérogène** d'éléments. Chaque élément peut être de n'importe quel type (vecteur, matrice, fonction, autre liste…).
+
+```r
+# Création
+employe <- list(
+  nom        = "Martin",
+  prenom     = "Sophie",
+  age        = 32,
+  salaire    = 52000.0,
+  actif      = TRUE,
+  competences = c("R", "Python", "SQL")
+)
+
+# Accès aux éléments
+employe$nom              # "Martin"
+employe[["salaire"]]     # 52000
+employe[[3]]             # 32  (par position)
+
+# Différence entre [ et [[
+employe["nom"]           # liste d'un élément (retourne une liste)
+employe[["nom"]]         # l'élément lui-même (retourne un character)
+employe[c("nom","age")]  # sous-liste avec plusieurs éléments
+
+# Modifier et ajouter
+employe$salaire    <- 55000
+employe$service    <- "Informatique"
+
+# Supprimer un élément
+employe$actif <- NULL
+
+# Informations
+length(employe)     # nombre d'éléments
+names(employe)      # noms des éléments
+str(employe)        # structure complète (très utile pour les listes complexes)
+```
+
+## Data frames
+
+Le **data frame** (`data.frame`) est la structure tabulaire de base de R. C'est une liste de vecteurs de même longueur, chacun représentant une colonne.
+
+```r
+# Création
+df <- data.frame(
+  nom         = c("Martin", "Dubois", "Leroy", "Moreau", "Bernard"),
+  prenom      = c("Sophie", "Marc",   "Julie", "Thomas", "Claire"),
+  departement = c("Informatique", "Finance", "Informatique", "RH", "Informatique"),
+  salaire     = c(52000, 48000, 58000, 42000, 61000),
+  anciennete  = c(5L, 3L, 8L, 2L, 10L),
+  stringsAsFactors = FALSE    # recommandé : garder les chaînes en character
+)
+
+# Depuis un fichier CSV
+df <- read.csv("employes.csv",   encoding = "UTF-8", sep = ";",
+               stringsAsFactors = FALSE)
+df <- read.csv2("employes.csv")  # séparateur ";" et décimale ","
+
+# Exporter
+write.csv(df,  "sortie.csv",  row.names = FALSE, fileEncoding = "UTF-8")
+write.csv2(df, "sortie2.csv", row.names = FALSE)
+```
+
+## Exploration initiale
+
+```r
+dim(df)         # c(5, 6)  — lignes × colonnes
+nrow(df)        # 5
+ncol(df)        # 6
+names(df)       # noms des colonnes
+str(df)         # structure détaillée (types, premières valeurs)
+summary(df)     # statistiques descriptives par colonne
+head(df, 3)     # 3 premières lignes
+tail(df, 3)     # 3 dernières lignes
+View(df)        # ouvrir dans le visualiseur RStudio (interactif)
+```
+
+## Sélection et filtrage
+
+```r
+# Sélectionner une colonne → vecteur
+df$salaire
+df[["salaire"]]
+df[, "salaire"]
+
+# Sélectionner plusieurs colonnes → data frame
+df[, c("nom", "prenom", "salaire")]
+
+# Sélectionner des lignes par position
+df[1, ]          # première ligne
+df[1:3, ]        # trois premières lignes
+
+# Filtrage logique — syntaxe de base
+df[df$salaire > 50000, ]
+df[df$departement == "Informatique" & df$salaire > 55000, ]
+df[df$nom %in% c("Martin", "Leroy"), ]
+
+# subset() : syntaxe plus lisible
+subset(df, salaire > 50000 & departement == "Informatique",
+       select = c(nom, prenom, salaire))
+
+# Modifier des valeurs
+df$salaire[df$nom == "Dubois"] <- 50000
+df$niveau <- ifelse(df$salaire > 55000, "Senior",
+                    ifelse(df$salaire > 45000, "Confirmé", "Junior"))
+```
+
+---
+
+# Opérateurs {#sec-operateurs}
+
+## Arithmétiques
+
+```r
+17 + 5    # 22
+17 - 5    # 12
+17 * 5    # 85
+17 / 5    # 3.4  (toujours un double)
+17 %/% 5  # 3    (division entière)
+17 %% 5   # 2    (modulo)
+2 ^ 10    # 1024 (puissance)
+sqrt(16)  # 4
+
+# Priorité : ^ > * / > + -  (comme en mathématiques)
+2 + 3 * 4     # 14
+(2 + 3) * 4   # 20
+```
+
+## Comparaison et logique
+
+```r
+5 == 5    # TRUE
+5 != 3    # TRUE
+5 >  3    # TRUE
+5 >= 5    # TRUE
+3 <  5    # TRUE
+3 <= 3    # TRUE
+
+# Appartenance
+5 %in% c(1, 3, 5, 7)   # TRUE
+
+# Logique (vectorisés)
+c(T,T,F) & c(T,F,F)    # TRUE FALSE FALSE
+c(T,T,F) | c(T,F,F)    # TRUE TRUE  FALSE
+!c(T,F,T)              # FALSE TRUE FALSE
+
+# Logique scalaire (court-circuit — pour les conditions if)
+TRUE  && FALSE    # FALSE
+TRUE  || FALSE    # TRUE
+```
+
+## Opérateur pipe
+
+```r
+# Pipe natif R (>= 4.1) : |>
+df |> head(3)
+df |> subset(salaire > 50000) |> nrow()
+
+# Pipe magrittr : %>% (package magrittr / chargé par dplyr)
+library(dplyr)
+df %>% filter(salaire > 50000) %>% select(nom, salaire)
+
+# Les deux sont équivalents pour la plupart des usages
+# |> est recommandé pour les nouveaux projets (pas de dépendance)
+```
+
+---
+
+# Entrées / Sorties {#sec-io}
+
+## Console et affichage
+
+```r
+# Affichage
+print("Bonjour le monde")
+cat("x =", 42, "\n")              # sans guillemets, avec saut de ligne
+cat(sprintf("Pi ≈ %.4f\n", pi))
+
+message("Avertissement non fatal")  # vers stderr, en rouge dans RStudio
+warning("Attention : valeur inhabituelle")
+stop("Erreur fatale : arrêt de l'exécution")
+```
+
+## Lire et écrire des fichiers
+
+```r
+# CSV
+df <- read.csv("donnees.csv",  stringsAsFactors = FALSE)
+df <- read.csv2("donnees.csv") # séparateur ";" (format français)
+write.csv(df, "sortie.csv", row.names = FALSE)
+
+# TSV (tabulation)
+df <- read.delim("donnees.tsv")
+
+# Fichier texte brut
+lignes <- readLines("texte.txt", encoding = "UTF-8")
+writeLines(lignes, "sortie.txt")
+
+# RDS : sauvegarder un objet R (format binaire natif)
+saveRDS(df, "modele.rds")
+df2 <- readRDS("modele.rds")
+
+# RData : sauvegarder plusieurs objets
+save(df, modele, "session.RData")
+load("session.RData")            # recharge df et modele dans l'environnement
+
+# Excel (package readxl / writexl)
+library(readxl)
+df <- read_excel("classeur.xlsx", sheet = "Feuil1")
+
+library(writexl)
+write_xlsx(df, "sortie.xlsx")
+```
+
+## Interaction avec l'utilisateur
+
+```r
+# Saisie interactive (console)
+prenom <- readline(prompt = "Entrez votre prénom : ")
+age    <- as.integer(readline(prompt = "Entrez votre âge : "))
+
+# Boîtes de dialogue (RStudio / GUI)
+prenom <- rstudioapi::showPrompt("Saisie", "Votre prénom :", "")
+```
+
+::: {.callout-tip}
+## Packages de lecture performants
+
+Pour les fichiers volumineux, préférez `data.table::fread()` (très rapide, détecte automatiquement le séparateur) ou `readr::read_csv()` (tidyverse, messages clairs sur les types). Ces packages surpassent `read.csv()` de base en vitesse et en ergonomie.
+:::
+
+---
+
+# Conditions et boucles {#sec-controle}
+
+## Conditions : `if`, `else if`, `else`
+
+```r
+score <- 75
+
+if (score >= 90) {
+  mention <- "Très bien"
+} else if (score >= 75) {
+  mention <- "Bien"
+} else if (score >= 60) {
+  mention <- "Assez bien"
+} else if (score >= 50) {
+  mention <- "Passable"
+} else {
+  mention <- "Insuffisant"
+}
+cat("Mention :", mention, "\n")
+
+# Forme courte (une seule instruction)
+signe <- if (x > 0) "positif" else "non positif"
+
+# ifelse() : version vectorisée (s'applique à chaque élément)
+x <- c(-3, 0, 5, -1, 8)
+ifelse(x > 0, "positif", "négatif ou nul")
+# "négatif ou nul" "négatif ou nul" "positif" "négatif ou nul" "positif"
+
+# switch() : alternatives multiples sur une valeur
+jour <- "lundi"
+switch(jour,
+  lundi    = "Début de semaine",
+  vendredi = "Fin de semaine",
+  samedi   = ,
+  dimanche = "Week-end",          # plusieurs cas → même résultat
+  "Milieu de semaine"             # valeur par défaut (sans nom)
+)
+```
+
+## Boucles
+
+```r
+# Boucle for — itère sur un vecteur ou une liste
+for (i in 1:5) {
+  cat("Itération", i, "\n")
+}
+
+for (fruit in c("pomme", "banane", "cerise")) {
+  cat(toupper(fruit), "\n")
+}
+
+# Boucle while
+compteur <- 1
+while (compteur <= 5) {
+  cat("Compteur :", compteur, "\n")
+  compteur <- compteur + 1
+}
+
+# Boucle repeat (équivalent do...while)
+x <- 1
+repeat {
+  cat(x, "\n")
+  x <- x + 1
+  if (x > 5) break
+}
+
+# Contrôle de flux
+for (i in 1:10) {
+  if (i == 5) break       # sortir de la boucle
+  if (i %% 2 == 0) next  # passer à l'itération suivante
+  cat(i, "")              # affiche : 1 3
+}
+```
+
+::: {.callout-note}
+## Boucles vs vectorisation en R
+
+En R, les boucles `for` sont souvent plus lentes que les opérations vectorisées. Préférez :
+
+- Les fonctions vectorisées (`+`, `*`, `ifelse`, `pmax`, `pmin`…)
+- La famille `apply` (`sapply`, `lapply`, `vapply`, `tapply`)
+- Les fonctions `purrr::map_*` du tidyverse
+
+Les boucles restent appropriées pour des algorithmes séquentiels où chaque itération dépend de la précédente, ou pour les opérations à effets de bord (afficher, écrire des fichiers…).
+:::
+
+## La famille `apply`
+
+```r
+M <- matrix(1:12, nrow = 3)
+
+# apply : sur une matrice ou array
+apply(M, 1, sum)      # somme par ligne   (MARGIN = 1)
+apply(M, 2, mean)     # moyenne par col   (MARGIN = 2)
+apply(M, 1, function(row) max(row) - min(row))  # amplitude par ligne
+
+# lapply : applique une fonction à chaque élément d'une liste, retourne une liste
+noms <- list("alice", "BOB", "claire")
+lapply(noms, toupper)
+# list("ALICE", "BOB", "CLAIRE")
+
+# sapply : comme lapply mais simplifie le résultat (vecteur si possible)
+sapply(noms, toupper)          # character vector : "ALICE" "BOB" "CLAIRE"
+sapply(1:5, function(x) x^2)  # 1 4 9 16 25
+
+# vapply : comme sapply mais avec type de retour garanti (plus sûr)
+vapply(1:5, function(x) x^2, FUN.VALUE = numeric(1))
+
+# tapply : applique par groupe (comme groupby)
+salaires    <- c(52000, 48000, 58000, 42000, 61000)
+departement <- c("Info", "Finance", "Info", "RH", "Info")
+tapply(salaires, departement, mean)
+# Finance   Info     RH
+#  48000   57000   42000
+
+# Map (majuscule) : plusieurs listes en entrée
+Map("+", 1:3, 4:6)    # list(5, 7, 9)
+
+# Reduce : réduction successive
+Reduce("+", 1:5)       # 15  (((1+2)+3)+4)+5
+Reduce("+", 1:5, accumulate = TRUE)  # 1 3 6 10 15
+
+# Filter, Find, Position
+Filter(function(x) x > 3, c(1, 2, 3, 4, 5))   # 4 5
+```
+
+---
+
+# Fonctions {#sec-fonctions}
+
+## Définir et appeler une fonction
+
+```r
+# Définition
+saluer <- function(prenom, politesse = "Bonjour") {
+  message <- paste(politesse, prenom, "!")
+  return(message)         # retour explicite
+}
+
+# Appel
+saluer("Alice")                      # "Bonjour Alice !"
+saluer("Bob", politesse = "Salut")   # "Salut Bob !"
+saluer(politesse = "Bonsoir", prenom = "Claire")  # arguments nommés
+
+# La dernière expression est retournée implicitement
+carre <- function(x) x^2    # pas besoin de return()
+carre(5)                     # 25
+```
+
+## Arguments avancés
+
+```r
+# Valeurs par défaut
+puissance <- function(base, exposant = 2) {
+  base ^ exposant
+}
+
+# Arguments variables (...) — passe-partout
+ma_somme <- function(...) {
+  args <- list(...)
+  Reduce("+", args)
+}
+ma_somme(1, 2, 3, 4, 5)   # 15
+
+# Transmettre ... à une autre fonction
+ma_moyenne <- function(x, ...) {
+  mean(x, ...)
+}
+ma_moyenne(c(1, 2, NA, 4), na.rm = TRUE)   # 7/3
+
+# Vérification des arguments
+diviser <- function(a, b) {
+  stopifnot(is.numeric(a), is.numeric(b))
+  if (b == 0) stop("Division par zéro impossible.")
+  a / b
+}
+
+# match.arg : valider un argument parmi un ensemble fini
+afficher <- function(format = c("html", "pdf", "docx")) {
+  format <- match.arg(format)   # valide et normalise
+  cat("Format :", format, "\n")
+}
+afficher("pdf")
+afficher("p")     # accepté : correspondance partielle unique
+```
+
+## Portée des variables (environnements)
+
+```r
+x <- "global"
+
+f <- function() {
+  x <- "local"     # crée une variable locale, ne modifie pas le global
+  cat("Dans f :", x, "\n")
+}
+
+f()               # "Dans f : local"
+cat(x, "\n")      # "global" — inchangé
+
+# <<- : affectation dans l'environnement parent
+compteur <- 0
+incrementer <- function() {
+  compteur <<- compteur + 1
+}
+incrementer()
+incrementer()
+compteur          # 2
+
+# Environnements
+environment(f)    # environnement dans lequel f a été définie
+ls()              # variables de l'environnement global
+rm(x)             # supprimer une variable
+```
+
+## Fonctions anonymes et closures
+
+```r
+# Fonction anonyme (lambda)
+(function(x) x^2)(5)           # 25
+carre <- \(x) x^2              # syntaxe courte R >= 4.1
+carre(5)                        # 25
+
+# Utilisation avec sapply, Map…
+sapply(1:5, \(x) x^2)
+
+# Closure : fonction qui capture son environnement de création
+creer_multiplicateur <- function(facteur) {
+  function(x) x * facteur        # facteur est "capturé"
+}
+
+doubler  <- creer_multiplicateur(2)
+tripler  <- creer_multiplicateur(3)
+doubler(5)    # 10
+tripler(5)    # 15
+```
+
+---
+
+# Packages et gestion des dépendances {#sec-packages}
+
+## Installer et charger
+
+```r
+# Installer depuis le CRAN
+install.packages("dplyr")
+install.packages(c("ggplot2", "tidyr", "readr"))
+
+# Installer depuis GitHub (package devtools ou remotes)
+# devtools::install_github("tidyverse/dplyr")
+
+# Charger un package dans la session
+library(dplyr)
+require(dplyr)    # comme library mais retourne FALSE si absent (pas d'erreur)
+
+# Utiliser une fonction sans charger le package
+dplyr::filter(df, salaire > 50000)
+stats::filter(x, rep(1/3, 3))   # éviter les conflits de noms
+
+# Déscharger un package
+detach("package:dplyr", unload = TRUE)
+
+# Mettre à jour les packages
+update.packages()
+update.packages(ask = FALSE)   # sans confirmation
+```
+
+## Packages de base (base R)
+
+R est livré avec plusieurs packages chargés par défaut. En voici les principaux :
+
+| Package | Contenu |
+|---|---|
+| `base` | Fonctions fondamentales (c, list, apply, Reduce…) |
+| `stats` | Modèles statistiques, distributions, tests |
+| `graphics` | Graphiques de base (plot, hist, boxplot…) |
+| `utils` | Utilitaires (read.csv, head, str…) |
+| `methods` | Système OOP S4 |
+| `datasets` | Jeux de données d'exemple (iris, mtcars, airquality…) |
+| `grDevices` | Gestion des couleurs et des dispositifs graphiques |
+
+```r
+# Explorer les packages chargés
+search()             # liste les packages attachés à la session
+sessionInfo()        # informations complètes sur la session R
+
+# Aide sur une fonction
+?mean
+help("lm")
+example(plot)        # exemples exécutables
+
+# Chercher une fonction dont on ne connaît pas le nom
+??regression          # recherche dans toute la documentation installée
+apropos("read")       # fonctions dont le nom contient "read"
+```
+
+---
+
+# Programmation orientée objet {#sec-poo}
+
+R propose plusieurs systèmes OOP. Le plus courant en pratique reste **S3** (informel mais omniprésent). S4 est utilisé dans Bioconductor. R5/R6 sont les plus proches de la POO classique.
+
+## S3 — le système informel
+
+```r
+# Créer un objet S3 : un attribut "class" sur une liste
+nouveau_employe <- function(nom, prenom, salaire) {
+  obj <- list(nom = nom, prenom = prenom, salaire = salaire)
+  class(obj) <- "Employe"
+  return(obj)
+}
+
+# Méthode générique print pour Employe
+print.Employe <- function(x, ...) {
+  cat(sprintf("Employé : %s %s — Salaire : %s €\n",
+              x$prenom, x$nom, format(x$salaire, big.mark = " ")))
+}
+
+# Méthode générique summary pour Employe
+summary.Employe <- function(object, ...) {
+  cat("Résumé de l'employé\n")
+  cat("Nom      :", object$nom, "\n")
+  cat("Prénom   :", object$prenom, "\n")
+  cat("Salaire  :", format(object$salaire, big.mark = " "), "€\n")
+}
+
+# Méthode générique pour augmenter le salaire
+augmenter <- function(x, ...) UseMethod("augmenter")
+augmenter.Employe <- function(x, pourcentage = 5, ...) {
+  x$salaire <- x$salaire * (1 + pourcentage / 100)
+  x
+}
+
+# Utilisation
+e <- nouveau_employe("Martin", "Sophie", 52000)
+print(e)         # dispatche vers print.Employe
+summary(e)
+e <- augmenter(e, pourcentage = 10)
+print(e)
+
+# Vérification
+class(e)         # "Employe"
+is(e, "Employe") # TRUE
+inherits(e, "Employe")  # TRUE
+```
+
+## S4 — le système formel
+
+```r
+# Définir une classe S4
+setClass("Fraction", representation(
+  numerateur   = "numeric",
+  denominateur = "numeric"
+))
+
+# Constructeur avec validation
+setValidity("Fraction", function(object) {
+  if (object@denominateur == 0)
+    "Le dénominateur ne peut pas être zéro."
+  else
+    TRUE
+})
+
+# Méthode générique
+setGeneric("simplifier", function(x) standardGeneric("simplifier"))
+setMethod("simplifier", "Fraction", function(x) {
+  g <- function(a, b) if (b == 0) a else g(b, a %% b)  # PGCD
+  d <- g(abs(x@numerateur), abs(x@denominateur))
+  new("Fraction",
+      numerateur   = x@numerateur / d,
+      denominateur = x@denominateur / d)
+})
+
+setMethod("show", "Fraction", function(object) {
+  cat(object@numerateur, "/", object@denominateur, "\n")
+})
+
+# Utilisation
+f <- new("Fraction", numerateur = 6, denominateur = 8)
+simplifier(f)    # 3 / 4
+
+# Accès aux slots
+f@numerateur     # 6
+slot(f, "denominateur")  # 8
+```
+
+## R6 — POO par référence (package R6)
+
+```r
+library(R6)
+
+CompteBancaire <- R6Class("CompteBancaire",
+  private = list(
+    solde_ = NULL
+  ),
+  public = list(
+    titulaire = NULL,
+    initialize = function(titulaire, solde_initial = 0) {
+      self$titulaire <- titulaire
+      private$solde_ <- solde_initial
+    },
+    deposer = function(montant) {
+      if (montant <= 0) stop("Montant doit être positif.")
+      private$solde_ <- private$solde_ + montant
+      invisible(self)    # pour le chaînage
+    },
+    retirer = function(montant) {
+      if (montant > private$solde_) stop("Fonds insuffisants.")
+      private$solde_ <- private$solde_ - montant
+      invisible(self)
+    },
+    print = function(...) {
+      cat(sprintf("Compte de %s — Solde : %s €\n",
+                  self$titulaire,
+                  format(private$solde_, big.mark = " ")))
+    }
+  ),
+  active = list(
+    solde = function() private$solde_    # propriété en lecture seule
+  )
+)
+
+# Utilisation
+compte <- CompteBancaire$new("Alice", 1000)
+compte$deposer(500)$retirer(200)  # chaînage
+compte$solde                       # 1300
+print(compte)
+```
+
+---
+
+# Le Tidyverse : dplyr et tidyr {#sec-tidyverse}
+
+Le **tidyverse** est une collection de packages partageant une philosophie commune de données ordonnées (*tidy data*) et une syntaxe cohérente. `dplyr` et `tidyr` en sont les piliers pour la manipulation de données.
+
+```r
+library(dplyr)
+library(tidyr)
+```
+
+## dplyr — manipulation de data frames
+
+Les six verbes fondamentaux de `dplyr` :
+
+```r
+df <- data.frame(
+  nom         = c("Martin", "Dubois", "Leroy", "Moreau", "Bernard"),
+  departement = c("Informatique", "Finance", "Informatique", "RH", "Informatique"),
+  salaire     = c(52000, 48000, 58000, 42000, 61000),
+  anciennete  = c(5, 3, 8, 2, 10)
+)
+
+# filter() : sélectionner des lignes
+df |> filter(salaire > 50000)
+df |> filter(departement == "Informatique", anciennete >= 5)
+df |> filter(between(salaire, 45000, 60000))
+
+# select() : sélectionner des colonnes
+df |> select(nom, salaire)
+df |> select(-anciennete)                    # exclure
+df |> select(where(is.numeric))             # colonnes numériques
+df |> select(starts_with("s"))              # commence par "s"
+df |> select(ends_with("te"))               # finit par "te"
+
+# mutate() : créer ou modifier des colonnes
+df |> mutate(
+  salaire_mensuel = salaire / 12,
+  niveau = case_when(
+    salaire > 55000 ~ "Senior",
+    salaire > 45000 ~ "Confirmé",
+    TRUE            ~ "Junior"
+  ),
+  anciennete = as.integer(anciennete)
+)
+
+# arrange() : trier
+df |> arrange(salaire)                       # croissant
+df |> arrange(desc(salaire))                 # décroissant
+df |> arrange(departement, desc(salaire))    # multi-critères
+
+# summarise() : agréger (une ligne par groupe)
+df |> summarise(
+  salaire_moyen = mean(salaire),
+  salaire_max   = max(salaire),
+  n             = n()
+)
+
+# group_by() + summarise() : agrégation par groupe
+df |>
+  group_by(departement) |>
+  summarise(
+    salaire_moyen = mean(salaire),
+    effectif      = n(),
+    .groups       = "drop"          # débrouper après summarise
+  )
+```
+
+## Opérations avancées avec dplyr
+
+```r
+# across() : appliquer une transformation à plusieurs colonnes
+df |>
+  mutate(across(where(is.numeric), round, digits = 0))
+
+df |>
+  group_by(departement) |>
+  summarise(across(where(is.numeric), list(moy = mean, max = max),
+                   .names = "{.col}_{.fn}"))
+
+# Jointures (équivalent SQL)
+dept <- data.frame(
+  departement  = c("Informatique", "Finance", "RH"),
+  localisation = c("Paris", "Lyon", "Paris"),
+  budget       = c(250000, 180000, 120000)
+)
+
+df |> inner_join(dept, by = "departement")   # INNER JOIN
+df |> left_join(dept,  by = "departement")   # LEFT JOIN
+df |> anti_join(dept,  by = "departement")   # lignes de df sans correspondance
+
+# Opérations sur les ensembles de lignes
+union_all(df1, df2)
+intersect(df1, df2)
+setdiff(df1, df2)
+
+# slice_ : variantes de filter par position
+df |> slice_max(salaire, n = 3)    # 3 salaires les plus élevés
+df |> slice_min(anciennete, n = 2) # 2 moins anciens
+df |> slice_sample(n = 3)          # 3 lignes aléatoires
+df |> slice_head(n = 2)            # 2 premières lignes
+```
+
+## tidyr — pivotage et ordonnancement
+
+```r
+# Données en format large (wide)
+large <- data.frame(
+  nom   = c("Alice", "Bob"),
+  math  = c(16, 12),
+  info  = c(18, 14),
+  stats = c(15, 17)
+)
+
+# pivot_longer : wide → long (tidy)
+long <- large |>
+  pivot_longer(cols      = c(math, info, stats),
+               names_to  = "matiere",
+               values_to = "note")
+#   nom   matiere  note
+# 1 Alice math       16
+# 2 Alice info       18
+# ...
+
+# pivot_wider : long → wide
+long |>
+  pivot_wider(names_from  = matiere,
+              values_from = note)
+
+# separate : scinder une colonne en plusieurs
+df |>
+  separate(col   = "nom_complet",
+           into  = c("prenom", "nom"),
+           sep   = " ")
+
+# unite : fusionner plusieurs colonnes en une
+df |>
+  unite("nom_complet", prenom, nom, sep = " ")
+
+# fill : propager les valeurs manquantes
+df |> fill(departement, .direction = "down")    # vers le bas
+df |> fill(departement, .direction = "up")      # vers le haut
+
+# drop_na, replace_na
+df |> drop_na(salaire)
+df |> replace_na(list(salaire = 0, departement = "Inconnu"))
+```
+
+---
+
+# ggplot2 : visualisation {#sec-ggplot2}
+
+**ggplot2** est basé sur la *Grammaire des Graphiques* (Wilkinson, 2005). Chaque graphique est construit par couches : données → esthétiques → géométries → échelles → facettes → thème.
+
+```r
+library(ggplot2)
+```
+
+## Anatomie d'un graphique ggplot2
+
+```r
+ggplot(data   = df,                   # 1. données
+       mapping = aes(x = anciennete,  # 2. esthétiques (mapping données → visuels)
+                     y = salaire,
+                     color = departement)) +
+  geom_point(size = 3, alpha = 0.8) + # 3. géométrie
+  geom_smooth(method = "lm",          # 4. couche statistique
+              se = FALSE) +
+  scale_y_continuous(                  # 5. échelle
+    labels = scales::label_comma(big.mark = " ", suffix = " €")) +
+  labs(title    = "Salaire en fonction de l'ancienneté",
+       subtitle = "Par département",
+       x        = "Ancienneté (années)",
+       y        = "Salaire annuel",
+       color    = "Département",
+       caption  = "Source : données RH internes") +
+  theme_minimal(base_size = 12) +      # 6. thème
+  theme(legend.position = "bottom")
+```
+
+## Géométries essentielles
+
+```r
+set.seed(42)
+df_sim <- data.frame(
+  x        = rnorm(200),
+  y        = rnorm(200),
+  groupe   = sample(c("A","B","C"), 200, replace = TRUE),
+  valeur   = runif(200, 30000, 80000),
+  categorie = sample(c("Faible","Moyen","Élevé"), 200, replace = TRUE)
+)
+
+# Nuage de points
+ggplot(df_sim, aes(x, y, color = groupe)) +
+  geom_point(alpha = 0.7, size = 2) +
+  theme_bw()
+
+# Courbe
+ggplot(data.frame(x = seq(-3, 3, 0.1)), aes(x)) +
+  geom_function(fun = dnorm, color = "steelblue", linewidth = 1) +
+  geom_function(fun = function(x) dt(x, df = 3),
+                color = "tomato", linestyle = "dashed", linewidth = 1) +
+  labs(title = "Loi normale vs Student (df=3)") +
+  theme_classic()
+
+# Histogramme
+ggplot(df_sim, aes(valeur, fill = groupe)) +
+  geom_histogram(bins = 30, alpha = 0.6, position = "identity") +
+  scale_fill_brewer(palette = "Set1") +
+  theme_minimal()
+
+# Boîte à moustaches
+ggplot(df_sim, aes(groupe, valeur, fill = groupe)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = 21) +
+  geom_jitter(width = 0.15, alpha = 0.3, size = 1) +
+  scale_fill_brewer(palette = "Pastel1") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# Graphique en barres
+df_sim |>
+  dplyr::count(categorie) |>
+  ggplot(aes(reorder(categorie, n), n, fill = categorie)) +
+  geom_col(show.legend = FALSE) +
+  geom_text(aes(label = n), hjust = -0.2) +
+  coord_flip() +
+  labs(x = "Catégorie", y = "Effectif") +
+  theme_minimal()
+
+# Carte de chaleur (heatmap)
+cor_mat <- cor(mtcars)
+cor_df  <- as.data.frame(as.table(cor_mat))
+ggplot(cor_df, aes(Var1, Var2, fill = Freq)) +
+  geom_tile(color = "white", linewidth = 0.5) +
+  geom_text(aes(label = round(Freq, 2)), size = 2.5) +
+  scale_fill_gradient2(low = "steelblue", high = "tomato",
+                       mid = "white", midpoint = 0,
+                       limits = c(-1, 1)) +
+  labs(title = "Matrice de corrélation — mtcars",
+       fill  = "Corrélation") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Facettes et composites
+
+```r
+# Facettes (petits multiples)
+ggplot(df_sim, aes(x, y)) +
+  geom_point(alpha = 0.5, size = 1.5) +
+  geom_smooth(method = "lm", se = FALSE, color = "tomato") +
+  facet_wrap(~ groupe, ncol = 3) +         # grille libre
+  theme_bw()
+
+ggplot(df_sim, aes(valeur)) +
+  geom_histogram(bins = 20, fill = "steelblue", alpha = 0.7) +
+  facet_grid(groupe ~ categorie) +           # grille fixe (ligne ~ colonne)
+  theme_minimal()
+
+# Superposer plusieurs graphiques (package patchwork)
+library(patchwork)
+p1 <- ggplot(df_sim, aes(x)) + geom_histogram(bins=20) + theme_bw()
+p2 <- ggplot(df_sim, aes(x, y)) + geom_point(alpha=0.4) + theme_bw()
+p3 <- ggplot(df_sim, aes(groupe, y)) + geom_boxplot() + theme_bw()
+
+(p1 | p2) / p3   # disposition en grille
+p1 + p2 + p3 + plot_layout(ncol = 3) + plot_annotation(title = "Tableau de bord")
+```
+
+## Personnalisation et export
+
+```r
+# Thèmes intégrés
+theme_grey()      # défaut (fond gris)
+theme_bw()        # fond blanc, grille grise
+theme_minimal()   # très épuré
+theme_classic()   # style publication scientifique
+theme_void()      # sans axes (cartes, diagrammes)
+
+# Couleurs
+scale_color_brewer(palette = "Set2")           # ColorBrewer
+scale_fill_viridis_c()                          # Viridis (daltonisme-friendly)
+scale_color_manual(values = c("#2E86AB", "#A23B72", "#F18F01"))  # couleurs custom
+
+# Modifier les éléments du thème
+theme(
+  plot.title      = element_text(size = 14, face = "bold"),
+  axis.title      = element_text(size = 11),
+  legend.position = "top",
+  panel.grid.minor = element_blank(),
+  strip.background = element_rect(fill = "steelblue", color = NA),
+  strip.text       = element_text(color = "white", face = "bold")
+)
+
+# Sauvegarder
+ggsave("graphique.png", width = 10, height = 6, dpi = 300)
+ggsave("graphique.pdf", width = 10, height = 6)
+ggsave("graphique.svg", width = 10, height = 6)
+```
+
+---
+
+# Statistiques avec les packages de base {#sec-stats}
+
+Le package `stats` (chargé par défaut) couvre la quasi-totalité des méthodes statistiques classiques.
+
+## Tests d'hypothèses
+
+```r
+# Données de test
+set.seed(42)
+groupe_a <- rnorm(30, mean = 52000, sd = 8000)
+groupe_b <- rnorm(30, mean = 55000, sd = 9000)
+
+# Test t de Student (comparaison de moyennes)
+t.test(groupe_a, groupe_b, var.equal = FALSE)   # Welch (défaut)
+t.test(groupe_a, mu = 50000)                     # test uniéchantillon
+t.test(groupe_a, groupe_b, paired = TRUE)        # test apparié
+
+# Test de Wilcoxon-Mann-Whitney (non paramétrique)
+wilcox.test(groupe_a, groupe_b)
+
+# Test du chi² (indépendance)
+tab <- table(df$departement, df$niveau)
+chisq.test(tab)
+
+# Test de Shapiro-Wilk (normalité)
+shapiro.test(groupe_a)           # H0 : normalité
+
+# Test de Levene (homogénéité des variances — package car)
+# car::leveneTest(salaire ~ departement, data = df)
+
+# Test de corrélation
+cor.test(groupe_a, groupe_b, method = "pearson")
+cor.test(groupe_a, groupe_b, method = "spearman")
+```
+
+## Régression linéaire
+
+```r
+# Modèle linéaire simple : salaire ~ anciennete
+modele <- lm(salaire ~ anciennete, data = df)
+
+# Résumé complet
+summary(modele)
+# Call, Residuals, Coefficients (estimate, SE, t, p), R², F-stat…
+
+# Accéder aux éléments
+coef(modele)             # coefficients
+fitted(modele)           # valeurs ajustées
+residuals(modele)        # résidus
+confint(modele)          # intervalles de confiance (95% par défaut)
+
+# Modèle multiple
+modele2 <- lm(salaire ~ anciennete + departement, data = df)
+summary(modele2)
+
+# Modèle avec interaction
+modele3 <- lm(salaire ~ anciennete * departement, data = df)
+
+# Diagnostic graphique
+par(mfrow = c(2, 2))
+plot(modele)             # 4 graphiques diagnostics
+par(mfrow = c(1, 1))
+
+# Prédiction
+nouveaux <- data.frame(anciennete = c(5, 10, 15))
+predict(modele, newdata = nouveaux)                          # valeurs ponctuelles
+predict(modele, newdata = nouveaux, interval = "confidence") # IC pour la moyenne
+predict(modele, newdata = nouveaux, interval = "prediction") # IP pour une observation
+```
+
+## Modèle linéaire généralisé (GLM)
+
+```r
+# Régression logistique (variable binaire)
+df$senior <- as.integer(df$salaire > 55000)
+modele_log <- glm(senior ~ anciennete + departement,
+                  data   = df,
+                  family = binomial(link = "logit"))
+summary(modele_log)
+
+# Odds ratios
+exp(coef(modele_log))
+exp(confint(modele_log))
+
+# Régression de Poisson (comptages)
+# glm(nb_incidents ~ ..., family = poisson())
+
+# ANOVA
+aov_modele <- aov(salaire ~ departement, data = df)
+summary(aov_modele)
+TukeyHSD(aov_modele)     # comparaisons multiples post-hoc
+```
+
+## Distributions statistiques
+
+```r
+# Convention : d (densité), p (CDF), q (quantile), r (aléatoire)
+# Distributions : norm, t, f, chisq, unif, binom, pois, exp, gamma, beta…
+
+# Loi normale
+dnorm(0, mean = 0, sd = 1)       # densité en 0 : 0.3989
+pnorm(1.96, mean = 0, sd = 1)    # P(X ≤ 1.96) ≈ 0.975
+qnorm(0.975)                      # quantile à 97.5% ≈ 1.96
+rnorm(10, mean = 50, sd = 10)     # 10 valeurs aléatoires
+
+# Loi binomiale
+dbinom(3, size = 10, prob = 0.5)  # P(X=3) avec n=10, p=0.5
+pbinom(3, size = 10, prob = 0.5)  # P(X≤3)
+qbinom(0.05, size = 10, prob = 0.5)
+
+# Valeur critique t à 5%
+qt(0.975, df = 29)    # ≈ 2.045 pour n=30
+```
+
+---
+
+# R Markdown {#sec-rmarkdown}
+
+**R Markdown** est un format de document qui combine du texte en Markdown, du code R (et d'autres langages) et les résultats de ce code dans un seul fichier `.Rmd`. Il produit des rapports reproductibles en HTML, PDF, Word, présentations, livres et sites web.
+
+::: {.callout-note}
+## R Markdown vs Quarto
+
+**Quarto** (`.qmd`) est le successeur de R Markdown, développé par Posit. Il supporte nativement Python, Julia et Observable JS en plus de R, et unifie la syntaxe des options de chunks. Ce tutoriel est lui-même rédigé en Quarto. Les deux formats partagent la même philosophie ; la migration de `.Rmd` vers `.qmd` est généralement simple.
+:::
+
+## Structure d'un document R Markdown
+
+Un fichier `.Rmd` comporte trois parties :
+
+````markdown
+---
+title: "Mon Rapport"
+author: "Alice Dupont"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: cosmo
+    highlight: github
+  pdf_document:
+    toc: true
+    latex_engine: xelatex
+  word_document:
+    toc: true
+---
+
+<!-- 1. En-tête YAML : métadonnées et options de rendu -->
+
+## Introduction                <!-- 2. Texte Markdown -->
+
+Ce rapport analyse les données du jeu `mtcars`.
+
+```{r setup, include=FALSE}   ``` <- 3. Chunks de code R
+knitr::opts_chunk$set(
+  echo    = TRUE,    # afficher le code
+  warning = FALSE,   # masquer les warnings
+  message = FALSE,   # masquer les messages
+  fig.width  = 7,
+  fig.height = 4.5
+)
+library(ggplot2)
+library(dplyr)
+```
+````
+
+## Options des chunks
+
+Les options de chunk contrôlent ce qui est exécuté et affiché. Elles se placent dans l'en-tête du chunk `{r nom_chunk, option1=val, option2=val}`.
+
+| Option | Défaut | Rôle |
+|---|---|---|
+| `echo` | `TRUE` | Afficher le code source |
+| `eval` | `TRUE` | Exécuter le code |
+| `include` | `TRUE` | Inclure code et résultats dans le document |
+| `results` | `"markup"` | `"hide"` masque les résultats textuels |
+| `warning` | `TRUE` | Afficher les warnings |
+| `message` | `TRUE` | Afficher les messages |
+| `error` | `FALSE` | Continuer en cas d'erreur |
+| `fig.width` | `7` | Largeur de la figure (pouces) |
+| `fig.height` | `5` | Hauteur de la figure (pouces) |
+| `fig.cap` | `NULL` | Légende de la figure |
+| `out.width` | `NULL` | `"80%"` pour réduire dans le document |
+| `cache` | `FALSE` | Mettre en cache (utile pour les calculs longs) |
+
+```r
+# Chunk invisible mais exécuté (chargement silencieux)
+```{r chargement, include=FALSE}
+library(dplyr)
+library(ggplot2)
+data(mtcars)
+```
+
+# Chunk qui affiche uniquement la figure, pas le code
+```{r graphique, echo=FALSE, fig.cap="Distribution de la puissance moteur"}
+ggplot(mtcars, aes(hp)) +
+  geom_histogram(bins = 15, fill = "steelblue", color = "white") +
+  labs(x = "Puissance (chevaux)", y = "Fréquence") +
+  theme_minimal()
+```
+
+# Chunk dont le résultat est mis en cache (long calcul)
+```{r simulation, cache=TRUE}
+set.seed(42)
+resultats <- replicate(10000, mean(rnorm(100)))
+```
+
+à completer....
+
+
+## Documentation officielle
+
+- [**R Project**](https://www.r-project.org/) : site officiel, documentation de référence.
+- [**CRAN Task Views**](https://cran.r-project.org/web/views/) : packages recommandés par domaine (économétrie, survie, spatiale…).
+- [**Tidyverse**](https://www.tidyverse.org/) : documentation et guides de l'écosystème tidyverse.
+- [**R Markdown**](https://rmarkdown.rstudio.com/) : référence complète R Markdown par Posit.
+- [**Quarto**](https://quarto.org/) : documentation officielle Quarto.
+
+## Livres en ligne gratuits
+
+- [**R for Data Science (2e)**](https://r4ds.hadley.nz/) (Wickham, Çetinkaya-Rundel, Grolemund) : référence absolue pour le tidyverse.
+- [**Advanced R**](https://adv-r.hadley.nz/) (Wickham) : maîtriser les mécanismes internes de R.
+- [**R Packages**](https://r-pkgs.org/) (Wickham, Bryan) : créer et distribuer ses propres packages.
+- [**Statistiques avec R**](https://www.book.utilitr.org/) (INSEE) : guide pratique en français pour la statistique publique.
+- [**ggplot2 : Elegant Graphics**](https://ggplot2-book.org/) (Wickham) : référence complète ggplot2.
+
+## Packages complémentaires recommandés
+
+| Package | Usage |
+|---|---|
+| `data.table` | Manipulation de données très performante (Big Data) |
+| `lubridate` | Manipulation de dates et heures |
+| `stringr` | Manipulation de chaînes (regex, tidyverse) |
+| `forcats` | Manipulation de facteurs (tidyverse) |
+| `purrr` | Programmation fonctionnelle (map, reduce…) |
+| `broom` | Convertir les sorties de modèles en data frames tidy |
+| `lme4` | Modèles mixtes (effets aléatoires) |
+| `survival` | Analyse de survie |
+| `sf` | Données géospatiales (vecteur) |
+| `shiny` | Applications web interactives |
+| `plotly` | Graphiques interactifs (ggplotly) |
+| `DT` | Tableaux HTML interactifs |
+| `gt` | Tableaux de publication de haute qualité |
+
+::: {.callout-tip}
+## Pour aller plus loin en R scientifique
+
+Une fois ces bases maîtrisées, explorez dans l'ordre :
+
+1. **`purrr`** : remplacement fonctionnel des boucles (`map`, `walk`, `pmap`…).
+2. **`lme4` / `nlme`** : modèles à effets mixtes pour données groupées ou longitudinales.
+3. **`tidymodels`** : framework unifié pour le machine learning (train/test, recettes, tuning).
+4. **`shiny`** : créer des tableaux de bord et applications interactives.
+5. **`targets`** : orchestrer des pipelines d'analyse complexes et reproductibles.
+6. **Quarto** : rapports, livres et sites web reproductibles, multi-langages.
+:::
