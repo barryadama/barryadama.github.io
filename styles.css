@@ -23,3 +23,92 @@ body {
 code, pre {
   font-family: "Courier New", monospace;
 }
+
+/* ---------- Général ---------- */
+
+body {
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* ---------- Titres ---------- */
+
+h1 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 0.3rem;
+}
+
+h2 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  margin-top: 1.4rem;
+}
+
+/* ---------- Sommaire ---------- */
+
+#TOC {
+  font-size: 0.95em;
+}
+
+#TOC .nav-link.active {
+  font-weight: 600;
+}
+
+/* ---------- Exemples LaTeX ---------- */
+
+.latex-example {
+  background-color: #f8f9fa;
+  border-left: 2px solid #2c7fb8;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 2px;
+  font-family: "Courier New", monospace;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* ---------- Code inline ---------- */
+
+code {
+  background-color: #f4f4f4;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* ---------- Citations et encadrés ---------- */
+
+blockquote {
+  border-left: 4px solid #cccccc;
+  padding-left: 1rem;
+  color: #555;
+}
+
+/* ---------- Images ---------- */
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+/* ---------- Tableaux ---------- */
+
+table {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+.latex-example pre {
+  margin: 0;
+}

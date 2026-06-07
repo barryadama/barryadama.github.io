@@ -1236,7 +1236,7 @@
     "href": "Blog.html#latex",
     "title": "1 Machine Learning",
     "section": "3.5 Latex",
-    "text": "3.5 Latex\nLaTeX est un système de composition de documents particulièrement adapté à la rédaction scientifique et mathématique. Il permet d’écrire des équations complexes avec une grande précision typographique, ce qui en fait un outil incontournable en statistique et en machine learning théorique. Il est largement utilisé pour la rédaction d’articles de recherche, de rapports techniques et de thèses. Sa structuration claire favorise la production de documents professionnels et reproductibles."
+    "text": "3.5 Latex\nLaTeX est un système de composition de documents particulièrement adapté à la rédaction scientifique et mathématique. Il permet d’écrire des équations complexes avec une grande précision typographique, ce qui en fait un outil incontournable en statistique et en machine learning théorique. Il est largement utilisé pour la rédaction d’articles de recherche, de rapports techniques et de thèses. Sa structuration claire favorise la production de documents professionnels et reproductibles en savoir plus"
   },
   {
     "objectID": "ML/UQ.html",
@@ -1797,5 +1797,40 @@
     "title": "Introduction",
     "section": "Fusionner avec main",
     "text": "Fusionner avec main\n\ngit switch main\ngit merge nouvelle-fonction"
+  },
+  {
+    "objectID": "ML/Latex.html",
+    "href": "ML/Latex.html",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "",
+    "text": "LaTeX est un système de composition de documents particulièrement populaire dans les communautés scientifiques et universitaires. Contrairement à un traitement de texte classique tel que Microsoft Word ou LibreOffice Writer, LaTeX repose sur une philosophie différente : l’utilisateur décrit la structure de son document à l’aide de commandes, puis un compilateur transforme ce code en un document PDF de grande qualité typographique.\nCette approche peut sembler déroutante au premier abord, mais elle présente de nombreux avantages. La gestion des équations mathématiques est particulièrement élégante, la mise en page reste cohérente même dans les documents volumineux, et les références bibliographiques peuvent être automatisées. Pour ces raisons, LaTeX est devenu un standard dans des disciplines comme les mathématiques, la statistique, l’informatique, la physique ou encore l’ingénierie.\nL’objectif de ce tutoriel est de proposer une prise en main rapide permettant de créer et modifier ses premiers documents LaTeX."
+  },
+  {
+    "objectID": "ML/Latex.html#pourquoi-utiliser-overleaf",
+    "href": "ML/Latex.html#pourquoi-utiliser-overleaf",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "Pourquoi utiliser Overleaf ?",
+    "text": "Pourquoi utiliser Overleaf ?\nOverleaf est une plateforme en ligne permettant d’écrire du code LaTeX directement depuis un navigateur, sans installation."
+  },
+  {
+    "objectID": "ML/Latex.html#création-dun-compte",
+    "href": "ML/Latex.html#création-dun-compte",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "Création d’un compte",
+    "text": "Création d’un compte\nRendez-vous sur : https://www.overleaf.com\nPuis créez un projet via New Project → Blank Project."
+  },
+  {
+    "objectID": "ML/Latex.html#découverte-de-linterface",
+    "href": "ML/Latex.html#découverte-de-linterface",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "Découverte de l’interface",
+    "text": "Découverte de l’interface\nL’interface d’Overleaf est divisée en plusieurs zones. La partie gauche correspond à l’éditeur de texte dans lequel vous écrivez votre code LaTeX. La partie droite affiche le document PDF généré après compilation.\nLorsque vous modifiez le code source, il suffit généralement de cliquer sur le bouton Recompile pour mettre à jour l’aperçu. Dans certains cas, la compilation est même effectuée automatiquement.\nCette organisation permet de visualiser instantanément l’effet des modifications apportées au document."
+  },
+  {
+    "objectID": "ML/Latex.html#interface",
+    "href": "ML/Latex.html#interface",
+    "title": "Introduction à LaTeX avec Overleaf",
+    "section": "Interface",
+    "text": "Interface\n\ngauche : éditeur LaTeX\n\ndroite : aperçu PDF\n\nbouton Recompile : mise à jour du document"
   }
 ]

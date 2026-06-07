@@ -39,7 +39,7 @@ Cette inspection révèle souvent des problèmes invisibles à l'œil nu : colon
 Pour chaque variable numérique, les indicateurs fondamentaux sont les suivants :
 
 | Indicateur | Ce qu'il révèle |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Moyenne (mean)** | Tendance centrale ; sensible aux valeurs extrêmes |
 | **Médiane (50%)** | Tendance centrale robuste ; un écart mean/médiane signale une asymétrie |
 | **Écart-type (std)** | Dispersion ; grande valeur → variable très étalée |
@@ -137,7 +137,7 @@ Les valeurs manquantes sont la règle, non l'exception, dans les données réell
 On distingue trois mécanismes fondamentaux, qui orientent le choix du traitement :
 
 | Mécanisme | Description | Traitement |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **MCAR** (*Missing Completely At Random*) | Le manque est indépendant de toute variable | Imputation simple ou suppression sans biais |
 | **MAR** (*Missing At Random*) | Le manque dépend d'autres variables observées | Imputation conditionnelle (KNN, modèle) |
 | **MNAR** (*Missing Not At Random*) | Le manque dépend de la valeur manquante elle-même | Créer une variable indicatrice + imputer |
@@ -185,7 +185,7 @@ Un **outlier** (valeur aberrante) est une observation qui s'écarte significativ
 ### Stratégies de traitement
 
 | Traitement | Quand l'utiliser | Risque |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Suppression** | Outlier clairement erroné (erreur de saisie) | Perte d'information, biais si non-MCAR |
 | **Winsorisation** | Distribution avec queues épaisses | Introduit un biais vers les percentiles choisis |
 | **Transformation log / racine carrée** | Distribution très asymétrique à droite | Interprétabilité réduite des coefficients |
@@ -221,7 +221,7 @@ Contrairement à la normalisation, elle ne contraint pas les valeurs dans un int
 ### Normalisation vs. Standardisation : quand choisir ?
 
 | Critère | Normalisation (Min-Max) | Standardisation (Z-score) |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Plage de sortie** | $[0, 1]$ fixe | Illimitée (centrée sur 0) |
 | **Sensibilité aux outliers** | ⚠️ Très sensible | ✅ Plus robuste |
 | **Algorithmes adaptés** | KNN, réseaux de neurones, SVM | Régression linéaire, PCA, LDA |
@@ -282,7 +282,7 @@ Chaque modalité est remplacée par la moyenne de la variable cible pour cette m
 Compact et informatif, le target encoding est particulièrement adapté aux variables à **haute cardinalité** (centaines ou milliers de modalités). Son principal danger est le **data leakage** : si on calcule la moyenne cible sur l'ensemble du dataset (train + test), on introduit de l'information du futur dans le modèle. Il doit donc être calculé uniquement sur les données d'entraînement, idéalement au sein d'une validation croisée.
 
 | Méthode | Usage | Avantages | Inconvénients |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | **Label Encoding** | Variables ordinales | Simple, compact | Ordre artificiel sur nominales |
 | **One-Hot Encoding** | Variables nominales (\< 10–15 modalités) | Aucune hypothèse d'ordre | Explosion dimensionnelle |
 | **Target Encoding** | Variables nominales (\> 15 modalités) | Compact et informatif | Risque de leakage |
@@ -326,7 +326,7 @@ Les méthodes embedded intègrent la sélection de variables **dans le processus
 **Importance des features (Random Forest, XGBoost)** : mesure la contribution de chaque variable à la réduction d'impureté des arbres. Robuste, non linéaire, et applicable en classification comme en régression.
 
 | Famille | Méthode | Principe | Complexité |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | **Filter** | Pearson, ANOVA, MI | Score indépendant du modèle | Faible |
 | **Wrapper** | RFE, Forward/Backward selection | Sélection basée sur un modèle | Élevée |
 | **Embedded** | Lasso (L1), Random Forest importance | Sélection intégrée à l'entraînement | Moyenne |
@@ -360,7 +360,7 @@ Le **t-SNE** (*t-distributed Stochastic Neighbor Embedding*) est un algorithme d
 **UMAP** (*Uniform Manifold Approximation and Projection*) est une alternative moderne au t-SNE, plus rapide et plus stable. Contrairement au t-SNE, il préserve mieux la **structure globale** des données et peut être utilisé comme preprocessing (contrairement au t-SNE).
 
 | Méthode | Type | Préserve | Usage principal | Limite |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | **PCA** | Linéaire | Variance globale | Preprocessing, compression | Ne capte pas le non-linéaire |
 | **t-SNE** | Non linéaire | Structure locale | Visualisation uniquement | Lent, non déterministe, non inversible |
 | **UMAP** | Non linéaire | Local + global | Visualisation + preprocessing | Hyperparamètres sensibles |

@@ -22,15 +22,17 @@ Le blog aborde également la planification d'expériences, la calibration bayés
 À l'interface entre statistique, machine learning et optimisation, l'objectif est de fournir à la fois des bases théoriques solides, des exemples concrets et des implémentations pratiques permettant de comprendre, développer et appliquer ces méthodes à des problématiques réelles d'aide à la décision, de prédiction et d'ingénierie.
 
 # Machine Learning
+
 ## Introdution au Machine Learning
+
 Pendant des décennies, l'informatique a reposé sur un paradigme fondamental : un programmeur humain analyse un problème, en extrait les règles de résolution, puis les traduit en instructions explicites que la machine exécute. Ce modèle a produit des systèmes remarquables; des compilateurs aux bases de données, en passant par les logiciels de gestion. Mais il se heurte à une limite profonde : **que faire lorsque les règles sont trop complexes, trop nombreuses, ou tout simplement inconnues ?**
 
 Reconnaître un visage dans une photo, comprendre une phrase dictée à voix haute, détecter une transaction bancaire frauduleuse parmi des millions; autant de tâches que tout être humain accomplit naturellement, mais pour lesquelles nul ingénieur n'a jamais réussi à écrire les règles explicites qui y correspondent. Le Machine Learning est né de cette impasse.
 
 Le renversement conceptuel est radical. Au lieu que le programmeur fournisse les règles à la machine, c'est la machine qui les **découvre elle-même** à partir de données. On lui présente des exemples (des images avec leur étiquette, des transactions avec leur verdict) et elle en extrait, par optimisation mathématique, une représentation interne capable de généraliser à de nouvelles situations. Comme l'a illustré Aurélien Géron dans *Hands-On Machine Learning*, on ne programme plus le système : on lui apprend [en savoir plus](ML/Introd.qmd)
 
-
 ## Preparation de données
+
 La préparation des données est une étape fondamentale dans tout projet de machine learning ou de data science. Elle conditionne directement la qualité des modèles et, par conséquent, la pertinence des résultats obtenus. Des données brutes sont souvent incomplètes, bruitées ou hétérogènes, ce qui nécessite un travail rigoureux de nettoyage et de transformation.
 
 Cette phase inclut notamment la gestion des valeurs manquantes, la détection des anomalies, l'encodage des variables catégorielles et la normalisation ou standardisation des variables numériques. Elle permet également d'harmoniser les données provenant de sources différentes afin de les rendre exploitables.
@@ -40,28 +42,33 @@ Une bonne préparation des données améliore non seulement la performance des a
 Ainsi, cette étape, souvent sous-estimée, représente en réalité une part majeure du succès d'un projet data [en savoir plus](ML/PrepaData.qmd)
 
 ## Apprentissage supervisé
+
 L'apprentissage supervisé est une branche centrale du machine learning dans laquelle un modèle est entraîné à partir de données étiquetées, c'est-à-dire des exemples pour lesquels la sortie attendue est connue. L'objectif est d'apprendre une fonction de prédiction capable de généraliser à de nouvelles données.
 
 Cette approche regroupe principalement deux types de problèmes : la classification, où l'on cherche à prédire une catégorie, et la régression, où l'on cherche à estimer une valeur continue. Les algorithmes les plus courants incluent la régression linéaire, les arbres de décision, les forêts aléatoires, les SVM et les réseaux de neurones.
 
 La qualité des performances dépend fortement de la représentativité des données d'entraînement et de la capacité du modèle à éviter le surapprentissage. L'apprentissage supervisé constitue ainsi la base de nombreuses applications en science des données, de la prédiction à l'aide à la décision [en savoir plus](ML/AppSup.qmd)
 
-
 ## Apprentissage non supervisé
+
 L'apprentissage non supervisé regroupe les méthodes qui permettent d'analyser des données non étiquetées afin d'en extraire des structures cachées. Contrairement à l'apprentissage supervisé, il n'y a pas de variable cible connue. L'objectif est souvent de découvrir des regroupements, des représentations ou des relations entre les observations. Les techniques principales incluent le clustering, la réduction de dimension et l'estimation de densité. Ces méthodes sont largement utilisées pour l'exploration de données, la segmentation ou la compression d'information [en savoir plus](ML/AppNonSup.qmd)
 
 ## Apprentissage semi-supervisé
+
 L'apprentissage semi-supervisé se situe entre l'apprentissage supervisé et non supervisé. Il exploite à la fois un petit ensemble de données étiquetées et un grand volume de données non étiquetées. L'idée est d'améliorer les performances des modèles lorsque l'étiquetage est coûteux ou limité. Cette approche repose sur l'hypothèse que les données non étiquetées contiennent une structure utile pour guider l'apprentissage. Elle est particulièrement utilisée en vision par ordinateur, traitement du langage et bioinformatique [en savoir plus](ML/AppSemiSuperv.qmd)
 
 ## Apprentissage profond
-L'apprentissage profond (deep learning) est une sous-branche du machine learning basée sur des réseaux de neurones à plusieurs couches. Il permet d'apprendre automatiquement des représentations hiérarchiques des données. Grâce à sa capacité à modéliser des relations complexes et non linéaires, il excelle dans des domaines comme la vision, le traitement du langage naturel ou la reconnaissance vocale. Cependant, il nécessite généralement de grandes quantités de données et des ressources de calcul importantes   [en savoir plus](ML/AppProfond.qmd)
+
+L'apprentissage profond (deep learning) est une sous-branche du machine learning basée sur des réseaux de neurones à plusieurs couches. Il permet d'apprendre automatiquement des représentations hiérarchiques des données. Grâce à sa capacité à modéliser des relations complexes et non linéaires, il excelle dans des domaines comme la vision, le traitement du langage naturel ou la reconnaissance vocale. Cependant, il nécessite généralement de grandes quantités de données et des ressources de calcul importantes [en savoir plus](ML/AppProfond.qmd)
 
 ## Apprentissage par renforcement
+
 L'apprentissage par renforcement est un paradigme dans lequel un agent apprend à prendre des décisions en interagissant avec un environnement. Il reçoit des récompenses ou des pénalités en fonction de ses actions, et cherche à maximiser une récompense cumulative. Cette approche repose sur l'exploration et l'exploitation des actions possibles. Elle est largement utilisée en robotique, jeux vidéo, contrôle optimal et systèmes autonomes. Les méthodes incluent les Q-learning, policy gradients et les approches basées sur les réseaux de neurones profonds [en savoir plus](ML/AppParRenforcement.qmd)
 
 # Statistique pour l'industrie
 
 ## Quantification d'incertitude
+
 La quantification de l'incertitude (Uncertainty Quantification, UQ) vise à mesurer, analyser et propager les incertitudes présentes dans les modèles, les données ou les prédictions. Elle est essentielle dans les contextes où les décisions reposent sur des modèles imparfaits ou des observations bruitées.
 
 En machine learning et en statistique, elle permet d'associer une mesure de confiance aux prédictions plutôt que de fournir uniquement des estimations ponctuelles. Les approches bayésiennes, les processus gaussiens et les méthodes de Monte Carlo figurent parmi les outils les plus utilisés.
@@ -99,35 +106,39 @@ Les indices de Sobol, fondés sur la décomposition de la variance, constituent 
 L'analyse de sensibilité joue un rôle fondamental dans la compréhension des modèles complexes, en particulier lorsqu'elle est couplée à des méthodes d'émulation, permettant de réduire le coût de calcul des estimations [en savoir plus](ML/Analysedesensibilite.qmd)
 
 ## Autres
+
 Cette section est dédiée à des réflexions, idées et cas d'usage concrets de la statistique et du machine learning dans des contextes industriels variés. L'objectif est de faire le lien entre les méthodes théoriques et leurs applications réelles, souvent contraintes par des enjeux de performance, de coût et de robustesse.
 
 Cette rubrique a également pour vocation de proposer des idées de projets, des retours d'expérience et des pistes de recherche appliquée, en mettant en avant les défis concrets rencontrés dans l'industrie moderne des données [en savoir plus](ML/Autres.qmd)
 
 # Outils fondamentaux
+
 Maîtriser ses outils avant d'aborder les concepts est un investissement qui évite bien des frictions au quotidien. Cette section couvre les environnements de travail incontournables en data science.
 
 ## Python
+
 Python est aujourd'hui l'un des langages les plus utilisés en machine learning et en statistique appliquée. Sa richesse en bibliothèques (NumPy, pandas, scikit-learn, TensorFlow, PyTorch) en fait un outil central pour le traitement des données, la modélisation et l'implémentation d'algorithmes. Sa syntaxe simple et sa forte communauté facilitent le prototypage rapide et la recherche expérimentale. Il est également largement utilisé en production pour le déploiement de modèles data.
 
 ## R
+
 R est un langage dédié à l'analyse statistique et à la visualisation de données. Il offre un large écosystème de packages spécialisés (tidyverse, caret, ggplot2, mgcv) particulièrement adaptés aux analyses exploratoires et à la modélisation statistique avancée. Très utilisé en recherche et en biostatistique, R permet une grande expressivité pour la manipulation de données et la création de graphiques de haute qualité. Il reste une référence dans de nombreux domaines de la statistique appliquée.
 
-
 ## SQL
+
 SQL (Structured Query Language) est le langage standard pour interroger et manipuler des bases de données relationnelles. En data science, il est indispensable pour extraire, filtrer et structurer les données avant toute analyse ou modélisation. Il permet de travailler efficacement sur de grands volumes de données stockées dans des systèmes comme PostgreSQL, MySQL ou BigQuery. La maîtrise de SQL est essentielle pour toute chaîne de traitement de données.
 
-
 ## Git/Gitlab
+
 Git est un système de contrôle de version qui permet de suivre l'évolution du code et de collaborer efficacement sur des projets. Couplé à des plateformes comme GitLab ou GitHub, il facilite le travail en équipe, la gestion des versions et l'intégration continue. Dans les projets de machine learning, il est essentiel pour assurer la reproductibilité des expériences et la traçabilité des modèles. Il structure le développement de manière rigoureuse et collaborative [en savoir plus](ML/Git.qmd)
 
-
 ## Latex
-LaTeX est un système de composition de documents particulièrement adapté à la rédaction scientifique et mathématique. Il permet d'écrire des équations complexes avec une grande précision typographique, ce qui en fait un outil incontournable en statistique et en machine learning théorique. Il est largement utilisé pour la rédaction d'articles de recherche, de rapports techniques et de thèses. Sa structuration claire favorise la production de documents professionnels et reproductibles.
 
+LaTeX est un système de composition de documents particulièrement adapté à la rédaction scientifique et mathématique. Il permet d'écrire des équations complexes avec une grande précision typographique, ce qui en fait un outil incontournable en statistique et en machine learning théorique. Il est largement utilisé pour la rédaction d'articles de recherche, de rapports techniques et de thèses. Sa structuration claire favorise la production de documents professionnels et reproductibles [en savoir plus](ML/Latex.qmd)
 
-# Projet ML
+# Projets ML
 
 ## Prediction de la trajectoire d'un projectile par Machine Learning
+
 La prédiction de la trajectoire d'un projectile est un problème classique de la physique appliquée, traditionnellement décrit par des équations différentielles issues de la mécanique newtonienne. Toutefois, dans des contextes réels, la présence de forces complexes (traînée aérodynamique, vent, variations de densité de l'air) rend souvent ces modèles analytiques difficiles à utiliser directement.
 
 Le Machine Learning offre une alternative ou un complément en apprenant directement la dynamique à partir de données de trajectoires observées ou simulées. L'objectif est de construire un modèle capable de prédire la position et la vitesse du projectile à partir de ses conditions initiales et de l'évolution temporelle.
@@ -135,7 +146,6 @@ Le Machine Learning offre une alternative ou un complément en apprenant directe
 Cette approche s'inscrit dans les problématiques de modélisation de systèmes dynamiques, où les réseaux de neurones, les modèles séquentiels et les méthodes à base de processus gaussiens sont particulièrement utilisés. Elle est également étroitement liée aux méthodes hybrides combinant lois physiques et apprentissage statistique.
 
 Ainsi, la prédiction de trajectoire par Machine Learning constitue un cadre pertinent pour étudier des systèmes complexes tout en intégrant données, incertitude et contraintes physiques [en savoir plus](ML/Projectile.qmd)
-
 
 ## Projets académiques
 
@@ -152,7 +162,7 @@ J'ai développé une application de gestion de courses (CHRONORUN) intégrant Py
 Ces projets illustrent ma capacité à mobiliser des outils statistiques et informatiques variés pour résoudre des problèmes concrets et interdisciplinaires [en savoir plus](acproj.qmd)
 
 ## Placement optimal de puits de stockage geologique
+
 ....
 
 ------------------------------------------------------------------------
-

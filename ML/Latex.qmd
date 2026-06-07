@@ -1,0 +1,56 @@
+---
+title: "Introduction à LaTeX avec Overleaf"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Sommaire"
+    css: style.css
+---
+
+# Introduction
+
+LaTeX est un système de composition de documents particulièrement populaire dans les communautés scientifiques et universitaires. Contrairement à un traitement de texte classique tel que Microsoft Word ou LibreOffice Writer, LaTeX repose sur une philosophie différente : l'utilisateur décrit la structure de son document à l'aide de commandes, puis un compilateur transforme ce code en un document PDF de grande qualité typographique.
+
+Cette approche peut sembler déroutante au premier abord, mais elle présente de nombreux avantages. La gestion des équations mathématiques est particulièrement élégante, la mise en page reste cohérente même dans les documents volumineux, et les références bibliographiques peuvent être automatisées. Pour ces raisons, LaTeX est devenu un standard dans des disciplines comme les mathématiques, la statistique, l'informatique, la physique ou encore l'ingénierie.
+
+L'objectif de ce tutoriel est de proposer une prise en main rapide permettant de créer et modifier ses premiers documents LaTeX.
+
+------------------------------------------------------------------------
+
+# Découvrir Overleaf
+
+## Pourquoi utiliser Overleaf ?
+
+Overleaf est une plateforme en ligne permettant d'écrire du code LaTeX directement depuis un navigateur, sans installation.
+
+------------------------------------------------------------------------
+
+## Création d'un compte
+
+Rendez-vous sur : https://www.overleaf.com
+
+Puis créez un projet via **New Project → Blank Project**.
+
+------------------------------------------------------------------------
+
+## Interface
+
+-   gauche : éditeur LaTeX\
+-   droite : aperçu PDF\
+-   bouton **Recompile** : mise à jour du document
+
+------------------------------------------------------------------------
+
+# Structure d'un document LaTeX
+
+Un document LaTeX minimal :
+
+::: latex-example
+``` latex
+\documentclass{article}
+\begin{document}
+Bonjour tout le monde !
+\end{document}
+```
+:::

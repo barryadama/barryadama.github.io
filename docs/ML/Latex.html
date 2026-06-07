@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input119da28aa0d55c3b</title>
+<title>Introduction à LaTeX avec Overleaf –</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -75,10 +110,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -311,204 +346,87 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Sommaire</h2>
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#configuration-de-base" id="toc-configuration-de-base" class="nav-link" data-scroll-target="#configuration-de-base">1. Configuration de base</a></li>
-  <li><a href="#créer-ou-récupérer-un-projet" id="toc-créer-ou-récupérer-un-projet" class="nav-link" data-scroll-target="#créer-ou-récupérer-un-projet">2. Créer ou récupérer un projet</a>
+  <li><a href="#découvrir-overleaf" id="toc-découvrir-overleaf" class="nav-link" data-scroll-target="#découvrir-overleaf">Découvrir Overleaf</a>
   <ul class="collapse">
-  <li><a href="#initialiser-un-projet-local" id="toc-initialiser-un-projet-local" class="nav-link" data-scroll-target="#initialiser-un-projet-local">Initialiser un projet local</a></li>
-  <li><a href="#cloner-un-projet-existant" id="toc-cloner-un-projet-existant" class="nav-link" data-scroll-target="#cloner-un-projet-existant">Cloner un projet existant</a></li>
+  <li><a href="#pourquoi-utiliser-overleaf" id="toc-pourquoi-utiliser-overleaf" class="nav-link" data-scroll-target="#pourquoi-utiliser-overleaf">Pourquoi utiliser Overleaf ?</a></li>
+  <li><a href="#création-dun-compte" id="toc-création-dun-compte" class="nav-link" data-scroll-target="#création-dun-compte">Création d’un compte</a></li>
+  <li><a href="#interface" id="toc-interface" class="nav-link" data-scroll-target="#interface">Interface</a></li>
   </ul></li>
-  <li><a href="#le-cycle-de-base-git" id="toc-le-cycle-de-base-git" class="nav-link" data-scroll-target="#le-cycle-de-base-git">3. Le cycle de base Git</a>
-  <ul class="collapse">
-  <li><a href="#vérifier-létat-du-projet" id="toc-vérifier-létat-du-projet" class="nav-link" data-scroll-target="#vérifier-létat-du-projet">Vérifier l’état du projet</a></li>
-  <li><a href="#ajouter-des-fichiers" id="toc-ajouter-des-fichiers" class="nav-link" data-scroll-target="#ajouter-des-fichiers">Ajouter des fichiers</a></li>
-  <li><a href="#sauvegarder-les-modifications" id="toc-sauvegarder-les-modifications" class="nav-link" data-scroll-target="#sauvegarder-les-modifications">Sauvegarder les modifications</a></li>
-  <li><a href="#voir-lhistorique" id="toc-voir-lhistorique" class="nav-link" data-scroll-target="#voir-lhistorique">Voir l’historique</a></li>
-  </ul></li>
-  <li><a href="#envoyer-sur-github" id="toc-envoyer-sur-github" class="nav-link" data-scroll-target="#envoyer-sur-github">4. Envoyer sur GitHub</a>
-  <ul class="collapse">
-  <li><a href="#lier-le-projet-à-github" id="toc-lier-le-projet-à-github" class="nav-link" data-scroll-target="#lier-le-projet-à-github">Lier le projet à GitHub</a></li>
-  <li><a href="#envoyer-les-modifications" id="toc-envoyer-les-modifications" class="nav-link" data-scroll-target="#envoyer-les-modifications">Envoyer les modifications</a></li>
-  </ul></li>
-  <li><a href="#récupérer-les-modifications" id="toc-récupérer-les-modifications" class="nav-link" data-scroll-target="#récupérer-les-modifications">5. Récupérer les modifications</a></li>
-  <li><a href="#les-branches" id="toc-les-branches" class="nav-link" data-scroll-target="#les-branches">6. Les branches</a>
-  <ul class="collapse">
-  <li><a href="#créer-une-branche" id="toc-créer-une-branche" class="nav-link" data-scroll-target="#créer-une-branche">Créer une branche</a></li>
-  <li><a href="#changer-de-branche" id="toc-changer-de-branche" class="nav-link" data-scroll-target="#changer-de-branche">Changer de branche</a></li>
-  <li><a href="#fusionner-avec-main" id="toc-fusionner-avec-main" class="nav-link" data-scroll-target="#fusionner-avec-main">Fusionner avec main</a></li>
-  </ul></li>
-  <li><a href="#workflow-classique" id="toc-workflow-classique" class="nav-link" data-scroll-target="#workflow-classique">7. Workflow classique</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#structure-dun-document-latex" id="toc-structure-dun-document-latex" class="nav-link" data-scroll-target="#structure-dun-document-latex">Structure d’un document LaTeX</a></li>
   </ul>
 </nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction à LaTeX avec Overleaf</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Git est un outil de gestion de versions. Il permet de suivre l’évolution d’un projet dans le temps, de revenir en arrière si nécessaire et de travailler proprement sur des projets complexes.</p>
-<p>GitHub est une plateforme en ligne qui permet de stocker des dépôts Git, de les partager et de collaborer facilement.</p>
+<p>LaTeX est un système de composition de documents particulièrement populaire dans les communautés scientifiques et universitaires. Contrairement à un traitement de texte classique tel que Microsoft Word ou LibreOffice Writer, LaTeX repose sur une philosophie différente : l’utilisateur décrit la structure de son document à l’aide de commandes, puis un compilateur transforme ce code en un document PDF de grande qualité typographique.</p>
+<p>Cette approche peut sembler déroutante au premier abord, mais elle présente de nombreux avantages. La gestion des équations mathématiques est particulièrement élégante, la mise en page reste cohérente même dans les documents volumineux, et les références bibliographiques peuvent être automatisées. Pour ces raisons, LaTeX est devenu un standard dans des disciplines comme les mathématiques, la statistique, l’informatique, la physique ou encore l’ingénierie.</p>
+<p>L’objectif de ce tutoriel est de proposer une prise en main rapide permettant de créer et modifier ses premiers documents LaTeX.</p>
 <hr>
 </section>
-<section id="configuration-de-base" class="level1">
-<h1>1. Configuration de base</h1>
-<p>Avant de commencer, il faut se présenter à Git. Chaque modification sera associée à ton identité.</p>
-<div class="code-block">
-<p>git config –global user.name “TonNom”<br>
-git config –global user.email “tonemail@example.com”</p>
-</div>
-<p>Pour vérifier la configuration :</p>
-<div class="code-block">
-<p>git config –list</p>
-</div>
+<section id="découvrir-overleaf" class="level1">
+<h1>Découvrir Overleaf</h1>
+<section id="pourquoi-utiliser-overleaf" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-utiliser-overleaf">Pourquoi utiliser Overleaf ?</h2>
+<p>Overleaf est une plateforme en ligne permettant d’écrire du code LaTeX directement depuis un navigateur, sans installation.</p>
 <hr>
 </section>
-<section id="créer-ou-récupérer-un-projet" class="level1">
-<h1>2. Créer ou récupérer un projet</h1>
-<section id="initialiser-un-projet-local" class="level2">
-<h2 class="anchored" data-anchor-id="initialiser-un-projet-local">Initialiser un projet local</h2>
-<p>Quand tu démarres un projet :</p>
-<div class="code-block">
-<p>git init</p>
-</div>
-<p>Cela initialise un dépôt Git dans le dossier courant.</p>
-</section>
-<section id="cloner-un-projet-existant" class="level2">
-<h2 class="anchored" data-anchor-id="cloner-un-projet-existant">Cloner un projet existant</h2>
-<p>Pour récupérer un projet déjà présent sur GitHub :</p>
-<div class="code-block">
-<p>git clone https://github.com/user/nom-du-projet.git</p>
-</div>
+<section id="création-dun-compte" class="level2">
+<h2 class="anchored" data-anchor-id="création-dun-compte">Création d’un compte</h2>
+<p>Rendez-vous sur : https://www.overleaf.com</p>
+<p>Puis créez un projet via <strong>New Project → Blank Project</strong>.</p>
 <hr>
 </section>
-</section>
-<section id="le-cycle-de-base-git" class="level1">
-<h1>3. Le cycle de base Git</h1>
-<p>Git fonctionne toujours selon un cycle simple et répétitif.</p>
-<section id="vérifier-létat-du-projet" class="level2">
-<h2 class="anchored" data-anchor-id="vérifier-létat-du-projet">Vérifier l’état du projet</h2>
-<div class="code-block">
-<p>git status</p>
-</div>
-</section>
-<section id="ajouter-des-fichiers" class="level2">
-<h2 class="anchored" data-anchor-id="ajouter-des-fichiers">Ajouter des fichiers</h2>
-<p>Ajouter un fichier spécifique :</p>
-<div class="code-block">
-<p>git add fichier.py</p>
-</div>
-<p>Ajouter tous les fichiers modifiés :</p>
-<div class="code-block">
-<p>git add .</p>
-</div>
-</section>
-<section id="sauvegarder-les-modifications" class="level2">
-<h2 class="anchored" data-anchor-id="sauvegarder-les-modifications">Sauvegarder les modifications</h2>
-<p>On crée un commit pour enregistrer une version du projet :</p>
-<div class="code-block">
-<p>git commit -m “Ajout de la première version du projet”</p>
-</div>
-</section>
-<section id="voir-lhistorique" class="level2">
-<h2 class="anchored" data-anchor-id="voir-lhistorique">Voir l’historique</h2>
-<div class="code-block">
-<p>git log</p>
-</div>
-<hr>
-</section>
-</section>
-<section id="envoyer-sur-github" class="level1">
-<h1>4. Envoyer sur GitHub</h1>
-<section id="lier-le-projet-à-github" class="level2">
-<h2 class="anchored" data-anchor-id="lier-le-projet-à-github">Lier le projet à GitHub</h2>
-<div class="code-block">
-<p>git remote add origin https://github.com/user/nom-du-projet.git</p>
-</div>
-</section>
-<section id="envoyer-les-modifications" class="level2">
-<h2 class="anchored" data-anchor-id="envoyer-les-modifications">Envoyer les modifications</h2>
-<p>Premier push :</p>
-<div class="code-block">
-<p>git push -u origin main</p>
-</div>
-<p>Ensuite :</p>
-<div class="code-block">
-<p>git push</p>
-</div>
-<hr>
-</section>
-</section>
-<section id="récupérer-les-modifications" class="level1">
-<h1>5. Récupérer les modifications</h1>
-<p>Si le projet a changé à distance :</p>
-<div class="code-block">
-<p>git pull</p>
-</div>
-<hr>
-</section>
-<section id="les-branches" class="level1">
-<h1>6. Les branches</h1>
-<p>Les branches permettent de travailler sur une fonctionnalité sans toucher au code principal.</p>
-<section id="créer-une-branche" class="level2">
-<h2 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h2>
-<div class="code-block">
-<p>git branch nouvelle-fonction</p>
-</div>
-</section>
-<section id="changer-de-branche" class="level2">
-<h2 class="anchored" data-anchor-id="changer-de-branche">Changer de branche</h2>
-<div class="code-block">
-<p>git switch nouvelle-fonction</p>
-</div>
-</section>
-<section id="fusionner-avec-main" class="level2">
-<h2 class="anchored" data-anchor-id="fusionner-avec-main">Fusionner avec main</h2>
-<div class="code-block">
-<p>git switch main<br>
-git merge nouvelle-fonction</p>
-</div>
-<hr>
-</section>
-</section>
-<section id="workflow-classique" class="level1">
-<h1>7. Workflow classique</h1>
-<p>Toujours la même boucle :</p>
-<div class="code-block">
-<p>git status<br>
-git add .<br>
-git commit -m “message clair”<br>
-git push</p>
-</div>
-<hr>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>Git n’est pas seulement un outil de sauvegarde de code. C’est un véritable outil de structuration du travail, indispensable dès que les projets deviennent un minimum sérieux.</p>
-<p>Dans un contexte de Machine Learning ou de Data Science, Git devient encore plus important. Les projets impliquent souvent : des expérimentations multiples (modèles, features, hyperparamètres), des notebooks et scripts qui évoluent rapidement, des données et pipelines complexes, des résultats à reproduire et comparer.</p>
-<p>Sans Git, il devient très difficile de garder une trace claire de ce qui a été testé, validé ou rejeté.</p>
-<p>GitHub ajoute une dimension encore plus forte : la collaboration. Dans une équipe Data, il permet de :</p>
+<section id="interface" class="level2">
+<h2 class="anchored" data-anchor-id="interface">Interface</h2>
 <ul>
-<li><p>travailler à plusieurs sur un même projet sans conflit</p></li>
-<li><p>suivre précisément les contributions de chacun</p></li>
-<li><p>centraliser le code, les modèles et les expérimentations</p></li>
-<li><p>faciliter la revue de code et la reproductibilité</p></li>
+<li>gauche : éditeur LaTeX<br>
+</li>
+<li>droite : aperçu PDF<br>
+</li>
+<li>bouton <strong>Recompile</strong> : mise à jour du document</li>
 </ul>
-<p>En pratique, Git est donc un outil central dans tout projet de Machine Learning sérieux, que ce soit en recherche, en industrie ou en production.</p>
-<p>Maîtriser ces commandes de base, c’est déjà se donner une base solide pour travailler proprement sur des projets Data collaboratifs.</p>
+<hr>
+</section>
+</section>
+<section id="structure-dun-document-latex" class="level1">
+<h1>Structure d’un document LaTeX</h1>
+<p>Un document LaTeX minimal :</p>
+<div class="latex-example">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Bonjour tout le monde !</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 </section>
