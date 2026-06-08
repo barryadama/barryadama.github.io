@@ -39,6 +39,7 @@ format:
     mainfont: "Helvetica Neue"
     sansfont: "Helvetica Neue"
     monofont: "Menlo"
+    color-scheme: light dark
     css: styles.css
 
 
