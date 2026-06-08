@@ -25,9 +25,9 @@ website:
         href: "https://www.linkedin.com/in/adama-ibrahim-barry-253314133/"
       - icon: github
       - menu:
-         - text: "Git-Perso"
+         - text: "GitPerso"
            href: "https://github.com/barryadama"
-         - text: "PhD-Git"
+         - text: "GitPhD"
            href: "https://github.com/TheseAdama"
 
 format:
